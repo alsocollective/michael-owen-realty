@@ -1,0 +1,17 @@
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.pyc
+*.psd
+
+.DS_Store
+settings.py
+.sass-cache/*
+*.ai
+*.svg
+*.pdf
+*.eps
+*.zip
+*.rb
+*.db
