@@ -8,6 +8,7 @@
 .DS_Store
 settings.py
 .sass-cache/*
+node_modules/*
 *.ai
 *.svg
 *.pdf
