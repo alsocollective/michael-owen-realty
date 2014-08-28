@@ -123,6 +123,22 @@ p {
   width: 69.765%;
   margin-right: 2.325%; }
 
+.titlebox {
+  position: absolute;
+  top: 100px;
+  z-index: 2; }
+  .titlebox h1 {
+    font-size: 7em;
+    font-weight: lighter; }
+  .titlebox span {
+    display: block; }
+
+.titleboxmargins {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative; }
+
 nav {
   color: #7d5ab1;
   font-size: 12px;
@@ -158,51 +174,51 @@ nav {
   width: 100%;
   overflow: scroll; }
 
-#main {
+.main {
   max-width: 1080px;
   width: 90%;
   margin: 0 auto;
   top: 0;
   left: 0; }
-  #main > div:first-child {
+  .main > div:first-child {
     margin-top: 50px; }
-  #main > div {
+  .main > div {
     position: relative;
     margin-top: 120px; }
-  #main .sectiontitle {
+  .main .sectiontitle {
     position: absolute; }
-    #main .sectiontitle h2 {
+    .main .sectiontitle h2 {
       font-size: 14px;
       font-size: 0.9rem;
       line-height: 1.3em;
       text-transform: uppercase;
       font-weight: normal; }
-    #main .sectiontitle h2:before {
+    .main .sectiontitle h2:before {
       content: "\00a0";
       display: block;
       width: 20px;
       height: 5px;
       margin-bottom: 5px;
       border-bottom: solid 3px #7d6cb1; }
-  #main .centeredtext {
+  .main .centeredtext {
     position: relative; }
-    #main .centeredtext p {
+    .main .centeredtext p {
       vertical-align: top;
       display: inline-block;
       padding-bottom: 35px; }
 
+#smallsplash {
+  position: relative;
+  height: 600px; }
+  #smallsplash #mainimg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+
 #splash {
   position: relative;
   height: 900px; }
-  #splash #titlebox {
-    position: absolute;
-    top: 100px;
-    z-index: 2; }
-    #splash #titlebox h1 {
-      font-size: 7em;
-      font-weight: lighter; }
-    #splash #titlebox span {
-      display: block; }
   #splash #mainimg {
     position: absolute;
     left: -10%;
