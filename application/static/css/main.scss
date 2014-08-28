@@ -1,6 +1,7 @@
 $purple1: rgb(125, 108, 177);
 $purple2: rgb(125, 90, 177);
 $grey: rgb(78, 78, 86);
+$grey2: rgb(178, 178, 186);
 $greybackground: #d8dadb;
 $green: rgb(135, 233, 34);
 
@@ -380,13 +381,51 @@ nav {
 		h3{
 			color:$purple1;
 		}
-		div{
+		>div{
 			display: inline-block;
 		}
-		div:first-child{
+		>div:first-child{
 			padding-top: 18px;
 			width: 100%;
 		}
+
+		#priceslider{
+			margin: 20px 0px;
+			.noUi-background{
+				background: $grey2;
+			}
+			.noUi-connect{
+				background: $purple2;
+			}
+			.noUi-handle{
+				border-color:$grey2;
+			}			
+		}
+		#priceinputs{
+			width: 100%;
+			.priceinput{
+				width: 50%;	
+				display: inline-block;			
+				input{
+					margin: 0;
+					padding: 0;
+					margin-bottom: 20px;
+					border: none;
+					width: auto;
+					padding: 5px 10px;
+					background: $grey2;
+				}
+				&:last-child{
+					text-align: right;
+				}
+				&:last-child input{
+					text-align: right;
+				}
+			}	
+		}
+		
+		
+
 	}
 }
 

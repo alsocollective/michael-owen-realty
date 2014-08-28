@@ -19,9 +19,9 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					'application/static/js/main.min.js': [
-						'application/static/js/dragdivscroll-ck.js',
-						'application/static/js/jquery.js',
-						'application/static/js/jquery.lazyload.min.js',
+						// 'application/static/js/dragdivscroll-ck.js',
+						// 'application/static/js/jquery.js',
+						// 'application/static/js/jquery.lazyload.min.js',
 						'application/static/js/main.js',
 					]
 				}
@@ -29,11 +29,11 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			css: {
-				files: '**/*.scss',
+				files: ['**/*.scss', 'application/static/css/jquery.nouislider.css'],
 				tasks: ['sass', 'cssmin']
 			},
 			js: {
-				files: 'application/static/js/*.js',
+				files: 'application/static/js/main.js',
 				tasks: ['uglify']
 			}
 		}

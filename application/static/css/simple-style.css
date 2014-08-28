@@ -334,42 +334,43 @@ nav {
     #testimonials .reference > div {
       position: relative; }
 
-<<<<<<< HEAD
-=======
-.propertylist {
-  position: relative;
-  width: 100%; }
-  .propertylist p {
-    font-size: 13px;
-    font-size: 0.8em;
-    line-height: 1.5em; }
-  .propertylist li {
-    display: inline-block;
-    vertical-align: top;
-    background: #d8dadb; }
-    .propertylist li img {
-      width: 100%; }
-    .propertylist li > .propertycontent {
-      padding: 5% 0 5% 5%;
-      width: 90%; }
-      .propertylist li > .propertycontent p {
-        padding-top: 2em; }
-  .propertylist li:last-child {
-    margin-right: 0; }
-
 #searchfield .sectiontitle {
   position: absolute; }
 #searchfield .column4.offcolumn1 {
   position: relative; }
   #searchfield .column4.offcolumn1 h3 {
     color: #7d6cb1; }
-  #searchfield .column4.offcolumn1 div {
+  #searchfield .column4.offcolumn1 > div {
     display: inline-block; }
-  #searchfield .column4.offcolumn1 div:first-child {
+  #searchfield .column4.offcolumn1 > div:first-child {
     padding-top: 18px;
     width: 100%; }
+  #searchfield .column4.offcolumn1 #priceslider {
+    margin: 20px 0px; }
+    #searchfield .column4.offcolumn1 #priceslider .noUi-background {
+      background: #b2b2ba; }
+    #searchfield .column4.offcolumn1 #priceslider .noUi-connect {
+      background: #7d5ab1; }
+    #searchfield .column4.offcolumn1 #priceslider .noUi-handle {
+      border-color: #b2b2ba; }
+  #searchfield .column4.offcolumn1 #priceinputs {
+    width: 100%; }
+    #searchfield .column4.offcolumn1 #priceinputs .priceinput {
+      width: 50%;
+      display: inline-block; }
+      #searchfield .column4.offcolumn1 #priceinputs .priceinput input {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 20px;
+        border: none;
+        width: auto;
+        padding: 5px 10px;
+        background: #b2b2ba; }
+      #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child {
+        text-align: right; }
+      #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child input {
+        text-align: right; }
 
->>>>>>> b39fe9a8a9e8bdb04f90f36d712b623e35e96006
 #footer {
   margin-top: 120px;
   position: relative;
