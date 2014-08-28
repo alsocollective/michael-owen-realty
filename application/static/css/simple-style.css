@@ -1,6 +1,7 @@
 html, body {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  -webkit-font-smoothing: antialiased; }
 
 body {
   position: relative; }
@@ -186,10 +187,14 @@ p {
   .casestudy h3 {
     padding-top: 48px;
     color: #fff; }
+  .casestudy h4 {
+    padding-top: 36px;
+    font-size: 1.2rem; }
   .casestudy ul {
     color: #fff;
     padding-top: 24px; }
   .casestudy div.sectiontitle {
+    display: inline-block;
     position: static; }
     .casestudy div.sectiontitle h2 {
       color: #fff; }
@@ -334,6 +339,22 @@ nav {
     #testimonials .reference > div {
       position: relative; }
 
+<<<<<<< HEAD
+=======
+#buyingimage {
+  margin-top: 120px;
+  position: relative;
+  background: #87e922;
+  width: 100%;
+  height: 360px;
+  background-image: url(http://placehold.it/1440x360);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+>>>>>>> 61017b47e546edc7835c4bd4358e969a1b849272
 #searchfield .sectiontitle {
   position: absolute; }
 #searchfield .column4.offcolumn1 {
@@ -395,3 +416,5 @@ nav {
     vertical-align: top; }
     #footer .contact > div {
       position: relative; }
+
+/*# sourceMappingURL=simple-style.css.map */
