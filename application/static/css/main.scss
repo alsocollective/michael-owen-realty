@@ -177,6 +177,26 @@ p {
     }
 }
 
+.titlebox {
+    position: absolute;
+    h1 {
+        font-size: 7em;
+        font-weight: lighter;
+    }
+    top: 100px;
+    z-index: 2;
+    span {
+        display: block;
+    }
+}
+
+.titleboxmargins {
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
 nav {
     color: $purple2;
     font-size: $smallPixel;
@@ -218,7 +238,7 @@ nav {
     overflow: scroll;
 }
 
-#main {
+.main {
     max-width: 1080px;
     width: 90%;
     margin: 0 auto;
@@ -262,21 +282,21 @@ nav {
     }
 }
 
+#smallsplash {
+    position: relative;
+    height: 600px;
+    #mainimg {
+        position: absolute;
+        //left: -10%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 #splash {
     position: relative;
     height: 900px;
-    #titlebox {
-        position: absolute;
-        h1 {
-            font-size: 7em;
-            font-weight: lighter;
-        }
-        top: 100px;
-        z-index: 2;
-        span {
-            display: block;
-        }
-    }
     #mainimg {
         position: absolute;
         left: -10%;
