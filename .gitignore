@@ -16,3 +16,4 @@ node_modules/*
 *.zip
 *.rb
 *.db
+envi/*

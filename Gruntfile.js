@@ -4,25 +4,25 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'public_html/static/css/simple-style.css': 'public_html/static/css/main.scss'
+					'application/static/css/simple-style.css': 'application/static/css/main.scss'
 				}
 			}
 		},
 		cssmin: {
 			combine: {
 				files: {
-					'public_html/static/css/style.css': ['public_html/static/css/normalize.min.css', 'public_html/static/css/simple-style.css']
+					'application/static/css/style.css': ['application/static/css/normalize.min.css', 'application/static/css/simple-style.css']
 				}
 			}
 		},
 		uglify: {
 			js: {
 				files: {
-					'public_html/static/js/main.min.js': [
-						'public_html/static/js/dragdivscroll-ck.js',
-						'public_html/static/js/jquery.js',
-						'public_html/static/js/jquery.lazyload.min.js',
-						'public_html/static/js/main.js',
+					'application/static/js/main.min.js': [
+						'application/static/js/dragdivscroll-ck.js',
+						'application/static/js/jquery.js',
+						'application/static/js/jquery.lazyload.min.js',
+						'application/static/js/main.js',
 					]
 				}
 			}
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 				tasks: ['sass', 'cssmin']
 			},
 			js: {
-				files: 'public_html/static/js/*.js',
+				files: 'application/static/js/*.js',
 				tasks: ['uglify']
 			}
 		}
