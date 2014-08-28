@@ -28,63 +28,71 @@ p {
   text-align: center; }
 
 .leftmargin {
-  margin-left: 1.123%; }
+  margin-left: 1.282%; }
+
+.norightmargin {
+  margin-right: 0% !important; }
 
 .column1 {
-  width: 11.235%;
-  margin-right: 1.123%; }
+  width: 12.820%;
+  margin-right: 1.282%;
+  background: #ccc;
+  min-height: 20px; }
 
 .column2 {
-  width: 23.595%;
-  margin-right: 1.123%; }
+  width: 26.923%;
+  margin-right: 1.282%; }
 
 .column3 {
-  width: 35.955%;
-  margin-right: 1.123%; }
+  width: 41.025%;
+  margin-right: 1.282%; }
 
 .column4 {
-  width: 48.314%;
-  margin-right: 1.123%; }
+  width: 55.128%;
+  margin-right: 1.282%; }
 
 .column5 {
-  width: 60.674%;
-  margin-right: 1.123%; }
+  width: 69.230%;
+  margin-right: 1.282%; }
 
 .column6 {
-  width: 73.033%;
-  margin-right: 1.123%; }
+  width: 83.333%;
+  margin-right: 1.282%; }
 
 .column7 {
-  width: 85.393%;
-  margin-right: 1.123%; }
-
-.column8 {
-  width: 97.752%;
-  margin-right: 1.123%; }
+  width: 97.435%;
+  margin-right: 1.282%; }
 
 .offcolumn0 {
-  left: 1.123%; }
+  left: 1.282%; }
 
 .offcolumn1 {
-  left: 13.483%; }
+  left: 15.384%; }
 
 .offcolumn2 {
-  left: 25.842%; }
+  left: 29.487%; }
 
 .offcolumn3 {
-  left: 38.202%; }
+  left: 43.589%; }
 
 .offcolumn4 {
-  left: 50.561%; }
+  left: 57.692%; }
 
 .offcolumn5 {
-  left: 62.921%; }
+  left: 71.794%; }
 
 .offcolumn6 {
-  left: 75.280%; }
+  left: 85.897%; }
 
-.offcolumn7 {
-  left: 87.640%; }
+.column4 .column1 {
+  width: 23.255%;
+  margin-right: 2.325%; }
+.column4 .column2 {
+  width: 46.51%;
+  margin-right: 2.325%; }
+.column4 .column3 {
+  width: 69.765%;
+  margin-right: 2.325%; }
 
 nav {
   color: #7d5ab1;
@@ -149,21 +157,13 @@ nav {
       margin-bottom: 5px;
       border-bottom: solid 2px #7d6cb1; }
   #main .centeredtext {
-    position: relative;
-    padding-top: 10px; }
+    position: relative; }
     #main .centeredtext h3 {
-      font-size: 14px;
-      font-size: 0.9rem;
-      font-weight: normal;
-      text-transform: uppercase;
-      color: #4e4e56;
-      width: 20%; }
-    #main .centeredtext p {
-      width: 80%; }
-    #main .centeredtext h3, #main .centeredtext p {
-      display: inline-block;
       vertical-align: top;
-      padding-bottom: 20px; }
+      display: inline-block; }
+    #main .centeredtext p {
+      vertical-align: top;
+      display: inline-block; }
 
 #splash {
   position: relative;
@@ -171,8 +171,6 @@ nav {
   #splash #titlebox {
     position: absolute;
     top: 100px;
-    left: 0%;
-    width: 0%;
     z-index: 2; }
     #splash #titlebox h1 {
       font-size: 7em;
@@ -213,7 +211,6 @@ nav {
   position: relative; }
 #about img {
   position: relative;
-  left: 0%;
   padding: 30px 0 50px 0; }
 #about .describe-michael {
   position: absolute;
@@ -238,8 +235,7 @@ nav {
 
 .propertylist {
   position: relative;
-  width: 97.532%;
-  left: 0%; }
+  width: 97.532%; }
   .propertylist li {
     width: 32%;
     margin-right: 2%;
