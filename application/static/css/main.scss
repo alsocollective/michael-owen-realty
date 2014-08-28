@@ -20,6 +20,7 @@ $border: solid 3px $purple1;
 html, body {
 	width: 100%;
 	height: 100%;
+	-webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -177,13 +178,18 @@ p {
 		padding-top:48px;
 		color:#fff;
 	}
+	h4{
+		padding-top:36px;
+		font-size: 1.2rem;
+	}
 	ul{
 		color:#fff;
 		padding-top:24px;
 	}
 
-	div.sectiontitle{
 
+	div.sectiontitle{
+display:inline-block;
 		position:static;
 		h2{color:#fff;}
 		h2:before {
@@ -369,6 +375,20 @@ nav {
 			position: relative;
 		}
 	}
+}
+
+#buyingimage {
+	margin-top: 120px;
+	position: relative;
+	background: $green;
+	width: 100%;
+	height: 360px;
+	background-image: url(http://placehold.it/1440x360);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 #searchfield{
