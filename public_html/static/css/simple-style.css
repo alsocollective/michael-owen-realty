@@ -247,6 +247,7 @@ nav {
   padding-bottom: 30px; }
 
 #testimonials {
+  margin-top: 120px;
   position: relative;
   background: #87e922;
   width: 100%;
@@ -286,5 +287,30 @@ nav {
         padding-top: 2em; }
   .propertylist li:last-child {
     margin-right: 0; }
+
+#footer {
+  margin-top: 120px;
+  position: relative;
+  background: #7d6cb1;
+  width: 100%;
+  background-image: url(http://placehold.it/250x360);
+  background-repeat: no-repeat;
+  background-position: left bottom; }
+  #footer > div:first-child {
+    background-image: url(http://placehold.it/250x360);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: absolute;
+    height: 100%;
+    width: 100%; }
+  #footer .contact {
+    padding-top: 62px;
+    padding-bottom: 82px;
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
+    vertical-align: top; }
+    #footer .contact > div {
+      position: relative; }
 
 /*# sourceMappingURL=simple-style.css.map */
