@@ -80,12 +80,12 @@
 <div id="testimonials">
 	<div></div>
 	<div class="reference">
-		<!-- <div></div> -->
+			{# <div></div> #}
 			<div class="offcolumn1 column5">
 				<h4>“Throughout his involvement with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.</h4>
 				<h5>ROBERT & LAI-WON</h5>
 			</div>
-		<!-- <div></div> -->
+			{# <div></div> #}
 	</div>
 </div>
 <div class="main">
@@ -111,5 +111,13 @@
 			</div>
 	</div>
 </div>
+
 {% endblock %}
 {% block aboutnav %}currentpage{% endblock %}
+{% block script %} 
+<script type="text/javascript">
+	// $( document ).ready(function(){
+	// 	$(".reference").slick();
+	// });
+</script>
+{% endblock %}

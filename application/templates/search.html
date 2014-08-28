@@ -71,5 +71,16 @@
 
 
 </div>
+
 {% endblock %}
+
 {% block searchnav %}currentpage{% endblock %}
+
+{% block script %} 
+<script type="text/javascript">
+	$( document ).ready(function(){
+		app.search.init()
+		app.search.callbohdan();
+	});
+</script>
+{% endblock %}

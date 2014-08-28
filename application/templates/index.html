@@ -36,7 +36,10 @@
 
 	<script type="text/javascript" src="{% static "js/lib/jquery.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/lib/jquery.nouislider.full.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/lib/slick.min.js" %}"></script>
+	<script type="text/javascript"> console.log("using this new one")</script>
 	<script type="text/javascript" src="{% static "js/main.js" %}"></script>
-
+	{% block script %} 
+	{% endblock %}
 </body>
 </html>

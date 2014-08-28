@@ -339,8 +339,6 @@ nav {
     #testimonials .reference > div {
       position: relative; }
 
-<<<<<<< HEAD
-=======
 #buyingimage {
   margin-top: 120px;
   position: relative;
@@ -354,7 +352,6 @@ nav {
   -o-background-size: cover;
   background-size: cover; }
 
->>>>>>> 61017b47e546edc7835c4bd4358e969a1b849272
 #searchfield .sectiontitle {
   position: absolute; }
 #searchfield .column4.offcolumn1 {
@@ -416,5 +413,3 @@ nav {
     vertical-align: top; }
     #footer .contact > div {
       position: relative; }
-
-/*# sourceMappingURL=simple-style.css.map */
