@@ -139,6 +139,63 @@ p {
   margin: 0 auto;
   position: relative; }
 
+.sectiontitle {
+  position: absolute; }
+  .sectiontitle h2 {
+    font-size: 14px;
+    font-size: 0.9rem;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    font-weight: normal; }
+  .sectiontitle h2:before {
+    content: "\00a0";
+    display: block;
+    width: 20px;
+    height: 5px;
+    margin-bottom: 5px;
+    border-bottom: solid 3px #7d6cb1; }
+
+.propertylist {
+  position: relative;
+  width: 100%; }
+  .propertylist p {
+    font-size: 13px;
+    font-size: 0.8em;
+    line-height: 1.5em; }
+  .propertylist li {
+    display: inline-block;
+    vertical-align: top;
+    background: #d8dadb; }
+    .propertylist li img {
+      width: 100%; }
+    .propertylist li > .propertycontent {
+      padding: 5% 0 5% 5%;
+      width: 90%; }
+      .propertylist li > .propertycontent p {
+        padding-top: 2em; }
+  .propertylist li:last-child {
+    margin-right: 0; }
+
+.casestudy {
+  background: #7d6cb1;
+  padding-top: 60px;
+  padding-bottom: 100px; }
+  .casestudy p {
+    color: #fff;
+    padding-top: 24px; }
+  .casestudy h3 {
+    padding-top: 48px;
+    color: #fff; }
+  .casestudy ul {
+    color: #fff;
+    padding-top: 24px; }
+  .casestudy div.sectiontitle {
+    position: static; }
+    .casestudy div.sectiontitle h2 {
+      color: #fff; }
+    .casestudy div.sectiontitle h2:before {
+      border-bottom-color: #fff; }
+
 nav {
   color: #7d5ab1;
   font-size: 12px;
@@ -185,21 +242,6 @@ nav {
   .main > div {
     position: relative;
     margin-top: 120px; }
-  .main .sectiontitle {
-    position: absolute; }
-    .main .sectiontitle h2 {
-      font-size: 14px;
-      font-size: 0.9rem;
-      line-height: 1.3em;
-      text-transform: uppercase;
-      font-weight: normal; }
-    .main .sectiontitle h2:before {
-      content: "\00a0";
-      display: block;
-      width: 20px;
-      height: 5px;
-      margin-bottom: 5px;
-      border-bottom: solid 3px #7d6cb1; }
   .main .centeredtext {
     position: relative; }
     .main .centeredtext p {
@@ -214,7 +256,8 @@ nav {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    background: #cfc; }
 
 #splash {
   position: relative;
@@ -290,27 +333,6 @@ nav {
     vertical-align: top; }
     #testimonials .reference > div {
       position: relative; }
-
-.propertylist {
-  position: relative;
-  width: 100%; }
-  .propertylist p {
-    font-size: 13px;
-    font-size: 0.8em;
-    line-height: 1.5em; }
-  .propertylist li {
-    display: inline-block;
-    vertical-align: top;
-    background: #d8dadb; }
-    .propertylist li img {
-      width: 100%; }
-    .propertylist li > .propertycontent {
-      padding: 5% 0 5% 5%;
-      width: 90%; }
-      .propertylist li > .propertycontent p {
-        padding-top: 2em; }
-  .propertylist li:last-child {
-    margin-right: 0; }
 
 #footer {
   margin-top: 120px;

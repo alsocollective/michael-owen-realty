@@ -119,6 +119,80 @@ p {
 	position: relative;
 }
 
+.sectiontitle {
+	position: absolute;
+	h2 {
+		font-size: $h2P;
+		font-size: $h2Em;
+		line-height: 1.3em;
+		text-transform: uppercase;
+		font-weight: normal;
+	}
+	h2:before {
+		content: "\00a0";
+		display: block;
+		width: 20px;
+		height: 5px;
+		margin-bottom: 5px;
+		border-bottom: $border;
+	}
+}
+
+.propertylist {
+	position: relative;
+	width: 100%;
+	p {
+		font-size: 13px;
+		font-size: 0.8em;
+		line-height: 1.5em;
+	}
+	li {
+		display: inline-block;
+		vertical-align: top;
+		background: $greybackground;
+		img {
+			width: 100%;
+		}
+		> .propertycontent {
+			padding: 5% 0 5% 5%;
+			width: 90%;
+			p {
+				padding-top: 2em;
+			}
+		}
+	}
+	li:last-child {
+		margin-right: 0;
+	}
+}
+
+.casestudy{
+	background:$purple1;
+	padding-top:60px;	padding-bottom:100px;
+	p{
+		color:#fff;
+		padding-top:24px;
+	}
+	h3{
+		padding-top:48px;
+		color:#fff;
+	}
+	ul{
+		color:#fff;
+		padding-top:24px;
+	}
+
+	div.sectiontitle{
+
+		position:static;
+		h2{color:#fff;}
+		h2:before {
+			border-bottom-color:#fff;
+		}
+	}
+
+}
+
 nav {
 	color: $purple2;
 	font-size: $smallPixel;
@@ -174,24 +248,7 @@ nav {
 		position: relative;
 		margin-top: 120px;
 	}
-	.sectiontitle {
-		position: absolute;
-		h2 {
-			font-size: $h2P;
-			font-size: $h2Em;
-			line-height: 1.3em;
-			text-transform: uppercase;
-			font-weight: normal;
-		}
-		h2:before {
-			content: "\00a0";
-			display: block;
-			width: 20px;
-			height: 5px;
-			margin-bottom: 5px;
-			border-bottom: $border;
-		}
-	}
+
 	.centeredtext {
 		position: relative;
 		p {
@@ -206,12 +263,15 @@ nav {
 #smallsplash {
 	position: relative;
 	height: 600px;
+
 	#mainimg {
 		position: absolute;
 		//left: -10%;
 		top: 0;
 		width: 100%;
 		height: 100%;
+					background: #cfc;
+
 	}
 }
 
@@ -308,34 +368,6 @@ nav {
 		> div {
 			position: relative;
 		}
-	}
-}
-
-.propertylist {
-	position: relative;
-	width: 100%;
-	p {
-		font-size: 13px;
-		font-size: 0.8em;
-		line-height: 1.5em;
-	}
-	li {
-		display: inline-block;
-		vertical-align: top;
-		background: $greybackground;
-		img {
-			width: 100%;
-		}
-		> .propertycontent {
-			padding: 5% 0 5% 5%;
-			width: 90%;
-			p {
-				padding-top: 2em;
-			}
-		}
-	}
-	li:last-child {
-		margin-right: 0;
 	}
 }
 
