@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Michael Owen Realty</title>
+<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+
+</head>
+<body>
+	<nav>
+		<ul>
+			<li class="column1 leftmargin currentpage"><a href="#">Michael Owen</a>
+			</li><li class="column1"><a href="#">Property Search</a>
+			</li><li class="column1"><a href="#">Selling Property</a>
+			</li><li class="column1"><a href="#">Buying Property</a>
+			</li><li class="column1">
+			</li><li class="column1"><a href="#">Phone: 416-996-6936</a>
+			</li><li class="column1"><a href="#">Email: michael@myrealestatepro.ca</a></li>
+		</ul>
+	</nav>
+	<div id="mainwrapper">	
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+</html>

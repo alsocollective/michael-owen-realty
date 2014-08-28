@@ -1,0 +1,314 @@
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  position: relative; }
+
+h1, h2, h3 {
+  color: #7d6cb1;
+  padding: 0;
+  margin: 0; }
+
+h4 {
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-size: 1.5rem;
+  font-family: serif; }
+
+h5 {
+  color: white;
+  font-size: 14px;
+  font-size: 0.9rem; }
+
+ul, li, p {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+p {
+  color: #4e4e56; }
+
+.leftalign {
+  text-align: left; }
+
+.rightalign {
+  text-align: right; }
+
+.center {
+  text-align: center; }
+
+.leftmargin {
+  margin-left: 1.282%; }
+
+.norightmargin {
+  margin-right: 0% !important; }
+
+.column1 {
+  width: 12.820%;
+  margin-right: 1.282%;
+  background: #ccc;
+  min-height: 20px; }
+
+.column2 {
+  width: 26.923%;
+  margin-right: 1.282%; }
+
+.column3 {
+  width: 41.025%;
+  margin-right: 1.282%; }
+
+.column4 {
+  width: 55.128%;
+  margin-right: 1.282%; }
+
+.column5 {
+  width: 69.230%;
+  margin-right: 1.282%; }
+
+.column6 {
+  width: 83.333%;
+  margin-right: 1.282%; }
+
+.column7 {
+  width: 97.435%;
+  margin-right: 1.282%; }
+
+.offcolumn0 {
+  left: 1.282%; }
+
+.offcolumn1 {
+  left: 15.384%; }
+
+.offcolumn2 {
+  left: 29.487%; }
+
+.offcolumn3 {
+  left: 43.589%; }
+
+.offcolumn4 {
+  left: 57.692%; }
+
+.offcolumn5 {
+  left: 71.794%; }
+
+.offcolumn6 {
+  left: 85.897%; }
+
+.column2 .column1 {
+  width: 47.619%;
+  margin-right: 4.761%; }
+
+.column4 .column1 {
+  width: 23.255%;
+  margin-right: 2.325%; }
+.column4 .column2 {
+  width: 46.51%;
+  margin-right: 2.325%; }
+.column4 .column3 {
+  width: 69.765%;
+  margin-right: 2.325%; }
+
+nav {
+  color: #7d5ab1;
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding-top: 1.5em;
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+  z-index: 9;
+  position: relative; }
+  nav .currentpage a {
+    border-bottom: solid 2px #7d6cb1; }
+  nav li {
+    white-space: nowrap;
+    display: inline-block; }
+    nav li a {
+      display: inline-block;
+      padding: 1.5em 0 0.5em 0;
+      text-decoration: none;
+      color: inherit; }
+  nav ul {
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+#mainwrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll; }
+
+#main {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+  top: 0;
+  left: 0; }
+  #main > div:first-child {
+    margin-top: 50px; }
+  #main > div {
+    position: relative;
+    margin-top: 120px; }
+  #main .sectiontitle {
+    position: absolute; }
+    #main .sectiontitle h2 {
+      font-size: 14px;
+      font-size: 0.9rem;
+      line-height: 1.3em;
+      text-transform: uppercase;
+      font-weight: normal; }
+    #main .sectiontitle h2:before {
+      content: "\00a0";
+      display: block;
+      width: 20px;
+      height: 5px;
+      margin-bottom: 5px;
+      border-bottom: solid 2px #7d6cb1; }
+  #main .centeredtext {
+    position: relative; }
+    #main .centeredtext h3 {
+      font-size: 14px;
+      font-size: 0.9rem;
+      line-height: 1.3em;
+      text-transform: uppercase;
+      font-weight: normal;
+      vertical-align: top;
+      display: inline-block;
+      color: #4e4e56; }
+    #main .centeredtext p {
+      vertical-align: top;
+      display: inline-block; }
+
+#splash {
+  position: relative;
+  height: 900px; }
+  #splash #titlebox {
+    position: absolute;
+    top: 100px;
+    z-index: 2; }
+    #splash #titlebox h1 {
+      font-size: 7em;
+      font-weight: lighter; }
+    #splash #titlebox span {
+      display: block; }
+  #splash #mainimg {
+    position: absolute;
+    left: -10%;
+    top: 0;
+    width: 120%;
+    height: 100%; }
+    #splash #mainimg > div {
+      width: 47.25%;
+      background: #cfc;
+      height: 100%;
+      display: inline-block; }
+    #splash #mainimg > div:first-child {
+      margin-right: 5%; }
+  #splash #special {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    color: #7d5ab1; }
+    #splash #special ul {
+      padding: 0;
+      padding-top: 1em;
+      display: inline-block; }
+    #splash #special li {
+      font-size: 12px;
+      font-size: 0.75rem;
+      line-height: 17px;
+      line-height: 1.1rem;
+      list-style: none; }
+
+#about > .sectiontitle {
+  position: relative; }
+#about img {
+  position: relative;
+  padding: 30px 0 50px 0; }
+#about .describe-michael {
+  position: absolute;
+  bottom: 0;
+  color: #4e4e56;
+  line-height: 1.3em;
+  font-family: serif;
+  font-size: 21px;
+  font-size: 1.3rem; }
+
+#fprop .sectiontitle {
+  position: relative;
+  padding-bottom: 30px; }
+
+#testimonials {
+  margin-top: 120px;
+  position: relative;
+  background: #87e922;
+  width: 100%;
+  background-image: url(http://placehold.it/250x360);
+  background-repeat: no-repeat;
+  background-position: left bottom; }
+  #testimonials > div:first-child {
+    background-image: url(http://placehold.it/250x360);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: absolute;
+    height: 100%;
+    width: 100%; }
+  #testimonials .reference {
+    padding-top: 62px;
+    padding-bottom: 82px;
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
+    vertical-align: top; }
+    #testimonials .reference > div {
+      position: relative; }
+
+.propertylist {
+  position: relative;
+  width: 100%; }
+  .propertylist li {
+    display: inline-block;
+    vertical-align: top;
+    background: #d8dadb; }
+    .propertylist li img {
+      width: 100%; }
+    .propertylist li > .propertycontent {
+      padding: 5% 0 5% 5%;
+      width: 90%; }
+      .propertylist li > .propertycontent p {
+        padding-top: 2em; }
+  .propertylist li:last-child {
+    margin-right: 0; }
+
+#footer {
+  margin-top: 120px;
+  position: relative;
+  background: #7d6cb1;
+  width: 100%;
+  background-image: url(http://placehold.it/250x360);
+  background-repeat: no-repeat;
+  background-position: left bottom; }
+  #footer > div:first-child {
+    background-image: url(http://placehold.it/250x360);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: absolute;
+    height: 100%;
+    width: 100%; }
+  #footer .contact {
+    padding-top: 62px;
+    padding-bottom: 82px;
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
+    vertical-align: top; }
+    #footer .contact > div {
+      position: relative; }
