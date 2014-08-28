@@ -371,6 +371,25 @@ nav {
 	}
 }
 
+#searchfield{
+	.sectiontitle{
+		position: absolute;
+	}
+	.column4.offcolumn1{
+		position: relative;
+		h3{
+			color:$purple1;
+		}
+		div{
+			display: inline-block;
+		}
+		div:first-child{
+			padding-top: 18px;
+			width: 100%;
+		}
+	}
+}
+
 #footer {
 	margin-top: 120px;
 	position: relative;
