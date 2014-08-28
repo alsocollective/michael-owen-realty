@@ -10,10 +10,12 @@ $h2P: 14px;
 $h2Em: 0.9rem;
 $h4P: 20px;
 $h4Em: 1.5rem;
+$pP: 15px;
+$pEm: 1rem;
 
 $serif: serif;
 
-$border: solid 2px $purple1;
+$border: solid 3px $purple1;
 
 html, body {
     width: 100%;
@@ -28,6 +30,17 @@ h1, h2, h3 {
     color: $purple1;
     padding: 0;
     margin: 0;
+}
+
+h3 {
+    font-size: $h2P;
+    font-size: $h2Em;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    font-weight: normal;
+    vertical-align: top;
+    display: inline-block;
+    color: $grey;
 }
 
 h4 {
@@ -53,6 +66,8 @@ ul, li, p {
 
 p {
     color: $grey;
+    font-size: $pP;
+    font-size: $pEm;
 }
 
 .leftalign {
@@ -237,19 +252,10 @@ nav {
     }
     .centeredtext {
         position: relative;
-        h3 {
-            font-size: $h2P;
-            font-size: $h2Em;
-            line-height: 1.3em;
-            text-transform: uppercase;
-            font-weight: normal;
-            vertical-align: top;
-            display: inline-block;
-            color: $grey;
-        }
         p {
             vertical-align: top;
             display: inline-block;
+            padding-bottom: 35px;
             //add padding here
        
         }
@@ -367,6 +373,11 @@ nav {
 .propertylist {
     position: relative;
     width: 100%;
+    p {
+        font-size: 13px;
+        font-size: 0.8em;
+        line-height: 1.5em;
+    }
     li {
         display: inline-block;
         vertical-align: top;

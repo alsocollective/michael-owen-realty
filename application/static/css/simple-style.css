@@ -10,6 +10,16 @@ h1, h2, h3 {
   padding: 0;
   margin: 0; }
 
+h3 {
+  font-size: 14px;
+  font-size: 0.9rem;
+  line-height: 1.3em;
+  text-transform: uppercase;
+  font-weight: normal;
+  vertical-align: top;
+  display: inline-block;
+  color: #4e4e56; }
+
 h4 {
   color: white;
   padding: 0;
@@ -29,7 +39,9 @@ ul, li, p {
   list-style: none; }
 
 p {
-  color: #4e4e56; }
+  color: #4e4e56;
+  font-size: 15px;
+  font-size: 1rem; }
 
 .leftalign {
   text-align: left; }
@@ -122,7 +134,7 @@ nav {
   z-index: 9;
   position: relative; }
   nav .currentpage a {
-    border-bottom: solid 2px #7d6cb1; }
+    border-bottom: solid 3px #7d6cb1; }
   nav li {
     white-space: nowrap;
     display: inline-block; }
@@ -171,21 +183,13 @@ nav {
       width: 20px;
       height: 5px;
       margin-bottom: 5px;
-      border-bottom: solid 2px #7d6cb1; }
+      border-bottom: solid 3px #7d6cb1; }
   #main .centeredtext {
     position: relative; }
-    #main .centeredtext h3 {
-      font-size: 14px;
-      font-size: 0.9rem;
-      line-height: 1.3em;
-      text-transform: uppercase;
-      font-weight: normal;
-      vertical-align: top;
-      display: inline-block;
-      color: #4e4e56; }
     #main .centeredtext p {
       vertical-align: top;
-      display: inline-block; }
+      display: inline-block;
+      padding-bottom: 35px; }
 
 #splash {
   position: relative;
@@ -274,6 +278,10 @@ nav {
 .propertylist {
   position: relative;
   width: 100%; }
+  .propertylist p {
+    font-size: 13px;
+    font-size: 0.8em;
+    line-height: 1.5em; }
   .propertylist li {
     display: inline-block;
     vertical-align: top;
@@ -312,3 +320,5 @@ nav {
     vertical-align: top; }
     #footer .contact > div {
       position: relative; }
+
+/*# sourceMappingURL=simple-style.css.map */
