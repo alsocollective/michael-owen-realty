@@ -27,13 +27,64 @@ p {
 .center {
   text-align: center; }
 
-.grid > li {
-  width: 11.111%;
-  margin-right: 1.234%;
-  white-space: nowrap; }
+.leftmargin {
+  margin-left: 1.123%; }
 
-.grid > li:first-child {
-  margin-left: 1.234%; }
+.column1 {
+  width: 11.235%;
+  margin-right: 1.123%; }
+
+.column2 {
+  width: 23.595%;
+  margin-right: 1.123%; }
+
+.column3 {
+  width: 35.955%;
+  margin-right: 1.123%; }
+
+.column4 {
+  width: 48.314%;
+  margin-right: 1.123%; }
+
+.column5 {
+  width: 60.674%;
+  margin-right: 1.123%; }
+
+.column6 {
+  width: 73.033%;
+  margin-right: 1.123%; }
+
+.column7 {
+  width: 85.393%;
+  margin-right: 1.123%; }
+
+.column8 {
+  width: 97.752%;
+  margin-right: 1.123%; }
+
+.offcolumn0 {
+  left: 1.123%; }
+
+.offcolumn1 {
+  left: 13.483%; }
+
+.offcolumn2 {
+  left: 25.842%; }
+
+.offcolumn3 {
+  left: 38.202%; }
+
+.offcolumn4 {
+  left: 50.561%; }
+
+.offcolumn5 {
+  left: 62.921%; }
+
+.offcolumn6 {
+  left: 75.280%; }
+
+.offcolumn7 {
+  left: 87.640%; }
 
 nav {
   color: #7d5ab1;
@@ -48,6 +99,7 @@ nav {
   nav .currentpage a {
     border-bottom: solid 2px #7d6cb1; }
   nav li {
+    white-space: nowrap;
     display: inline-block; }
     nav li a {
       display: inline-block;
@@ -80,12 +132,9 @@ nav {
     margin-top: 50px; }
   #main > div {
     position: relative;
-    margin-top: 60px;
-    min-height: 300px; }
+    margin-top: 120px; }
   #main .sectiontitle {
-    position: absolute;
-    left: 1.234%;
-    width: 11.111%; }
+    position: absolute; }
     #main .sectiontitle h2 {
       font-size: 14px;
       font-size: 0.9rem;
@@ -101,9 +150,7 @@ nav {
       border-bottom: solid 2px #7d6cb1; }
   #main .centeredtext {
     position: relative;
-    left: 13.579%;
-    padding-top: 10px;
-    width: 61.725%; }
+    padding-top: 10px; }
     #main .centeredtext h3 {
       font-size: 14px;
       font-size: 0.9rem;
@@ -124,8 +171,8 @@ nav {
   #splash #titlebox {
     position: absolute;
     top: 100px;
-    left: 25.924%;
-    width: 49.38%;
+    left: 0%;
+    width: 0%;
     z-index: 2; }
     #splash #titlebox h1 {
       font-size: 7em;
@@ -149,8 +196,6 @@ nav {
     position: absolute;
     z-index: 2;
     top: 0;
-    right: 0;
-    width: 24.69%;
     color: #7d5ab1; }
     #splash #special ul {
       padding: 0;
@@ -167,14 +212,46 @@ nav {
 #about > .sectiontitle {
   position: relative; }
 #about img {
+  position: relative;
+  left: 0%;
   padding: 30px 0 50px 0; }
 #about .describe-michael {
   position: absolute;
   bottom: 0;
-  width: 61.725%;
-  left: 25.924%;
   color: #4e4e56;
   line-height: 1.3em;
   font-family: serif;
   font-size: 21px;
   font-size: 1.3rem; }
+
+#fprop .sectiontitle {
+  position: relative;
+  padding-bottom: 30px; }
+
+.reference {
+  width: 100%;
+  min-height: 300px; }
+  .reference > div {
+    position: relative; }
+    .reference > div > div {
+      position: absolute; }
+
+.propertylist {
+  position: relative;
+  width: 97.532%;
+  left: 0%; }
+  .propertylist li {
+    width: 32%;
+    margin-right: 2%;
+    display: inline-block;
+    vertical-align: top;
+    background: #d8dadb; }
+    .propertylist li img {
+      width: 100%; }
+    .propertylist li > .propertycontent {
+      padding: 5% 0 5% 5%;
+      width: 90%; }
+      .propertylist li > .propertycontent p {
+        padding-top: 2em; }
+  .propertylist li:last-child {
+    margin-right: 0; }
