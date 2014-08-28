@@ -8,6 +8,8 @@ $smallPixel: 12px;
 $smallSize: 0.75rem;
 $h2P: 14px;
 $h2Em: 0.9rem;
+$h4P: 20px;
+$h4Em: 1.5rem;
 
 $serif: serif;
 
@@ -24,10 +26,23 @@ body{
 	position: relative;
 }
 
-h1,h2,h3,h4{
+h1,h2,h3{
 	color:$purple1;
 	padding: 0;
 	margin: 0;
+}
+h4{
+	color:rgb(255,255,255);
+	padding: 0;
+	margin: 0;
+	font-size: $h4P;
+	font-size:$h4Em;
+	font-family:$serif;
+}
+h5{
+	color:rgb(255,255,255);
+	font-size: $h2P;
+	font-size:$h2Em;
 }
 ul,li,p{
 	margin: 0;
@@ -39,15 +54,9 @@ p{
 	color:$grey;
 }
 
-.leftalign {
-	text-align: left;
-}
-.rightalign{
-	text-align: right;
-}
-.center{
-	text-align: center;
-}
+.leftalign { text-align: left;}
+.rightalign{ text-align: right;}
+.center{ text-align: center; }
 
 .leftmargin{margin-left: 1.282%}
 .norightmargin{margin-right: 0% !important}
@@ -127,7 +136,7 @@ nav{
 	margin:0 auto;
 	top: 0;
 	left: 0;
-	height: 100%;
+	//height: 100%;
 
 	>div:first-child{
 		margin-top: 50px;
@@ -159,12 +168,20 @@ nav{
 	.centeredtext{
 		position: relative;
 		h3{
+			font-size: $h2P;
+			font-size:$h2Em;
+			line-height: 1.3em;
+			text-transform: uppercase;
+			font-weight: normal;
 			vertical-align: top;
 			display: inline-block;
+			color: $grey;
+
 		}
 		p{
 			vertical-align: top;
 			display: inline-block;
+			//add padding here
 		}
 	}
 }
@@ -173,7 +190,7 @@ nav{
 
 #splash{
 	position: relative;
-	height: 100%;
+	height: 900px;
 
 	#titlebox{
 		position: absolute;
@@ -251,14 +268,34 @@ nav{
 	}
 }
 
-
-.reference{
+#testimonials {
+	position:relative;
+	background:$green;
 	width: 100%;
-	min-height: 300px;
-	>div{
-		position: relative;
+	background-image:url(http://placehold.it/250x360);
+	background-repeat:no-repeat;
+	background-position:left bottom;
+	>div:first-child{
+		background-image:url(http://placehold.it/250x360);
+		background-repeat:no-repeat;
+		background-position:right bottom;    
+		position:absolute;
+		height: 100%;
+		width: 100%;	
+    }
+
+
+	.reference{
+		//padding:
+		//min-height: 300px;
+		padding-top: 62px;
+		padding-bottom: 82px;
+		max-width:1080px;
+		width:90%;	
+		margin:0 auto;
+		vertical-align: top;
 		>div{
-			position: absolute;
+			position: relative;
 		}
 	}
 }
