@@ -84,6 +84,10 @@ p {
 .offcolumn6 {
   left: 85.897%; }
 
+.column2 .column1 {
+  width: 47.619%;
+  margin-right: 4.761%; }
+
 .column4 .column1 {
   width: 23.255%;
   margin-right: 2.325%; }
@@ -198,7 +202,6 @@ nav {
     #splash #special ul {
       padding: 0;
       padding-top: 1em;
-      width: 50%;
       display: inline-block; }
     #splash #special li {
       font-size: 12px;
@@ -235,10 +238,8 @@ nav {
 
 .propertylist {
   position: relative;
-  width: 97.532%; }
+  width: 100%; }
   .propertylist li {
-    width: 32%;
-    margin-right: 2%;
     display: inline-block;
     vertical-align: top;
     background: #d8dadb; }

@@ -66,6 +66,9 @@ p{
 .offcolumn5{left: 71.794%}
 .offcolumn6{left: 85.897%}
 
+.column2{
+	.column1{width: 47.619%;margin-right: 4.761%}
+}
 .column4{
 	.column1{width: 23.255%;margin-right: 2.325%}
 	.column2{width: 46.51%;margin-right: 2.325%}
@@ -208,7 +211,6 @@ nav{
 		ul{
 			padding: 0;			
 			padding-top: 1em;
-			width: 50%;
 			display: inline-block;
 		}
 		li{
@@ -264,11 +266,8 @@ nav{
 
 .propertylist{
 	position: relative;
-	width: 97.532%;
-
+	width: 100%;
 	li{
-		width: 32%;
-		margin-right: 2%;
 		display: inline-block;
 		vertical-align: top;
 		background: $greybackground;
