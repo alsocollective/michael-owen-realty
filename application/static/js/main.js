@@ -5,8 +5,10 @@ var app = {
 
 	about: {
 		init: function() {
-			console.log("about setting up");
+			$('.reference').slick({dots: true, arrows:false});
+			
 		}
+
 	},
 
 	search: {
@@ -42,5 +44,4 @@ var app = {
 			console.log("sell setting up");
 		}
 	}
-
 }

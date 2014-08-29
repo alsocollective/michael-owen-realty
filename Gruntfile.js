@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			css: {
-				files: ['**/*.scss', 'application/static/css/jquery.nouislider.css'],
+				files: ['**/*.scss', 'application/static/css/jquery.nouislider.css','application/static/css/slick.css'],
 				tasks: ['sass', 'cssmin']
 			},
 			js: {

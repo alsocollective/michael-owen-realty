@@ -33,17 +33,16 @@
 		<ul class="propertylist leftmargin">
 			<li class="column2">
 				<div class="propertyimage">
-					<img src="http://placehold.it/350x250">
+					<img src="http://placehold.it/305x200">
 				</div>
 				<div class="propertycontent">
 					<h3>Little Italy</h3><br>
 					<h3>$890,900</h3>
 					<p>
-						Stunning Kingsway renovation. Renowned local builder - Rusand’s – going to loving trans- formation in 2011! 4 great bedrooms, dreamy master bath, ‘to die for’ kitchen/family room! Exceptional landscaping.
-					</p>
-					<div>
+						Stunning Kingsway renovation. Renowned local builder - Rusand’s – going to loving trans- formation in 2011! 4 great bedrooms, dreamy master bath, ‘to die for’ kitchen / family room! Exceptional landscaping.
+					</p><br>
 
-					</div>
+					<h3>SHARE</h3>
 				</div>
 			</li><li class="column2">
 			yep
@@ -60,7 +59,7 @@
 		</div>
 		<img src="http://placehold.it/350x350" class="leftmargin column3">
 		<div class="describe-michael offcolumn2 column4">
-			Michael Owen is a Toronto based sales representative. His phil- osophy is “good business, generates good business”. It’s important to him that people have a rewarding experience buying and selling their homes and real estate investments. He is passionate, highly ethical and a cooperative communicator, he’s analytical by nature and is very knowledgeable.
+			Michael Owen is a Toronto based sales representative. His philosophy is “good business, generates good business”. It’s important to him that people have a rewarding experience buying and selling their homes and real estate investments. He is passionate, highly ethical and a cooperative communicator, he’s analytical by nature and is very knowledgeable.
 		</div>
 	</div>
 	<div id="factors">
@@ -77,15 +76,21 @@
 		</div>					
 	</div>
 </div>
-<div id="testimonials">
-	<div></div>
-	<div class="reference">
-			{# <div></div> #}
-			<div class="offcolumn1 column5">
+<div id="testimonials" >
+	<div class="shadow"></div>
+	<div class="reference ">
+			<div class="offcolumn1 column5 ">
+				<h4>"Because of his personality with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.</h4>
+				<h5>JANE & JOHN SMITH</h5>
+			</div>
+			<div class="offcolumn1 column5 ">
 				<h4>“Throughout his involvement with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.</h4>
 				<h5>ROBERT & LAI-WON</h5>
 			</div>
-			{# <div></div> #}
+			<div class="offcolumn1 column5 ">
+				<h4>"Without his taste with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.</h4>
+				<h5>BOHDAN & SYMON</h5>
+		</div> 
 	</div>
 </div>
 <div class="main">
@@ -102,12 +107,12 @@
 		<h3 class="column1">Mission</h3><p class="column3">Michael will provide a level of service that gows above and beyond most real estate professionals.  Michael is truly a real estate consultant rather than a salesperson. You will benefit from his cooperative communication, analytical nature and sincere concern for your interests.</p>
 	</div>	
 </div>
-<div id="footer">
-	<div></div>
+<div id="footer" >
+	<div class="shadow" ></div>
 		<div class="contact">
 			<div class="offcolumn1 column5">
-				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at 416.996.6936 or send Michael an email.</h4>
-				<h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 <br>PH: 416.489.2121<br>FAX: 416.489.6297<br>DIRECT: 416.996.6936<br>EMAIL: MICHAEL@MYREALESTATEPRO.CA</h5>
+				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <a href="tel:+14169966936">416.996.6936</a> or send Michael an <a href="mailto:michael@myrealestatepro.ca">email</a>.</h4>
+				<h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 <br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a><br>EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5>
 			</div>
 	</div>
 </div>
@@ -116,8 +121,9 @@
 {% block aboutnav %}currentpage{% endblock %}
 {% block script %} 
 <script type="text/javascript">
-	// $( document ).ready(function(){
-	// 	$(".reference").slick();
-	// });
+	 $( document ).ready(function(){
+	 	//$(".single-tem").slick();
+	 	 app.about.init();
+	 });
 </script>
 {% endblock %}
