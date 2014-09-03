@@ -377,6 +377,30 @@ nav {
 
 #searchfield .sectiontitle {
   position: absolute; }
+#searchfield input {
+  font-size: 0.8em;
+  background: #b2b2ba;
+  padding: 5px 10px 2px 10px;
+  margin: 0;
+  border: 0; }
+#searchfield .bbinputs {
+  padding-bottom: 50px; }
+  #searchfield .bbinputs span {
+    display: inline-block;
+    width: 50%;
+    text-align: right; }
+  #searchfield .bbinputs span:first-child {
+    text-align: left; }
+    #searchfield .bbinputs span:first-child input {
+      text-align: left; }
+  #searchfield .bbinputs input {
+    width: auto;
+    width: 40px;
+    max-width: 40px; }
+  #searchfield .bbinputs input:last-child {
+    text-align: right; }
+#searchfield .column1 {
+  background: transparent; }
 #searchfield .column4.offcolumn1 {
   position: relative; }
   #searchfield .column4.offcolumn1 h3 {
@@ -386,29 +410,24 @@ nav {
   #searchfield .column4.offcolumn1 > div:first-child {
     padding-top: 18px;
     width: 100%; }
-  #searchfield .column4.offcolumn1 #priceslider {
-    margin: 20px 0px; }
-    #searchfield .column4.offcolumn1 #priceslider .noUi-base {
-      background: #b2b2ba; }
-    #searchfield .column4.offcolumn1 #priceslider .noUi-background {
-      background: #b2b2ba; }
-    #searchfield .column4.offcolumn1 #priceslider .noUi-connect {
-      background: #7d5ab1; }
-    #searchfield .column4.offcolumn1 #priceslider .noUi-handle {
-      border-color: #b2b2ba; }
+  #searchfield .column4.offcolumn1 #priceslider, #searchfield .column4.offcolumn1 #bedslider, #searchfield .column4.offcolumn1 #bathslider {
+    margin: 10px 0 20px 0; }
+  #searchfield .column4.offcolumn1 .noUi-base {
+    background: #b2b2ba; }
+  #searchfield .column4.offcolumn1 .noUi-background {
+    background: #b2b2ba; }
+  #searchfield .column4.offcolumn1 .noUi-connect {
+    background: #7d5ab1; }
+  #searchfield .column4.offcolumn1 .noUi-handle {
+    border-color: #b2b2ba; }
   #searchfield .column4.offcolumn1 #priceinputs {
     width: 100%; }
     #searchfield .column4.offcolumn1 #priceinputs .priceinput {
       width: 50%;
       display: inline-block; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput input {
-        margin: 0;
-        padding: 0;
         margin-bottom: 20px;
-        border: none;
-        width: auto;
-        padding: 5px 10px;
-        background: #b2b2ba; }
+        width: auto; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child {
         text-align: right; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child input {

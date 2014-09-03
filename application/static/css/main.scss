@@ -429,6 +429,38 @@ nav {
 	.sectiontitle{
 		position: absolute;
 	}
+	input{
+		font-size: 0.8em;
+		background: $grey2;
+		padding: 5px 10px 2px 10px;
+		margin: 0;
+		border: 0;
+	}
+	.bbinputs{
+		padding-bottom: 50px;
+		span{
+			display: inline-block;
+			width: 50%;
+			text-align: right;
+		}
+		span:first-child{
+			input{
+				text-align: left;
+			}
+			text-align: left;
+		}
+		input{
+			width: auto;
+			width: 40px;
+			max-width: 40px;
+		}
+		input:last-child{
+			text-align: right;
+		}
+	}
+	.column1{
+		background: transparent;
+	}
 	.column4.offcolumn1{
 		position: relative;
 		h3{
@@ -441,35 +473,30 @@ nav {
 			padding-top: 18px;
 			width: 100%;
 		}
-
-		#priceslider{
-			margin: 20px 0px;
-			.noUi-base{
-				background: $grey2;
-			}
-			.noUi-background{
-				background: $grey2;
-			}
-			.noUi-connect{
-				background: $purple2;
-			}
-			.noUi-handle{
-				border-color:$grey2;
-			}			
+		#priceslider,#bedslider,#bathslider{
+			margin: 10px 0 20px 0;
 		}
+		.noUi-base{
+			background: $grey2;
+		}
+		.noUi-background{
+			background: $grey2;
+		}
+		.noUi-connect{
+			background: $purple2;
+		}
+		.noUi-handle{
+			border-color:$grey2;
+		}	
+
 		#priceinputs{
 			width: 100%;
 			.priceinput{
 				width: 50%;	
 				display: inline-block;			
 				input{
-					margin: 0;
-					padding: 0;
 					margin-bottom: 20px;
-					border: none;
 					width: auto;
-					padding: 5px 10px;
-					background: $grey2;
 				}
 				&:last-child{
 					text-align: right;
@@ -480,8 +507,6 @@ nav {
 			}	
 		}
 		
-		
-
 	}
 }
 
