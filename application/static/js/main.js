@@ -6,9 +6,14 @@ var app = {
 	init: function() {
 		//ajax load pages
 		//location on page tracking
-		//google analytics		
+		//google analytics
+		//if of size use the mobile dropdown menue
+		$("#navbutton").click(app.togglemenue);
 	},
-
+	togglemenue: function(event) {
+		$("nav").toggleClass("medium-hide");
+		console.log("toggleClass");
+	},
 	about: {
 		init: function() {
 			$('.reference').slick({

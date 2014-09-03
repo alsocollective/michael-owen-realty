@@ -22,17 +22,18 @@
 
 </head>
 <body>
-	<nav class="grid">
+	<nav class="grid medium-hide">
 		<ul>
 			<li class="column1 leftmargin {% block aboutnav %}{% endblock %}"><a href="/">Michael Owen</a>
 			</li><li class="column1 {% block searchnav %}{% endblock %}"><a href="/search">Property Search</a>
 			</li><li class="column1 {% block sellnav %}{% endblock %}"><a href="/sell">Selling Property</a>
 			</li><li class="column1 {% block buynav %}{% endblock %}"><a href="/buy">Buying Property</a>
-			</li><li class="column1">
+			</li><li class="column1 medium-hide">
 			</li><li class="column1"><a href="tel:+14169966936">Phone: 416-996-6936</a>
 			</li><li class="column1"><a href="mailto:michael@myrealestatepro.ca">Email: michael@myrealestatepro.ca</a></li>
 		</ul>
 	</nav>
+	<div id="navbutton"></div>
 	<div id="mainwrapper">	
 		{% block content %}
 		{% endblock %}
@@ -43,6 +44,9 @@
 	<script type="text/javascript" src="{% static "js/lib/slick.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/lib/modernizr.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/main.js" %}"></script> 
+	<script type="text/javascript">
+		app.init();
+	</script>
 	{% block script %} 
 	{% endblock %}
 </body>
