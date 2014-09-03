@@ -108,25 +108,32 @@ a {
   margin-right: 1.282%; }
 
 .offcolumn0 {
-  left: 1.282%; }
+  left: 1.282%;
+  position: relative; }
 
 .offcolumn1 {
-  left: 15.384%; }
+  left: 15.384%;
+  position: relative; }
 
 .offcolumn2 {
-  left: 29.487%; }
+  left: 29.487%;
+  position: relative; }
 
 .offcolumn3 {
-  left: 43.589%; }
+  left: 43.589%;
+  position: relative; }
 
 .offcolumn4 {
-  left: 57.692%; }
+  left: 57.692%;
+  position: relative; }
 
 .offcolumn5 {
-  left: 71.794%; }
+  left: 71.794%;
+  position: relative; }
 
 .offcolumn6 {
-  left: 85.897%; }
+  left: 85.897%;
+  position: relative; }
 
 .column2 .column1 {
   width: 47.619%;
@@ -145,7 +152,12 @@ a {
 .shadow {
   -moz-box-shadow: inset 0 0 15px #4e4e56;
   -webkit-box-shadow: inset 0 0 15px #4e4e56;
-  box-shadow: inset 0 0 15px #4e4e56; }
+  box-shadow: inset 0 0 15px #4e4e56;
+  height: 100%;
+  width: 120%;
+  left: -10%;
+  position: absolute;
+  top: 0; }
 
 .titlebox {
   position: absolute;
@@ -208,7 +220,8 @@ a {
 .casestudy {
   background: #7d6cb1;
   padding-top: 60px;
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  position: relative; }
   .casestudy p {
     color: #fff;
     padding-top: 24px; }
@@ -221,6 +234,8 @@ a {
   .casestudy ul {
     color: #fff;
     padding-top: 24px; }
+    .casestudy ul li {
+      font-weight: normal; }
   .casestudy div.sectiontitle {
     display: inline-block;
     position: static; }
@@ -264,6 +279,8 @@ nav {
   height: 100%;
   width: 100%;
   overflow: scroll; }
+  #mainwrapper > div {
+    overflow: hidden; }
 
 .main {
   top: 0;
@@ -439,3 +456,5 @@ nav {
     -moz-box-shadow: inset 0 0 18px #000;
     -webkit-box-shadow: inset 0 0 18px #000;
     box-shadow: inset 0 0 18px #000; }
+
+/*# sourceMappingURL=simple-style.css.map */
