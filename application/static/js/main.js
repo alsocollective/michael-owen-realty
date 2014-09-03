@@ -3,15 +3,19 @@ var app = {
 
 	},
 
+	init: function() {
+		//ajax load pages
+		//location on page tracking
+		//google analytics		
+	},
+
 	about: {
 		init: function() {
 			$('.reference').slick({
 				dots: true,
 				arrows: false
 			});
-
 		}
-
 	},
 
 	search: {
@@ -19,7 +23,6 @@ var app = {
 			app.search.setuppriceSlider();
 			app.search.setupBedSlider();
 			app.search.setupBathSlider();
-
 		},
 		setuppriceSlider: function() {
 			var priceslider = $("#priceslider");

@@ -163,6 +163,9 @@ a {
   position: absolute;
   top: 0; }
 
+.purp {
+  color: #7d6cb1; }
+
 .titlebox {
   position: absolute;
   top: 100px;
@@ -173,6 +176,25 @@ a {
     font-weight: 200; }
   .titlebox span {
     display: block; }
+
+.bigbutton {
+  display: block;
+  position: relative;
+  text-align: center; }
+  .bigbutton button {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    background: transparent;
+    color: #7d6cb1;
+    border: 1px solid #7d6cb1;
+    font-size: 1.2em;
+    padding: 1em 0;
+    text-transform: uppercase;
+    margin-top: 2em; }
+  .bigbutton button:hover {
+    background: #7d6cb1;
+    color: #fff; }
 
 .titleboxmargins {
   position: relative; }
@@ -197,7 +219,8 @@ a {
 
 .propertylist {
   position: relative;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: -28px; }
   .propertylist p {
     font-size: 13px;
     font-size: 0.8em;
@@ -205,7 +228,8 @@ a {
   .propertylist li {
     display: inline-block;
     vertical-align: top;
-    background: #d8dadb; }
+    background: #d8dadb;
+    margin-bottom: 28px; }
     .propertylist li img {
       width: 100%; }
     .propertylist li > .propertycontent {
@@ -496,6 +520,36 @@ nav {
   cursor: pointer; }
 #searchfield input[type="checkbox"]:checked + label span {
   background: #7d6cb1; }
+#searchfield #searchlistings {
+  margin-bottom: -92px; }
+
+#featured .sectiontitle {
+  position: relative;
+  padding-bottom: 30px; }
+
+#neighbourhoods .sectiontitle {
+  position: relative;
+  padding-bottom: 30px; }
+#neighbourhoods img {
+  width: 100%; }
+#neighbourhoods > div {
+  display: inline-block; }
+  #neighbourhoods > div h3 {
+    padding: 20px 0; }
+  #neighbourhoods > div h3:first-child {
+    padding: 0;
+    padding-bottom: 20px;
+    margin-top: -13px; }
+#neighbourhoods > div:first-child {
+  display: block; }
+#neighbourhoods li {
+  font-size: 13px;
+  font-size: 0.8rem;
+  color: #4e4e56;
+  font-weight: normal;
+  line-height: 1.5em; }
+#neighbourhoods li:hover {
+  color: #7d6cb1; }
 
 #footer {
   margin-top: 120px;

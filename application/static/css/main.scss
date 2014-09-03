@@ -137,6 +137,10 @@ a {
    top: 0;
 }
 
+.purp{
+	color: $purple1;
+}
+
 .titlebox {
 	position: absolute;
 	h1 {
@@ -148,6 +152,28 @@ a {
 	z-index: 2;
 	span {
 		display: block;
+	}
+}
+
+.bigbutton{
+	display: block;
+	position: relative;
+	text-align: center;	
+	button {
+		width: 100%;
+		display: inline-block;
+		border: none;
+		background: transparent;
+		color: $purple1;
+		border: 1px solid $purple1;
+		font-size: 1.2em;
+		padding: 1em 0;
+		text-transform: uppercase;
+		margin-top: 2em;			
+	}
+	button:hover{
+		background: $purple1;
+		color: #fff;
 	}
 }
 
@@ -179,6 +205,7 @@ a {
 .propertylist {
 	position: relative;
 	width: 100%;
+	margin-bottom: -28px;
 	p {
 		font-size: 13px;
 		font-size: 0.8em;
@@ -188,6 +215,7 @@ a {
 		display: inline-block;
 		vertical-align: top;
 		background: $greybackground;
+		margin-bottom: 28px;
 		img {
 			width: 100%;
 		}
@@ -577,6 +605,50 @@ nav {
 	}	
 	input[type="checkbox"]:checked + label span {
 		background: $purple1;
+	}
+	#searchlistings{
+		margin-bottom: -92px;
+	}
+}
+
+#featured{
+	.sectiontitle{
+		position: relative;
+		padding-bottom: 30px;
+	}
+}
+#neighbourhoods{
+	.sectiontitle{
+		position: relative;
+		padding-bottom: 30px;
+	}
+	img{
+		width: 100%;
+	}
+	> div{
+		h3{
+			padding: 20px 0;
+		}		
+		h3:first-child{
+			padding: 0;
+			padding-bottom: 20px;
+			margin-top: -13px;
+		}
+		
+		display: inline-block;
+	}
+	> div:first-child{
+		display: block;
+	}
+	li{
+		font-size: $h2P;
+		font-size: $h2Em;
+		color: $grey;	
+		font-weight: normal;
+		line-height: 1.5em;
+	}
+	li:hover{
+		color: $purple1;
 	}
 }
 
