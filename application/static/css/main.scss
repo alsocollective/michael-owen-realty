@@ -322,6 +322,9 @@ nav {
 #navbutton{
 	display: none;
 }
+.navactive{
+	background: #fff;
+}
 
 #mainwrapper {
 	position: absolute;
@@ -698,14 +701,46 @@ nav {
 
 @media all and (max-width: 800px){
 #navbutton{
-	display: block;
-	position: absolute;
-	left: 0;
-	top:0;
-	width: 50px;
-	height: 50px;
-	background: #f0c;
-	z-index: 99;
+		position: absolute;
+		left: 0;
+		top:0;	
+		z-index: 99;
+		display: block;	
+	> div{
+		position: relative;
+		display: block;
+		width: 50px;
+		height: 50px;
+		-webkit-transition: transform 0.1s ease-in-out;
+		-moz-transition: transform 0.1s ease-in-out;
+		-o-transition: transform 0.1s ease-in-out;
+		transition: transform 0.1s ease-in-out;			
+		&:before{
+			content:" ";
+			width: 30px;
+			height: 2px;
+			display: block;
+			position: absolute;
+			left: 10px;
+			top: 24px;
+			background: $grey;
+		}
+		&:after{
+			content:" ";
+			width: 2px;
+			height: 30px;
+			display: block;
+			position: absolute;
+			left: 24px;
+			top: 10px;
+			background: $grey;
+		}
+		&:hover{
+			-ms-transform: rotate(45deg); /* IE 9 */
+			-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+			transform: rotate(45deg);
+		}
+	}
 }
 nav {
 	color: #fff;
@@ -717,6 +752,11 @@ nav {
 	background: $purple2;
 	z-index: 9;
 	position: absolute;
+	left: 0;
+	-webkit-transition: left 0.5s ease-in-out;
+	-moz-transition: left 0.5s ease-in-out;
+	-o-transition: left 0.5s ease-in-out;
+	transition: left 0.5s ease-in-out;	
 	.currentpage a {
 		border-bottom: none;
 		background: $purple1;
@@ -724,6 +764,7 @@ nav {
 	li {
 		margin-left: 0% !important;
 		a {
+			color: #fff;
 			display: inline-block;
 			width: 100%;
 			text-align: center;
@@ -752,6 +793,9 @@ nav {
 		-o-overflow-scrolling: touch;
 		overflow-scrolling: touch;
 	}
+}
+.offleft{
+	left: -100%;
 }
 
 .medium-hide {display:none}
