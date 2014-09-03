@@ -5,15 +5,23 @@ var app = {
 
 	about: {
 		init: function() {
-			$('.reference').slick({dots: true, arrows:false});
-			
+			$('.reference').slick({
+				dots: true,
+				arrows: false
+			});
+
 		}
 
 	},
 
 	search: {
 		init: function() {
-			console.log("search setting up");
+			app.search.setuppriceSlider();
+			app.search.setupBedSlider();
+			app.search.setupBathSlider();
+
+		},
+		setuppriceSlider: function() {
 			var priceslider = $("#priceslider");
 			priceslider.noUiSlider({
 				start: [0, 400000],
@@ -34,8 +42,43 @@ var app = {
 			priceslider.Link("lower").to($("#lowerprice"));
 			priceslider.Link("upper").to($("#upperprice"));
 		},
-		callbohdan: function() {
-			console.log("bohdan")
+		setupBedSlider: function() {
+			var priceslider = $("#bedslider");
+			priceslider.noUiSlider({
+				start: [1, 3],
+				connect: true,
+				behaviour: 'drag',
+				range: {
+					'min': [1],
+					'max': [10]
+				},
+				format: wNumb({
+					mark: '.',
+					decimals: 0,
+				}),
+				step: 1
+			});
+			priceslider.Link("lower").to($("#lowerbed"));
+			priceslider.Link("upper").to($("#upperbed"));
+		},
+		setupBathSlider: function() {
+			var priceslider = $("#bathslider");
+			priceslider.noUiSlider({
+				start: [1, 3],
+				connect: true,
+				behaviour: 'drag',
+				range: {
+					'min': [1],
+					'max': [10]
+				},
+				format: wNumb({
+					mark: '.',
+					decimals: 1,
+				}),
+				step: 0.5
+			});
+			priceslider.Link("lower").to($("#lowerbath"));
+			priceslider.Link("upper").to($("#upperbath"));
 		}
 	},
 
@@ -43,5 +86,8 @@ var app = {
 		init: function() {
 			console.log("sell setting up");
 		}
-	}
+	},
+
+
+
 }
