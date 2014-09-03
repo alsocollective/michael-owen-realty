@@ -2,7 +2,8 @@ html, body {
   width: 100%;
   height: 100%;
   -webkit-font-smoothing: antialiased;
-  font-family: "pragmatica-web",sans-serif; }
+  font-family: "pragmatica-web",sans-serif;
+  overflow: hidden; }
 
 body {
   position: relative; }
@@ -56,6 +57,10 @@ p {
 
 a {
   color: inherit; }
+
+.bold {
+  font-weight: bolder !important;
+  text-transform: uppercase; }
 
 .grid {
   max-width: 1080px;
@@ -278,7 +283,12 @@ nav {
   left: 0;
   height: 100%;
   width: 100%;
-  overflow: scroll; }
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch; }
   #mainwrapper > div {
     overflow: hidden; }
 
@@ -395,11 +405,21 @@ nav {
 #searchfield .sectiontitle {
   position: absolute; }
 #searchfield input {
+  color: #4e4e56;
   font-size: 0.8em;
-  background: #b2b2ba;
+  background: #d8dadb;
   padding: 5px 10px 2px 10px;
   margin: 0;
-  border: 0; }
+  border: 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px; }
+#searchfield label {
+  color: #4e4e56;
+  font-size: 0.8em;
+  font-weight: normal;
+  position: relative;
+  background: #fff; }
 #searchfield .bbinputs {
   padding-bottom: 50px; }
   #searchfield .bbinputs span {
@@ -416,8 +436,16 @@ nav {
     max-width: 40px; }
   #searchfield .bbinputs input:last-child {
     text-align: right; }
+#searchfield .column2 ul {
+  padding-top: 7px;
+  width: 47.619%;
+  display: inline-block; }
+#searchfield .column2 ul:first-of-type {
+  margin-right: 4.761%; }
 #searchfield .column1 {
   background: transparent; }
+  #searchfield .column1 ul {
+    padding-top: 7px; }
 #searchfield .column4.offcolumn1 {
   position: relative; }
   #searchfield .column4.offcolumn1 h3 {
@@ -430,13 +458,15 @@ nav {
   #searchfield .column4.offcolumn1 #priceslider, #searchfield .column4.offcolumn1 #bedslider, #searchfield .column4.offcolumn1 #bathslider {
     margin: 10px 0 20px 0; }
   #searchfield .column4.offcolumn1 .noUi-base {
-    background: #b2b2ba; }
+    background: #d8dadb; }
   #searchfield .column4.offcolumn1 .noUi-background {
-    background: #b2b2ba; }
+    background: #d8dadb; }
   #searchfield .column4.offcolumn1 .noUi-connect {
     background: #7d5ab1; }
   #searchfield .column4.offcolumn1 .noUi-handle {
-    border-color: #b2b2ba; }
+    border-color: #d8dadb; }
+  #searchfield .column4.offcolumn1 .column1 {
+    position: relative; }
   #searchfield .column4.offcolumn1 #priceinputs {
     width: 100%; }
     #searchfield .column4.offcolumn1 #priceinputs .priceinput {
@@ -449,6 +479,21 @@ nav {
         text-align: right; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child input {
         text-align: right; }
+#searchfield input[type="checkbox"] {
+  width: 0;
+  overflow: hidden; }
+#searchfield input[type="checkbox"] + label span {
+  display: inline-block;
+  position: absolute;
+  left: -23px;
+  width: 8px;
+  height: 8px;
+  vertical-align: middle;
+  top: 3px;
+  border: 1px solid #d8dadb;
+  cursor: pointer; }
+#searchfield input[type="checkbox"]:checked + label span {
+  background: #7d6cb1; }
 
 #footer {
   margin-top: 120px;

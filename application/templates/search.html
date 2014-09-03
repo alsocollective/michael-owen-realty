@@ -56,15 +56,25 @@
 			</div>
 		</div><div class="column2">
 			<h3>Neighbourhood</h3>
-
+			<ul>
+				<li><input type="checkbox" id="style11"><label for="style11" class="bold"><span></span>style11</label></li>
+				<li><input type="checkbox" id="style21"><label for="style21"><span></span>style21</label></li>
+				<li><input type="checkbox" id="style31"><label for="style31"><span></span>style31</label></li>
+				<li><input type="checkbox" id="style41"><label for="style41"><span></span>style41</label></li>
+			</ul><ul>
+				<li><input type="checkbox" id="style12"><label for="style12"><span></span>style12</label></li>
+				<li><input type="checkbox" id="style22"><label for="style22"><span></span>style22</label></li>
+				<li><input type="checkbox" id="style32"><label for="style32"><span></span>style32</label></li>
+				<li><input type="checkbox" id="style42"><label for="style42"><span></span>style42</label></li>
+			</ul>
 		</div><div class="column1">
 
 			<h3>home type</h3>
 			<ul>
-				<li><input type="checkbox" id="style1"><label for="style1">style1</label></li>
-				<li><input type="checkbox" id="style2"><label for="style2">style2</label></li>
-				<li><input type="checkbox" id="style3"><label for="style3">style3</label></li>
-				<li><input type="checkbox" id="style4"><label for="style4">style4</label></li>				
+				<li><input type="checkbox" id="style1"><label for="style1"><span></span>style1</label></li>
+				<li><input type="checkbox" id="style2"><label for="style2"><span></span>style2</label></li>
+				<li><input type="checkbox" id="style3"><label for="style3"><span></span>style3</label></li>
+				<li><input type="checkbox" id="style4"><label for="style4"><span></span>style4</label></li>
 			</ul>
 		</div><div class="column1 norightmargin">
 			<h3>bedroom</h3>
@@ -101,7 +111,6 @@
 <script type="text/javascript">
 	$( document ).ready(function(){
 		app.search.init()
-		app.search.callbohdan();
 	});
 </script>
 {% endblock %}
