@@ -80,7 +80,6 @@ a {
 .column1 {
   width: 12.820%;
   margin-right: 1.282%;
-  background: #ccc;
   min-height: 20px; }
 
 .column2 {
@@ -181,7 +180,8 @@ a {
     line-height: 1.3em;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 2px; }
+    letter-spacing: 2px;
+    margin-top: -13.5px; }
   .sectiontitle h2:before {
     content: "\00a0";
     display: block;
@@ -295,7 +295,8 @@ nav {
     .main .centeredtext p {
       vertical-align: top;
       display: inline-block;
-      padding-bottom: 35px; }
+      padding-bottom: 35px;
+      margin-top: -5px; }
 
 #smallsplash {
   position: relative;
@@ -351,7 +352,8 @@ nav {
   line-height: 1.3em;
   font-family: "garvis-pro", serif;
   font-size: 22px;
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  font-weight: 400; }
 
 #fprop .sectiontitle {
   position: relative;
