@@ -38,11 +38,12 @@ h5 {
   h5 a {
     text-decoration: none; }
 
-ul, li, p {
+ul, li, p, div {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-weight: 700; }
+  font-weight: 700;
+  vertical-align: top; }
 
 p {
   color: #4e4e56;
@@ -55,6 +56,11 @@ p {
 
 a {
   color: inherit; }
+
+.grid {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto; }
 
 .leftalign {
   text-align: left; }
@@ -130,10 +136,10 @@ a {
   width: 23.255%;
   margin-right: 2.325%; }
 .column4 .column2 {
-  width: 46.51%;
+  width: 48.835%;
   margin-right: 2.325%; }
 .column4 .column3 {
-  width: 69.765%;
+  width: 74.420%;
   margin-right: 2.325%; }
 
 .shadow {
@@ -153,9 +159,6 @@ a {
     display: block; }
 
 .titleboxmargins {
-  max-width: 1080px;
-  width: 90%;
-  margin: 0 auto;
   position: relative; }
 
 .sectiontitle {
@@ -235,9 +238,6 @@ nav {
   font-size: 12px;
   font-size: 0.75rem;
   padding-top: 1.5em;
-  max-width: 1080px;
-  width: 90%;
-  margin: 0 auto;
   z-index: 9;
   position: relative; }
   nav .currentpage a {
@@ -266,9 +266,6 @@ nav {
   overflow: scroll; }
 
 .main {
-  max-width: 1080px;
-  width: 90%;
-  margin: 0 auto;
   top: 0;
   left: 0; }
   .main > div:first-child {
@@ -361,9 +358,6 @@ nav {
   #testimonials .reference {
     padding-top: 62px;
     padding-bottom: 82px;
-    max-width: 1080px;
-    width: 90%;
-    margin: 0 auto;
     vertical-align: top; }
     #testimonials .reference > div {
       position: relative; }
@@ -394,6 +388,8 @@ nav {
     width: 100%; }
   #searchfield .column4.offcolumn1 #priceslider {
     margin: 20px 0px; }
+    #searchfield .column4.offcolumn1 #priceslider .noUi-base {
+      background: #b2b2ba; }
     #searchfield .column4.offcolumn1 #priceslider .noUi-background {
       background: #b2b2ba; }
     #searchfield .column4.offcolumn1 #priceslider .noUi-connect {
@@ -436,9 +432,6 @@ nav {
   #footer .contact {
     padding-top: 62px;
     padding-bottom: 82px;
-    max-width: 1080px;
-    width: 90%;
-    margin: 0 auto;
     vertical-align: top; }
     #footer .contact > div {
       position: relative; }
@@ -446,5 +439,3 @@ nav {
     -moz-box-shadow: inset 0 0 18px #000;
     -webkit-box-shadow: inset 0 0 18px #000;
     box-shadow: inset 0 0 18px #000; }
-
-/*# sourceMappingURL=simple-style.css.map */

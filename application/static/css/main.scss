@@ -65,11 +65,12 @@ h5{
 	line-height:1.7em;	
 }
 
-ul, li, p {
+ul, li, p ,div{
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	font-weight: 700;
+	vertical-align: top;
 }
 
 p {
@@ -83,6 +84,12 @@ p {
 
 a {
 	color: inherit;
+}
+
+.grid{
+	max-width: 1080px;
+	width: 90%;
+	margin: 0 auto;
 }
 
 .leftalign {text-align: left;}
@@ -110,8 +117,8 @@ a {
 }
 .column4 {
 	.column1 {width: 23.255%;margin-right: 2.325%;}
-	.column2 {width: 46.51%;margin-right: 2.325%;}
-	.column3 {width: 69.765%;margin-right: 2.325%;}
+	.column2 {width: 48.835%;margin-right: 2.325%;}
+	.column3 {width: 74.420%;margin-right: 2.325%;}
 }
 
 .shadow {
@@ -135,9 +142,6 @@ a {
 }
 
 .titleboxmargins {
-	max-width: 1080px;
-	width: 90%;
-	margin: 0 auto;
 	position: relative;
 }
 
@@ -240,10 +244,7 @@ nav {
 	color: $purple2;
 	font-size: $smallPixel;
 	font-size: $smallSize;
-	padding-top: 1.5em;
-	max-width: 1080px;
-	width: 90%;
-	margin: 0 auto;
+	padding-top: 1.5em;	
 	z-index: 9;
 	position: relative;
 	.currentpage a {
@@ -278,9 +279,6 @@ nav {
 }
 
 .main {
-	max-width: 1080px;
-	width: 90%;
-	margin: 0 auto;
 	top: 0;
 	left: 0;
 	//height: 100%;
@@ -404,9 +402,7 @@ nav {
 		//min-height: 300px;
 		padding-top: 62px;
 		padding-bottom: 82px;
-		max-width: 1080px;
-		width: 90%;
-		margin: 0 auto;
+		
 		vertical-align: top;
 		> div {
 			position: relative;
@@ -448,6 +444,9 @@ nav {
 
 		#priceslider{
 			margin: 20px 0px;
+			.noUi-base{
+				background: $grey2;
+			}
 			.noUi-background{
 				background: $grey2;
 			}
@@ -507,9 +506,6 @@ nav {
 		//min-height: 300px;
 		padding-top: 62px;
 		padding-bottom: 82px;
-		max-width: 1080px;
-		width: 90%;
-		margin: 0 auto;
 		vertical-align: top;
 		> div {
 			position: relative;
