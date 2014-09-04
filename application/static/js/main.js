@@ -11,8 +11,8 @@ var app = {
 		$("#navbutton").click(app.togglemenue);
 	},
 	togglemenue: function(event) {
-		$("nav").toggleClass("medium-hide");
-		console.log("toggleClass");
+		$("nav").toggleClass("offleft");
+		$(this).toggleClass("navactive");
 	},
 	about: {
 		init: function() {

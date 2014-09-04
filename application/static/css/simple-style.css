@@ -304,6 +304,9 @@ nav {
 #navbutton {
   display: none; }
 
+.navactive {
+  background: #fff; }
+
 #mainwrapper {
   position: absolute;
   top: 0;
@@ -582,14 +585,44 @@ nav {
 
 @media all and (max-width: 800px) {
   #navbutton {
-    display: block;
     position: absolute;
     left: 0;
     top: 0;
-    width: 50px;
-    height: 50px;
-    background: #f0c;
-    z-index: 99; }
+    z-index: 99;
+    display: block; }
+    #navbutton > div {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 50px;
+      -webkit-transition: transform 0.1s ease-in-out;
+      -moz-transition: transform 0.1s ease-in-out;
+      -o-transition: transform 0.1s ease-in-out;
+      transition: transform 0.1s ease-in-out; }
+      #navbutton > div:before {
+        content: " ";
+        width: 30px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 24px;
+        background: #4e4e56; }
+      #navbutton > div:after {
+        content: " ";
+        width: 2px;
+        height: 30px;
+        display: block;
+        position: absolute;
+        left: 24px;
+        top: 10px;
+        background: #4e4e56; }
+      #navbutton > div:hover {
+        -ms-transform: rotate(45deg);
+        /* IE 9 */
+        -webkit-transform: rotate(45deg);
+        /* Chrome, Safari, Opera */
+        transform: rotate(45deg); }
 
   nav {
     color: #fff;
@@ -600,7 +633,12 @@ nav {
     height: 100%;
     background: #7d5ab1;
     z-index: 9;
-    position: absolute; }
+    position: absolute;
+    left: 0;
+    -webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out; }
     nav .currentpage a {
       border-bottom: none;
       background: #7d6cb1; }
@@ -611,6 +649,7 @@ nav {
       white-space: nowrap;
       display: block; }
       nav li a {
+        color: #fff;
         display: inline-block;
         width: 100%;
         text-align: center;
@@ -632,6 +671,12 @@ nav {
       -o-overflow-scrolling: touch;
       overflow-scrolling: touch; }
 
+<<<<<<< HEAD
+=======
+  .offleft {
+    left: -100%; }
+
+>>>>>>> d741ad830e8e77891a7018223fb9fe49b9d0b0ec
   .medium-hide {
     display: none; }
 
@@ -695,11 +740,14 @@ nav {
     left: 85.897%;
     position: relative; }
 
+<<<<<<< HEAD
   .titlebox {
     top: 100px; }
     .titlebox h1 {
       font-size: 8rem; }
 
+=======
+>>>>>>> d741ad830e8e77891a7018223fb9fe49b9d0b0ec
   .casestudy div.sectiontitle {
     display: block;
     position: relative;
@@ -801,6 +849,7 @@ nav {
   #about img {
     padding: 0px 0 30px; }
 
+<<<<<<< HEAD
   .centeredtext h3 {
     display: block; }
 
@@ -812,3 +861,14 @@ nav {
     font-size: 0.92rem; } }
 
 /*# sourceMappingURL=simple-style.css.map */
+=======
+  .centeredtext {
+    font-size: 15px;
+    font-size: 0.95rem; }
+    .centeredtext h3 {
+      display: block; }
+    .centeredtext p {
+      width: 100% !important;
+      margin-left: -5px;
+      padding-top: 20px; } }
+>>>>>>> d741ad830e8e77891a7018223fb9fe49b9d0b0ec
