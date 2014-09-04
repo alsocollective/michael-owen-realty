@@ -1,9 +1,9 @@
+alert("bohdan-- function app.url.setuppagescroll, you were about to add classes to each of the elements that are to trigger page locations.")
 var app = {
 	options: {
 		loadingpage: false,
 		pagetransitiontime: 1000
 	},
-
 	init: function() {
 		//ajax load pages
 		$("nav a").click(app.nav.navmenueclick);
@@ -15,7 +15,6 @@ var app = {
 		//if of size use the mobile dropdown menue
 		$("#navbutton").click(app.nav.togglemenue);
 	},
-
 	nav: {
 		navmenueclick: function(event) {
 			if (!this.href || !event.preventDefault) {
@@ -78,6 +77,10 @@ var app = {
 			}
 			spliturl[spliturl.length - 1] = "ajax" + spliturl[spliturl.length - 1];
 			return spliturl.join("/");
+		},
+		setupPagescroll: function(page) {
+			$(page).find("")
+			console.log()
 		}
 	},
 	about: {
@@ -88,7 +91,6 @@ var app = {
 			});
 		}
 	},
-
 	search: {
 		init: function() {
 			app.search.setuppriceSlider();
@@ -164,7 +166,6 @@ var app = {
 			priceslider.Link("upper").to($("#upperbath"));
 		}
 	},
-
 	sell: {
 		init: function() {
 			console.log("sell setting up");
