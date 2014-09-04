@@ -325,9 +325,7 @@ nav {
 #navbutton{
 	display: none;
 }
-.navactive{
-	background: #fff;
-}
+
 
 .mainwrapper {
 	position: absolute;
@@ -727,34 +725,82 @@ nav {
 		display: block;
 		width: 50px;
 		height: 50px;
-		-webkit-transition: transform 0.1s ease-in-out;
-		-moz-transition: transform 0.1s ease-in-out;
-		-o-transition: transform 0.1s ease-in-out;
-		transition: transform 0.1s ease-in-out;			
-		&:before{
+	
+		div:first-child{
 			content:" ";
-			width: 30px;
+			width: 25px;
 			height: 2px;
 			display: block;
 			position: absolute;
-			left: 10px;
-			top: 24px;
+			left: 12px;
+			top: 14px;
 			background: $grey;
+			-webkit-transition: transform 0.1s ease-in-out;
+			-moz-transition: transform 0.1s ease-in-out;
+			-o-transition: transform 0.1s ease-in-out;
+			transition: transform 0.1s ease-in-out;		
 		}
-		&:after{
+		div:nth-child(2){
 			content:" ";
-			width: 2px;
-			height: 30px;
+			width: 25px;
+			height: 2px;
 			display: block;
 			position: absolute;
-			left: 24px;
-			top: 10px;
+			left: 12px;
+			top: 22px;
 			background: $grey;
+			-webkit-transition: width 0.1s ease-in-out;
+			-moz-transition: width 0.1s ease-in-out;
+			-o-transition: width 0.1s ease-in-out;
+			transition: width 0.1s ease-in-out;		
 		}
-		&:hover{
-			-ms-transform: rotate(45deg); /* IE 9 */
-			-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-			transform: rotate(45deg);
+		div:last-child{
+			content:" ";
+			width: 25px;
+			height: 2px;
+			display: block;
+			position: absolute;
+			left: 12px;
+			top: 30px;
+			background: $grey;
+			-webkit-transition: transform 0.1s ease-in-out;
+			-moz-transition: transform 0.1s ease-in-out;
+			-o-transition: transform 0.1s ease-in-out;
+			transition: transform 0.1s ease-in-out;	
+		}
+		&:hover{		
+			div:first-child{
+			-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
+			-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
+			transform: translate(1px,9px) rotate(45deg) ;
+			}
+			div:nth-child(2){
+			width:0px; /* IE 9 */
+			}
+			div:last-child{
+			-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
+			-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
+			transform: translate(0px,-7px) rotate(-45deg) ;
+			}
+		}
+	}
+}
+.navactive{
+	> div{
+		div{		
+			div:first-child{
+			-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
+			-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
+			transform: translate(1px,9px) rotate(45deg) ;
+			}
+			div:nth-child(2){
+			width:0px; /* IE 9 */
+			}
+			div:last-child{
+			-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
+			-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
+			transform: translate(0px,-7px) rotate(-45deg) ;
+			}
 		}
 	}
 }
