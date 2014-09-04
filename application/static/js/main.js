@@ -1,18 +1,84 @@
 var app = {
 	options: {
-
+		loadingpage: false,
+		pagetransitiontime: 1000
 	},
 
 	init: function() {
 		//ajax load pages
+		$("nav a").click(app.nav.navmenueclick);
+
 		//location on page tracking
+
 		//google analytics
+
 		//if of size use the mobile dropdown menue
-		$("#navbutton").click(app.togglemenue);
+		$("#navbutton").click(app.nav.togglemenue);
 	},
-	togglemenue: function(event) {
-		$("nav").toggleClass("offleft");
-		$(this).toggleClass("navactive");
+
+	nav: {
+		navmenueclick: function(event) {
+			if (!this.href || !event.preventDefault) {
+				return false;
+			}
+			var href = this.href,
+				test = href.split(":")[0];
+			if (test != "mailto" && test != "tel") {
+				if (app.options.loadingpage) {
+					event.preventDefault();
+					return false;
+				}
+				app.options.loadingpage = true;
+				app.nav.loadpage(this.href)
+				app.nav.togglemenue();
+				return false;
+			}
+		},
+		loadpage: function(url) {
+			app.url.seturlfromfull(url);
+			url = app.url.addajax(url);
+			var newMainContainer = document.createElement("div");
+			newMainContainer.className = "mainwrapper offright";
+			document.body.appendChild(newMainContainer);
+			$(newMainContainer).load(url, function(response, status, xhr) {
+				var wrappers = $(".mainwrapper"),
+					oldW = $(wrappers[0]),
+					newW = $(wrappers[1]);
+				oldW.addClass('offleft');
+				newW.removeClass('offright');
+				app.nav.deleteEl(oldW[0], app.options.pagetransitiontime);
+			});
+		},
+		deleteEl: function(element, time) {
+			setTimeout(function() {
+				app.options.loadingpage = false;
+				element.parentNode.removeChild(element);
+			}, time);
+		},
+		togglemenue: function(event) {
+			$("nav").toggleClass("offleft");
+			$(this).toggleClass("navactive");
+		},
+		changeurl: function(link) {
+			$(".currentpage").removeClass("currentpage");
+			$($('a[href="' + link + '"]')[0].parentNode).addClass("currentpage")
+		}
+	},
+	url: {
+		seturlfromfull: function(location) {
+			var location = location.split("/");
+			location = "/" + location[location.length - 1];
+			window.history.pushState("", "", location);
+			app.nav.changeurl(location);
+		},
+		addajax: function(url) {
+			var spliturl = url.split("/");
+			if (spliturl[spliturl.length - 1] == "") {
+				spliturl[spliturl.length - 1] = "home";
+			}
+			spliturl[spliturl.length - 1] = "ajax" + spliturl[spliturl.length - 1];
+			return spliturl.join("/");
+		}
 	},
 	about: {
 		init: function() {
@@ -30,7 +96,10 @@ var app = {
 			app.search.setupBathSlider();
 		},
 		setuppriceSlider: function() {
-			var priceslider = $("#priceslider");
+			var priceslider = $(".offright #priceslider");
+			if (priceslider.length == 0) {
+				priceslider = $("#priceslider")
+			}
 			priceslider.noUiSlider({
 				start: [0, 400000],
 				connect: true,
@@ -51,7 +120,10 @@ var app = {
 			priceslider.Link("upper").to($("#upperprice"));
 		},
 		setupBedSlider: function() {
-			var priceslider = $("#bedslider");
+			var priceslider = $(".offright #bedslider");
+			if (priceslider.length == 0) {
+				priceslider = $("#bedslider")
+			}
 			priceslider.noUiSlider({
 				start: [1, 3],
 				connect: true,
@@ -70,7 +142,10 @@ var app = {
 			priceslider.Link("upper").to($("#upperbed"));
 		},
 		setupBathSlider: function() {
-			var priceslider = $("#bathslider");
+			var priceslider = $(".offright #bathslider");
+			if (priceslider.length == 0) {
+				priceslider = $("#bathslider")
+			}
 			priceslider.noUiSlider({
 				start: [1, 3],
 				connect: true,
