@@ -601,6 +601,24 @@ nav {
     -webkit-box-shadow: inset 0 0 18px #000;
     box-shadow: inset 0 0 18px #000; }
 
+.module {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: table; }
+  .module > div {
+    display: table-cell;
+    vertical-align: middle; }
+  .module .grid {
+    background: #fff; }
+    .module .grid > div {
+      display: inline-block; }
+    .module .grid img {
+      width: 100%; }
+
 @media all and (max-width: 800px) {
   #navbutton {
     position: absolute;

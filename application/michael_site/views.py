@@ -27,3 +27,5 @@ def ajaxbuy(request):
 def ajaxsearch(request):
 	return render_to_response('search.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"ajax.html"})
 
+def ajaxproperty(request):
+	return render_to_response('property.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
