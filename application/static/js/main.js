@@ -70,7 +70,7 @@ var app = {
 		},
 		togglemenue: function(event) {
 			$("nav").toggleClass("offleft");
-			$(this).toggleClass("navactive");
+			$("#navbutton").toggleClass("navactive");
 		},
 		changeurl: function(link) {
 			$(".currentpage").removeClass("currentpage");
@@ -120,6 +120,7 @@ var app = {
 				dots: true,
 				arrows: false
 			});
+			app.property.setup()
 		}
 	},
 	search: {
@@ -127,6 +128,7 @@ var app = {
 			app.search.setuppriceSlider();
 			app.search.setupBedSlider();
 			app.search.setupBathSlider();
+			app.property.setup()
 		},
 		setuppriceSlider: function() {
 			var priceslider = $(".offright #priceslider");
@@ -200,6 +202,35 @@ var app = {
 	sell: {
 		init: function() {
 			console.log("sell setting up");
+		}
+	},
+	property: {
+		init: function() {
+			$('.propertyimages').slick({
+				dots: true,
+				arrows: false
+			});
+			$(".module").click(app.property.delete);
+		},
+		delete: function() {
+			console.log(this);
+			this.parentNode.removeChild(this);
+		},
+		setup: function() {
+			$(".propertylist li").click(app.property.loadproperty);
+		},
+		loadproperty: function(event) {
+			if (app.options.loadingpage) {
+				console.log("already loading page");
+				return false;
+			}
+			var newEl = document.createElement("div");
+			newEl.className = "module";
+			document.body.appendChild(newEl);
+			$(newEl).load("ajaxproperty", app.property.loadedproperty);
+		},
+		loadedproperty: function(response, status, xhr) {
+			app.property.init();
 		}
 	},
 	resize: function() {

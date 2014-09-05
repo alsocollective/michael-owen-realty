@@ -63,7 +63,7 @@ a {
   text-transform: uppercase; }
 
 .grid {
-  max-width: 1080px;
+  max-width: 1280px;
   width: 90%;
   margin: 0 auto; }
 
@@ -608,16 +608,47 @@ nav {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: table; }
+  padding-top: 92px; }
   .module > div {
-    display: table-cell;
     vertical-align: middle; }
   .module .grid {
     background: #fff; }
     .module .grid > div {
       display: inline-block; }
+      .module .grid > div > p:last-child {
+        padding-bottom: 60px; }
     .module .grid img {
       width: 100%; }
+    .module .grid p {
+      font-size: 13px;
+      font-size: 0.8em; }
+    .module .grid h2 {
+      color: #4e4e56;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      font-size: 1.1em; }
+    .module .grid h3 {
+      color: #7d6cb1;
+      padding-bottom: 5px;
+      font-size: 0.7rem;
+      line-height: 1em; }
+    .module .grid > div:nth-child(2) table {
+      margin: 20px 0 30px 0; }
+    .module .grid table {
+      border-spacing: 0px;
+      width: 100%;
+      margin: 0 0 20px 0; }
+      .module .grid table td {
+        vertical-align: top;
+        padding: 0; }
+      .module .grid table h3 {
+        padding: 0; }
+      .module .grid table p {
+        padding: 0;
+        padding-right: 5px;
+        color: #7d6cb1;
+        font-size: 0.74em;
+        line-height: 1; }
 
 @media all and (max-width: 800px) {
   #navbutton {
