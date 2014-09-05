@@ -1,4 +1,3 @@
-alert("bohdan-- function app.url.setuppagescroll, you were about to add classes to each of the elements that are to trigger page locations.")
 var app = {
 	options: {
 		loadingpage: false,
