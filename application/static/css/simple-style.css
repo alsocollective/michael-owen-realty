@@ -186,15 +186,16 @@ a {
     display: inline-block;
     border: none;
     background: transparent;
-    color: #7d6cb1;
     border: 1px solid #7d6cb1;
-    font-size: 1.2em;
     padding: 1em 0;
     text-transform: uppercase;
     margin-top: 2em; }
+    .bigbutton button h3 {
+      color: #7d6cb1; }
   .bigbutton button:hover {
-    background: #7d6cb1;
-    color: #fff; }
+    background: #7d6cb1; }
+    .bigbutton button:hover h3 {
+      color: #fff; }
 
 .titleboxmargins {
   position: relative; }
@@ -490,7 +491,8 @@ nav {
   #searchfield .column4.offcolumn1 > div {
     display: inline-block; }
   #searchfield .column4.offcolumn1 > div:first-child {
-    padding-top: 18px;
+    padding-top: 0px;
+    margin-top: -1px;
     width: 100%; }
   #searchfield .column4.offcolumn1 #priceslider, #searchfield .column4.offcolumn1 #bedslider, #searchfield .column4.offcolumn1 #bathslider {
     margin: 10px 0 20px 0; }
@@ -542,7 +544,8 @@ nav {
   position: relative;
   padding-bottom: 30px; }
 #neighbourhoods img {
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 30px; }
 #neighbourhoods > div {
   display: inline-block; }
   #neighbourhoods > div h3 {
@@ -608,11 +611,11 @@ nav {
         position: absolute;
         left: 12px;
         top: 14px;
-        background: #4e4e56;
-        -webkit-transition: transform 0.1s ease-in-out;
-        -moz-transition: transform 0.1s ease-in-out;
-        -o-transition: transform 0.1s ease-in-out;
-        transition: transform 0.1s ease-in-out; }
+        background: #7d6cb1;
+        -webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        -moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        -o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; }
       #navbutton > div div:nth-child(2) {
         content: " ";
         width: 25px;
@@ -621,11 +624,11 @@ nav {
         position: absolute;
         left: 12px;
         top: 22px;
-        background: #4e4e56;
-        -webkit-transition: width 0.1s ease-in-out;
-        -moz-transition: width 0.1s ease-in-out;
-        -o-transition: width 0.1s ease-in-out;
-        transition: width 0.1s ease-in-out; }
+        background: #7d6cb1;
+        -webkit-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+        -moz-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+        -o-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+        transition: width 0.1s ease-in-out, background 0.1s ease-in-out; }
       #navbutton > div div:last-child {
         content: " ";
         width: 25px;
@@ -634,42 +637,38 @@ nav {
         position: absolute;
         left: 12px;
         top: 30px;
-        background: #4e4e56;
-        -webkit-transition: transform 0.1s ease-in-out;
-        -moz-transition: transform 0.1s ease-in-out;
-        -o-transition: transform 0.1s ease-in-out;
-        transition: transform 0.1s ease-in-out; }
+        background: #7d6cb1;
+        -webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        -moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        -o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; }
       #navbutton > div:hover div:first-child {
-        -ms-transform: translate(1px, 9px) rotate(45deg);
-        /* IE 9 */
-        -webkit-transform: translate(1px, 9px) rotate(45deg);
-        /* Chrome, Safari, Opera */
-        transform: translate(1px, 9px) rotate(45deg); }
+        height: 3px;
+        top: 14px; }
       #navbutton > div:hover div:nth-child(2) {
-        width: 0px;
-        /* IE 9 */ }
+        height: 3px;
+        top: 22px; }
       #navbutton > div:hover div:last-child {
-        -ms-transform: translate(0px, -7px) rotate(-45deg);
-        /* IE 9 */
-        -webkit-transform: translate(0px, -7px) rotate(-45deg);
-        /* Chrome, Safari, Opera */
-        transform: translate(0px, -7px) rotate(-45deg); }
-
-  .navactive > div div div:first-child {
-    -ms-transform: translate(1px, 9px) rotate(45deg);
-    /* IE 9 */
-    -webkit-transform: translate(1px, 9px) rotate(45deg);
-    /* Chrome, Safari, Opera */
-    transform: translate(1px, 9px) rotate(45deg); }
-  .navactive > div div div:nth-child(2) {
-    width: 0px;
-    /* IE 9 */ }
-  .navactive > div div div:last-child {
-    -ms-transform: translate(0px, -7px) rotate(-45deg);
-    /* IE 9 */
-    -webkit-transform: translate(0px, -7px) rotate(-45deg);
-    /* Chrome, Safari, Opera */
-    transform: translate(0px, -7px) rotate(-45deg); }
+        height: 3px;
+        top: 30px; }
+    #navbutton.navactive > div div:first-child {
+      -ms-transform: translate(1px, 9px) rotate(45deg);
+      /* IE 9 */
+      -webkit-transform: translate(1px, 9px) rotate(45deg);
+      /* Chrome, Safari, Opera */
+      transform: translate(1px, 9px) rotate(45deg);
+      background: #fff; }
+    #navbutton.navactive > div div:nth-child(2) {
+      width: 0px;
+      /* IE 9 */
+      background: #fff; }
+    #navbutton.navactive > div div:last-child {
+      -ms-transform: translate(0px, -7px) rotate(-45deg);
+      /* IE 9 */
+      -webkit-transform: translate(0px, -7px) rotate(-45deg);
+      /* Chrome, Safari, Opera */
+      transform: translate(0px, -7px) rotate(-45deg);
+      background: #fff; }
 
   nav {
     color: #fff;
@@ -692,14 +691,14 @@ nav {
     nav li {
       margin-left: 0% !important;
       width: 100% !important;
-      text-align: center;
+      text-align: left;
       white-space: nowrap;
       display: block; }
       nav li a {
         color: #fff;
         display: inline-block;
         width: 100%;
-        text-align: center;
+        text-align: left;
         padding: 1.5em 0 1.5em 0;
         font-size: 2em; }
     nav li:hover {
@@ -726,6 +725,9 @@ nav {
 
   .medium-leftmargin {
     margin-left: 0%; }
+
+  .medium-leftmargin2 {
+    margin-left: 1.282%; }
 
   .medium-column1 {
     width: 12.820%;
@@ -794,6 +796,9 @@ nav {
     position: relative;
     padding-bottom: 100px; }
 
+  #searchfield .column4.offcolumn1 > div:first-child {
+    padding-top: 100px; }
+
   .sectiontitle {
     padding-bottom: 30px;
     position: relative; }
@@ -807,6 +812,9 @@ nav {
     padding-top: 0px; }
   #about img {
     padding: 30px 0 30px; }
+
+  #neighbourhoods > div:nth-child(2) {
+    display: block; }
 
   #footer .contact {
     padding-top: 62px;
@@ -877,6 +885,9 @@ nav {
   #about img {
     padding: 0px 0 30px; }
 
+  #neighbourhoods > div:nth-child(4) {
+    display: block; }
+
   .centeredtext h3 {
     display: block; }
 
@@ -886,3 +897,5 @@ nav {
     padding-top: 20px;
     font-size: 14px;
     font-size: 0.92rem; } }
+
+/*# sourceMappingURL=simple-style.css.map */

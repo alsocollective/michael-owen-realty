@@ -175,16 +175,20 @@ a {
 		display: inline-block;
 		border: none;
 		background: transparent;
-		color: $purple1;
 		border: 1px solid $purple1;
-		font-size: 1.2em;
+		// font-size: 1.2em;
 		padding: 1em 0;
 		text-transform: uppercase;
-		margin-top: 2em;			
+		margin-top: 2em;
+		h3{
+			color: $purple1;
+		}			
 	}
 	button:hover{
 		background: $purple1;
-		color: #fff;
+		h3{
+			color: #fff;
+		}
 	}
 }
 
@@ -577,7 +581,8 @@ nav {
 			display: inline-block;
 		}
 		>div:first-child{
-			padding-top: 18px;
+			padding-top: 0px;
+			margin-top: -1px;
 			width: 100%;
 		}
 		#priceslider,#bedslider,#bathslider{
@@ -652,6 +657,7 @@ nav {
 	}
 	img{
 		width: 100%;
+		padding-bottom: 30px;
 	}
 	> div{
 		h3{
@@ -734,11 +740,11 @@ nav {
 			position: absolute;
 			left: 12px;
 			top: 14px;
-			background: $grey;
-			-webkit-transition: transform 0.1s ease-in-out;
-			-moz-transition: transform 0.1s ease-in-out;
-			-o-transition: transform 0.1s ease-in-out;
-			transition: transform 0.1s ease-in-out;		
+			background: $purple1;
+			-webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+			-moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+			-o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; 
+			transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;	 
 		}
 		div:nth-child(2){
 			content:" ";
@@ -748,11 +754,11 @@ nav {
 			position: absolute;
 			left: 12px;
 			top: 22px;
-			background: $grey;
-			-webkit-transition: width 0.1s ease-in-out;
-			-moz-transition: width 0.1s ease-in-out;
-			-o-transition: width 0.1s ease-in-out;
-			transition: width 0.1s ease-in-out;		
+			background: $purple1;
+			-webkit-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+			-moz-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+			-o-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+			transition: width 0.1s ease-in-out, background 0.1s ease-in-out;		
 		}
 		div:last-child{
 			content:" ";
@@ -762,48 +768,49 @@ nav {
 			position: absolute;
 			left: 12px;
 			top: 30px;
-			background: $grey;
-			-webkit-transition: transform 0.1s ease-in-out;
-			-moz-transition: transform 0.1s ease-in-out;
-			-o-transition: transform 0.1s ease-in-out;
-			transition: transform 0.1s ease-in-out;	
+			background: $purple1;
+			-webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+			-moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+			-o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; 
+			transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;	 
 		}
 		&:hover{		
 			div:first-child{
-			-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
-			-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
-			transform: translate(1px,9px) rotate(45deg) ;
+			height: 3px;
+			top:14px;
 			}
 			div:nth-child(2){
-			width:0px; /* IE 9 */
+			height: 3px;
+			top:22px;
 			}
 			div:last-child{
-			-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
-			-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
-			transform: translate(0px,-7px) rotate(-45deg) ;
+			height: 3px;
+			top:30px;
 			}
 		}
 	}
-}
-.navactive{
+	&.navactive{
 	> div{
-		div{		
 			div:first-child{
 			-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
 			-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
 			transform: translate(1px,9px) rotate(45deg) ;
+			background: #fff;
 			}
 			div:nth-child(2){
 			width:0px; /* IE 9 */
+			background: #fff;
 			}
 			div:last-child{
 			-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
 			-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
 			transform: translate(0px,-7px) rotate(-45deg) ;
+			background: #fff;
 			}
 		}
 	}
 }
+
 nav {
 	color: #fff;
 	font-size: $smallPixel;
@@ -829,12 +836,12 @@ nav {
 			color: #fff;
 			display: inline-block;
 			width: 100%;
-			text-align: center;
+			text-align: left;
 			padding: 1.5em 0 1.5em 0;
 			font-size: 2em;
 		}
 		width: 100% !important;
-		text-align: center;
+		text-align: left;
 		white-space: nowrap;
 		display: block;
 	}
@@ -862,6 +869,7 @@ nav {
 
 .medium-hide {display:none}
 .medium-leftmargin {margin-left: 0%;}
+.medium-leftmargin2 {margin-left: 1.282%;}
 .medium-column1 {width: 12.820%;margin-right: 1.282%;min-height: 20px;}
 .medium-column2 {width: 26.923%;margin-right: 1.282%;}
 .medium-column3 {width: 41.025%;margin-right: 1.282%;}
@@ -890,6 +898,10 @@ nav {
 	}
 }
 
+#searchfield .column4.offcolumn1>div:first-child{
+	padding-top:100px;
+}
+
 .sectiontitle{
 	padding-bottom:30px;
 	position:relative;
@@ -910,6 +922,12 @@ nav {
 		padding: 30px 0 30px;
 		}
 	}
+
+#neighbourhoods{
+	>div:nth-child(2){
+		display: block;
+	}
+}
 #footer .contact {
 	padding-top: 62px;
 	padding-bottom: 350px;
@@ -962,6 +980,12 @@ ul{
 		padding: 0px 0 30px;
 		}
 	}
+
+#neighbourhoods{
+	>div:nth-child(4){
+		display: block;	
+	}
+}
 
 .centeredtext {
 	h3{	display:block;}
