@@ -8,11 +8,13 @@ var app = {
 		$("nav a").click(app.nav.navmenueclick);
 
 		//location on page tracking
+		app.url.gotohashlocation();
 
 		//google analytics
 
 		//if of size use the mobile dropdown menue
 		$("#navbutton").click(app.nav.togglemenue);
+		app.url.setupPagescroll(".mainwrapper");
 	},
 	nav: {
 		navmenueclick: function(event) {
@@ -39,6 +41,7 @@ var app = {
 			newMainContainer.className = "mainwrapper offright";
 			document.body.appendChild(newMainContainer);
 			$(newMainContainer).load(url, function(response, status, xhr) {
+				$.waypoints('destroy');
 				var wrappers = $(".mainwrapper"),
 					oldW = $(wrappers[0]),
 					newW = $(wrappers[1]);
@@ -51,6 +54,7 @@ var app = {
 			setTimeout(function() {
 				app.options.loadingpage = false;
 				element.parentNode.removeChild(element);
+				app.url.setupPagescroll(".mainwrapper")
 			}, time);
 		},
 		togglemenue: function(event) {
@@ -77,9 +81,25 @@ var app = {
 			spliturl[spliturl.length - 1] = "ajax" + spliturl[spliturl.length - 1];
 			return spliturl.join("/");
 		},
-		setupPagescroll: function(page) {
-			$(page).find("")
-			console.log()
+		setupPagescroll: function(className) {
+			var els = $(className + " h2");
+			els.waypoint(app.url.setSectionAsHash, {
+				context: '.mainwrapper'
+			});
+		},
+		setSectionAsHash: function() {
+			location.hash = app.url.slugify(this.innerHTML);
+		},
+		slugify: function(Text) {
+			return Text
+				.toLowerCase()
+				.replace(/ /g, '-')
+				.replace(/[^\w-]+/g, '');
+		},
+		gotohashlocation: function() {
+			var gotoEl = $(location.hash);
+			$(".mainwrapper").scrollTop(200)
+			console.log(location.hash)
 		}
 	},
 	about: {
