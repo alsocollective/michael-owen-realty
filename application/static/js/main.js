@@ -15,6 +15,9 @@ var app = {
 		//if of size use the mobile dropdown menue
 		$("#navbutton").click(app.nav.togglemenue);
 		app.url.setupPagescroll(".mainwrapper");
+
+		app.resize();
+		$(window).resize(app.resize);		
 	},
 	nav: {
 		navmenueclick: function(event) {
@@ -64,6 +67,9 @@ var app = {
 		changeurl: function(link) {
 			$(".currentpage").removeClass("currentpage");
 			$($('a[href="' + link + '"]')[0].parentNode).addClass("currentpage")
+		},
+		correctSize: function(){
+			$("#nav").width($(".mainwrapper div").width());
 		}
 	},
 	url: {
@@ -190,7 +196,7 @@ var app = {
 			console.log("sell setting up");
 		}
 	},
-
-
-
+	resize: function(){
+		app.nav.correctSize();
+	}
 }

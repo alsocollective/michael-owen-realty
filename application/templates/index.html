@@ -22,18 +22,20 @@
 
 </head>
 <body>
-	<nav class="grid offleft">
-		<ul>
-			<li class="column1 leftmargin medium-offcolumn1 {% block aboutnav %}{% endblock %}"><a href="/">Michael Owen</a>
-			</li><li class="column1 medium-offcolumn1{% block searchnav %}{% endblock %}"><a href="/search">Property Search</a>
-			</li><li class="column1 medium-offcolumn1{% block sellnav %}{% endblock %}"><a href="/sell">Selling Property</a>
-			</li><li class="column1 medium-offcolumn1{% block buynav %}{% endblock %}"><a href="/buy">Buying Property</a>
+	<div id="nav">
+		<nav class="grid offleft">
+			<ul>
+				<li class="column1 leftmargin medium-offcolumn1 {% block aboutnav %}{% endblock %}"><a href="/">Michael Owen</a>
+				</li><li class="column1 medium-offcolumn1 {% block searchnav %}{% endblock %}"><a href="/search">Property Search</a>
+				</li><li class="column1 medium-offcolumn1 {% block sellnav %}{% endblock %}"><a href="/sell">Selling Property</a>
+				</li><li class="column1 medium-offcolumn1 {% block buynav %}{% endblock %}"><a href="/buy">Buying Property</a>
 
-			</li><li class="column1 medium-hide">
-			</li><li class="column1 medium-offcolumn1"><a href="tel:+14169966936">Phone<span class="medium-hide">: 416-996-6936</span></a>
-			</li><li class="column1 medium-offcolumn1"><a href="mailto:michael@myrealestatepro.ca">Email<span class="medium-hide">: michael@myrealestatepro.ca</span></a></li>
-		</ul>
-	</nav>
+				</li><li class="column1 medium-hide">
+				</li><li class="column1 medium-offcolumn1"><a href="tel:+14169966936">Phone<span class="medium-hide">: 416-996-6936</span></a>
+				</li><li class="column1 medium-offcolumn1"><a href="mailto:michael@myrealestatepro.ca">Email<span class="medium-hide">: michael@myrealestatepro.ca</span></a></li>
+			</ul>
+		</nav>
+	</div>
 	<div id="navbutton"><div><div></div><div></div><div></div></div></div>
 	<div class="mainwrapper">	
 		{% block content %}
