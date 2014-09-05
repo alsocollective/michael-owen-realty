@@ -4,6 +4,7 @@ var app = {
 		pagetransitiontime: 1000
 	},
 	init: function() {
+
 		//ajax load pages
 		$("nav a").click(app.nav.navmenueclick);
 
@@ -17,7 +18,12 @@ var app = {
 		app.url.setupPagescroll(".mainwrapper");
 
 		app.resize();
-		$(window).resize(app.resize);		
+		$(window).resize(app.resize);
+
+		$(window).on("hashchange", function() {
+			console.log("hash changed");
+		})
+
 	},
 	nav: {
 		navmenueclick: function(event) {
@@ -68,8 +74,8 @@ var app = {
 			$(".currentpage").removeClass("currentpage");
 			$($('a[href="' + link + '"]')[0].parentNode).addClass("currentpage")
 		},
-		correctSize: function(){
-			$("#nav").width($(".mainwrapper div").width());
+		correctSize: function() {
+			$("#nav").width($($(".mainwrapper div")[0]).width());
 		}
 	},
 	url: {
@@ -104,8 +110,6 @@ var app = {
 		},
 		gotohashlocation: function() {
 			var gotoEl = $(location.hash);
-			$(".mainwrapper").scrollTop(200)
-			console.log(location.hash)
 		}
 	},
 	about: {
@@ -196,7 +200,7 @@ var app = {
 			console.log("sell setting up");
 		}
 	},
-	resize: function(){
+	resize: function() {
 		app.nav.correctSize();
 	}
 }

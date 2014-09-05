@@ -354,9 +354,11 @@ nav {
 
 	&.offright{
 		left: 100%;
+		overflow: hidden;
 	}
 	&.offleft{
 		left: -100%;
+		overflow: hidden;
 	}
 }
 
@@ -643,6 +645,20 @@ nav {
 		margin-bottom: -92px;
 	}
 }
+.touch{
+	#searchfield{
+		.noUi-horizontal {
+			height: 12px;
+		}
+		.noUi-horizontal .noUi-handle {
+			width: 24px;
+			height: 24px;
+			left: -8px;
+			top: -7px;
+		}
+	}
+}
+
 
 #featured{
 	.sectiontitle{
