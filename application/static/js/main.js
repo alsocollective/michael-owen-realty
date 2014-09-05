@@ -39,7 +39,9 @@ var app = {
 				}
 				app.options.loadingpage = true;
 				app.nav.loadpage(this.href)
-				app.nav.togglemenue();
+				if ($("#navbutton").hasClass("navactive")) {
+					app.nav.togglemenue();
+				}
 				return false;
 			}
 		},
