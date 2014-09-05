@@ -724,9 +724,6 @@ nav {
     display: none; }
 
   .medium-leftmargin {
-    margin-left: 0%; }
-
-  .medium-leftmargin2 {
     margin-left: 1.282%; }
 
   .medium-column1 {
@@ -820,6 +817,8 @@ nav {
     padding-top: 62px;
     padding-bottom: 350px; } }
 @media all and (max-width: 500px) {
+  .grid .small-leftmargin {
+    margin-left: 1.282%; }
   .grid .small-column1 {
     width: 12.820%;
     margin-right: 1.282%;
@@ -885,8 +884,15 @@ nav {
   #about img {
     padding: 0px 0 30px; }
 
+  #neighbourhoods > div:nth-child(3) p {
+    margin-left: 0px; }
   #neighbourhoods > div:nth-child(4) {
-    display: block; }
+    display: inline-block; }
+  #neighbourhoods > div:last-child {
+    display: inline-block; }
+
+  #neighbourhoods > div h3:first-child {
+    margin-top: 20px; }
 
   .centeredtext h3 {
     display: block; }
