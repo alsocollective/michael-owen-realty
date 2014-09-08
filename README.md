@@ -1,4 +1,3 @@
-
-// coded by ALSO COLLECTIVE
-
-=== Realestate website ===
+Realestate website
+==================
+> coded by ALSO COLLECTIVE

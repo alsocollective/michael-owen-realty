@@ -79,6 +79,14 @@ h5{
 	line-height:1.7em;	
 }
 
+h6{
+	font-size: $h2Psmall;
+  	font-size: $h2Emsmall;
+  	text-transform: uppercase;
+	color: $grey;
+	letter-spacing: 2px;
+}
+
 ul, li, p ,div{
 	margin: 0;
 	padding: 0;
@@ -686,6 +694,19 @@ nav {
 		padding-bottom: 30px;
 	}
 }
+
+
+.propertyimages{
+	margin-top:30px;
+}
+
+.socialmedia{
+	a{
+		padding-right: 10px;
+		text-decoration: none;
+	}
+}
+
 #neighbourhoods{
 	.sectiontitle{
 		position: relative;
@@ -763,9 +784,8 @@ nav {
 	height: 100%;
 	background: rgba(0,0,0,0.5);
 	padding-top: 92px;
-	// display: table;
+	z-index: 99;
 	>div{
-		// display: table-cell;
 		vertical-align: middle;
 	}
 	.grid {
@@ -802,6 +822,9 @@ nav {
 			border-spacing: 0px;
 			width: 100%;
 			margin: 0 0 20px 0;
+			tr td:first-child{
+				width:60%;
+			}
 			td{
 				vertical-align: top;
 				padding: 0;
@@ -819,6 +842,11 @@ nav {
 		}
 	}
 }
+
+@media all and (max-width: 1200px){
+	.hide {display:none}
+}
+
 
 @media all and (max-width: 800px){
 #navbutton{
@@ -968,7 +996,7 @@ nav {
 	left: -100%;
 }
 
-.medium-hide {display:none}
+.hide {display:none}
 .medium-leftmargin {margin-left: 1.282%;}
 .medium-column1 {width: 12.820%;margin-right: 1.282%;min-height: 20px;}
 .medium-column2 {width: 26.923%;margin-right: 1.282%;}
