@@ -13,6 +13,8 @@ $h4P: 22px;
 $h4Em: 1.4rem;
 $pP: 15px;
 $pEm: 1rem;
+$pP2: 13px;
+$pEm2: 0.8em;
 
 $h1Emmedium: 8rem;
 $h1Emsmall: 5.5rem;
@@ -103,7 +105,7 @@ a {
 }
 
 .grid{
-	max-width: 1080px;
+	max-width: 1280px;
 	width: 90%;
 	margin: 0 auto;
 }
@@ -742,18 +744,60 @@ nav {
 	width: 100%;
 	height: 100%;
 	background: rgba(0,0,0,0.5);
-	display: table;
+	padding-top: 92px;
+	// display: table;
 	>div{
-		display: table-cell;
+		// display: table-cell;
 		vertical-align: middle;
 	}
 	.grid {
 		background: #fff;
 		> div{
 			display: inline-block;
+			> p:last-child{
+				padding-bottom: 60px;
+			}
 		}
 		img{
 			width: 100%;
+		}
+		p{
+			font-size: $pP2;
+			font-size: $pEm2;
+		}
+		h2{
+			color: $grey;
+			text-transform: uppercase;
+			padding-bottom: 10px;
+			font-size: 1.1em;
+		}
+		h3{
+			color: $purple1;
+			padding-bottom: 5px;
+			font-size: 0.7rem;
+			line-height: 1em;	
+		}
+		>div:nth-child(2) table{
+			margin: 20px 0 30px 0;
+		}
+		table {
+			border-spacing: 0px;
+			width: 100%;
+			margin: 0 0 20px 0;
+			td{
+				vertical-align: top;
+				padding: 0;
+			}
+			h3{
+				padding: 0;
+			}
+			p{
+				padding: 0;
+				padding-right: 5px;
+				color: $purple1;
+				font-size: 0.74em;
+				line-height: 1;
+			}
 		}
 	}
 }
@@ -1041,13 +1085,16 @@ ul{
 }
 
 .centeredtext {
-	h3{	display:block;}
+	h3{	
+		display:block;
+	}
 }
 p{
 	width:100% !important;
 	margin-left:-5px;
-  	// padding-top:20px;
-  	font-size: $pPsmall;
-  	font-size: $pEmsmall;
-}
+
+	padding-top:20px;
+	font-size: $pPsmall;
+	font-size: $pEmsmall;
+	}
 }
