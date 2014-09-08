@@ -1,6 +1,3 @@
-
-
 Realestate website
 ==================
-
--> coded by ALSO COLLECTIVE
+> coded by ALSO COLLECTIVE
