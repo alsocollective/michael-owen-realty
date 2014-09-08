@@ -1,4 +1,5 @@
 {% extends basetemplate %}
+{% load staticfiles %}
 {% block content %}
 <div id="smallsplash">
 	<div class="titlebox titleboxmargins grid">
@@ -7,6 +8,7 @@
 			<span class="leftmargin leftalign">Property<br>Search</span>
 			</h1>
 	</div>
+	<div class="mainimg" style="background-image: url({% static "img/Grey_Skyline_Property.jpg"%});"></div>
 </div>
 <div class="main grid">
 
@@ -100,6 +102,7 @@
 		{% for i in "123456789" %}<li class="column2 medium-column3 small-column7">
 				<div class="propertyimage">
 					<img src="http://placehold.it/305x200">
+
 				</div>
 				<div class="propertycontent">
 					<h3>Little Italy</h3><br>
@@ -126,7 +129,7 @@
 			Neighbourhoods
 		</h2>
 	</div>
-	<div class="column2 leftmargin small-column4"><img src="http://placehold.it/300x300">
+	<div class="column2 leftmargin small-column4"><img src="{% static "img/Grey-Little-Italy.jpg"%}">
 	</div><div class="column3 medium-column5 medium-leftmargin small-column7" id="neighbourhoodajax">
 		<h3 class="purp">Little Italy</h3>
 		<p>Little Italy, sometimes referred to as College Street West or College and Clinton, is a district in Toronto, Ontario, Canada. It is well known for its numerous Italian Canadian restaurants and businesses. The district is centred around a restaurant/bar/ shopping strip along College Street, the heart of which being the intersection of College and Clinton Streets and the adjacent residential area. It overlaps into two official City of Toronto neighbourhoods: Palmerston-Little Italy north of College Street and Trinity-Bellwoods to the south.</p>

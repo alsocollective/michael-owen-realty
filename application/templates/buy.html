@@ -1,4 +1,5 @@
 {% extends basetemplate %}
+{% load staticfiles %}
 {% block content %}
 <div id="smallsplash">
 	<div class="titlebox titleboxmargins grid">
@@ -7,7 +8,7 @@
 			<span class="leftalign">Buying<br>Property</span>
 			</h1>
 	</div>
-	<div id="mainimg"></div>
+	<div class="mainimg buyimg" style="background-image: url({% static "img/Grey_Aerial_Buying.jpg"%});"></div>
 </div>
 
 

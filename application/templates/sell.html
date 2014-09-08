@@ -1,13 +1,15 @@
 {% extends basetemplate %}
+{% load staticfiles %}
 {% block content %}
-<div id="smallsplash">
+<div id="smallsplash" >
+		
 	<div class="titlebox titleboxmargins grid">
 
 		<h1>
 			<span class="leftalign">Selling<br>Property</span>
 			</h1>
 	</div>
-	<div id="mainimg"></div>
+	<div class="mainimg sellimg" style="background-image: url({% static "img/Grey_Downtown_Selling.jpg"%});"></div>
 </div>
 
 

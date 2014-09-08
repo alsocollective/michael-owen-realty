@@ -9,7 +9,7 @@ body {
   position: relative; }
 
 h1, h2, h3 {
-  color: #7d6cb1;
+  color: #6b4fa0;
   padding: 0;
   margin: 0; }
 
@@ -57,6 +57,13 @@ p {
 
 a {
   color: inherit; }
+
+.backgroundimg {
+  position: absolute;
+  background: cover;
+  width: 100%;
+  height: auto;
+  z-index: -1; }
 
 .bold {
   font-weight: bolder !important;
@@ -349,28 +356,36 @@ nav {
 #smallsplash {
   position: relative;
   height: 600px; }
-  #smallsplash #mainimg {
+  #smallsplash .mainimg {
     position: absolute;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
     top: 0;
     width: 100%;
-    height: 100%;
-    background: #cfc; }
+    height: 100%; }
+  #smallsplash .sellimg {
+    background-position: top; }
+  #smallsplash .buyimg {
+    background-position: top; }
 
 #splash {
   position: relative;
   height: 900px; }
-  #splash #mainimg {
+  #splash .mainimg {
     position: absolute;
     left: -10%;
     top: 0;
     width: 120%;
     height: 100%; }
-    #splash #mainimg > div {
+    #splash .mainimg > div {
       width: 47.25%;
       background: #cfc;
       height: 100%;
       display: inline-block; }
-    #splash #mainimg > div:first-child {
+    #splash .mainimg > div:first-child {
       margin-right: 5%; }
   #splash #special {
     position: absolute;
