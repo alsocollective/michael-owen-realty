@@ -913,14 +913,15 @@ nav {
     padding: 0px 0 30px; }
 
   #neighbourhoods > div:nth-child(3) p {
-    margin-left: 0px; }
+    margin-left: 0px;
+    margin-bottom: 30px; }
   #neighbourhoods > div:nth-child(4) {
     display: inline-block; }
   #neighbourhoods > div:last-child {
     display: inline-block; }
 
   #neighbourhoods > div h3:first-child {
-    margin-top: 20px; }
+    margin-top: 0px; }
 
   .centeredtext h3 {
     display: block; }
@@ -928,6 +929,7 @@ nav {
   p {
     width: 100% !important;
     margin-left: -5px;
-    padding-top: 20px;
     font-size: 14px;
     font-size: 0.92rem; } }
+
+/*# sourceMappingURL=simple-style.css.map */

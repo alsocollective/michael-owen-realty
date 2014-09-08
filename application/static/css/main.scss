@@ -1025,6 +1025,7 @@ ul{
 	>div:nth-child(3){
 		p{
 		margin-left: 0px;
+		margin-bottom: 30px;
 		}
 	}
 	>div:nth-child(4){
@@ -1036,7 +1037,7 @@ ul{
 
 }
 #neighbourhoods>div h3:first-child{
-	margin-top:20px;
+	margin-top:0px;
 }
 
 .centeredtext {
@@ -1045,7 +1046,7 @@ ul{
 p{
 	width:100% !important;
 	margin-left:-5px;
-  	padding-top:20px;
+  	// padding-top:20px;
   	font-size: $pPsmall;
   	font-size: $pEmsmall;
 }
