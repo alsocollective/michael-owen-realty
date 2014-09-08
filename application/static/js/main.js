@@ -1,7 +1,8 @@
 var app = {
 	options: {
 		loadingpage: false,
-		pagetransitiontime: 1000
+		pagetransitiontime: 1000,
+		currentPage: "home"
 	},
 	init: function() {
 
@@ -9,7 +10,7 @@ var app = {
 		$("nav a").click(app.nav.navmenueclick);
 
 		//location on page tracking
-		app.url.gotohashlocation();
+		app.url.init();
 
 		//google analytics
 
@@ -20,10 +21,8 @@ var app = {
 		app.resize();
 		$(window).resize(app.resize);
 
-		$(window).on("hashchange", function() {
-			console.log("hash changed");
-		})
-
+		// $(window).on("hashchange", app.url.hashchange);
+		$(window).on("popstate", app.url.urlChange);
 	},
 	nav: {
 		navmenueclick: function(event) {
@@ -37,7 +36,6 @@ var app = {
 					event.preventDefault();
 					return false;
 				}
-				app.options.loadingpage = true;
 				app.nav.loadpage(this.href)
 				if ($("#navbutton").hasClass("navactive")) {
 					app.nav.togglemenue();
@@ -45,8 +43,19 @@ var app = {
 				return false;
 			}
 		},
-		loadpage: function(url) {
-			app.url.seturlfromfull(url);
+		loadpage: function(url, donotsethistory) {
+			if (app.url.currentpage(url)) {
+				return false;
+			}
+			app.options.loadingpage = true;
+			if (!donotsethistory) {
+				app.url.seturlfromfull(url);
+			} else {
+				var location = url.split("/"),
+					name = location[location.length - 1],
+					location = "/" + name;
+				app.nav.changeurl(location);
+			}
 			url = app.url.addajax(url);
 			var newMainContainer = document.createElement("div");
 			newMainContainer.className = "mainwrapper offright";
@@ -59,6 +68,7 @@ var app = {
 				oldW.addClass('offleft');
 				newW.removeClass('offright');
 				app.nav.deleteEl(oldW[0], app.options.pagetransitiontime);
+				app.url.gotohashlocation();
 			});
 		},
 		deleteEl: function(element, time) {
@@ -81,18 +91,40 @@ var app = {
 		}
 	},
 	url: {
+		init: function() {
+			var url = document.URL.split("#")[0].split("/")
+			if (url.length < 5) {
+				url = "home";
+			} else {
+				url = url[url.length - 2]
+			}
+			app.options.currentPage = url;
+			app.url.gotohashlocation();
+		},
 		seturlfromfull: function(location) {
-			var location = location.split("/");
-			location = "/" + location[location.length - 1];
-			window.history.pushState("", "", location);
+			var location = location.split("/"),
+				name = location[location.length - 1],
+				location = "/" + name;
+			window.history.pushState({
+				id: name,
+				path: location
+			}, name, location);
 			app.nav.changeurl(location);
+			return false;
 		},
 		addajax: function(url) {
 			var spliturl = url.split("/");
-			if (spliturl[spliturl.length - 1] == "") {
+			console.log(spliturl.length);
+			if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
 				spliturl[spliturl.length - 1] = "home";
 			}
-			spliturl[spliturl.length - 1] = "ajax" + spliturl[spliturl.length - 1];
+			var appendstring = "ajax";
+			if (spliturl.length < 5) {
+				spliturl[spliturl.length - 1] = appendstring + spliturl[spliturl.length - 1];
+			} else {
+				spliturl[spliturl.length - 2] = appendstring + spliturl[spliturl.length - 2];
+				spliturl[spliturl.length - 1] = "";
+			}
 			return spliturl.join("/");
 		},
 		setupPagescroll: function(className) {
@@ -112,6 +144,33 @@ var app = {
 		},
 		gotohashlocation: function() {
 			var gotoEl = $(location.hash);
+		},
+		urlChange: function(event) {
+			// console.log("=-- url change --=")
+			// if (app.options.loadingpage) {
+			// 	event.preventDefault();
+			// 	return false;
+			// }
+			// app.nav.loadpage(document.URL, true);
+		},
+		hashchange: function(event) {
+			console.log("+-- hash change --+")
+			console.log(event);
+			console.log(document.URL);
+			// if (app.options.loadingpage) {
+			// 	event.preventDefault();
+			// 	return false;
+			// }
+			// app.nav.loadpage(document.URL, true);
+		},
+		currentpage: function(location) {
+			// console.log("+-- current page --+")
+			// if (location.split("#").length) {
+			// 	console.log("true");
+			// 	return true
+			// }
+			// console.log("false");
+			// return false;
 		}
 	},
 	about: {
