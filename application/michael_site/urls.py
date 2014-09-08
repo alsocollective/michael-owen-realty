@@ -15,7 +15,8 @@ urlpatterns = patterns('',
     url(r'^ajaxsearch/', 'michael_site.views.ajaxsearch', name='ajaxsearch'),
 
     url(r'^ajaxproperty/', 'michael_site.views.ajaxproperty', name='ajaxproperty'),
-
+    url(r'^ajaxneighbourhood/', 'michael_site.views.ajaxneighbourhood', name='ajaxneighbourhood'),
+    
 
 )
 

@@ -29,3 +29,7 @@ def ajaxsearch(request):
 
 def ajaxproperty(request):
 	return render_to_response('property.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"ajax.html"})
+
+def ajaxneighbourhood(request):
+	return render_to_response('neighbourhood.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"ajax.html"})
+
