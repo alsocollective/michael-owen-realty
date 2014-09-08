@@ -129,6 +129,7 @@ var app = {
 			app.search.setupBedSlider();
 			app.search.setupBathSlider();
 			app.property.setup()
+			app.search.neighbourhoodSetup();
 		},
 		setuppriceSlider: function() {
 			var priceslider = $(".offright #priceslider");
@@ -197,6 +198,15 @@ var app = {
 			});
 			priceslider.Link("lower").to($("#lowerbath"));
 			priceslider.Link("upper").to($("#upperbath"));
+		},
+		neighbourhoodSetup: function() {
+			$("#neighbourhoods a").click(app.search.neighbourhoodClick) 
+		},
+		neighbourhoodClick: function(event) {
+			console.log(this.href);
+			$('#neighbourhoodajax').load(this.href);
+			event.preventDefault();
+			return false;
 		}
 	},
 	sell: {
@@ -227,7 +237,7 @@ var app = {
 			var newEl = document.createElement("div");
 			newEl.className = "module";
 			document.body.appendChild(newEl);
-			$(newEl).load("ajaxproperty", app.property.loadedproperty);
+			$(newEl).load("/ajaxproperty", app.property.loadedproperty);
 		},
 		loadedproperty: function(response, status, xhr) {
 			app.property.init();
