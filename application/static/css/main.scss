@@ -745,9 +745,8 @@ nav {
 	height: 100%;
 	background: rgba(0,0,0,0.5);
 	padding-top: 92px;
-	// display: table;
+	z-index: 99;
 	>div{
-		// display: table-cell;
 		vertical-align: middle;
 	}
 	.grid {

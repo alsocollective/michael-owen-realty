@@ -200,7 +200,7 @@ var app = {
 			priceslider.Link("upper").to($("#upperbath"));
 		},
 		neighbourhoodSetup: function() {
-			$("#neighbourhoods a").click(app.search.neighbourhoodClick) 
+			$("#neighbourhoods a").click(app.search.neighbourhoodClick)
 		},
 		neighbourhoodClick: function(event) {
 			console.log(this.href);
@@ -221,6 +221,8 @@ var app = {
 				arrows: false
 			});
 			$(".module").click(app.property.delete);
+			console.log($(".module > div"))
+			$(".module > div > div").click(app.property.stopprop);
 		},
 		delete: function() {
 			console.log(this);
@@ -238,6 +240,9 @@ var app = {
 			newEl.className = "module";
 			document.body.appendChild(newEl);
 			$(newEl).load("/ajaxproperty", app.property.loadedproperty);
+		},
+		stopprop: function(event) {
+			event.stopPropagation();
 		},
 		loadedproperty: function(response, status, xhr) {
 			app.property.init();
