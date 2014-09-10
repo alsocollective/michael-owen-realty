@@ -1,11 +1,13 @@
+// Still working on the history change...
+
 var app = {
 	options: {
 		loadingpage: false,
 		pagetransitiontime: 1000,
-		currentPage: "home"
+		previousURL: null
+		// currentPage: "home"
 	},
 	init: function() {
-
 		//ajax load pages
 		$("nav a").click(app.nav.navmenueclick);
 
@@ -20,9 +22,8 @@ var app = {
 
 		app.resize();
 		$(window).resize(app.resize);
-
-		// $(window).on("hashchange", app.url.hashchange);
-		$(window).on("popstate", app.url.urlChange);
+		// $(window).on("hashchange", app.url.gotohash);
+		$(window).on("popstate", app.url.changepage);
 	},
 	nav: {
 		navmenueclick: function(event) {
@@ -44,9 +45,9 @@ var app = {
 			}
 		},
 		loadpage: function(url, donotsethistory) {
-			if (app.url.currentpage(url)) {
-				return false;
-			}
+			// if (app.url.currentpage(url)) {
+			// 	return false;
+			// }
 			app.options.loadingpage = true;
 			if (!donotsethistory) {
 				app.url.seturlfromfull(url);
@@ -69,6 +70,7 @@ var app = {
 				newW.removeClass('offright');
 				app.nav.deleteEl(oldW[0], app.options.pagetransitiontime);
 				app.url.gotohashlocation();
+				app.options.previousURL = document.URL.split("#")[0];
 			});
 		},
 		deleteEl: function(element, time) {
@@ -92,13 +94,14 @@ var app = {
 	},
 	url: {
 		init: function() {
-			var url = document.URL.split("#")[0].split("/")
-			if (url.length < 5) {
-				url = "home";
-			} else {
-				url = url[url.length - 2]
-			}
-			app.options.currentPage = url;
+			// var url = document.URL.split("#")[0].split("/")
+			// if (url.length < 5) {
+			// 	url = "home";
+			// } else {
+			// 	url = url[url.length - 2]
+			// }
+			// app.options.currentPage = url;
+			app.options.previousURL = document.URL.split("#")[0];
 			app.url.gotohashlocation();
 		},
 		seturlfromfull: function(location) {
@@ -110,11 +113,14 @@ var app = {
 				path: location
 			}, name, location);
 			app.nav.changeurl(location);
+			// if (app.options.newhash && $("#" + app.options.newhash).length > 0) {
+			// 	location.hash = app.options.newhash
+			// 	app.options.newhash = null;
+			// }
 			return false;
 		},
 		addajax: function(url) {
 			var spliturl = url.split("/");
-			console.log(spliturl.length);
 			if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
 				spliturl[spliturl.length - 1] = "home";
 			}
@@ -134,7 +140,8 @@ var app = {
 			});
 		},
 		setSectionAsHash: function() {
-			location.hash = app.url.slugify(this.innerHTML);
+			console.log("new subsection");
+			// location.hash = app.url.slugify(this.innerHTML);
 		},
 		slugify: function(Text) {
 			return Text
@@ -145,33 +152,69 @@ var app = {
 		gotohashlocation: function() {
 			var gotoEl = $(location.hash);
 		},
-		urlChange: function(event) {
-			// console.log("=-- url change --=")
-			// if (app.options.loadingpage) {
-			// 	event.preventDefault();
-			// 	return false;
-			// }
-			// app.nav.loadpage(document.URL, true);
-		},
-		hashchange: function(event) {
-			console.log("+-- hash change --+")
-			console.log(event);
-			console.log(document.URL);
-			// if (app.options.loadingpage) {
-			// 	event.preventDefault();
-			// 	return false;
-			// }
-			// app.nav.loadpage(document.URL, true);
-		},
-		currentpage: function(location) {
-			// console.log("+-- current page --+")
-			// if (location.split("#").length) {
-			// 	console.log("true");
-			// 	return true
-			// }
-			// console.log("false");
-			// return false;
+		changepage: function() {
+			app.nav.loadpage(document.URL, true);
 		}
+		// urlChange: function(event) {
+		// 	console.log("=-- url change --=");
+		// 	var splited = document.URL.split("#");
+		// 	if (splited.length > 0) {
+		// 		app.options.newhash = splited[1]
+		// 	}
+		// 	return false;
+		// 	if (document.URL.indexOf("#") > 0) {
+		// 		app.url.hashchange();
+		// 	} else {
+		// 		app.url.fullurlchange();
+		// 	}
+		// },
+		// fullurlchange: function() {
+		// 	console.log("page change");
+		// 	app.nav.loadpage(document.URL, true);
+		// },
+		// hashchange: function(event) {
+		// 	console.log("hash state change");
+		// 	console.log(document.URL.split("#")[0], app.options.previousURL);
+		// 	if (document.URL.split("#")[0] == app.options.previousURL) {
+		// 		console.log("gotohash location")
+		// 		app.url.gotohashlocation();
+		// 	} else {
+		// 		console.log("differnt URL");
+		// 		app.nav.loadpage(document.URL.split("#")[0]);
+		// 	}
+		// 	// app.options.newhash = document.URL.split("#")[1]
+
+
+
+		// 	// console.log("+-- hash change --+")
+		// 	// console.log(event);
+		// 	// console.log(document.URL);
+		// 	// if (app.options.loadingpage) {
+		// 	// 	event.preventDefault();
+		// 	// 	return false;
+		// 	// }
+		// 	// app.nav.loadpage(document.URL, true);
+		// },
+		// currentpage: function(location) {
+		// 	console.log("+-- current page --+")
+		// 	if (location.split("#").length) {
+		// 		console.log("true");
+		// 		return true
+		// 	}
+		// 	console.log("false");
+		// 	return false;
+		// },
+		// gotohash: function(event) {
+		// 	var split = document.URL.split("#");
+		// 	if (split.length > 0) {
+		// 		$.waypoints('disable')
+		// 		$('html,body').animate({
+		// 			scrollTop: $("#" + split[1]).offset().top
+		// 		}, 0, function() {
+		// 			$.waypoints('enable')
+		// 		});
+		// 	}
+		// }
 	},
 	about: {
 		init: function() {
@@ -262,7 +305,6 @@ var app = {
 			$("#neighbourhoods a").click(app.search.neighbourhoodClick)
 		},
 		neighbourhoodClick: function(event) {
-			console.log(this.href);
 			$('#neighbourhoodajax').load(this.href);
 			event.preventDefault();
 			return false;
@@ -280,11 +322,9 @@ var app = {
 				arrows: false
 			});
 			$(".module").click(app.property.delete);
-			console.log($(".module > div"))
 			$(".module > div > div").click(app.property.stopprop);
 		},
 		delete: function() {
-			console.log(this);
 			this.parentNode.removeChild(this);
 		},
 		setup: function() {
@@ -292,7 +332,6 @@ var app = {
 		},
 		loadproperty: function(event) {
 			if (app.options.loadingpage) {
-				console.log("already loading page");
 				return false;
 			}
 			var newEl = document.createElement("div");
