@@ -67,7 +67,9 @@ var app = {
 					oldW = $(wrappers[0]),
 					newW = $(wrappers[1]);
 				oldW.addClass('offleft');
-				newW.removeClass('offright');
+				setTimeout(function() {
+					newW.removeClass('offright');
+				}, app.options.pagetransitiontime);
 				app.nav.deleteEl(oldW[0], app.options.pagetransitiontime);
 				app.url.gotohashlocation();
 				app.options.previousURL = document.URL.split("#")[0];

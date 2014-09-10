@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'application/static/css/simple-style.css': 'application/static/css/main.scss'
+					'application/static/css/simple-style.css': 'application/static/css/base.scss'
 				}
 			}
 		},
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			css: {
-				files: ['**/*.scss', 'application/static/css/jquery.nouislider.css','application/static/css/slick.css'],
+				files: ['**/*.scss', 'application/static/css/jquery.nouislider.css', 'application/static/css/slick.css'],
 				tasks: ['sass', 'cssmin']
 			},
 			js: {
