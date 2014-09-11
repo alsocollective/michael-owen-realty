@@ -236,7 +236,7 @@ var app = {
 			app.search.neighbourhoodSetup();
 		},
 		setuppriceSlider: function() {
-			var priceslider = $(".offright #priceslider");
+			var priceslider = $(".offright #priceslider a");
 			if (priceslider.length == 0) {
 				priceslider = $("#priceslider")
 			}
@@ -325,21 +325,30 @@ var app = {
 			});
 			$(".module").click(app.property.delete);
 			$(".module > div > div").click(app.property.stopprop);
+			app.property.resizemap();
+			// location.hash = 
+		},
+		resizemap: function() {
+			var iframe = $("#gmap iframe");
+			iframe.height(iframe.width());
 		},
 		delete: function() {
 			this.parentNode.removeChild(this);
 		},
 		setup: function() {
-			$(".propertylist li").click(app.property.loadproperty);
+			$(".propertylist li a").click(app.property.loadproperty);
 		},
 		loadproperty: function(event) {
+			event.preventDefault();
 			if (app.options.loadingpage) {
 				return false;
 			}
+			console.log(this.href);
 			var newEl = document.createElement("div");
 			newEl.className = "module";
 			document.body.appendChild(newEl);
-			$(newEl).load("/ajaxproperty", app.property.loadedproperty);
+			$(newEl).load(this.href, app.property.loadedproperty);
+			return false;
 		},
 		stopprop: function(event) {
 			event.stopPropagation();
@@ -350,5 +359,6 @@ var app = {
 	},
 	resize: function() {
 		app.nav.correctSize();
+		app.property.resizemap();
 	}
 }

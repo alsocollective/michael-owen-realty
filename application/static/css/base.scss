@@ -219,6 +219,10 @@ a {
 	position: relative;
 	width: 100%;
 	margin-bottom: -28px;
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
 	p {
 		font-size: 13px;
 		font-size: 0.8em;
@@ -263,6 +267,7 @@ a {
 	padding-top: 60px;
 	padding-bottom: 100px;
 	position: relative;
+	overflow: hidden;
 	p {
 		color: #fff;
 		padding-top: 24px;
@@ -348,7 +353,7 @@ nav {
 	width: 100%;
 	overflow: scroll;
 	> div {
-		overflow: hidden;
+		// overflow: hidden;
 	}
 	-webkit-overflow-scrolling: touch;
 	-moz-overflow-scrolling: touch;
@@ -425,6 +430,7 @@ nav {
 	height: 360px;
 	width: 100%;
 	position: relative;
+	overflow: hidden;
 }
 
 #splash {
@@ -501,6 +507,7 @@ nav {
 	background-image: url(http://placehold.it/250x360);
 	background-repeat: no-repeat;
 	background-position: left bottom;
+	overflow: hidden;
 	> div:first-child {
 		background-image: url(http://placehold.it/250x360);
 		background-repeat: no-repeat;
@@ -748,6 +755,7 @@ nav {
 	background-image: url(http://placehold.it/250x360);
 	background-repeat: no-repeat;
 	background-position: left bottom;
+	overflow: hidden;
 	> div:first-child {
 		background-image: url(http://placehold.it/250x360);
 		background-repeat: no-repeat;
@@ -780,10 +788,13 @@ nav {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
-	padding-top: 92px;
-	z-index: 99;
+	z-index: 101;
+	overflow: scroll;
 	> div {
+		padding-top: 92px;
 		vertical-align: middle;
+		padding-bottom: 92px;
+
 	}
 	.grid {
 		background: #fff;
@@ -837,6 +848,9 @@ nav {
 				line-height: 1;
 			}
 		}
+	}
+	#gmap{
+		padding-bottom: 30px;
 	}
 }
 

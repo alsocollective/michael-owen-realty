@@ -34,3 +34,9 @@ def ajaxneighbourhood(request, urlneighbourhood):
 	out = {"title":urlneighbourhood,"content":"blah blah"}
 	return render_to_response('neighbourhood.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"ajax.html", "location":out})
 
+def property(request,propertyid):
+	print propertyid
+	template = "index.html"
+	if(request.is_ajax()):
+		template = "ajax.html"
+	return render_to_response('property.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':template})
