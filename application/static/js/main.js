@@ -330,7 +330,7 @@ var app = {
 		},
 		resizemap: function() {
 			var iframe = $("#gmap iframe");
-			iframe.height(iframe.width());
+			iframe.height(iframe.width()*0.8);
 		},
 		delete: function() {
 			this.parentNode.removeChild(this);
