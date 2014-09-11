@@ -213,4 +213,11 @@
 		padding-bottom: 350px;
 
 	}
+
+	.module{
+		> div{
+			padding: 0;
+			background: #fff;
+		}
+	}
 }
