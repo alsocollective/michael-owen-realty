@@ -113,6 +113,15 @@ a {
 	color: inherit;
 }
 
+#underline{
+	text-decoration: none;
+	border-bottom: 1.6px solid $purple1;
+	color:$purple1; 
+	padding-bottom: 0px;
+	margin-bottom: 3px;
+	width: 110px;
+}
+
 .backgroundimg {
 	position: absolute;
 	background: cover;
@@ -239,6 +248,10 @@ a {
 		.propertycontent h3:last-child:hover {
 			text-decoration: underline;
 		}
+	}
+	li:hover{
+		background: $green;
+		// h3,p{color:#fff;}
 	}
 	li:last-child {
 		margin-right: 0;
@@ -543,6 +556,12 @@ nav {
 		font-weight: normal;
 		position: relative;
 		background: #fff;
+	}
+	ul{
+		padding-bottom: 30px;
+	}
+	h3{
+		display: block;
 	}
 	.bbinputs {
 		padding-bottom: 50px;

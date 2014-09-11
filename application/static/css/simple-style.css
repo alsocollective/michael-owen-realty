@@ -89,52 +89,44 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-@-webkit-keyframes leftOffRight {
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-moz-keyframes leftOffRight {
+@-moz-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-o-keyframes leftOffRight {
+@-o-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@keyframes leftOffRight {
+@keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-webkit-keyframes leftOffLeft {
+@-webkit-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-moz-keyframes leftOffLeft {
+@-moz-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-o-keyframes leftOffLeft {
+@-o-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@keyframes leftOffLeft {
+@keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
 html, body {
@@ -203,6 +195,14 @@ p {
 
 a {
   color: inherit; }
+
+#underline {
+  text-decoration: none;
+  border-bottom: 1.6px solid #7d6cb1;
+  color: #7d6cb1;
+  padding-bottom: 0px;
+  margin-bottom: 3px;
+  width: 110px; }
 
 .backgroundimg {
   position: absolute;
@@ -306,6 +306,8 @@ a {
       color: #fff; }
     .propertylist li .propertycontent h3:last-child:hover {
       text-decoration: underline; }
+  .propertylist li:hover {
+    background: #87e922; }
   .propertylist li:last-child {
     margin-right: 0; }
 
@@ -569,6 +571,10 @@ nav {
   font-weight: normal;
   position: relative;
   background: #fff; }
+#searchfield ul {
+  padding-bottom: 30px; }
+#searchfield h3 {
+  display: block; }
 #searchfield .bbinputs {
   padding-bottom: 50px; }
   #searchfield .bbinputs span {
@@ -856,8 +862,8 @@ nav {
 
   nav {
     color: #fff;
-    font-size: 12px;
-    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
     max-width: 100% !important;
     width: 100% !important;
     height: 100%;
@@ -884,7 +890,7 @@ nav {
         width: 84.616%;
         text-align: left;
         padding: 1.5em 0 1.5em 15.384%;
-        font-size: 2em; }
+        font-size: 1.7em; }
     nav li:hover {
       background: #7d6cb1; }
     nav ul {
@@ -905,6 +911,9 @@ nav {
     left: -100%; }
 
   .hide {
+    display: none; }
+
+  .medium-hide {
     display: none; }
 
   .medium-leftmargin {
@@ -976,6 +985,9 @@ nav {
     display: block;
     position: relative;
     padding-bottom: 100px; }
+
+  #smallsplash .buyimg, #smallsplash .sellimg, #smallsplash .propertyimg {
+    background-position: left; }
 
   #searchfield .column4.offcolumn1 > div:first-child {
     padding-top: 100px; }
@@ -1062,6 +1074,15 @@ nav {
     font-size: 14px;
     font-size: 0.92rem; }
 
+  #smallsplash .propertyimg {
+    background-position: 34% 0%; }
+
+  #smallsplash .buyimg {
+    background-position: 35% 0%; }
+
+  #smallsplash .sellimg {
+    background-position: 33% 0%; }
+
   #about .describe-michael {
     font-size: 17px;
     font-size: 0.97rem; }
@@ -1088,3 +1109,5 @@ nav {
     padding-top: 20px;
     font-size: 14px;
     font-size: 0.92rem; } }
+
+/*# sourceMappingURL=simple-style.css.map */
