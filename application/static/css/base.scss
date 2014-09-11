@@ -287,6 +287,7 @@ a {
 }
 
 nav {
+	padding-bottom:25px;
 	color: $purple2;
 	font-size: $smallPixel;
 	font-size: $smallSize;
@@ -313,6 +314,13 @@ nav {
 		top: 0;
 		left: 0;
 	}
+}
+
+#nav{
+	background-color:#fff;
+	background-color:rgba(255,255,255,0.8);
+	position: relative;
+	z-index: 100;
 }
 
 #navbutton {
@@ -392,6 +400,18 @@ nav {
 	.buyimg {
 		background-position: top;
 	}
+}
+
+.buyimg2{
+	background-size: cover;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-position: center;
+	background-position: top;
+	height: 360px;
+	width: 100%;
+	position: relative;
 }
 
 #splash {
@@ -488,19 +508,19 @@ nav {
 	}
 }
 
-#buyingimage {
-	margin-top: 120px;
-	position: relative;
-	background: $green;
-	width: 100%;
-	height: 360px;
-	background-image: url(http://placehold.it/1440x360);
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
+// #buyingimage {
+// 	margin-top: 120px;
+// 	position: relative;
+// 	background: $green;
+// 	width: 100%;
+// 	height: 360px;
+// 	background-image: url(http://placehold.it/1440x360);
+// 	background-repeat: no-repeat;
+// 	-webkit-background-size: cover;
+// 	-moz-background-size: cover;
+// 	-o-background-size: cover;
+// 	background-size: cover;
+// }
 
 #searchfield {
 	.sectiontitle {
