@@ -21,6 +21,9 @@
 .norightmargin {
   margin-right: 0% !important; }
 
+.small-show {
+  display: none; }
+
 .hide {
   display: none; }
 
@@ -95,52 +98,44 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-@-webkit-keyframes leftOffRight {
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-moz-keyframes leftOffRight {
+@-moz-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-o-keyframes leftOffRight {
+@-o-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@keyframes leftOffRight {
+@keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-webkit-keyframes leftOffLeft {
+@-webkit-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-moz-keyframes leftOffLeft {
+@-moz-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-o-keyframes leftOffLeft {
+@-o-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@keyframes leftOffLeft {
+@keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
 html, body {
@@ -345,12 +340,27 @@ a {
     color: #fff; }
   .casestudy h4 {
     padding-top: 36px;
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    position: relative; }
+  .casestudy h4:before {
+    content: '\201C';
+    width: 0;
+    display: inline-block;
+    position: absolute;
+    left: -11px; }
   .casestudy ul {
     color: #fff;
     padding-top: 24px; }
     .casestudy ul li {
-      font-weight: normal; }
+      font-weight: normal;
+      list-style: none;
+      position: relative; }
+  .casestudy li:before {
+    content: '\2022';
+    width: 0;
+    display: inline-block;
+    position: absolute;
+    left: -14px; }
   .casestudy div.sectiontitle {
     display: inline-block;
     position: static; }
@@ -362,6 +372,15 @@ a {
     -moz-box-shadow: inset 0 0 20px #000;
     -webkit-box-shadow: inset 0 0 20px #000;
     box-shadow: inset 0 0 20px #000; }
+
+.dashbefore {
+  position: relative; }
+  .dashbefore :before {
+    content: '\2013';
+    width: 0;
+    display: inline-block;
+    position: absolute;
+    left: -14px; }
 
 nav {
   padding-bottom: 25px;
@@ -574,25 +593,35 @@ nav {
     vertical-align: top; }
     #testimonials .reference > div {
       position: relative; }
+  #testimonials h4 {
+    position: relative; }
+  #testimonials h4:before {
+    content: '\201C';
+    width: 0;
+    display: inline-block;
+    position: absolute;
+    left: -11px; }
 
-#searchfield .sectiontitle {
-  position: absolute; }
-#searchfield input {
+input, textarea {
   color: #4e4e56;
   font-size: 0.8em;
   background: #d8dadb;
-  padding: 5px 10px 2px 10px;
+  padding: 5px 3% 2px 3%;
   margin: 0;
   border: 0;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px; }
-#searchfield label {
+
+label {
   color: #4e4e56;
   font-size: 0.8em;
   font-weight: normal;
   position: relative;
   background: #fff; }
+
+#searchfield .sectiontitle {
+  position: absolute; }
 #searchfield ul {
   padding-bottom: 30px; }
 #searchfield h3 {
@@ -801,6 +830,31 @@ nav {
         line-height: 1; }
   .module #gmap {
     padding-bottom: 30px; }
+
+.request {
+  display: block; }
+  .request .requestform {
+    display: block; }
+  .request:hover h6 {
+    color: #7d6cb1; }
+  .request .requestform {
+    display: block; }
+    .request .requestform input {
+      margin-bottom: 7px;
+      margin-right: 0.7%;
+      vertical-align: middle;
+      display: inline-block;
+      width: 42%; }
+    .request .requestform label {
+      width: 0;
+      overflow: hidden; }
+    .request .requestform #comments {
+      width: 92%;
+      color: #4e4e56;
+      margin-bottom: 7px; }
+    .request .requestform #send {
+      width: 48%;
+      margin-bottom: 15px; }
 
 @media all and (max-width: 1200px) {
   .large-hide {
@@ -1026,6 +1080,12 @@ nav {
     padding-bottom: 30px;
     position: relative; }
 
+  .request .requestform input {
+    width: 91%;
+    height: 30px; }
+  .request .requestform #comments {
+    height: 60px; }
+
   #testimonials .reference {
     padding-top: 62px;
     padding-bottom: 320px; }
@@ -1099,6 +1159,10 @@ nav {
   .grid .small-offcolumn6 {
     left: 85.897%;
     position: relative; }
+  .grid .small-show {
+    display: block; }
+  .grid .only-small-show {
+    display: none; }
 
   .titlebox h1 {
     font-size: 5.5rem; }
@@ -1114,6 +1178,9 @@ nav {
   ul {
     font-size: 14px;
     font-size: 0.92rem; }
+
+  nav li a {
+    font-size: 1.3em; }
 
   #smallsplash .propertyimg {
     background-position: 34% 0%; }
@@ -1158,9 +1225,6 @@ nav {
     margin-left: -5px;
     padding-top: 20px;
     font-size: 14px;
-<<<<<<< HEAD
-    font-size: 0.92rem; } }
-=======
     font-size: 0.92rem; }
 
   .module .medium-column7 > div {
@@ -1168,4 +1232,3 @@ nav {
     display: block; } }
 
 /*# sourceMappingURL=simple-style.css.map */
->>>>>>> 4c8f745d8d1f76f8183c718d12ab9a292dc2fb79

@@ -60,6 +60,12 @@
 			left: 85.897%;
 			position: relative;
 		}
+		.small-show{
+			display: block;
+		}
+		.only-small-show{
+			display: none;
+		}
 	}
 	.titlebox h1 {
 		font-size: $h1Emsmall;
@@ -75,6 +81,9 @@
 	ul {
 		font-size: $pPsmall;
 		font-size: $pEmsmall;
+	}
+	nav li a{
+		font-size: 1.3em; 
 	}
 	#smallsplash .propertyimg{
 		background-position:34% 0%;

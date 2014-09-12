@@ -296,13 +296,30 @@ a {
 	h4 {
 		padding-top: 36px;
 		font-size: 1.2rem;
+		position: relative;
 	}
+	h4:before {
+		content: '\201C';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -11px;
+		}
 	ul {
 		color: #fff;
 		padding-top: 24px;
 		li {
 			font-weight: normal;
+			list-style: none;
+			position: relative;
 		}
+	}
+	li:before {
+		content: '\2022';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -14px;
 	}
 	div.sectiontitle {
 		display: inline-block;
@@ -318,6 +335,17 @@ a {
 		-moz-box-shadow: inset 0 0 20px #000;
 		-webkit-box-shadow: inset 0 0 20px #000;
 		box-shadow: inset 0 0 20px #000;
+	}
+}
+
+.dashbefore{
+	position: relative;
+	:before{
+		content: '\2013';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -14px;
 	}
 }
 
@@ -544,6 +572,16 @@ nav {
 			position: relative;
 		}
 	}
+	h4{
+		position: relative;
+	}
+	h4:before {
+		content: '\201C';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -11px;
+	}
 }
 
 // #buyingimage {
@@ -560,27 +598,28 @@ nav {
 // 	background-size: cover;
 // }
 
+input, textarea {
+	color: $grey;
+	font-size: 0.8em;
+	background: $grey2;
+	padding: 5px 3% 2px 3%;
+	margin: 0;
+	border: 0;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+label {
+	color: $grey;
+	font-size: 0.8em;
+	font-weight: normal;
+	position: relative;
+	background: #fff;
+}
+
 #searchfield {
 	.sectiontitle {
 		position: absolute;
-	}
-	input {
-		color: $grey;
-		font-size: 0.8em;
-		background: $grey2;
-		padding: 5px 10px 2px 10px;
-		margin: 0;
-		border: 0;
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
-		border-radius: 0px;
-	}
-	label {
-		color: $grey;
-		font-size: 0.8em;
-		font-weight: normal;
-		position: relative;
-		background: #fff;
 	}
 	ul{
 		padding-bottom: 30px;
@@ -870,6 +909,45 @@ nav {
 	#gmap{
 		padding-bottom: 30px;
 	}
+}
+
+.request{
+	display:block;
+    .requestform{
+    	 display: block;
+    }
+    &:hover{
+    	h6{
+    		color: $purple1;
+    	}
+    }
+	// &:active{
+		.requestform{
+			display: block;
+			input{
+				margin-bottom: 7px;
+				margin-right: 0.7%;
+				vertical-align: middle;
+				display: inline-block;
+				width: 42%;
+			}
+			label{
+				width:0;
+				overflow:hidden;
+			}
+			#comments{
+				width:92%;
+				color: $grey;
+				margin-bottom: 7px;
+			}
+			#send{
+				width:48%;
+				// margin-top: 15px;
+				margin-bottom: 15px;
+			}
+
+		}
+	// }
 }
 
 @media all and (max-width: 1200px){

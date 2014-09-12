@@ -1,14 +1,14 @@
 {% extends basetemplate %}
 {% load staticfiles %}
 {% block content %}
-<div class="contain">
+<div class="contain itemscope itemtype="http://schema.org/Person"">
 <div class="main grid">
 	<div id="splash">
 		<div class="titlebox">
 		<h1>
-			<span class="leftalign">Michael</span>
-			<span class="rightalign">Owen</span>
-			<span class="center">Realty</span>
+			<span class="leftalign" itemprop="name">Michael</span>
+			<span class="rightalign" itemprop="name">Owen</span>
+			<span class="center" itemprop="jobTitle">Realty</span>
 			</h1>
 		</div>
 		<div id="special" class="column2 offcolumn5 medium-offcolumn4 medium-column3 small-offcolumn0 small-column6">
@@ -86,7 +86,7 @@
 		<div>
 		<div class ="grid"> 
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>“Because of his personality with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
+				<h4>Because of his personality with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
 				<h5>JANE & JOHN SMITH</h5>
 			</div>
 		</div>
@@ -94,7 +94,7 @@
 		<div>
 		<div class ="grid"> 
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>“Throughout his involvement with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
+				<h4>Throughout his involvement with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
 				<h5>ROBERT & LAI-WON</h5>
 			</div>
 		</div>
@@ -102,7 +102,7 @@
 		<div>
 		<div class ="grid"> 	
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">	
-				<h4>“Without his taste with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
+				<h4>Without his taste with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
 				<h5>BOHDAN & SYMON</h5>
 		</div> 
 
@@ -130,8 +130,8 @@
 	<div class="shadow" ></div>
 		<div class="contact grid">
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <a href="tel:+14169966936">416.996.6936</a> or send Michael an <a href="mailto:michael@myrealestatepro.ca">email</a>.</h4>
-				<h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 <br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a><br>EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5>
+				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <span itemprop="telephone"><a href="tel:+14169966936">416.996.6936</a></span> or send Michael an <span itemprop="email"><a href="mailto:michael@myrealestatepro.ca">email</a>.</h4></span>
+				<span itemprop="address"  itemprop="streetAddress"><h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 </span><br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><span itemprop="telephone"><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a></span><br><span itemprop="email">EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5></span>
 			</div>
 	</div>
 </div>
