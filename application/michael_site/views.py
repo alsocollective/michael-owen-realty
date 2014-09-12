@@ -3,6 +3,12 @@ from django.shortcuts import render_to_response, get_object_or_404, render
 from django.conf import settings
 from django.http import Http404  
 
+def templateType(request):
+	template = "index.html"
+	if(request.is_ajax()):
+		template = "ajax.html"
+	return template
+
 def home(request):
 	return render_to_response('about.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
 
@@ -36,7 +42,6 @@ def ajaxneighbourhood(request, urlneighbourhood):
 
 def property(request,propertyid):
 	print propertyid
-	template = "index.html"
-	if(request.is_ajax()):
-		template = "ajax.html"
-	return render_to_response('property.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':template})
+	template = templateType(request)
+	return render_to_response('property.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':template,'pageid':propertyid})
+

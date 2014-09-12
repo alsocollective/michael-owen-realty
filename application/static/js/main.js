@@ -115,6 +115,7 @@ var app = {
 				path: location
 			}, name, location);
 			app.nav.changeurl(location);
+			app.options.previousURL = document.URL;
 			// if (app.options.newhash && $("#" + app.options.newhash).length > 0) {
 			// 	location.hash = app.options.newhash
 			// 	app.options.newhash = null;
@@ -155,7 +156,19 @@ var app = {
 			var gotoEl = $(location.hash);
 		},
 		changepage: function() {
-			app.nav.loadpage(document.URL, true);
+			var url = document.URL.split("#");
+			if (url.length == 0) {
+				console.log("this place")
+				app.nav.loadpage(document.URL, true);
+			} else {
+				if (url[1].length > 0 && $("#" + url[1]).length == 0) {
+					console.log("only hahs change");
+					app.property.loadproperty(null, url[1]);
+				} else if (url[1].length == 0 && $(".module")) {
+					var el = $(".module")[0];
+					el.parentNode.removeChild(el);
+				}
+			}
 		}
 		// urlChange: function(event) {
 		// 	console.log("=-- url change --=");
@@ -326,28 +339,35 @@ var app = {
 			$(".module").click(app.property.delete);
 			$(".module > div > div").click(app.property.stopprop);
 			app.property.resizemap();
-			// location.hash = 
 		},
 		resizemap: function() {
 			var iframe = $("#gmap iframe");
-			iframe.height(iframe.width());
+			iframe.height(iframe.width()*0.8);
 		},
 		delete: function() {
-			this.parentNode.removeChild(this);
+			if (this.parentNode) {
+				this.parentNode.removeChild(this);
+				location.hash = "";
+			}
 		},
 		setup: function() {
 			$(".propertylist li a").click(app.property.loadproperty);
 		},
-		loadproperty: function(event) {
-			event.preventDefault();
+		loadproperty: function(event, hash) {
+			var that = this;
+			if (event) {
+				event.preventDefault();
+			} else {
+				that.href = "/property/" + hash;
+			}
+			console.log(that);
 			if (app.options.loadingpage) {
 				return false;
 			}
-			console.log(this.href);
 			var newEl = document.createElement("div");
 			newEl.className = "module";
 			document.body.appendChild(newEl);
-			$(newEl).load(this.href, app.property.loadedproperty);
+			$(newEl).load(that.href, app.property.loadedproperty);
 			return false;
 		},
 		stopprop: function(event) {
@@ -355,6 +375,7 @@ var app = {
 		},
 		loadedproperty: function(response, status, xhr) {
 			app.property.init();
+			location.hash = $(".module > div")[0].id;
 		}
 	},
 	resize: function() {

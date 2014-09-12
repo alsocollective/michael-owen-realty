@@ -21,6 +21,9 @@
 .norightmargin {
   margin-right: 0% !important; }
 
+.hide {
+  display: none; }
+
 .column1 {
   width: 12.820%;
   margin-right: 1.282%;
@@ -309,17 +312,20 @@ a {
     margin-bottom: 28px; }
     .propertylist li img {
       width: 100%; }
-    .propertylist li > .propertycontent {
+    .propertylist li .propertycontent {
       padding: 5% 0 5% 5%;
       width: 90%; }
-      .propertylist li > .propertycontent p {
+      .propertylist li .propertycontent p {
         padding-top: 2em; }
-    .propertylist li .propertycontent h3:last-child {
-      color: #7d6cb1; }
-    .propertylist li .propertycontent:hover {
-      color: #fff; }
-    .propertylist li .propertycontent h3:last-child:hover {
-      text-decoration: underline; }
+    .propertylist li .share h3 {
+      color: #7d6cb1;
+      display: none; }
+    .propertylist li .share h3:first-child {
+      display: inline-block; }
+    .propertylist li .share:hover h3 {
+      display: inline-block; }
+    .propertylist li .share:hover h3:first-child {
+      display: none; }
   .propertylist li:hover {
     background: #87e922; }
   .propertylist li:last-child {
@@ -372,6 +378,7 @@ nav {
     display: inline-block; }
     nav li a {
       display: inline-block;
+      *display: inline;
       padding: 1.5em 0 0.5em 0;
       text-decoration: none;
       color: inherit; }
@@ -796,7 +803,7 @@ nav {
     padding-bottom: 30px; }
 
 @media all and (max-width: 1200px) {
-  .hide {
+  .large-hide {
     display: none; } }
 @media all and (max-width: 800px) {
   #navbutton {
@@ -939,6 +946,9 @@ nav {
   .medium-leftmargin {
     margin-left: 1.282%; }
 
+  .medium-noleftmargin {
+    margin-left: 0%; }
+
   .medium-column1 {
     width: 12.820%;
     margin-right: 1.282%;
@@ -1035,7 +1045,14 @@ nav {
 
   .module > div {
     padding: 0;
-    background: #fff; } }
+    background: #fff; }
+  .module .medium-column7 > div {
+    width: 45%;
+    display: inline-block; }
+
+  #gmap {
+    padding-top: 30px;
+    padding-left: 1.282%; } }
 @media all and (max-width: 500px) {
   .grid .small-leftmargin {
     margin-left: 1.282%; }
@@ -1113,6 +1130,15 @@ nav {
   #about img {
     padding: 0px 0 30px; }
 
+  .module .grid > div > p:last-child {
+    padding-bottom: 20px;
+    padding-top: 0px;
+    margin-left: 0px; }
+
+  .hide {
+    display: block;
+    padding-bottom: 30px; }
+
   #neighbourhoods > div:nth-child(3) p {
     margin-left: 0px;
     margin-bottom: 30px; }
@@ -1132,4 +1158,14 @@ nav {
     margin-left: -5px;
     padding-top: 20px;
     font-size: 14px;
+<<<<<<< HEAD
     font-size: 0.92rem; } }
+=======
+    font-size: 0.92rem; }
+
+  .module .medium-column7 > div {
+    width: auto;
+    display: block; } }
+
+/*# sourceMappingURL=simple-style.css.map */
+>>>>>>> 4c8f745d8d1f76f8183c718d12ab9a292dc2fb79

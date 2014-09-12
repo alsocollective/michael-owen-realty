@@ -95,6 +95,34 @@
 			padding: 0px 0 30px;
 		}
 	}
+
+	// .propertyimages{
+	// 	padding-top:80px;
+	// }
+
+	.module .grid >div >p:last-child{
+		padding-bottom:20px;
+		padding-top:0px;
+		margin-left: 0px;
+	}
+
+	// .module .grid >div >h3{
+	// 	position: absolute;
+	// 	top: -680px;
+	// 	left:8px;
+	// 	font-size: 0.8rem;
+	// 	line-height: 1.6em;
+	// }
+
+	// .module .grid >div >h6:first-child{
+	// 	padding-top: 120px;
+	// }
+
+	.hide{
+		display: block;
+		padding-bottom:30px;
+	}
+
 	#neighbourhoods {
 		> div:nth-child(3) {
 			p {
@@ -123,5 +151,12 @@
 		padding-top: 20px;
 		font-size: $pPsmall;
 		font-size: $pEmsmall;
+	}
+
+	.module{
+	.medium-column7> div{
+			width: auto;
+			display: block;
+		}
 	}
 }
