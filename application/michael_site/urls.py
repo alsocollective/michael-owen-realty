@@ -8,7 +8,10 @@ urlpatterns = patterns('',
     url(r'^sell/', 'michael_site.views.sell', name='sell'),
     url(r'^buy/', 'michael_site.views.buy', name='buy'),
     url(r'^search/', 'michael_site.views.search', name='search'),
-    
+ 
+    url(r'^404/', 'michael_site.views.fourofour', name='fourofour'),
+    url(r'^500/', 'michael_site.views.fivehun', name='fivehun'),   
+
     url(r'^ajaxhome', 'michael_site.views.ajaxhome', name='ajaxhome'),
     url(r'^ajaxsell/', 'michael_site.views.ajaxsell', name='ajaxsell'),
     url(r'^ajaxbuy/', 'michael_site.views.ajaxbuy', name='ajaxbuy'),

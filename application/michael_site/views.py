@@ -21,6 +21,12 @@ def buy(request):
 def search(request):
 	return render_to_response('search.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
 
+def fourofour(request):
+	return render_to_response('404.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
+def fivehun(request):
+	return render_to_response('500.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
+
+
 def ajaxhome(request):
 	return render_to_response('about.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"ajax.html"})
 

@@ -142,8 +142,22 @@ var app = {
 				context: '.mainwrapper'
 			});
 		},
-		setSectionAsHash: function() {
-			console.log("new subsection");
+		setSectionAsHash: function(event) {
+			// console.log(event);
+			// console.log($(this).prev());
+			if(event == "down"){
+				if($(this).hasClass("whitenav")){
+					$("#navbutton").addClass("white");
+				} else {
+					$("#navbutton").removeClass("white");
+				}
+			} else {
+				if(!$(this).hasClass("whitenav")){
+					$("#navbutton").addClass("white");
+				} else {
+					$("#navbutton").removeClass("white");
+				}
+			}
 			// location.hash = app.url.slugify(this.innerHTML);
 		},
 		slugify: function(Text) {

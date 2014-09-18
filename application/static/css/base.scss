@@ -164,6 +164,18 @@ a {
 	}
 }
 
+.fivehundred .titlebox{
+	span{
+		display: inline;
+	}
+}
+
+.fourofour .titlebox{
+	span{
+		display: inline;
+	}
+}
+
 .bigbutton {
 	display: block;
 	position: relative;
@@ -252,6 +264,7 @@ a {
 		// }
 		.share{
 			h3{
+				font-size: 0.65rem;
 				color: $purple1;
 				display: none;
 			}
@@ -331,11 +344,7 @@ a {
 			border-bottom-color: #fff;
 		}
 	}
-	.shadow {
-		-moz-box-shadow: inset 0 0 20px #000;
-		-webkit-box-shadow: inset 0 0 20px #000;
-		box-shadow: inset 0 0 20px #000;
-	}
+
 }
 
 .dashbefore{
@@ -463,6 +472,28 @@ nav {
 	}
 	.buyimg {
 		background-position: top;
+	}
+}
+
+#smallsplash404 {
+	position: relative;
+	height: 100%;
+	.mainimg {
+		position: absolute;
+		background-size: cover;
+		-o-background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		background-position: center;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.fourofourimg{
+		background-position: top;
+	}
+	.fivehundredimg{
+		background-position: left;
 	}
 }
 
@@ -914,14 +945,14 @@ label {
 .request{
 	display:block;
     .requestform{
-    	 display: block;
+    	 display: none;
     }
     &:hover{
     	h6{
     		color: $purple1;
     	}
     }
-	// &:active{
+	 &:active{
 		.requestform{
 			display: block;
 			input{
@@ -937,6 +968,7 @@ label {
 			}
 			#comments{
 				width:92%;
+				max-width: 110%;
 				color: $grey;
 				margin-bottom: 7px;
 			}
@@ -945,9 +977,8 @@ label {
 				// margin-top: 15px;
 				margin-bottom: 15px;
 			}
-
 		}
-	// }
+	 }
 }
 
 @media all and (max-width: 1200px){

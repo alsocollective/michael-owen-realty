@@ -1,5 +1,21 @@
 @media all and (max-width: 800px){
+	
+
 	#navbutton{
+		&.white{
+
+				> div{
+					div:first-child{
+						background: #fff;
+					}
+					div:nth-child(2){
+						background: #fff;
+					}
+					div:last-child{
+						background: #fff;
+					}
+				}
+		}
 		position: absolute;
 		left: 0;
 		top:0;	
@@ -10,6 +26,10 @@
 			display: block;
 			width: 50px;
 			height: 50px;
+
+						// .navshadow {
+
+			// }
 		
 			div:first-child{
 				content:" ";
@@ -17,13 +37,14 @@
 				height: 2px;
 				display: block;
 				position: absolute;
-				left: 12px;
+				left: 10px;
 				top: 14px;
 				background: $purple1;
 				-webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 				-moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 				-o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; 
-				transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;	 
+				transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;	
+
 			}
 			div:nth-child(2){
 				content:" ";
@@ -31,13 +52,14 @@
 				height: 2px;
 				display: block;
 				position: absolute;
-				left: 12px;
+				left: 10px;
 				top: 22px;
 				background: $purple1;
 				-webkit-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
 				-moz-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
 				-o-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
-				transition: width 0.1s ease-in-out, background 0.1s ease-in-out;		
+				transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
+	
 			}
 			div:last-child{
 				content:" ";
@@ -45,13 +67,14 @@
 				height: 2px;
 				display: block;
 				position: absolute;
-				left: 12px;
+				left: 10px;
 				top: 30px;
 				background: $purple1;
 				-webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 				-moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 				-o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; 
-				transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;	 
+				transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+ 
 			}
 			&:hover{		
 				div:first-child{
@@ -68,6 +91,8 @@
 				}
 			}
 		}
+
+
 		&.navactive{
 		> div{
 				div:first-child{
@@ -180,6 +205,9 @@
 		position: relative;
 			padding-bottom: 100px;
 		}
+		p, ul{
+			padding-top: 12px;
+		}
 	}
 	#smallsplash .buyimg, #smallsplash .sellimg,  #smallsplash .propertyimg{
 		background-position:left;
@@ -215,13 +243,26 @@
 			padding-top:0px;
 		}
 		img {
-			padding: 30px 0 30px;
+			padding: 0px 0px 30px 0px;
 			}
 		}
+
+	.propertylist {
+		li:hover{
+			background: #d8dadb;
+			// h3,p{color:#fff;}
+		}
+		li:hover {
+		color: $grey;
+		}
+	}
 
 	#neighbourhoods{
 		>div:nth-child(2){
 			display: block;
+		}
+		li:hover {
+		color: $grey;
 		}
 	}
 	#footer .contact {
@@ -229,6 +270,15 @@
 		padding-bottom: 350px;
 
 	}
+
+	.bigbutton {
+	button:hover {
+		background: none;
+		h3 {
+			color: #7d6cb1;
+		}
+	}
+}
 
 	.module{
 		> div{

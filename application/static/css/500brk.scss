@@ -60,11 +60,14 @@
 			left: 85.897%;
 			position: relative;
 		}
-		.small-show{
+		.small-show{ 
 			display: block;
 		}
 		.only-small-show{
 			display: none;
+		}
+		.small-hidden{ 
+			display: none !important;
 		}
 	}
 	.titlebox h1 {
@@ -93,6 +96,12 @@
 	} 
 	#smallsplash .sellimg{
 		background-position:33% 0%;
+	}  
+	#smallsplash404 .fourofourimg{
+		background-position:20% 0%;
+	}  
+	#smallsplash404 .fivehundredimg{
+		background-position:20% 0%;
 	}  
 
 	#about {
