@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^ajaxneighbourhood/(?P<urlneighbourhood>.*)/$', 'michael_site.views.ajaxneighbourhood', name='ajaxneighbourhood'),
     
 
+    url(r'^test', 'michael_site.views.testView', name='testView'),
 )
 
 from django.conf import settings
