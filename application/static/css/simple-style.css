@@ -329,7 +329,7 @@ a {
     .propertylist li .share:hover h3:first-child {
       display: none; }
   .propertylist li:hover {
-    background: #87e922; }
+    background: #82d723; }
   .propertylist li:last-child {
     margin-right: 0; }
 
@@ -378,7 +378,7 @@ a {
 
 .dashbefore {
   position: relative; }
-  .dashbefore :before {
+  .dashbefore:before {
     content: '\2013';
     width: 0;
     display: inline-block;
@@ -509,7 +509,8 @@ nav {
   #smallsplash .sellimg {
     background-position: top; }
   #smallsplash .buyimg {
-    background-position: top; }
+    background-position: top;
+    background-position: 0% 20%; }
 
 #smallsplash404 {
   position: relative;
@@ -529,7 +530,7 @@ nav {
   #smallsplash404 .fivehundredimg {
     background-position: left; }
 
-.buyimg2 {
+.buyimg2, .aboutimg2 {
   background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
@@ -539,7 +540,8 @@ nav {
   height: 360px;
   width: 100%;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-top: 120px; }
 
 #splash {
   position: relative;
@@ -577,7 +579,7 @@ nav {
   position: relative; }
 #about img {
   position: relative;
-  padding: 30px 0 50px 0; }
+  padding: 30px 0 80px 0; }
 #about .describe-michael {
   position: absolute;
   bottom: 0;
@@ -595,7 +597,7 @@ nav {
 #testimonials {
   margin-top: 120px;
   position: relative;
-  background: #87e922;
+  background: #82d723;
   width: 100%;
   background-image: url(http://placehold.it/250x360);
   background-repeat: no-repeat;
@@ -1207,6 +1209,8 @@ label {
     display: none; }
   .grid .small-hidden {
     display: none !important; }
+  .grid .small-hide {
+    display: none; }
 
   .titlebox h1 {
     font-size: 5.5rem; }
@@ -1241,6 +1245,9 @@ label {
   #smallsplash404 .fivehundredimg {
     background-position: 20% 0%; }
 
+  .aboutimg2 {
+    background-position: 20% 0%; }
+
   #about .describe-michael {
     font-size: 17px;
     font-size: 0.97rem; }
@@ -1256,6 +1263,11 @@ label {
     display: block;
     padding-bottom: 30px; }
 
+  .casestudy {
+    padding-bottom: 0px; }
+    .casestudy p {
+      padding-bottom: 0px; }
+
   #neighbourhoods > div:nth-child(3) p {
     margin-left: 0px;
     margin-bottom: 30px; }
@@ -1267,15 +1279,21 @@ label {
   #neighbourhoods > div h3:first-child {
     margin-top: 0px; }
 
-  .centeredtext h3 {
+  .main .centeredtext h3 {
     display: block; }
+  .main .centeredtext p {
+    padding-bottom: 48px; }
 
   p {
     width: 100% !important;
     margin-left: -5px;
     padding-top: 20px;
+    padding-bottom: 35px;
     font-size: 14px;
     font-size: 0.92rem; }
+
+  #footer {
+    margin-top: 60px; }
 
   .module .medium-column7 > div {
     width: auto;

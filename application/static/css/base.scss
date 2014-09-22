@@ -7,7 +7,8 @@ $purple3: rgb(107, 79, 160);
 $grey: rgb(78, 78, 86);
 $grey2: #d8dadb;
 $greybackground: #d8dadb;
-$green: rgb(135, 233, 34);
+// $green: rgb(135, 233, 34);
+$green: rgb(130, 215, 35);
 
 $smallPixel: 12px;
 $smallSize: 0.75rem;
@@ -349,7 +350,7 @@ a {
 
 .dashbefore{
 	position: relative;
-	:before{
+	&:before{
 		content: '\2013';
 		width: 0;
 		display: inline-block;
@@ -357,6 +358,7 @@ a {
 		left: -14px;
 	}
 }
+
 
 nav {
 	padding-bottom:25px;
@@ -472,6 +474,7 @@ nav {
 	}
 	.buyimg {
 		background-position: top;
+		background-position:0% 20%;
 	}
 }
 
@@ -497,7 +500,7 @@ nav {
 	}
 }
 
-.buyimg2{
+.buyimg2, .aboutimg2{
 	background-size: cover;
 	-o-background-size: cover;
 	-moz-background-size: cover;
@@ -508,6 +511,7 @@ nav {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	margin-top: 120px;
 }
 
 #splash {
@@ -555,7 +559,7 @@ nav {
 	}
 	img {
 		position: relative;
-		padding: 30px 0 50px 0;
+		padding: 30px 0 80px 0;
 	}
 	.describe-michael {
 		position: absolute;
