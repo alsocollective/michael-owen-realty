@@ -22,7 +22,8 @@
 		<li class="column2 medium-column3 small-column7">
 			<a href="/property/propertyid">
 			<div class="propertyimage">
-				<img src="http://placehold.it/305x200">
+				<!-- <img src="http://placehold.it/305x200"> -->
+				<img class="grayscale" src="{% static "img/house1.jpg"%}">
 			</div>
 				<div class="propertycontent">
 					<h3><span itemprop="addressLocality">Little Italy</span></h3><br>
@@ -32,7 +33,7 @@
 						Stunning Kingsway renovation. Renowned local builder - Rusand’s – going to loving trans- formation in 2011! 4 great bedrooms, dreamy master bath, ‘to die for’ kitchen / family room! Exceptional landscaping.</span>
 					</p><br>
 
-					<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca">EMAIL</a></h3> <h3> FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
+					<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3>     FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
 				</div>
 		</a></li><li class="column2">
 		yep
@@ -100,19 +101,19 @@
 <div id="searchresults" >
 	<ul class="propertylist leftmargin">
 		{% for i in "123456789" %}<li class="column2 medium-column3 small-column7">
-				<div class="propertyimage">
-					<img src="http://placehold.it/305x200">
-
+				<div class="propertyimage ">
+					<!-- <img src="http://placehold.it/305x200"> -->
+					<img class="grayscale" src="{% static "img/house1.jpg"%}">
 				</div>
-				<div class="propertycontent">
+				<div class="propertycontent ">
 					<h3>Little Italy</h3><br>
 					<h3>$890,900</h3>
 					<p>
 						Stunning Kingsway renovation. Renowned local builder - Rusand’s – going to loving trans- formation in 2011! 4 great bedrooms, dreamy master bath, ‘to die for’ kitchen / family room! Exceptional landscaping.
 					</p><br>
-					<h3>SHARE</h3>
+					<!-- <h3>SHARE</h3> -->
 					<div>
-
+					<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca">EMAIL</a></h3> <h3> FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
 					</div>
 				</div>
 		</li>{% endfor %}			

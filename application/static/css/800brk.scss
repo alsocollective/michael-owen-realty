@@ -219,7 +219,6 @@
 		padding-bottom:30px;
 		position:relative;
 	}
-
 	.request .requestform{
 		input{ 
 			width: 91%;
@@ -232,6 +231,9 @@
 
 	}
 
+	#testimonials {
+		margin-top: 80px;
+	}
 	#testimonials .reference {	
 		padding-top: 62px;
 		padding-bottom: 320px;
@@ -251,9 +253,36 @@
 		li:hover{
 			background: #d8dadb;
 			// h3,p{color:#fff;}
+			img{
+				-webkit-filter: grayscale(100%) opacity(0.8);
+				-moz-filter: grayscale(100%) opacity(0.8);
+				-ms-filter: grayscale(100%) opacity(0.8);
+				-o-filter: grayscale(100%) opacity(0.8);
+				filter: grayscale(100%) opacity(0.8);
+				filter: gray;
+			}
 		}
 		li:hover {
 		color: $grey;
+		}
+		li{
+			.share:hover{
+				h3:first-child{
+					display: inline-block;
+				}
+				h3{
+					display: none;
+				}
+			}
+			.share:active{
+
+				h3:first-child{
+					display: none;
+				}
+				h3{
+					display: inline-block;
+				}
+			}
 		}
 	}
 
@@ -265,10 +294,12 @@
 		color: $grey;
 		}
 	}
+	#footer {
+		margin-top: 80px;
+	}
 	#footer .contact {
 		padding-top: 62px;
 		padding-bottom: 350px;
-
 	}
 
 	.bigbutton {
@@ -280,6 +311,9 @@
 	}
 }
 
+	.aboutimg2, .buyimg2{
+		margin-top: 80px;
+	}
 	.module{
 		> div{
 			padding: 0;

@@ -87,7 +87,24 @@
 		font-size: $pEmsmall;
 	}
 	nav li a{
-		font-size: 1.3em; 
+		font-size: 1.1em; 
+	}
+
+	nav{
+		ul {
+				height: 100%;
+				overflow: scroll;
+				padding: 0;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				-webkit-overflow-scrolling: touch;
+				-moz-overflow-scrolling: touch;
+				-ms-overflow-scrolling: touch;
+				-o-overflow-scrolling: touch;
+				overflow-scrolling: touch;
+			}
 	}
 	#smallsplash .propertyimg{
 		background-position:34% 0%;
@@ -148,6 +165,7 @@
 	.casestudy{
 		p{
 			padding-bottom: 0px;
+				margin-left: 0px;
 		}
 		padding-bottom: 0px;
 	}
@@ -180,7 +198,7 @@
 	}
 		p {
 			width: 100% !important;
-			margin-left: -5px;
+			margin-left: -4.5px;
 			padding-top: 20px;
 			padding-bottom: 35px;
 			font-size: $pPsmall;

@@ -103,6 +103,9 @@ var app = {
 			// 	url = url[url.length - 2]
 			// }
 			// app.options.currentPage = url;
+
+			console.log("Bohdan");
+
 			app.options.previousURL = document.URL.split("#")[0];
 			app.url.gotohashlocation();
 		},
