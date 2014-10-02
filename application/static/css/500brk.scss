@@ -60,6 +60,16 @@
 			left: 85.897%;
 			position: relative;
 		}
+		.small-show{ 
+			display: block;
+		}
+		.only-small-show{
+			display: none;
+		}
+		.small-hidden{ 
+			display: none !important;
+		}
+		.small-hide {display:none}
 	}
 	.titlebox h1 {
 		font-size: $h1Emsmall;
@@ -76,6 +86,26 @@
 		font-size: $pPsmall;
 		font-size: $pEmsmall;
 	}
+	nav li a{
+		font-size: 1.1em; 
+	}
+
+	nav{
+		ul {
+				height: 100%;
+				overflow: scroll;
+				padding: 0;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				-webkit-overflow-scrolling: touch;
+				-moz-overflow-scrolling: touch;
+				-ms-overflow-scrolling: touch;
+				-o-overflow-scrolling: touch;
+				overflow-scrolling: touch;
+			}
+	}
 	#smallsplash .propertyimg{
 		background-position:34% 0%;
 	}	
@@ -85,6 +115,15 @@
 	#smallsplash .sellimg{
 		background-position:33% 0%;
 	}  
+	#smallsplash404 .fourofourimg{
+		background-position:20% 0%;
+	}  
+	#smallsplash404 .fivehundredimg{
+		background-position:20% 0%;
+	} 
+	.aboutimg2{
+		background-position:20% 0%;
+	} 
 
 	#about {
 		.describe-michael {
@@ -123,6 +162,28 @@
 		padding-bottom:30px;
 	}
 
+	.reference{
+		.slick-dots{
+			bottom:none;
+			top:320px;
+		}
+	}
+
+	#testimonials {
+		background-size:45%; 
+			> div:first-child {
+				background-size:45%;
+			}
+	}
+	
+	.casestudy{
+		p{
+			padding-bottom: 0px;
+				margin-left: 0px;
+		}
+		padding-bottom: 0px;
+	}
+
 	#neighbourhoods {
 		> div:nth-child(3) {
 			p {
@@ -140,17 +201,30 @@
 	#neighbourhoods > div h3:first-child {
 		margin-top: 0px;
 	}
-	.centeredtext {
+
+	.main .centeredtext {
 		h3 {
 			display: block;
 		}
+		p{
+			padding-bottom: 48px;
+		}
 	}
-	p {
-		width: 100% !important;
-		margin-left: -5px;
-		padding-top: 20px;
-		font-size: $pPsmall;
-		font-size: $pEmsmall;
+		p {
+			width: 100% !important;
+			margin-left: -4.5px;
+			padding-top: 20px;
+			padding-bottom: 35px;
+			font-size: $pPsmall;
+			font-size: $pEmsmall;
+		}
+
+	#footer{
+		margin-top: 60px;
+		background-size:45%; 
+			> div:first-child {
+				background-size:45%;
+			}
 	}
 
 	.module{

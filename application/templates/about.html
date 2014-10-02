@@ -2,23 +2,23 @@
 {% load bohdanfilters%}
 {% load staticfiles %}
 {% block content %}
-<div class="contain">
+<div class="contain itemscope itemtype="http://schema.org/Person"">
 <div class="main grid">
 	<div id="splash">
 		<div class="titlebox">
 		<h1>
-			<span class="leftalign">Michael</span>
-			<span class="rightalign">Owen</span>
-			<span class="center">Realty</span>
+			<span class="leftalign" itemprop="name">Michael</span>
+			<span class="rightalign" itemprop="name">Owen</span>
+			<span class="center" itemprop="jobTitle">Realty</span>
 			</h1>
 		</div>
-		<div id="special" class="column2 offcolumn5 medium-offcolumn4 medium-column3 small-offcolumn0 small-column6">
-			<ul class="column1 medium-column3 small-column3">
+		<div id="special" class="column2 offcolumn5 medium-offcolumn4 medium-column3 small-offcolumn0 small-column6">  <spam itemprop="broker">
+			<ul class="column1 medium-column3 small-column4">
 				<li>Royal LePage</li>
 				<li>Johnston &amp; Daniel</li>
-				<li>Division, Brokerage</li>
-			</ul><ul class="column1 norightmargin medium-column3 small-offcolumn1">
-				<li>Featured Property:</li>
+				<li>Division, Brokerage</li></span>
+			</ul><ul class="column1 norightmargin medium-column3 small-column3">
+				<li>Featured <span>Property:</span></li>
 				<li>Little Italy</li>
 				<li>392 Manning Ave</li>
 			</ul>
@@ -29,7 +29,7 @@
 	</div>
 	<div id="fprop">
 		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-			<h2 id="featured-properties">
+			<h2 id="featured-properties" class="purplenav">
 				featured properties
 			</h2>
 		</div>				
@@ -37,56 +37,53 @@
 			{% for prop in featured %}<li class="column2 medium-column3 small-column7">
 				<a href="/property/{{prop.ml_num}}">
 					<div class="propertyimage">
-						<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-
+						<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
 					</div>
 					<div class="propertycontent">
-						<h3>{{prop.community}}</h3><br>
-						<h3>{{prop.lp_dol|nicemoney}}</h3>
-						<p>{{prop.extras}}</p><br>
-						<h3>SHARE</h3>
-						<div>
-
-						</div>
+						<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
+						<h3><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{prop.lp_dol|nicemoney}}</span></span></h3>
+						<p><span itemprop="itemOffered">{{prop.extras}}</span></p><br>
+						<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3>     FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
+						<div></div>
 					</div>
 				</a>
 			</li>{% endfor %}
 		</ul>
 	</div>
 	<div id="about">
-		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-			<h2 id="about-michael-owen">
+		<div class="sectiontitle column2 leftmargin medium-column2 small-column4">
+			<h2 id="about-michael-owen" class="purplenav">
 				about Michael Owen
 			</h2>
 		</div>
 		<img src="http://placehold.it/350x350" class="leftmargin column3">
-		<div class="describe-michael offcolumn2 column4 medium-offcolumn0 medium-column6 small-column7">
-			Michael Owen is a Toronto based sales representative. His philosophy is “good business, generates good business”. It’s important to him that people have a rewarding experience buying and selling their homes and real estate investments. He is passionate, highly ethical and a cooperative communicator, he’s analytical by nature and is very knowledgeable.
+		<div class="describe-michael offcolumn2 column4 medium-offcolumn0 medium-column6 small-column7"><span itemprop ="about">
+			Michael Owen is a real estate sales representative in Toronto, Ontario. Michael advises his clients on the purchase, sale, leasing and development of their homes and real estate investments. Michael has a wide range of experience in real estate and business providing his clients with valuable insight and the skills to develop and execute a strategy to achieve his client's goals. Michael has excellent marketing and sales skills with a very high standard of customer service. He is very knowledge in building construction practices, development potential, and investment analysis educating his clients and providing them with valuable information they can trust.</span>
 		</div>
 	</div>
 	<div id="factors"> 
-		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
+		<div class="sectiontitle column1 leftmargin medium-column2 small-column5">
 			<h2 id="factors-to-consider-when-picking-an-agent">
-				Factors to consider when picking an agent
+				Factors to <span class="small-hide"><br></span>consider <span class="small-hide"><br></span>when picking<span class="small-hide"><br></span> an agent
 			</h2>
 		</div>
 
-		<div class="centeredtext column4 offcolumn1 medium-offcolumn0 medium-column6 small-column7 small-offcolumn0">
-			<h3 class="column1">compatibility</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Personal compatibility is very important because it plays a vital role in cooperative communication. Michael’s fee for services are relative to the quality of service he provides. When someone charges less, you will probably receive less.</p>
-			<h3 class="column1">trust</h3><p class="column3 norightmargin medium-offcolumn1 small-column7 small-offcolumn0">Trust is another very important aspect of communication and it’s the found ation of a solid business relationship, encompassing numerous ethical characteristics including integrity, honestly, professionalism and grace.</p>
-			<h3 class="column1">knowledge</h3><p class="column3 norightmargin medium-offcolumn1 small-column7 small-offcolumn0">Knowledge is an important factor in the quality of service you receive. Michael gives the highest level of service possible. He is a wealth of knowledge in relation to the real estate market, neighbourhood insight and the factors effecting value. Michael’s fee for services are relative to the quality of service he provides. When someone charges less, you will probably receive less.</p>
+		<div class="centeredtext column4 offcolumn1 medium-offcolumn0 medium-column6 small-column7 small-offcolumn0 ">
+			<h3 class="column1">trust</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Trust provides the foundation of every relationship encompassing numerous ethical characteristics including integrity, honestly, professionalism and grace. Michael has earned the trust of his clients by displaying these ethical characteristics in how he operates his business and how he advises his clients.</p>
+			<h3 class="column1">compatibility</h3><p class="column3 norightmargin medium-offcolumn1 small-column7 small-offcolumn0">Compatibility is similar to trust, it's a process that you negotiate throughout the relationship, it is an attitude and a willingness to work together to achieve goals and to move forward. Michael has patiences and a positive attitude with a strong work ethic and a willingness to move forward, real estate investments are long term and Michael continuously works with his clients to achieve their goals.</p>
+			<h3 class="column1">knowledge</h3><p class="column3 norightmargin medium-offcolumn1 small-column7 small-offcolumn0">Knowledge and insight are qualities earned which develop through experience. Michael is continually learning form his experiences, building his knowledge base and gaining valuable insight.  Michael is an excellent listener and educator, passing this wealth of knowledge onto his clients and guiding them through a very important process.</p>
 		</div>					
 	</div>
 </div>
 </div>
-<div id="testimonials" >
-	<div></div>
+<div id="testimonials" itemprop="review" itemscope itemtype="http://schema.org/Review" style="background-image:url({% static "img/symmetrical_house_2_green.png"%})" >
+	<div style="background-image:url({% static "img/symmetrical_house_1_green.png"%})" ></div>
 	<div class="shadow"></div>
-	<div class="reference ">
+	<div class="reference">
 		<div>
 		<div class ="grid"> 
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>“Because of his personality with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
+				<h4>Because of his personality with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
 				<h5>JANE & JOHN SMITH</h5>
 			</div>
 		</div>
@@ -94,7 +91,7 @@
 		<div>
 		<div class ="grid"> 
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>“Throughout his involvement with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
+				<h4>Throughout his involvement with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
 				<h5>ROBERT & LAI-WON</h5>
 			</div>
 		</div>
@@ -102,7 +99,7 @@
 		<div>
 		<div class ="grid"> 	
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">	
-				<h4>“Without his taste with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
+				<h4>Without his taste with the sale Michael displayed an impressive level of professionalism, grace, wisdom and integrity. These qualities are obviously those with which he regularly conducts business and are at a level of excellence dramatically above those displayed by any other real estate peer we have ever encountered.”</h4>
 				<h5>BOHDAN & SYMON</h5>
 		</div> 
 
@@ -113,25 +110,43 @@
 <div class="main grid">
 	<div id="mback">
 		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-			<h2 id="michaels-background">
+			<h2 id="michaels-background" class="purplenav">
 				Michael's background
 			</h2>
 		</div>
 
 		<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
-			<h3 class="column1">Business</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Michael’s business is built on client referrals. His philosophy is “good business, generates good business”.  It’s important to him that people have a rewarding experience buying and selling their homes and real estate investments.  The realtor you choose will have a profound affect on your over all experience and success. If you have not been referred to Michael, please don’t hesitate to contact him. He is always happy to meet with anyone to see if it’s the right fit. Michael’s business is built on referrals and as a result he has a large database of trusted colleagues.  He would be ahappy to help you find the perfect realtor. Michael’s focus is on you, not searching for new business. His clients receive a rewarding experience and want to refer their friends and family!</p>
-			<h3 class="column1">Vision</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Michael’s vision is to create a strong referral based business with life long client relationships. He achieves this by guiding his clients through this very important decision offering guidance, insight and market knowledge.</p>
-			<h3 class="column1">Mission</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Michael will provide a level of service that gows above and beyond most real estate professionals.  Michael is truly a real estate consultant rather than a salesperson. You will benefit from his cooperative communication, analytical nature and sincere concern for your interests.</p>
+			<h3 class="column1">Business</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Michael business is built on the truth, he is not afraid to be honest and straight forward and he may not tell you what want to hear. Michael is not a sales person but an advisor in sales, his transparent approach to advising his clients truly sets him apart from other real estate professionals. Michael receives many referrals from his clients because they have confidence in Michael's honestly, ability, and knowledge, past clients know their friends and family will benefit from working with Michael. He provides a wealth of knowledge you can trust, whether purchasing, selling or investing in real estate, Michael provides invaluable insight with professionalism, grace, and integrity.</p>
+			<h3 class="column1">Vision</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Providing a wealth of information, exceeding goals and building a smart future.</p>
+			<h3 class="column1">Mission</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Michael's mission is to provide high quality personalized real estate advice and guidance to clients for the purchase, sale and leasing of residential and commercials properties through client education, goal assessment, strategy development, and execution.</p>
+		</div>	
+	</div>	
+</div>	
+<div class="aboutimg2" style="background-image: url({% static "img/DavisvilleToronto-lrg.jpg"%});"><div class="shadow"></div></div>
+<div class="main grid">
+	<div id="mback">
+		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
+			<h2 id="michaels-background" class="purplenav">
+				Frequently Asked <span class="small-hide"><br></span>Questions
+			</h2>
+		</div>
+
+		<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
+			<h3 class="column1 small-column7">How to pick <span class="medium-hide"><br></span> the right <span class="medium-hide"><br></span>agent?</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Getting a referral is a good place to start, ask your friends and family to see who’s had a good experience. Meet with potential agents, ask questions and see how they communicate and disseminate information, as they are guiding you through a very important step and you need to be able to trust them 100%. Meeting over a coffee is a good way to get to know a real estate agent and to see how a working relationship might look before you enter into a contract. Hiring a good agent will make all the difference. Please read testimonials from my clients here.</p>
+			<h3 class="column1 small-column7">What is my property <span class="medium-hide"><br></span>value?</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">The value of a property is an evidence based assessment of a property, it’s determined by statistical comparison, assessing the replacement costs and the potential income of the property. An asking price however can be a very different number from the appraised or the assessed value of a property. I like to refer to an asking price as a marketing price. When assessing a property’s marketing price, the market conditions, the property characteristics and the challenges all need to be taken into consideration when assessing the property and determining a strategy to achieve the highest selling price.</p>
+			<h3 class="column1 small-column7">What is my neighbours property <span class="medium-hide"><br></span>value?</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">I'm happy to provide information on the sold properties in your neighbourhood and on your street. The value of your neighbours property could be statistical information to assess the value of your property, but if the property characteristics are vastly different then it may not be a good comparable property. </p>
+			<h3 class="column1 small-column7">How can <span class="small-hide"><br></span>I sell for <span class="small-hide"><br></span>the highest value? </h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">The value of a property is an evidence based assessment of a property, it’s determined by statistical comparison, assessing the replacement costs and the potential income of the property. An asking price however can be a very different number from the appraised or the assessed value of a property. I like to refer to an asking price as a marketing price. When assessing a property’s marketing price, the market conditions, the property characteristics and the challenges all need to be taken into consideration when assessing the property and determining a strategy to achieve the highest selling price.</p>
+			<h3 class="column1 small-column7">What costs should I consider?</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">When selling your most important asset, the largest expense incurred are real estate commissions, which are essentially paid with the funds flowing from the buyer.  Hiring the wrong real estate agent and employing the incorrect strategy can reduce the funds received from the buyer. There are also legal fees, and moving costs to consider. Depending on your property and the strategy you employ, there may also be minor repairs to cover, property staging, plus a survey or a condominium status certificate may be required.</p>
 		</div>	
 	</div>
 </div>
-<div id="footer" >
-	<div></div>
-	<div class="shadow" ></div>
+<div id="footer" style="background-image:url({% static "img/symmetrical_house_1_purple.png"%})">
+	<div style="background-image:url({% static "img/symmetrical_house_2_purple.png"%})"></div>
+	<div class="shadow"></div>
 		<div class="contact grid">
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <a href="tel:+14169966936">416.996.6936</a> or send Michael an <a href="mailto:michael@myrealestatepro.ca">email</a>.</h4>
-				<h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 <br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a><br>EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5>
+				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <span itemprop="telephone"><a href="tel:+14169966936">416.996.6936</a></span> or send Michael an <span itemprop="email"><a href="mailto:michael@myrealestatepro.ca">email</a>.</h4></span>
+				<span itemprop="address"  itemprop="streetAddress"><h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 </span><br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><span itemprop="telephone"><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a></span><br><span itemprop="email">EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5></span>
 			</div>
 	</div>
 </div>

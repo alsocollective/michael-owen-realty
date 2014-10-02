@@ -7,7 +7,7 @@
 	<div class="titlebox titleboxmargins grid">
 
 		<h1>
-			<span class="leftmargin leftalign">Property<br>Search</span>
+			<span class="leftalign">Property<br>Search</span>
 			</h1>
 	</div>
 	<div class="mainimg propertyimg" style="background-image: url({% static "img/Grey_Skyline_Property.jpg"%});"></div>
@@ -16,7 +16,7 @@
 
 <div id="featured">
 	<div class="sectiontitle column1 leftmargin">
-		<h2>
+		<h2 class="purplenav">
 			featured properties
 		</h2>
 	</div>		
@@ -24,27 +24,23 @@
 		{% for prop in featured %}<li class="column2 medium-column3 small-column7">
 			<a href="/property/{{prop.ml_num}}">
 				<div class="propertyimage">
-					<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-
+					<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
 				</div>
 				<div class="propertycontent">
-					<h3>{{prop.community|titlecase}}</h3><br>
-					<h3>{{prop.lp_dol|nicemoney}}</h3>
-					<p>{{prop.extras}}</p><br>
-					<h3>SHARE</h3>
-					<div>
-
-					</div>
+					<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
+					<h3><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{prop.lp_dol|nicemoney}}</span></span></h3>
+					<p><span itemprop="itemOffered">{{prop.extras}}</span></p><br>
+					<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3>     FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
+					<div></div>
 				</div>
 			</a>
 		</li>{% endfor %}
 	</ul>			
-
 </div>
 
 <div id="searchfield">
 	<div class="sectiontitle column1 leftmargin">
-		<h2>
+		<h2 class="purplenav">
 			MLS Property search
 		</h2>
 	</div>	
@@ -95,21 +91,17 @@
 
 <div id="searchresults" >
 	<ul class="propertylist leftmargin">
-
 		{% for prop in data %}<li class="column2 medium-column3 small-column7">
 				<a href="/property/{{prop.ml_num}}">
 					<div class="propertyimage">
-						<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-
+						<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
 					</div>
 					<div class="propertycontent">
 						<h3>{{prop.community|titlecase}}</h3><br>
 						<h3>{{prop.lp_dol|nicemoney}}</h3>
 						<p>{{prop.extras}}</p><br>
-						<h3>SHARE</h3>
-						<div>
-
-						</div>
+						<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca">EMAIL</a></h3> <h3> FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
+						<div></div>
 					</div>
 				</a>
 		</li>{% endfor %}			
@@ -122,13 +114,13 @@
 
 <div id="neighbourhoods">
 	<div class="sectiontitle column1 leftmargin">
-		<h2>
+		<h2 class="purplenav">
 			Neighbourhoods
 		</h2>
 	</div>
 	<div class="column2 leftmargin small-column4"><img src="{% static "img/Grey-Little-Italy.jpg"%}">
 	</div><div class="column3 medium-column5 medium-leftmargin small-column7" id="neighbourhoodajax">
-		<h3 class="purp">Little Italy</h3>
+		<h3 class="purp"><span itemprop="addressLocality">Little Italy</span></h3>
 		<p>Little Italy, sometimes referred to as College Street West or College and Clinton, is a district in Toronto, Ontario, Canada. It is well known for its numerous Italian Canadian restaurants and businesses. The district is centred around a restaurant/bar/ shopping strip along College Street, the heart of which being the intersection of College and Clinton Streets and the adjacent residential area. It overlaps into two official City of Toronto neighbourhoods: Palmerston-Little Italy north of College Street and Trinity-Bellwoods to the south.</p>
 	</div><div class="column1 medium-column1 small-leftmargin small-column3">
 		<h3>west</h3>
@@ -162,13 +154,13 @@
 
 </div>
 
-<div id="footer">
-	<div></div>
+<div id="footer" style="background-image:url({% static "img/symmetrical_house_1_purple.png"%})">
+	<div style="background-image:url({% static "img/symmetrical_house_2_purple.png"%})"></div>
 	<div class="shadow"></div>
 		<div class="contact grid">
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <a href="tel:+14169966936">416.996.6936</a> or send Michael an <a href="mailto:michael@myrealestatepro.ca">email</a>.</h4>
-				<h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 <br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a><br>EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5>
+				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <span itemprop="telephone"><a href="tel:+14169966936">416.996.6936</a></span> or send Michael an <span itemprop="email"><a href="mailto:michael@myrealestatepro.ca">email</a>.</h4></span>
+				<span itemprop="address"  itemprop="streetAddress"><h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 </span><br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><span itemprop="telephone"><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a></span><br><span itemprop="email">EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5></span>
 			</div>
 	</div>
 </div>

@@ -103,6 +103,9 @@ var app = {
 			// 	url = url[url.length - 2]
 			// }
 			// app.options.currentPage = url;
+
+			console.log("Bohdan");
+
 			app.options.previousURL = document.URL.split("#")[0];
 			app.url.gotohashlocation();
 		},
@@ -142,8 +145,22 @@ var app = {
 				context: '.mainwrapper'
 			});
 		},
-		setSectionAsHash: function() {
-			console.log("new subsection");
+		setSectionAsHash: function(event) {
+			// console.log(event);
+			// console.log($(this).prev());
+			if(event == "down"){
+				if($(this).hasClass("whitenav")){
+					$("#navbutton").addClass("white");
+				} else {
+					$("#navbutton").removeClass("white");
+				}
+			} else {
+				if(!$(this).hasClass("whitenav")){
+					$("#navbutton").addClass("white");
+				} else {
+					$("#navbutton").removeClass("white");
+				}
+			}
 			// location.hash = app.url.slugify(this.innerHTML);
 		},
 		slugify: function(Text) {
@@ -383,8 +400,8 @@ var app = {
 		},
 		initslick: function() {
 			$('.propertyimages').slick({
-				dots: true,
-				arrows: false
+				dots: false,
+				arrows: true
 			});
 		},
 		resizemap: function() {

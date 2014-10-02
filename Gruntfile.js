@@ -4,14 +4,18 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'application/static/css/simple-style.css': 'application/static/css/base.scss'
+					'application/static/css/simple-style.css': 'application/static/css/base.scss',
+					'application/static/css/tablet.css': 'application/static/css/tablet.scss',
+					'application/static/css/mobile.css': 'application/static/css/mobile.scss'
 				}
 			}
 		},
 		cssmin: {
 			combine: {
 				files: {
-					'application/static/css/style.css': ['application/static/css/normalize.min.css', 'application/static/css/jquery.nouislider.css', 'application/static/css/slick.css', 'application/static/css/simple-style.css']
+					'application/static/css/style.css': ['application/static/css/normalize.min.css', 'application/static/css/jquery.nouislider.css', 'application/static/css/slick.css', 'application/static/css/simple-style.css'],
+					'application/static/css/tablet.min.css': 'application/static/css/tablet.css',
+					'application/static/css/mobile.min.css': 'application/static/css/mobile.css'
 				}
 			}
 		},

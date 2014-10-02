@@ -1,38 +1,7 @@
 @import "basegrid";
 @import "baseanimation";
+@import "variables";
 
-$purple1: rgb(125, 108, 177);
-$purple2: rgb(125, 90, 177);
-$purple3: rgb(107, 79, 160);
-$grey: rgb(78, 78, 86);
-$grey2: #d8dadb;
-$greybackground: #d8dadb;
-$green: rgb(135, 233, 34);
-
-$smallPixel: 12px;
-$smallSize: 0.75rem;
-$h2P: 13px;
-$h2Em: 0.8rem;
-$h4P: 22px;
-$h4Em: 1.4rem;
-$pP: 15px;
-$pEm: 1rem;
-$pP2: 13px;
-$pEm2: 0.8em;
-
-$h1Emmedium: 8rem;
-$h1Emsmall: 5.5rem;
-
-$h2Psmall: 12px;
-$h2Emsmall: 0.75rem;
-$h4Psmall: 17px;
-$h4Emsmall: 0.97rem;
-$pPsmall: 14px;
-$pEmsmall: 0.92rem;
-
-$serif: "garvis-pro", serif;
-
-$border: solid 3px $purple1;
 
 html, body {
 	width: 100%;
@@ -57,7 +26,7 @@ h3 {
 	font-size: $h2Em;
 	line-height: 1.3em;
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: 700;    
 	vertical-align: top;
 	display: inline-block;
 	color: $grey;
@@ -113,6 +82,11 @@ a {
 	color: inherit;
 }
 
+.h1shadow{
+	-webkit-filter: drop-shadow(1.5px 0px 2px rgba(255,255,255,0.3));
+	filter: drop-shadow(1.5px 0px 2px rgba(255,255,255,0.3));
+}
+
 #underline{
 	text-decoration: none;
 	border-bottom: 1.6px solid $purple1;
@@ -161,6 +135,18 @@ a {
 	z-index: 2;
 	span {
 		display: block;
+	}
+}
+
+.fivehundred .titlebox{
+	span{
+		display: inline;
+	}
+}
+
+.fourofour .titlebox{
+	span{
+		display: inline;
 	}
 }
 
@@ -228,6 +214,14 @@ a {
 		font-size: 0.8em;
 		line-height: 1.3em;
 	}
+	img{
+		-webkit-filter: grayscale(100%) opacity(0.8);
+		-moz-filter: grayscale(100%) opacity(0.8);
+		-ms-filter: grayscale(100%) opacity(0.8);
+		-o-filter: grayscale(100%) opacity(0.8);
+		filter: grayscale(100%) opacity(0.8);
+		filter: gray;
+	}
 	li {
 		display: inline-block;
 		vertical-align: top;
@@ -252,6 +246,7 @@ a {
 		// }
 		.share{
 			h3{
+				font-size: 0.65rem;
 				color: $purple1;
 				display: none;
 			}
@@ -272,12 +267,36 @@ a {
 	}
 	li:hover{
 		background: $green;
-		// h3,p{color:#fff;}
-	}
+		img{
+		-webkit-filter: grayscale(0%) opacity(1);
+		-moz-filter: grayscale(0%) opacity(1);
+		-ms-filter: grayscale(0%) opacity(1);
+		-o-filter: grayscale(0%) opacity(1);
+		filter: grayscale(0%) opacity(1);
+		filter: none; /* IE 6-9 */
+		}
+}
 	li:last-child {
 		margin-right: 0;
 	}
 }
+
+ //  .grayscale { 
+ //  -webkit-filter: grayscale(100%) opacity(0.8);
+ //  -moz-filter: grayscale(100%) opacity(0.8);
+ //  -ms-filter: grayscale(100%) opacity(0.8);
+ //  -o-filter: grayscale(100%) opacity(0.8);
+ //  filter: grayscale(100%) opacity(0.8);
+ //  filter: gray; IE 6-9
+	// 	  &:hover{
+		  // -webkit-filter: grayscale(0%) opacity(1);
+		  // -moz-filter: grayscale(0%) opacity(1);
+		  // -ms-filter: grayscale(0%) opacity(1);
+		  // -o-filter: grayscale(0%) opacity(1);
+		  // filter: grayscale(0%) opacity(1);
+		  // filter: none; /* IE 6-9 */
+	// 	}
+	// }
 
 .casestudy {
 	background: $purple1;
@@ -296,13 +315,30 @@ a {
 	h4 {
 		padding-top: 36px;
 		font-size: 1.2rem;
+		position: relative;
 	}
+	h4:before {
+		content: '\201C';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -11px;
+		}
 	ul {
 		color: #fff;
 		padding-top: 24px;
 		li {
 			font-weight: normal;
+			list-style: none;
+			position: relative;
 		}
+	}
+	li:before {
+		content: '\2022';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -14px;
 	}
 	div.sectiontitle {
 		display: inline-block;
@@ -314,12 +350,20 @@ a {
 			border-bottom-color: #fff;
 		}
 	}
-	.shadow {
-		-moz-box-shadow: inset 0 0 20px #000;
-		-webkit-box-shadow: inset 0 0 20px #000;
-		box-shadow: inset 0 0 20px #000;
+
+}
+
+.dashbefore{
+	position: relative;
+	&:before{
+		content: '\2013';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -14px;
 	}
 }
+
 
 nav {
 	padding-bottom:25px;
@@ -435,10 +479,33 @@ nav {
 	}
 	.buyimg {
 		background-position: top;
+		background-position:0% 20%;
 	}
 }
 
-.buyimg2{
+#smallsplash404 {
+	position: relative;
+	height: 100%;
+	.mainimg {
+		position: absolute;
+		background-size: cover;
+		-o-background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		background-position: center;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.fourofourimg{
+		background-position: top;
+	}
+	.fivehundredimg{
+		background-position: left;
+	}
+}
+
+.buyimg2, .aboutimg2{
 	background-size: cover;
 	-o-background-size: cover;
 	-moz-background-size: cover;
@@ -449,6 +516,7 @@ nav {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	margin-top: 120px;
 }
 
 #splash {
@@ -496,7 +564,7 @@ nav {
 	}
 	img {
 		position: relative;
-		padding: 30px 0 50px 0;
+		padding: 30px 0 80px 0;
 	}
 	.describe-michael {
 		position: absolute;
@@ -522,12 +590,10 @@ nav {
 	position: relative;
 	background: $green;
 	width: 100%;
-	background-image: url(http://placehold.it/250x360);
 	background-repeat: no-repeat;
 	background-position: left bottom;
 	overflow: hidden;
 	> div:first-child {
-		background-image: url(http://placehold.it/250x360);
 		background-repeat: no-repeat;
 		background-position: right bottom;
 		position: absolute;
@@ -543,6 +609,16 @@ nav {
 		> div {
 			position: relative;
 		}
+	}
+	h4{
+		position: relative;
+	}
+	h4:before {
+		content: '\201C';
+		width: 0;
+		display: inline-block;
+		position: absolute;
+		left: -11px;
 	}
 }
 
@@ -560,27 +636,28 @@ nav {
 // 	background-size: cover;
 // }
 
+input, textarea {
+	color: $grey;
+	font-size: 0.8em;
+	background: $grey2;
+	padding: 5px 3% 2px 3%;
+	margin: 0;
+	border: 0;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+label {
+	color: $grey;
+	font-size: 0.8em;
+	font-weight: normal;
+	position: relative;
+	background: #fff;
+}
+
 #searchfield {
 	.sectiontitle {
 		position: absolute;
-	}
-	input {
-		color: $grey;
-		font-size: 0.8em;
-		background: $grey2;
-		padding: 5px 10px 2px 10px;
-		margin: 0;
-		border: 0;
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
-		border-radius: 0px;
-	}
-	label {
-		color: $grey;
-		font-size: 0.8em;
-		font-weight: normal;
-		position: relative;
-		background: #fff;
 	}
 	ul{
 		padding-bottom: 30px;
@@ -770,12 +847,10 @@ nav {
 	position: relative;
 	background: $purple1;
 	width: 100%;
-	background-image: url(http://placehold.it/250x360);
 	background-repeat: no-repeat;
 	background-position: left bottom;
 	overflow: hidden;
 	> div:first-child {
-		background-image: url(http://placehold.it/250x360);
 		background-repeat: no-repeat;
 		background-position: right bottom;
 		position: absolute;
@@ -870,6 +945,41 @@ nav {
 	#gmap{
 		padding-bottom: 30px;
 	}
+}
+
+.request{
+	display:block;
+    .requestform{
+    	 display: none;
+    }
+
+	  // &:active{
+		.requestform{
+			display: block;
+			input{
+				margin-bottom: 7px;
+				margin-right: 0.7%;
+				vertical-align: middle;
+				display: inline-block;
+				width: 42%;
+			}
+			label{
+				width:0;
+				overflow:hidden;
+			}
+			#comments{
+				width:92%;
+				max-width: 110%;
+				color: $grey;
+				margin-bottom: 7px;
+			}
+			#send{
+				width:48%;
+				// margin-top: 15px;
+				margin-bottom: 15px;
+			}
+		}
+	 // }
 }
 
 @media all and (max-width: 1200px){
