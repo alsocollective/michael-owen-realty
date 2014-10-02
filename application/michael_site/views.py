@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 import json
-import librets
 import time
 import os.path
 from settings import rets_connection, MEDIA_URL, ALLOWED_HOSTS

@@ -26,7 +26,7 @@ def dump_all_lookups(metadata, resource):
 		print "Resource name: " + resource_name + " [" + resource.GetStandardName() + "]"
 		print "Lookup name: " + lookup.GetLookupName() + " ("  + lookup.GetVisibleName() + ")"
 		dump_all_lookup_types(metadata, lookup)
-		print
+		
 
 
 
