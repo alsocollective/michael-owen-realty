@@ -1,20 +1,17 @@
 @media all and (max-width: 800px){
-	
-
 	#navbutton{
 		&.white{
-
-				> div{
-					div:first-child{
-						background: #fff;
-					}
-					div:nth-child(2){
-						background: #fff;
-					}
-					div:last-child{
-						background: #fff;
-					}
+			> div{
+				div:first-child{
+					background: #fff;
 				}
+				div:nth-child(2){
+					background: #fff;
+				}
+				div:last-child{
+					background: #fff;
+				}
+			}
 		}
 		position: absolute;
 		left: 0;
@@ -26,10 +23,6 @@
 			display: block;
 			width: 50px;
 			height: 50px;
-
-						// .navshadow {
-
-			// }
 		
 			div:first-child{
 				content:" ";
@@ -44,7 +37,6 @@
 				-moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 				-o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; 
 				transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;	
-
 			}
 			div:nth-child(2){
 				content:" ";
@@ -59,7 +51,6 @@
 				-moz-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
 				-o-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
 				transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
-	
 			}
 			div:last-child{
 				content:" ";
@@ -74,42 +65,41 @@
 				-moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
 				-o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out; 
 				transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
- 
 			}
 			&:hover{		
 				div:first-child{
-				height: 3px;
-				top:14px;
+					height: 3px;
+					top:14px;
 				}
 				div:nth-child(2){
-				height: 3px;
-				top:22px;
+					height: 3px;
+					top:22px;
 				}
 				div:last-child{
-				height: 3px;
-				top:30px;
+					height: 3px;
+					top:30px;
 				}
 			}
 		}
 
 
 		&.navactive{
-		> div{
+			> div{
 				div:first-child{
-				-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
-				-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
-				transform: translate(1px,9px) rotate(45deg) ;
-				background: #fff;
+					-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
+					-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
+					transform: translate(1px,9px) rotate(45deg) ;
+					background: #fff;
 				}
 				div:nth-child(2){
-				width:0px; /* IE 9 */
-				background: #fff;
+					width:0px; /* IE 9 */
+					background: #fff;
 				}
 				div:last-child{
-				-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
-				-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
-				transform: translate(0px,-7px) rotate(-45deg) ;
-				background: #fff;
+					-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
+					-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
+					transform: translate(0px,-7px) rotate(-45deg) ;
+					background: #fff;
 				}
 			}
 		}
@@ -120,7 +110,6 @@
 	}
 	nav {
 		color: #fff;
-
 		text-transform: uppercase;
 		letter-spacing: 4px;
 		max-width: 100% !important;
