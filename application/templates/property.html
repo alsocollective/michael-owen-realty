@@ -1,4 +1,5 @@
 {% extends basetemplate %}
+{% load staticfiles %}
 {% block content %}
 
 
@@ -9,11 +10,10 @@
 			<div class="propertyimages" itemprop="image">
 			<span class="hide"><h3> <span itemprop="name">392 MANNING AVE, TORONTO, ONTARIO</span></br>
 			<span itemprop="priceCurrency" content="CAD">$</span><span itemprop="price">1,299,000</span></h3></span>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
+				<div><img src="{% static "img/property_placeholder_1.jpg"%}"></div>
+				<div><img src="{% static "img/property_placeholder_2.jpg"%}"></div>
+				<div><img src="{% static "img/property_placeholder_3.jpg"%}"></div>
+
 			</div><div id="gmap">
 				<span itemscope itemprop="hasMap" itemtype="http://schema.org/Map">
 				<iframe 
@@ -43,7 +43,7 @@
 					<td><p>2</p></td>
 				</tr>
 				<tr>
-					<td><h3>Community name</h3></td>
+					<td><h3>Neighbourhood</h3></td>
 					<td><p>Little Italy</p></td>
 				</tr>
 				<tr>
@@ -84,10 +84,7 @@
 			</table>
 			<div class="socialmedia"><h3><a href="mailto:michael@myrealestatepro.ca">EMAIL</a></h3> <h3><a href=" ">FACEBOOK</a></h3> <h3><a href="">TWITTER</a></h3>  <h3><a href="">COPY LINK</a></h3></div>				
 			<span class="request"><h6>Request information</h6>
-			<form class="requestform">
-				<h3>Comments</h3><br>
-				<textarea id="comments"> 
-				</textarea>	
+			<form class="requestform"><textarea id="comments" placeholder="Comments"></textarea>	
 				<label for="formfirst" alt="first name"><!-- <h3>First name</h3> -->
 				</label><input id="formfirst" type="text" name="firstname" placeholder="First name"><!--
 				--><label for="formlast" alt="last name"><!-- <h3>Last name</h3> -->

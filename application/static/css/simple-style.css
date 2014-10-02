@@ -618,12 +618,10 @@ nav {
   position: relative;
   background: #82d723;
   width: 100%;
-  background-image: url(http://placehold.it/250x360);
   background-repeat: no-repeat;
   background-position: left bottom;
   overflow: hidden; }
   #testimonials > div:first-child {
-    background-image: url(http://placehold.it/250x360);
     background-repeat: no-repeat;
     background-position: right bottom;
     position: absolute;
@@ -795,12 +793,10 @@ label {
   position: relative;
   background: #7d6cb1;
   width: 100%;
-  background-image: url(http://placehold.it/250x360);
   background-repeat: no-repeat;
   background-position: left bottom;
   overflow: hidden; }
   #footer > div:first-child {
-    background-image: url(http://placehold.it/250x360);
     background-repeat: no-repeat;
     background-position: right bottom;
     position: absolute;
@@ -877,25 +873,23 @@ label {
   display: block; }
   .request .requestform {
     display: none; }
-  .request:hover h6 {
-    color: #7d6cb1; }
-  .request:active .requestform {
+  .request .requestform {
     display: block; }
-    .request:active .requestform input {
+    .request .requestform input {
       margin-bottom: 7px;
       margin-right: 0.7%;
       vertical-align: middle;
       display: inline-block;
       width: 42%; }
-    .request:active .requestform label {
+    .request .requestform label {
       width: 0;
       overflow: hidden; }
-    .request:active .requestform #comments {
+    .request .requestform #comments {
       width: 92%;
       max-width: 110%;
       color: #4e4e56;
       margin-bottom: 7px; }
-    .request:active .requestform #send {
+    .request .requestform #send {
       width: 48%;
       margin-bottom: 15px; }
 
@@ -1114,6 +1108,10 @@ label {
     .titlebox h1 {
       font-size: 8rem; }
 
+  .reference .slick-dots {
+    bottom: none;
+    top: 300px; }
+
   .casestudy div.sectiontitle {
     display: block;
     position: relative;
@@ -1320,6 +1318,15 @@ label {
     display: block;
     padding-bottom: 30px; }
 
+  .reference .slick-dots {
+    bottom: none;
+    top: 320px; }
+
+  #testimonials {
+    background-size: 45%; }
+    #testimonials > div:first-child {
+      background-size: 45%; }
+
   .casestudy {
     padding-bottom: 0px; }
     .casestudy p {
@@ -1351,7 +1358,10 @@ label {
     font-size: 0.92rem; }
 
   #footer {
-    margin-top: 60px; }
+    margin-top: 60px;
+    background-size: 45%; }
+    #footer > div:first-child {
+      background-size: 45%; }
 
   .module .medium-column7 > div {
     width: auto;

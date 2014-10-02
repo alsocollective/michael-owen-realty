@@ -350,8 +350,8 @@ var app = {
 	property: {
 		init: function() {
 			$('.propertyimages').slick({
-				dots: true,
-				arrows: false
+				dots: false,
+				arrows: true
 			});
 			$(".module").click(app.property.delete);
 			$(".module > div > div").click(app.property.stopprop);
