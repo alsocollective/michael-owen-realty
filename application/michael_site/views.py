@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 import json
 import time
 import os.path
-from settings import rets_connection, MEDIA_URL, ALLOWED_HOSTS
+from settings import MEDIA_URL, ALLOWED_HOSTS
 from rets.views import *
 
 #	returns the template needed, if it's ajax, sends ajax, else sends full html
