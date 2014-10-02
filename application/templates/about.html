@@ -34,20 +34,7 @@
 			</h2>
 		</div>				
 		<ul class="propertylist leftmargin ">
-			{% for prop in featured %}<li class="column2 medium-column3 small-column7">
-				<a href="/property/{{prop.ml_num}}">
-					<div class="propertyimage">
-						<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-					</div>
-					<div class="propertycontent">
-						<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
-						<h3><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{prop.lp_dol|nicemoney}}</span></span></h3>
-						<p><span itemprop="itemOffered">{{prop.extras}}</span></p><br>
-						<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3>     FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
-						<div></div>
-					</div>
-				</a>
-			</li>{% endfor %}
+			{% include "properties.html" with data=featured %}
 		</ul>
 	</div>
 	<div id="about">

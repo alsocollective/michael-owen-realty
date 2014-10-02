@@ -21,20 +21,7 @@
 		</h2>
 	</div>		
 	<ul class="propertylist leftmargin ">
-		{% for prop in featured %}<li class="column2 medium-column3 small-column7">
-			<a href="/property/{{prop.ml_num}}">
-				<div class="propertyimage">
-					<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-				</div>
-				<div class="propertycontent">
-					<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
-					<h3><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{prop.lp_dol|nicemoney}}</span></span></h3>
-					<p><span itemprop="itemOffered">{{prop.extras}}</span></p><br>
-					<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3>     FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
-					<div></div>
-				</div>
-			</a>
-		</li>{% endfor %}
+		{% include "properties.html" with data=featured %}
 	</ul>			
 </div>
 
@@ -91,20 +78,7 @@
 
 <div id="searchresults" >
 	<ul class="propertylist leftmargin">
-		{% for prop in data %}<li class="column2 medium-column3 small-column7">
-				<a href="/property/{{prop.ml_num}}">
-					<div class="propertyimage">
-						<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-					</div>
-					<div class="propertycontent">
-						<h3>{{prop.community|titlecase}}</h3><br>
-						<h3>{{prop.lp_dol|nicemoney}}</h3>
-						<p>{{prop.extras}}</p><br>
-						<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca">EMAIL</a></h3> <h3> FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
-						<div></div>
-					</div>
-				</a>
-		</li>{% endfor %}			
+		{% include "properties.html" with data=data %}		
 	</ul>	
 	<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
 		<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>

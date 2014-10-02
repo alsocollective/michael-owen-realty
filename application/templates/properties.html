@@ -3,17 +3,14 @@
 {% for prop in data %}<li class="column2 medium-column3 small-column7">
 	<a href="/property/{{prop.ml_num}}">
 		<div class="propertyimage">
-			<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
-
+			<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
 		</div>
 		<div class="propertycontent">
-			<h3>{{prop.community}}</h3><br>
+			<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
 			<h3>{{prop.lp_dol|nicemoney}}</h3>
-			<p>{{prop.extras}}</p><br>
-			<h3>SHARE</h3>
-			<div>
-
-			</div>
+			<p><span itemprop="itemOffered">{{prop.extras|limilength}}</span></p><br>
+			<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3>     FACEBOOK</h3> <h3> TWITTER</h3> <h3> COPY LINK</h3></div>
+			<div></div>
 		</div>
 	</a>
 </li>{% endfor %}

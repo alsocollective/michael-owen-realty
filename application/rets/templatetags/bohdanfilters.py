@@ -2,6 +2,8 @@ from django import template
 from django.template.defaultfilters import stringfilter
 import math
 import urllib
+import re
+from django.utils.safestring import mark_safe
 register = template.Library()
 
 
@@ -17,9 +19,9 @@ def get_key(value, arg):
 		pass
 	return None
 
-@register.filter(name='nicemoney')
-def nicemoney(value):
-	return '${:,.0f}'.format(value)
+@register.filter(name='nicemoney', needs_autoescape=True)
+def nicemoney(value, autoescape=None):
+	return mark_safe('<span itemprop="priceCurrency" content="CAD">$</span><span itemprop="price">{:,.0f}</span>'.format(value))
 
 @register.filter(name="urlify")
 def urlify(value):
@@ -40,3 +42,19 @@ def interfy(value):
 @register.filter(name="titlecase")
 def titlecase(value):
 	return value.title().replace("-"," ")
+
+@register.filter(name="limilength")
+def limilength(value):
+	goallength = 150
+	if len(value) > goallength:
+		limited = value[:goallength]
+		split = re.split('\s+', limited)
+		out = ""
+		count = len(split)-1;
+
+		while len(out) < 3 or count < 1:
+			out = split[count]
+			count = count - 1
+		out = out.replace(',', '').replace(' ', '').replace('.', '')
+		return "%s..."%(value[:limited.rfind(split[len(split)-1])-1],)
+	return value

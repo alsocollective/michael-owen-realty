@@ -148,14 +148,14 @@ var app = {
 		setSectionAsHash: function(event) {
 			// console.log(event);
 			// console.log($(this).prev());
-			if(event == "down"){
-				if($(this).hasClass("whitenav")){
+			if (event == "down") {
+				if ($(this).hasClass("whitenav")) {
 					$("#navbutton").addClass("white");
 				} else {
 					$("#navbutton").removeClass("white");
 				}
 			} else {
-				if(!$(this).hasClass("whitenav")){
+				if (!$(this).hasClass("whitenav")) {
 					$("#navbutton").addClass("white");
 				} else {
 					$("#navbutton").removeClass("white");
@@ -401,7 +401,9 @@ var app = {
 		initslick: function() {
 			$('.propertyimages').slick({
 				dots: false,
-				arrows: true
+				arrows: true,
+				slidesToShow: 1,
+				adaptiveHeight: true
 			});
 		},
 		resizemap: function() {
