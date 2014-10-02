@@ -98,52 +98,44 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-@-webkit-keyframes leftOffRight {
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-moz-keyframes leftOffRight {
+@-moz-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-o-keyframes leftOffRight {
+@-o-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@keyframes leftOffRight {
+@keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-webkit-keyframes leftOffLeft {
+@-webkit-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-moz-keyframes leftOffLeft {
+@-moz-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-o-keyframes leftOffLeft {
+@-o-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@keyframes leftOffLeft {
+@keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
 html, body {
@@ -309,7 +301,6 @@ a {
 
 .propertylist {
   position: relative;
-  column-width: 100%;
   width: 100%;
   margin-bottom: -28px; }
   .propertylist a {
@@ -360,6 +351,24 @@ a {
       /* IE 6-9 */ }
   .propertylist li:last-child {
     margin-right: 0; }
+
+.csscolumns .propertylist {
+  -moz-column-count: 3;
+  -moz-column-gap: 1.53%;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1.53%;
+  column-count: 3;
+  column-gap: 1.53%;
+  width: 83.33%;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  -moz-page-break-inside: avoid;
+  page-break-inside: avoid; }
+  .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column3, .csscolumns .propertylist .small-column7 {
+    width: auto;
+    margin-right: 0 !important; }
+  .csscolumns .propertylist li {
+    display: block; }
 
 .casestudy {
   background: #7d6cb1;
@@ -1179,6 +1188,9 @@ label {
   .propertylist li .share:active h3 {
     display: inline-block; }
 
+  .csscolumns .propertylist {
+    -webkit-column-count: 2; }
+
   #neighbourhoods > div:nth-child(2) {
     display: block; }
   #neighbourhoods li:hover {
@@ -1344,6 +1356,10 @@ label {
       padding-bottom: 0px;
       margin-left: 0px; }
 
+  .csscolumns .propertylist {
+    -webkit-column-count: 1;
+    width: 100%; }
+
   #neighbourhoods > div:nth-child(3) p {
     margin-left: 0px;
     margin-bottom: 30px; }
@@ -1377,3 +1393,5 @@ label {
   .module .medium-column7 > div {
     width: auto;
     display: block; } }
+
+/*# sourceMappingURL=simple-style.css.map */

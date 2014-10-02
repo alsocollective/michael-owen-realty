@@ -184,6 +184,11 @@
 		padding-bottom: 0px;
 	}
 
+	.csscolumns .propertylist{
+		-webkit-column-count:1;
+		width:100%;
+	}
+
 	#neighbourhoods {
 		> div:nth-child(3) {
 			p {

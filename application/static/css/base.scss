@@ -202,8 +202,7 @@ a {
 }
 
 .propertylist {
-	position: relative;
-	column-width: 100%;
+	position: relative; 
 	width: 100%;
 	margin-bottom: -28px;
 	a{
@@ -279,6 +278,28 @@ a {
 }
 	li:last-child {
 		margin-right: 0;
+	}
+}
+
+.csscolumns .propertylist{
+
+	-moz-column-count:3;
+	-moz-column-gap:1.53%;
+	-webkit-column-count:3;
+	-webkit-column-gap:1.53%;
+	column-count:3;
+	column-gap:1.53%;
+	width:83.33%;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside:avoid;
+	-moz-page-break-inside:avoid;
+	page-break-inside: avoid;
+	.column2, .medium-column3, .small-column7{
+		width: auto;
+		margin-right: 0 !important; 
+	}
+	li{
+		display: block;
 	}
 }
 
