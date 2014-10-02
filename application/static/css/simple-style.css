@@ -301,6 +301,7 @@ a {
 
 .propertylist {
   position: relative;
+  column-width: 100%;
   width: 100%;
   margin-bottom: -28px; }
   .propertylist a {
@@ -785,6 +786,8 @@ label {
   color: #4e4e56;
   font-weight: normal;
   line-height: 1.5em; }
+  #neighbourhoods li a {
+    text-decoration: none; }
 #neighbourhoods li:hover {
   color: #7d6cb1; }
 
@@ -846,7 +849,7 @@ label {
       color: #7d6cb1;
       padding-bottom: 5px;
       font-size: 0.7rem;
-      line-height: 1em; }
+      line-height: 1.6em; }
     .module .grid > div:nth-child(2) table {
       margin: 20px 0 30px 0; }
     .module .grid table {
@@ -865,7 +868,7 @@ label {
         padding-right: 5px;
         color: #7d6cb1;
         font-size: 0.74em;
-        line-height: 1; }
+        line-height: 1.6em; }
   .module #gmap {
     padding-bottom: 30px; }
 
