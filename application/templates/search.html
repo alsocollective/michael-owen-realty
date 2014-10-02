@@ -1,6 +1,8 @@
 {% extends basetemplate %}
 {% load staticfiles %}
+{% load bohdanfilters%}
 {% block content %}
+
 <div id="smallsplash">
 	<div class="titlebox titleboxmargins grid">
 
@@ -17,30 +19,27 @@
 		<h2>
 			featured properties
 		</h2>
-	</div>				
-	<ul class="propertylist leftmargin">
-		<li class="column2 medium-column3 small-column7">
-			<a href="/property/propertyid">
-			<div class="propertyimage">
-				<img src="http://placehold.it/305x200">
-			</div>
-			<div class="propertycontent">
-				<h3>Little Italy</h3><br>
-				<h3>$890,900</h3>
-				<p>
-					Stunning Kingsway renovation. Renowned local builder - Rusand’s – going to loving trans- formation in 2011! 4 great bedrooms, dreamy master bath, ‘to die for’ kitchen / family room! Exceptional landscaping.
-				</p><br>
-				<h3>SHARE</h3>
-				<div>
+	</div>		
+	<ul class="propertylist leftmargin ">
+		{% for prop in featured %}<li class="column2 medium-column3 small-column7">
+			<a href="/property/{{prop.ml_num}}">
+				<div class="propertyimage">
+					<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
 
 				</div>
-			</div>
-		</a></li><li class="column2">
-		yep
-		</li><li class="column2">
-		yep
-		</li>
-	</ul>
+				<div class="propertycontent">
+					<h3>{{prop.community|titlecase}}</h3><br>
+					<h3>{{prop.lp_dol|nicemoney}}</h3>
+					<p>{{prop.extras}}</p><br>
+					<h3>SHARE</h3>
+					<div>
+
+					</div>
+				</div>
+			</a>
+		</li>{% endfor %}
+	</ul>			
+
 </div>
 
 <div id="searchfield">
@@ -50,47 +49,43 @@
 		</h2>
 	</div>	
 
-	<div class="column4 offcolumn1 medium-offcolumn0 medium-column6 small-column7"> 
+	<form action="/proplist/" method="post" class="column4 offcolumn1 medium-offcolumn0 medium-column6 small-column7 filterform">
 		<div>
 			<h3>price range</h3>
 			<div id="priceslider"></div>
 			<div id="priceinputs">
-				<div class="priceinput"><input id="lowerprice" ></div><div class="priceinput"><input id="upperprice"></div>
+				<div class="priceinput"><input id="lowerprice" name="lowerprice" ></div><div class="priceinput"><input id="upperprice" name="upperprice"></div>
 			</div>
 		</div><div class="column2 medium-column3 small-column4">
 			<h3>Neighbourhood</h3>
-			<ul>
-				<li><input type="checkbox" id="style11"><label for="style11" class="bold"><span></span>style11</label></li>
-				<li><input type="checkbox" id="style21"><label for="style21"><span></span>style21</label></li>
-				<li><input type="checkbox" id="style31"><label for="style31"><span></span>style31</label></li>
-				<li><input type="checkbox" id="style41"><label for="style41"><span></span>style41</label></li>
-			</ul><ul>
-				<li><input type="checkbox" id="style12"><label for="style12"><span></span>style12</label></li>
-				<li><input type="checkbox" id="style22"><label for="style22"><span></span>style22</label></li>
-				<li><input type="checkbox" id="style32"><label for="style32"><span></span>style32</label></li>
-				<li><input type="checkbox" id="style42"><label for="style42"><span></span>style42</label></li>
-			</ul>
+			{% for region in filter.location.subsections.all %}<ul>
+				<li><input type="checkbox" id="{{region}}" name="{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
+				{% for community in region.community.all %}
+					<li><input type="checkbox" id="{{community.text}}" name="{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
+				{% endfor %}
+			</ul>{% endfor %}						
 		</div><div class="column1 medium-column2 small-column3">
 
 			<h3>home type</h3>
 			<ul>
-				<li><input type="checkbox" id="style1"><label for="style1"><span></span>style1</label></li>
-				<li><input type="checkbox" id="style2"><label for="style2"><span></span>style2</label></li>
-				<li><input type="checkbox" id="style3"><label for="style3"><span></span>style3</label></li>
-				<li><input type="checkbox" id="style4"><label for="style4"><span></span>style4</label></li>
+				{% for type in filter.main.style.all %}
+					<li><input type="checkbox" id="{{type}}" name="{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
+				{% endfor %}
 			</ul>
 		</div><div class="column1 norightmargin small-column7">
 			<h3>bedroom</h3>
 			<div id="bedslider"></div>
-			<div class="bbinputs"><span><input id="lowerbed" ></span><span><input id="upperbed"></span></div>
+			<div class="bbinputs"><span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span></div>
 			<h3>bathroom</h3>
 			<div id="bathslider"></div>
-			<div class="bbinputs"><span><input id="lowerbath" ></span><span><input id="upperbath"></span></div>
+			<div class="bbinputs"><span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span></div>
 
 		</div>	
-	</div>
+		{% csrf_token %}
+		<input class="from" name="from" value="0" style="display:none;">
+	</form>
 	<div class="column4 offcolumn1 medium-offcolumn0 small-column7">
-		<h3>Displaying 12 of 46 properties</h3>
+		<h3 style="display:none">Displaying 12 of 46 properties</h3>
 
 	</div>
 	<div id="searchlistings" class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
@@ -100,26 +95,27 @@
 
 <div id="searchresults" >
 	<ul class="propertylist leftmargin">
-		{% for i in "123456789" %}<li class="column2 medium-column3 small-column7">
-				<div class="propertyimage">
-					<img src="http://placehold.it/305x200">
 
-				</div>
-				<div class="propertycontent">
-					<h3>Little Italy</h3><br>
-					<h3>$890,900</h3>
-					<p>
-						Stunning Kingsway renovation. Renowned local builder - Rusand’s – going to loving trans- formation in 2011! 4 great bedrooms, dreamy master bath, ‘to die for’ kitchen / family room! Exceptional landscaping.
-					</p><br>
-					<h3>SHARE</h3>
-					<div>
+		{% for prop in data %}<li class="column2 medium-column3 small-column7">
+				<a href="/property/{{prop.ml_num}}">
+					<div class="propertyimage">
+						<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
 
 					</div>
-				</div>
+					<div class="propertycontent">
+						<h3>{{prop.community|titlecase}}</h3><br>
+						<h3>{{prop.lp_dol|nicemoney}}</h3>
+						<p>{{prop.extras}}</p><br>
+						<h3>SHARE</h3>
+						<div>
+
+						</div>
+					</div>
+				</a>
 		</li>{% endfor %}			
 	</ul>	
 	<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-		<button><h3>display more listings</h3></button>
+		<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
 	</div>
 </div>
 
@@ -176,15 +172,24 @@
 			</div>
 	</div>
 </div>
-
 {% endblock %}
 
 {% block searchnav %}currentpage{% endblock %}
 
 {% block script %} 
+{{filter.br}}
 <script type="text/javascript">
-	$( document ).ready(function(){
+	var propertySettings = {
+		bed:{min:{{filter.main.br.num_min|interfy}},max:{{filter.main.br.num_max|interfy}}},
+		bath:{min:{{filter.main.bath_tot.num_min}},max:{{filter.main.bath_tot.num_max}}},
+		parking:{min:{{filter.main.gar_spaces.num_min}},max:{{filter.main.gar_spaces.num_max}}},
+		csrftoken:'{{ csrf_token }}'
+	};
+	$( document ).ready(function(){		
 		app.search.init()
 	});
+
+
+
 </script>
 {% endblock %}

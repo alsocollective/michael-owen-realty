@@ -158,11 +158,9 @@ var app = {
 		changepage: function() {
 			var url = document.URL.split("#");
 			if (url.length == 0) {
-				console.log("this place")
 				app.nav.loadpage(document.URL, true);
 			} else {
 				if (url[1].length > 0 && $("#" + url[1]).length == 0) {
-					console.log("only hahs change");
 					app.property.loadproperty(null, url[1]);
 				} else if (url[1].length == 0 && $(".module")) {
 					var el = $(".module")[0];
@@ -247,6 +245,51 @@ var app = {
 			app.search.setupBathSlider();
 			app.property.setup()
 			app.search.neighbourhoodSetup();
+			app.search.initajax();
+		},
+		initajax: function() {
+			$("#searchlistings button").click(app.search.loadInitialContent);
+			$("#morelistings").click(app.search.loadmorelistings);
+		},
+		loadmorelistings: function(value) {
+			var data = $(this).find("input")[0].value;
+			app.search.updatefrom(data);
+			data['csrfmiddlewaretoken'] = propertySettings.csrftoken;
+			$.ajax({
+				type: "POST",
+				url: '/proplist/',
+				data: data,
+				success: app.search.loadsuccessappend
+			});
+		},
+		updatefrom: function(value) {
+			var from = value.split("=");
+			from = from[from.length - 1];
+			value = value.substring(0, value.length - from.length);
+			from = parseInt(from) + 12;
+			$("#morelistings input")[0].value = value + from;
+		},
+		loadInitialContent: function(event) {
+			var data = $(".filterform").serialize()
+			app.search.updatefrom(data);
+			data['csrfmiddlewaretoken'] = propertySettings.csrftoken;
+			$.ajax({
+				type: "POST",
+				url: '/proplist/',
+				data: data,
+				success: app.search.loadsuccess
+			});
+		},
+		loadsuccess: function(responce) {
+			$("#searchresults ul").html(responce);
+			app.property.setup()
+		},
+		loadsuccessappend: function(responce) {
+			$("#searchresults ul").append(responce);
+			app.property.setup()
+		},
+		responcefromInitialLoad: function(event) {
+			console.log("submit was triggered")
 		},
 		setuppriceSlider: function() {
 			var priceslider = $(".offright #priceslider a");
@@ -254,7 +297,7 @@ var app = {
 				priceslider = $("#priceslider")
 			}
 			priceslider.noUiSlider({
-				start: [0, 400000],
+				start: [0, 800000],
 				connect: true,
 				behaviour: 'drag',
 				range: {
@@ -282,8 +325,8 @@ var app = {
 				connect: true,
 				behaviour: 'drag',
 				range: {
-					'min': [1],
-					'max': [10]
+					'min': [propertySettings.bed.min],
+					'max': [propertySettings.bed.max]
 				},
 				format: wNumb({
 					mark: '.',
@@ -304,8 +347,8 @@ var app = {
 				connect: true,
 				behaviour: 'drag',
 				range: {
-					'min': [1],
-					'max': [10]
+					'min': [propertySettings.bath.min],
+					'max': [propertySettings.bath.max]
 				},
 				format: wNumb({
 					mark: '.',
@@ -332,17 +375,21 @@ var app = {
 	},
 	property: {
 		init: function() {
+			$(".module").click(app.property.delete);
+			$(".module > div > div").click(app.property.stopprop);
+			app.property.resizemap();
+			app.property.coppyInit();
+			app.email.init();
+		},
+		initslick: function() {
 			$('.propertyimages').slick({
 				dots: true,
 				arrows: false
 			});
-			$(".module").click(app.property.delete);
-			$(".module > div > div").click(app.property.stopprop);
-			app.property.resizemap();
 		},
 		resizemap: function() {
 			var iframe = $("#gmap iframe");
-			iframe.height(iframe.width()*0.8);
+			iframe.height(iframe.width() * 0.8);
 		},
 		delete: function() {
 			if (this.parentNode) {
@@ -360,7 +407,6 @@ var app = {
 			} else {
 				that.href = "/property/" + hash;
 			}
-			console.log(that);
 			if (app.options.loadingpage) {
 				return false;
 			}
@@ -376,10 +422,81 @@ var app = {
 		loadedproperty: function(response, status, xhr) {
 			app.property.init();
 			location.hash = $(".module > div")[0].id;
+		},
+		loadrestofphotos: function(popid) {
+			console.log(popid);
+			$.ajax({
+				dataType: "json",
+				url: "/newimages/" + popid,
+				success: app.property.addednewimages
+			});
+		},
+		addednewimages: function(data, textstatus) {
+			var out = "";
+			for (var a = 1; a < data.count; ++a) {
+				out += '<div><img src="/static/images/' + data.id + "-" + a + '.jpg"></div>';
+			}
+			$(".propertyimages").html(out);
+			app.property.initslick();
+		},
+		coppyInit: function() {
+			var selected = $(".coppylink");
+			selected.click(app.property.coppyclicked)
+			var client = new ZeroClipboard(selected);
+			client.on("copy", function(event) {
+				console.log(event.target);
+				var clipboard = event.clipboardData;
+				clipboard.setData("text/plain", event.target.href);
+			})
+		},
+		coppyclicked: function(event) {
+			event.preventDefault();
+			return false;
+		}
+	},
+	email: {
+		init: function() {
+			$(".emailsubmit").click(app.email.submit);
+		},
+		submit: function(event) {
+			var data = $(this.parentNode).serialize();
+			console.log(data);
+			// data['csrfmiddlewaretoken'] = app.email.csrftoken;
+			$.ajax({
+				type: "POST",
+				url: '/sendemail/',
+				data: data,
+				success: app.email.submitsuccess
+			});
+
+			event.preventDefault();
+			return false;
+		},
+		submitsuccess: function(replied) {
+			console.log(replied);
 		}
 	},
 	resize: function() {
 		app.nav.correctSize();
 		app.property.resizemap();
+	},
+	getCookie: function(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie != '') {
+			var cookies = document.cookie.split(';');
+			for (var i = 0; i < cookies.length; i++) {
+				var cookie = jQuery.trim(cookies[i]);
+				// Does this cookie string begin with the name we want?
+				if (cookie.substring(0, name.length + 1) == (name + '=')) {
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	},
+	csrfSafeMethod: function(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 	}
 }

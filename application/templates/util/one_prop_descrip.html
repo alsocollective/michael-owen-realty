@@ -1,0 +1,11 @@
+{% load bohdanfilters%}
+<style type="text/css">
+	td{
+		padding: 0px 10px;
+	}
+</style>
+<table style="width:100%;">
+{% for key,value in reslist.items %}
+	<tr><td>{{key}}</td><td>{{value}}</td><td>{{data|get_key:value}}</td><td>{{per|get_key:value}}</td></tr>
+{% endfor %}
+</table>

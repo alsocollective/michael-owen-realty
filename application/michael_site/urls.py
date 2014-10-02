@@ -9,17 +9,25 @@ urlpatterns = patterns('',
     url(r'^buy/', 'michael_site.views.buy', name='buy'),
     url(r'^search/', 'michael_site.views.search', name='search'),
     
-    url(r'^ajaxhome', 'michael_site.views.ajaxhome', name='ajaxhome'),
-    url(r'^ajaxsell/', 'michael_site.views.ajaxsell', name='ajaxsell'),
-    url(r'^ajaxbuy/', 'michael_site.views.ajaxbuy', name='ajaxbuy'),
-    url(r'^ajaxsearch/', 'michael_site.views.ajaxsearch', name='ajaxsearch'),
+    url(r'^ajaxhome', 'michael_site.views.home', name='ajaxhome'),
+    url(r'^ajaxsell/', 'michael_site.views.sell', name='ajaxsell'),
+    url(r'^ajaxbuy/', 'michael_site.views.buy', name='ajaxbuy'),
+    url(r'^ajaxsearch/', 'michael_site.views.search', name='ajaxsearch'),
 
     url(r'^ajaxproperty/', 'michael_site.views.ajaxproperty', name='ajaxproperty'),
     url(r'^property/(?P<propertyid>.*)/$', 'michael_site.views.property', name='property'),
     url(r'^ajaxneighbourhood/(?P<urlneighbourhood>.*)/$', 'michael_site.views.ajaxneighbourhood', name='ajaxneighbourhood'),
+    url(r'^newimages/(?P<propertyid>.*)/$', 'michael_site.views.loadallimages', name='loadallimages'),
+    
+    url(r'^proplist/', 'michael_site.views.getinitialpagedata', name='getinitialpagedata'),
+    url(r'^sendemail/', 'michael_site.views.sendemail', name='sendemail'),
+
+
     
 
     url(r'^test', 'michael_site.views.testView', name='testView'),
+    url(r'^sort/', 'michael_site.views.sort', name='sort'),    
+    url(r'^percent', 'michael_site.views.percentageofattricbutes', name='percentageofattricbutes'),
 )
 
 from django.conf import settings

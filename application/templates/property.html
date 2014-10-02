@@ -1,6 +1,7 @@
 {% extends basetemplate %}
+{% load staticfiles %}
+{% load bohdanfilters%}
 {% block content %}
-
 
 <div id="{{pageid}}">
 	<div class="grid"> 
@@ -8,25 +9,29 @@
 
 			<div class="propertyimages">
 			<span class="hide"><h3>392 MANNING AVE, TORONTO, ONTARIO</br>
-			$1,299,000</h3></span>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
-				<div><img src="http://placehold.it/270x200"></div>
+			{{data.lp_dol|nicemoney}}</h3></span>
+				{% if data.numofphotos %}
+					{% for count in data.numofphotos|get_range%}
+						<div><img src="{% static ""%}images/{{data.ml_num}}-{{count}}.jpg"></div>
+					{% endfor %}
+				{% elif data.firstphoto %}
+					<div><img src="{% static ""%}images/{{data.ml_num}}-1.jpg"></div>
+				{% endif %}
+
 			</div><div id="gmap">
 				<iframe 
 					width="100%" 
 					height="450" 
 					frameborder="0" 
 					style="border:0" 
-					src="https://www.google.com/maps/embed/v1/place?q=453%20Brock%20Avenue%2C%20Toronto%2C%20ON%2C%20Canada&key=AIzaSyBdpJO3FCVQ7UyWvOkRDfVpqMX-gjBmW1k"></iframe>
+					src={{data|mapsgen}}></iframe>
 			</div>
 		</div>
 		<div class="column2 medium-column4 small-offcolumn0 small-column7">
 			<h6>Overview</h6>
-			<h3>392 MANNING AVE, TORONTO, ONTARIO</br>
-			$1,299,000</h3>
+			<h3>{{data.addr}}, {{data.area}}, {{data.county}}, {{data.zip}}</h3>
+			<h3>{{data.lp_dol|nicemoney}}</h3>
+
 			<table>
 				<tr>
 					
@@ -35,53 +40,49 @@
 				</tr>
 				<tr>
 					<td><h3>Building type</h3></td>
-					<td><p>House</p></td>
+					<td><p>{{data.type_own1_out}}</p></td>
 				</tr>
 				<tr>
 					<td><h3>Storeys</h3></td>
-					<td><p>2</p></td>
+					<td><p>{{data.style}}</p></td>
 				</tr>
 				<tr>
 					<td><h3>Community name</h3></td>
-					<td><p>Little Italy</p></td>
-				</tr>
-				<tr>
-					<td><h3>title</h3></td>
-					<td><p>Freehold</p></td>
+					<td><p>{{data.community|titlecase}}</p></td>
 				</tr>
 				<tr>
 					<td><h3>Land Size</h3></td>
-					<td><p>7L.6A6Nx1D14.S0I0ZFET</p></td>
+					<td><p>{{data.depth}}  Fronting:{{data.comp_pts}} 7L.6A6Nx1D14.S0I0ZFET</p></td>
 				</tr>
 				
-				<tr>
-					<td><h3>Parking type</h3></td>
-					<td><p>Detached garage</p></td>
-				</tr>
+
+
 			</table>
 			<h6>Description</h6>
-			<p>Stunning Kingsway renovation. Coveted child friendly street, west garden. Renowed local builder - Rusand's - loving transformation in 2011! 4 great bed-rooms, dreamy master bath, 'to die for' kitchen/family room! Exceptional landscaping. Stunning Kingsway renovation. Coveted child frienly street, west garden. Renowed local builder - Rusand's - loving transformation in 2011! 4 great bed-rooms, dreamy master bath, 'to die for' kitchen/family room! Exceptional landscaping.</p>
+			<p>{{data.extras}}</p>
 		</div>
 		<div class="column2 medium-column3 medium-offcolumn0 small-offcolumn0 small-column7">
-			<h6>Details</h6>
+			<h6>Details</h6>			
 			<table>
-				<tr><td><h3>ROOMS</h3></td><td><p>6</p></td></tr>
-				<tr><td><h3>BEDROOMS</h3></td><td><p>3</p></td></tr>
-				<tr><td><h3>WASHROOMS</h3></td><td><p>1</p></td></tr>
-				<tr><td><h3>FEATURES</h3></td><td><p>Lane</p></td></tr>
-				<tr><td><h3>PARKING TYPE</h3></td><td><p>Detached garage</p></td></tr>
-				<tr><td><h3>TOTAL PARKING SPACES</h3></td><td><p>2</p></td></tr>
+				{% if data.rms %}<tr><td><h3>ROOMS</h3></td><td><p>{{data.rms}} {# {{data.rooms_plus}} #}</p></td></tr>{% endif %}
+				{% if data.br %}<tr><td><h3>BEDROOMS</h3></td><td><p>{{data.br}}</p></td></tr>{% endif %}
+				{% if data.bath_tot %}<tr><td><h3>WASHROOMS</h3></td><td><p>{{data.bath_tot}}</p></td></tr>{% endif %}
+				{% if data.gar_type%}<tr><td><h3>PARKING TYPE</h3></td><td><p>{{data.gar_type}}</p></td></tr>{%endif%}
+				{% if data.gar_spaces%}<tr><td><h3>TOTAL PARKING SPACES</h3></td><td><p>{{data.gar_spaces}}</p></td></tr>{%endif%}
+				{% if data.rltr %}<tr><td><h3>Listing Brokerage</h3></td><td><p>{{data.rltr}}</p></td></tr>{% endif %}
+				{% if data.ml_num %}<tr><td><h3>MLS Number</h3></td><td><p>{{data.ml_num}}</p></td></tr>{% endif %}
+				{% if data.zoning%}<tr><td><h3>Zoning</h3></td><td><p>{{data.zoning}}</p></td></tr>{%endif%}
 			</table>
 			<h6>Building</h6>
 			<table>
-				<tr><td><h3>BATHROOMS (TOTAL)</h3></td><td><p>2</p></td></tr>
-				<tr><td><h3>COOLING</h3></td><td><p>Central air conditioning</p></td></tr>
-				<tr><td><h3>EXTERIOR FINISH</h3></td><td><p>Brick</p></td></tr>
-				<tr><td><h3>HEATING FUEL</h3></td><td><p>Natural gas</p></td></tr>
-				<tr><td><h3>HEATING TYPE</h3></td><td><p>Forced air</p></td></tr>
-				<tr><td><h3>STYLE</h3></td><td><p>Semi-detached</p></td></tr>
+				{% if data.yr_build %}<tr><td><h3>Age</h3></td><td><p>{{data.yr_build}}</p></td></tr>{% endif %}
+				{% if data.taxes %}<tr><td><h3>Tax</h3></td><td><p>{{data.taxes|nicemoney}} - {{data.yr}} yr</p></td></tr>{% endif %}
+				{% if data.constr1_out %}<tr><td><h3>EXTERIOR FINISH</h3></td><td><p>{{data.constr1_out}} {% if data.constr2_out %}&amp; {{data.constr2_out}}{% endif %}</p></td></tr>{% endif %}
+				{% if data.fuel %}<tr><td><h3>HEATING FUEL</h3></td><td><p>{{data.fuel}}</p></td></tr>{% endif %}
+				{% if data.heating %}<tr><td><h3>Heating Type</h3></td><td><p>{{data.heating}}</p></td></tr>{% endif %}
+				{% if data.a_c %}<tr><td><h3>AC Type</h3></td><td><p>{{data.a_c}}</p></td></tr>{% endif %}
 			</table>
-			<div class="socialmedia"><h3><a href="mailto:michael@myrealestatepro.ca">EMAIL</a></h3> <h3><a href=" ">FACEBOOK</a></h3> <h3><a href="">TWITTER</a></h3>  <h3><a href="">COPY LINK</a></h3></div>				
+			<div class="socialmedia"><h3><a href="mailto:michael@myrealestatepro.ca">EMAIL</a></h3> <h3><a href=" ">FACEBOOK</a></h3> <h3><a href="">TWITTER</a></h3>  <h3><a href="/property/{{data.ml_num}}" class="coppylink">COPY LINK</a></h3></div>				
 			<h6>Request information</h6>
 		</div>				
 	</div>
@@ -95,6 +96,22 @@
 <script type="text/javascript">
 	$( document ).ready(function(){
 		app.property.init()
+		app.email.csrftoken = "{{csrf_token}}";	
+		{% if not data.numofphotos%}
+			app.property.loadrestofphotos("{{data.ml_num}}");
+		{% else %}
+			app.property.initslick();
+		{%endif%}
 	});
 </script>
 {% endblock %}
+
+<form action="/sendemail/" method="post">
+	<input name="fullname" placeholder="Full Name">
+	<input name="email" type="email" placeholder="E-Mail">
+	<input name="phone" type="tel" placeholder="Phone">
+	<textarea name="content" placeholder="Comments..." ></textarea>
+	{% csrf_token %}
+	<input class="emailsubmit" type="submit" value="Submit">
+</form>
+

@@ -1,0 +1,19 @@
+{% load staticfiles %}
+{% load bohdanfilters%}
+{% for prop in data %}<li class="column2 medium-column3 small-column7">
+	<a href="/property/{{prop.ml_num}}">
+		<div class="propertyimage">
+			<img src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
+
+		</div>
+		<div class="propertycontent">
+			<h3>{{prop.community}}</h3><br>
+			<h3>{{prop.lp_dol|nicemoney}}</h3>
+			<p>{{prop.extras}}</p><br>
+			<h3>SHARE</h3>
+			<div>
+
+			</div>
+		</div>
+	</a>
+</li>{% endfor %}

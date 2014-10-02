@@ -1,0 +1,61 @@
+{% extends basetemplate %}
+{% load staticfiles %}
+{% block content %}
+		<div id="chart"></div>
+ 
+
+{% endblock %}
+{% block script %} 
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var data = {{data|safe}};
+
+
+function render(){
+	var w = 500,
+	h = 5000;
+
+	var svg = d3.select("#chart")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
+
+
+
+	var max_n = 1;
+
+	var dx = w / max_n;
+	var dy = h / data.length;
+	var color = d3.scale.linear().domain([0,1]).range(['#ccc', '#999']);
+
+	// bars
+	var bars = svg.selectAll(".bar")
+		.data(data)
+		.enter()
+		.append("rect")
+		.attr("class", function(d, i) {return "bar " + d.id;})
+		.attr("x", function(d, i) {return 0;})
+		.attr("y", function(d, i) {return dy*i;})
+		.attr("width", function(d, i) {return dx*d.value})
+		.attr("height", dy)
+		.style("fill",function(d,i){return color(d.value) });
+
+	// labels
+	var text = svg.selectAll("text")
+		.data(data)
+		.enter()
+		.append("text")
+		.attr("class", function(d, i) {return "label " + d.id;})
+		.attr("x", 5)
+		.attr("y", function(d, i) {return dy*i + 15;})
+		.text( function(d) {return d.id + " (" + Math.floor(d.value*100)  + ")";})
+		.attr("font-size", "15px")
+		.style("font-weight", "bold");
+}
+render();
+
+
+</script>
+{% endblock %}
