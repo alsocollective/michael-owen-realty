@@ -1,0 +1,15 @@
+{% extends basetemplate %}
+{% load staticfiles %}
+{% block content %}
+<div id="smallsplash404" class="fivehundred">
+	<div class="titlebox titleboxmargins grid">
+
+		<h1>
+			<span class="leftalign">500 Error</span>
+		</h1>
+		<h6>We are experiencing some internal issues.<span class="small-hidden"><br></span> Please inform us of this problem by sending us an <a data-email="collaborate@alsocollective.com" href="mailto:collaborate@alsocollective.com">email</a>,<span class="small-hidden"><br></span>then returning to our <a href="http://michaelowenrealestate.com/">homepage</a>.</h6>
+	</div>
+	<div class="mainimg fivehundredimg" style="background-image: url({% static "img/Grey500_Toronto_from_Niagara.jpg"%});"></div>
+</div>
+{% endblock %}
+{% block buynav %}currentpage{% endblock %}
