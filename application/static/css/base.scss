@@ -203,6 +203,7 @@ a {
 
 .propertylist {
 	position: relative;
+	column-width: 100%;
 	width: 100%;
 	margin-bottom: -28px;
 	a{
@@ -836,6 +837,9 @@ label {
 		color: $grey;
 		font-weight: normal;
 		line-height: 1.5em;
+		a{
+		text-decoration: none;
+		}
 	}
 	li:hover {
 		color: $purple1;
@@ -914,7 +918,7 @@ label {
 			color: $purple1;
 			padding-bottom: 5px;
 			font-size: 0.7rem;
-			line-height: 1em;
+			line-height: 1.6em;
 		}
 		> div:nth-child(2) table {
 			margin: 20px 0 30px 0;
@@ -938,7 +942,7 @@ label {
 				padding-right: 5px;
 				color: $purple1;
 				font-size: 0.74em;
-				line-height: 1;
+				line-height: 1.6em;
 			}
 		}
 	}
