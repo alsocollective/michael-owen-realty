@@ -359,16 +359,16 @@ a {
   -webkit-column-gap: 1.53%;
   column-count: 3;
   column-gap: 1.53%;
-  width: 83.33%;
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
-  -moz-page-break-inside: avoid;
-  page-break-inside: avoid; }
+  width: 83.33%; }
   .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column3, .csscolumns .propertylist .small-column7 {
     width: auto;
     margin-right: 0 !important; }
   .csscolumns .propertylist li {
-    display: block; }
+    display: block;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -moz-page-break-inside: avoid;
+    page-break-inside: avoid; }
 
 .casestudy {
   background: #7d6cb1;
