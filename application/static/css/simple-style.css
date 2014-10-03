@@ -1074,7 +1074,8 @@ label {
     right: 0;
     top: 0;
     z-index: 99;
-    display: block; }
+    display: block;
+    background: transparent; }
     #exbutton > div {
       position: relative;
       display: block;
@@ -1467,8 +1468,5 @@ label {
     position: relative;
     right: none;
     top: none; } }
-<<<<<<< HEAD
 
 /*# sourceMappingURL=simple-style.css.map */
-=======
->>>>>>> 31dc882549cb7dab45d5a35a2ea6b76998c1dfa4
