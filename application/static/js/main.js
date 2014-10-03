@@ -436,6 +436,11 @@ var app = {
 			app.property.resizemap();
 			app.property.coppyInit();
 			app.email.init();
+			app.property.exitbutton();
+		},
+		exitbutton: function() {
+			console.log("hey exit")
+			$('#exbutton').click(app.property.delete);
 		},
 		initslick: function() {
 			$('.propertyimages').slick({
@@ -450,6 +455,7 @@ var app = {
 			iframe.height(iframe.width() * 0.8);
 		},
 		delete: function() {
+			console.log(this);
 			if (this.parentNode) {
 				this.parentNode.removeChild(this);
 				location.hash = "";

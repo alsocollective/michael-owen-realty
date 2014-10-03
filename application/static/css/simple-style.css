@@ -98,52 +98,44 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-@-webkit-keyframes leftOffRight {
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-moz-keyframes leftOffRight {
+@-moz-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-o-keyframes leftOffRight {
+@-o-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@keyframes leftOffRight {
+@keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-webkit-keyframes leftOffLeft {
+@-webkit-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-moz-keyframes leftOffLeft {
+@-moz-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@-o-keyframes leftOffLeft {
+@-o-keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
-@keyframes leftOffLeft {
+@keyframes $animation_name {
   0% {
     left: 0%; }
-
   100% {
     left: -100%; } }
 html, body {
@@ -1069,6 +1061,46 @@ label {
   .offleft {
     left: -100%; }
 
+  #exbutton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    display: block; }
+    #exbutton > div {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 50px; }
+      #exbutton > div div:first-child {
+        content: " ";
+        width: 25px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 14px;
+        background: #7d6cb1;
+        -ms-transform: translate(1px, 9px) rotate(45deg);
+        /* IE 9 */
+        -webkit-transform: translate(1px, 9px) rotate(45deg);
+        /* Chrome, Safari, Opera */
+        transform: translate(1px, 9px) rotate(45deg); }
+      #exbutton > div div:last-child {
+        content: " ";
+        width: 25px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 30px;
+        background: #7d6cb1;
+        -ms-transform: translate(0px, -7px) rotate(-45deg);
+        /* IE 9 */
+        -webkit-transform: translate(0px, -7px) rotate(-45deg);
+        /* Chrome, Safari, Opera */
+        transform: translate(0px, -7px) rotate(-45deg); }
+
   .hide, .hide2 {
     display: none; }
 
@@ -1418,7 +1450,6 @@ label {
     position: static; }
   .module .medium-column7 > div {
     width: auto;
-<<<<<<< HEAD
     display: block; }
 
   #gmap {
@@ -1430,6 +1461,3 @@ label {
     top: none; } }
 
 /*# sourceMappingURL=simple-style.css.map */
-=======
-    display: block; } }
->>>>>>> 1e9acb644439052abf253c0dcdfd0a57be6b083b
