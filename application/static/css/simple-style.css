@@ -703,7 +703,15 @@ label {
 #searchfield .column2 ul {
   padding-top: 7px;
   width: 47.619%;
-  display: inline-block; }
+  display: inline-block;
+  height: 150px;
+  padding-left: 30px;
+  margin-left: -30px;
+  margin-bottom: 8px;
+  overflow: scroll;
+  position: relative; }
+  #searchfield .column2 ul li {
+    padding-right: 25px; }
 #searchfield .column2 ul:first-of-type {
   margin-right: 4.761%; }
 #searchfield .column1 {
@@ -1459,5 +1467,8 @@ label {
     position: relative;
     right: none;
     top: none; } }
+<<<<<<< HEAD
 
 /*# sourceMappingURL=simple-style.css.map */
+=======
+>>>>>>> 31dc882549cb7dab45d5a35a2ea6b76998c1dfa4

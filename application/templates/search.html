@@ -42,9 +42,9 @@
 		</div><div class="column2 medium-column3 small-column4">
 			<h3>Neighbourhood</h3>
 			{% for region in filter.location.subsections.all %}<ul>
-				<li><input type="checkbox" id="{{region}}" name="{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
+				<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
 				{% for community in region.community.all %}
-					<li><input type="checkbox" id="{{community.text}}" name="{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
+					<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
 				{% endfor %}
 			</ul>{% endfor %}						
 		</div><div class="column1 medium-column2 small-column3">
@@ -52,7 +52,7 @@
 			<h3>home type</h3>
 			<ul>
 				{% for type in filter.main.style.all %}
-					<li><input type="checkbox" id="{{type}}" name="{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
+					<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
 				{% endfor %}
 			</ul>
 		</div><div class="column1 norightmargin small-column7">
