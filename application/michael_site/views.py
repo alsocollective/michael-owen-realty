@@ -135,9 +135,27 @@ def getinitialpagedata(request):
 		's_r':'Sale',
 		'status':'A'
 	}
+	print "|||||||||||||||||"
 	for pop in request.POST:
 		poporigin = pop
-		if "bed" in pop:
+		if "community" in pop:
+			try:
+				kwargs["community__in"].append(pop[9:])		
+			except Exception, e:
+				kwargs["community__in"] = [pop[9:]]
+				pass
+			continue
+		elif "notuse" in pop:
+			continue
+		elif "style" in pop:
+			print pop[5:]
+			try:
+				kwargs["style__in"].append(pop[5:])		
+			except Exception, e:
+				kwargs["style__in"] = [pop[5:]]
+				pass
+			continue			
+		elif "bed" in pop:
 			pop = "br%s"%addminmax(pop)
 		elif "bath" in pop:
 			pop = "bath_tot%s"%addminmax(pop)
@@ -153,12 +171,15 @@ def getinitialpagedata(request):
 				try:
 					kwargs[pop] = float(request.POST[poporigin].replace("$","").replace(",","").replace(" ",""))
 				except Exception, e:
-					kwargs[pop] =request.POST[poporigin]	
+					kwargs[pop] =request.POST[poporigin]
 	
+	# for prop in kwargs:
+	# 	print "%s:%s" %(prop,kwargs[prop])
+
 	fromcounter = int(request.POST["from"])
-	# print kwargs
+
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(**kwargs)
-	# print properties
+	# properties = [ResidentialProperty.objects.get(ml_num='E3019520')]
 
 	return render_to_response('properties.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'data':properties[fromcounter:(fromcounter+12)],'totalcount':len(properties)})
 

@@ -711,7 +711,15 @@ label {
 #searchfield .column2 ul {
   padding-top: 7px;
   width: 47.619%;
-  display: inline-block; }
+  display: inline-block;
+  height: 150px;
+  padding-left: 30px;
+  margin-left: -30px;
+  margin-bottom: 8px;
+  overflow: scroll;
+  position: relative; }
+  #searchfield .column2 ul li {
+    padding-right: 25px; }
 #searchfield .column2 ul:first-of-type {
   margin-right: 4.761%; }
 #searchfield .column1 {
@@ -1418,7 +1426,6 @@ label {
     position: static; }
   .module .medium-column7 > div {
     width: auto;
-<<<<<<< HEAD
     display: block; }
 
   #gmap {
@@ -1428,8 +1435,3 @@ label {
     position: relative;
     right: none;
     top: none; } }
-
-/*# sourceMappingURL=simple-style.css.map */
-=======
-    display: block; } }
->>>>>>> 1e9acb644439052abf253c0dcdfd0a57be6b083b

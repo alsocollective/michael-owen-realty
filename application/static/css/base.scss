@@ -719,6 +719,15 @@ label {
 			padding-top: 7px;
 			width: 47.619%;
 			display: inline-block;
+			height: 150px;
+			padding-left: 30px;
+			margin-left: -30px;
+			margin-bottom: 8px;
+			overflow: scroll;
+			position: relative;
+			li{
+				padding-right: 25px;
+			}
 		}
 		ul:first-of-type {
 			margin-right: 4.761%;

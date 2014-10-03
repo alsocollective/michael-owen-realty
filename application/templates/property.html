@@ -10,7 +10,7 @@
 	<div class="grid"> 
 		<div class="column2 leftmargin medium-noleftmargin medium-column7 small-offcolumn0 small-column7">
 			<div class="propertyimages" itemprop="image">
-			<span class="hide"><h3><span itemprop="name">{{data.addr}}, <br> {{data.area}}, {{data.county}}, {{data.zip}}</span></br>
+			<span class="hide"><h3>{% if data.addr and data.area and data.county %}<span itemprop="name">{{data.addr}}, <br> {{data.area}}, {{data.county}}, {{data.zip}}</span></br>{% endif %}
 			<span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{data.lp_dol|nicemoney}}</span></span></h3></span>
 				{% if data.numofphotos %}
 					{% for count in data.numofphotos|get_range%}
@@ -19,7 +19,7 @@
 				{% elif data.firstphoto %}
 					<div><img src="{% static ""%}images/{{data.ml_num}}-1.jpg"></div>
 				{% endif %}
-			</div><div id="gmap">
+			</div>{% if data.addr and data.area and data.county %}<div id="gmap">
 				<span itemscope itemprop="hasMap" itemtype="http://schema.org/Map">
 				<iframe 
 					width="100%" 
@@ -28,11 +28,11 @@
 					style="border:0" 
 					src={{data|mapsgen}}></iframe>
 				</span>
-			</div>
+			</div>{% endif %}
 		</div>
 		<div class="column2 medium-column4 small-offcolumn0 small-column7">
 			<h6>Overview</h6>
-			<h3><span itemprop="name">{{data.addr}},<span class="hide2"><br></span> {{data.area}}, {{data.county}}, {{data.zip}}</span></br>
+			<h3>{% if data.addr and data.area and data.county %}<span itemprop="name">{{data.addr}},<span class="hide2"><br></span> {{data.area}}, {{data.county}}, {{data.zip}}</span></br>{% endif %}
 			<span class="hide2"><br></span><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{data.lp_dol|nicemoney}}</span></span></h3>
 			<table>
 				<tr>

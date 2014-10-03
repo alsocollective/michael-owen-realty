@@ -300,6 +300,7 @@ var app = {
 			app.property.setup()
 			app.search.neighbourhoodSetup();
 			app.search.initajax();
+			app.search.setupCheckAllButtons();
 		},
 		initajax: function() {
 			$("#searchlistings button").click(app.search.loadInitialContent);
@@ -420,6 +421,23 @@ var app = {
 			$('#neighbourhoodajax').load(this.href);
 			event.preventDefault();
 			return false;
+		},
+		setupCheckAllButtons: function() {
+			$(".filterform .bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
+		},
+		checkAllRelatedCheckboxes: function(event) {
+			if (this.checked) {
+				$(this.parentNode.parentNode).find("input").each(app.search.makeCheck)
+			} else {
+				$(this.parentNode.parentNode).find("input").each(app.search.makeUnCheck)
+			}
+
+		},
+		makeCheck: function(i, el) {
+			el.checked = true;
+		},
+		makeUnCheck: function(i, el) {
+			el.checked = false;
 		}
 	},
 	sell: {
@@ -429,7 +447,7 @@ var app = {
 	},
 	property: {
 		init: function() {
-			if(!$(".module").hasClass("moduleindex")){
+			if (!$(".module").hasClass("moduleindex")) {
 				$(".module").click(app.property.delete);
 			}
 			$(".module > div > div").click(app.property.stopprop);
