@@ -23,6 +23,7 @@ var app = {
 		app.resize();
 		$(window).resize(app.resize);
 		// $(window).on("hashchange", app.url.gotohash);
+
 		$(window).on("popstate", app.url.changepage);
 	},
 	nav: {
@@ -103,9 +104,6 @@ var app = {
 			// 	url = url[url.length - 2]
 			// }
 			// app.options.currentPage = url;
-
-			console.log("Bohdan");
-
 			app.options.previousURL = document.URL.split("#")[0];
 			app.url.gotohashlocation();
 		},
@@ -172,18 +170,57 @@ var app = {
 		gotohashlocation: function() {
 			var gotoEl = $(location.hash);
 		},
+		//returns the last element in a url
+		//>>> "http://localhost:8000/buy/"
+		//<<< "buy"
+		findPage: function(baseurl) {
+			var pagesplit = baseurl.split("/"),
+				page = "",
+				count = 1;
+			while (page.length <= 0) {
+				page = pagesplit[pagesplit.length - count]
+				++count;
+			}
+			return page
+		},
+		currentPage: function() {
+			if ($("#searchfield").length > 0) {
+				return "search"
+			} else if ($("#about").length > 0) {
+				return "about"
+			} else if ($(".sellingpage").length > 0) {
+				return "sell"
+			} else if ($(".buyingpage")) {
+				return "buy"
+			}
+			return "Unknown"
+		},
 		changepage: function() {
-			var url = document.URL.split("#");
-			if (url.length == 0) {
+			var url = document.URL.split("#"),
+				newpage = app.url.findPage(url[0]),
+				currentpage = app.url.currentPage();
+			if (url.length > 1 && url[1].length > 1) {
+				if (!$(".module")[0]) {
+					app.property.loadproperty(null, url[1]);
+				}
+			} else if (currentpage != newpage) {
 				app.nav.loadpage(document.URL, true);
 			} else {
-				if (url[1].length > 0 && $("#" + url[1]).length == 0) {
-					app.property.loadproperty(null, url[1]);
-				} else if (url[1].length == 0 && $(".module")) {
-					var el = $(".module")[0];
-					el.parentNode.removeChild(el);
-				}
+				var el = $(".module")[0];
+				el.parentNode.removeChild(el);
 			}
+			return false;
+
+			// if (url.length == 0 || url[1].length == 0) {
+			// 	app.nav.loadpage(document.URL, true);
+			// } else {
+			// 	if (url[1].length > 0 && $("#" + url[1]).length == 0) {
+			// 		app.property.loadproperty(null, url[1]);
+			// 	} else if (url[1].length == 0 && $(".module")) {
+			// 		var el = $(".module")[0];
+			// 		el.parentNode.removeChild(el);
+			// 	}
+			// }
 		}
 		// urlChange: function(event) {
 		// 	console.log("=-- url change --=");
@@ -479,13 +516,13 @@ var app = {
 		},
 		submit: function(event) {
 			var data = $(this.parentNode).serialize();
-			console.log(data);
-			// data['csrfmiddlewaretoken'] = app.email.csrftoken;
+			data['csrfmiddlewaretoken'] = app.email.csrftoken;
 			$.ajax({
 				type: "POST",
 				url: '/sendemail/',
 				data: data,
-				success: app.email.submitsuccess
+				success: app.email.submitsuccess,
+				error: app.email.error
 			});
 
 			event.preventDefault();
@@ -493,6 +530,9 @@ var app = {
 		},
 		submitsuccess: function(replied) {
 			console.log(replied);
+		},
+		error: function(message) {
+			console.log(message)
 		}
 	},
 	resize: function() {

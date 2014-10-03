@@ -82,7 +82,9 @@
 			</table>
 			<div class="socialmedia"><h3><a href="mailto:michael@myrealestatepro.ca">EMAIL</a></h3> <h3><a href=" ">FACEBOOK</a></h3> <h3><a href="">TWITTER</a></h3>  <h3><a href="/property/{{data.ml_num}}" class="coppylink">COPY LINK</a></h3></div>				
 			<span class="request"><h6>Request information</h6>
-			<form class="requestform"><textarea id="comments" placeholder="Comments"></textarea>	
+			<form class="requestform" action="/sendemail/" method="post">
+				{% csrf_token %}
+				<textarea id="comments" placeholder="Comments" name="message"></textarea>	
 				<label for="formfirst" alt="first name"><!-- <h3>First name</h3> -->
 				</label><input id="formfirst" type="text" name="firstname" placeholder="First name"><!--
 				--><label for="formlast" alt="last name"><!-- <h3>Last name</h3> -->
@@ -93,8 +95,11 @@
 				</label><input id="phone" type="text" name="phone" placeholder="Phone"><!--
 				--><label for="comments" alt="comments"><!-- <h3>Comments</h3> -->
 				<!-- <label for="send" alt="send"><h6>SEND</h6></label> -->
-				</label><input id="send" type="submit">
+				</label><input class="emailsubmit" id="send" type="submit">
 			</form></span>
+			<script type="text/javascript">
+				app.email.csrftoken = "{{ csrf_token }}";
+			</script>
 		</div>				
 	</div>
 </div>
@@ -106,8 +111,7 @@
 {% block script %} 
 <script type="text/javascript">
 	$( document ).ready(function(){
-		app.property.init()
-		app.email.csrftoken = "{{csrf_token}}";	
+		app.property.init()		
 		{% if not data.numofphotos%}
 			app.property.loadrestofphotos("{{data.ml_num}}");
 		{% else %}
@@ -117,12 +121,4 @@
 </script>
 {% endblock %}
 
-<form action="/sendemail/" method="post">
-	<input name="fullname" placeholder="Full Name">
-	<input name="email" type="email" placeholder="E-Mail">
-	<input name="phone" type="tel" placeholder="Phone">
-	<textarea name="content" placeholder="Comments..." ></textarea>
-	{% csrf_token %}
-	<input class="emailsubmit" type="submit" value="Submit">
-</form>
 

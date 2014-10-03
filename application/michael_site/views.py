@@ -21,9 +21,8 @@ def templateType(request):
 #	example case...
 # 	emailBoutPorp({"sender":"bohdananderson@gmail.com","body":"WHY hello there!"})
 def emailBoutPorp(data):
-	print "sent Message"
-	title = "email from %s" %data["sender"]
-	message = "Message: %s From: %s"%(data["body"],data["sender"])
+	title = "%s %s, from my website" %(data["firstname"],data["lastname"])
+	message = "Message: %s From:%s%s %s %s"%(data["message"],data["firstname"],data["lastname"],data["email"],data["phone"])
 	send_mail(title,message,"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
 
 #	load test data
@@ -55,7 +54,8 @@ def search(request):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:9]
 	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured()}
-	out.update(csrf(request))	
+	out.update(csrf(request))
+	print "should have CSRF"
 	return render_to_response('search.html',out)	
 
 def fourofour(request):
@@ -69,18 +69,21 @@ def fivehun(request):
 
 
 def ajaxproperty(request):
-	return render_to_response('property.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html"})
+	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html"}
+	out.update(csrf(request))
+	return render_to_response('property.html',out)
 
 def ajaxneighbourhood(request, urlneighbourhood):
 	out = {"title":urlneighbourhood,"content":"blah blah"}
 	return render_to_response('neighbourhood.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html", "location":out})
 
-@csrf_exempt
 def property(request,propertyid):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.get(ml_num = propertyid)
+	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
+	out.update(csrf(request))
 	# percentages = getPercentages(True)
-	return render_to_response('property.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations})
+	return render_to_response('property.html',out)
 
 def loadallimages(request,propertyid):
 	count = getAllImages(propertyid)
@@ -162,10 +165,8 @@ def getinitialpagedata(request):
 
 @csrf_protect
 def sendemail(request):
-	for pop in request.POST:
-		print pop
+	emailBoutPorp(request.POST)
 	return HttpResponse("yesssssppp", content_type='application/json')
-	emailBoutPorp("DATA")
 
 def sort(request):
 	out = filloutlists()
