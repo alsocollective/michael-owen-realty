@@ -6,7 +6,6 @@
 {% if basetemplate = "index.html" %}
 	<div class="module moduleindex">
 {% endif %}
-<div id="exbutton"><div><div></div><div></div></div></div>
 <div id="{{pageid}}">
 	<div class="grid"> 
 		<div class="column2 leftmargin medium-noleftmargin medium-column7 small-offcolumn0 small-column7">
@@ -102,13 +101,14 @@
 				</label><input class="emailsubmit" id="send" type="submit">
 			</form></span>
 			<script type="text/javascript">
-			if(app){
+			if(typeof app !== 'undefined'){
 				app.email.csrftoken = "{{ csrf_token }}";
 			}
 			</script>
 		</div>				
 	</div>
 </div>
+<div id="exbutton"><div><div></div><div></div></div></div>
 {% if basetemplate = "index.html" %}
 	</div>
 {% endif %}

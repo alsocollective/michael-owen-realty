@@ -199,15 +199,22 @@ var app = {
 			var url = document.URL.split("#"),
 				newpage = app.url.findPage(url[0]),
 				currentpage = app.url.currentPage();
+			if (newpage.length > 8) {
+				newpage = "about";
+			}
 			if (url.length > 1 && url[1].length > 1) {
 				if (!$(".module")[0]) {
 					app.property.loadproperty(null, url[1]);
 				}
 			} else if (currentpage != newpage) {
+				console.log(currentpage, newpage)
 				app.nav.loadpage(document.URL, true);
 			} else {
-				var el = $(".module")[0];
-				el.parentNode.removeChild(el);
+				var el = $(".module");
+				if (el.length > 0) {
+					el = el[0]
+					el.parentNode.removeChild(el);
+				}
 			}
 			return false;
 
@@ -457,8 +464,10 @@ var app = {
 			app.property.exitbutton();
 		},
 		exitbutton: function() {
-			console.log("hey exit")
-			$('#exbutton').click(app.property.delete);
+			$('#exbutton > div').click(app.property.exitbuttonexit);
+		},
+		exitbuttonexit: function(event) {
+			this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
 		},
 		initslick: function() {
 			$('.propertyimages').slick({
@@ -473,7 +482,6 @@ var app = {
 			iframe.height(iframe.width() * 0.8);
 		},
 		delete: function() {
-			console.log(this);
 			if (this.parentNode) {
 				this.parentNode.removeChild(this);
 				location.hash = "";
