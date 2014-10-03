@@ -3,11 +3,14 @@
 {% load bohdanfilters%}
 {% block content %}
 
+{% if basetemplate = "index.html" %}
+	<div class="module moduleindex">
+{% endif %}
 <div id="{{pageid}}">
 	<div class="grid"> 
 		<div class="column2 leftmargin medium-noleftmargin medium-column7 small-offcolumn0 small-column7">
 			<div class="propertyimages" itemprop="image">
-			<span class="hide"><h3><span itemprop="name">392 MANNING AVE, TORONTO, ONTARIO</span></br>
+			<span class="hide"><h3><span itemprop="name">{{data.addr}}, <br> {{data.area}}, {{data.county}}, {{data.zip}}</span></br>
 			<span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{data.lp_dol|nicemoney}}</span></span></h3></span>
 				{% if data.numofphotos %}
 					{% for count in data.numofphotos|get_range%}
@@ -29,8 +32,8 @@
 		</div>
 		<div class="column2 medium-column4 small-offcolumn0 small-column7">
 			<h6>Overview</h6>
-			<h3><span itemprop="name">{{data.addr}}, {{data.area}}, {{data.county}}, {{data.zip}}</span></h3>
-			<h3><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{data.lp_dol|nicemoney}}</span></span></h3>
+			<h3><span itemprop="name">{{data.addr}},<span class="hide2"><br></span> {{data.area}}, {{data.county}}, {{data.zip}}</span></br>
+			<span class="hide2"><br></span><span itemprop="priceCurrency" content="CAD"><span itemprop="price">{{data.lp_dol|nicemoney}}</span></span></h3>
 			<table>
 				<tr>
 					<td><h3>Property type</h3></td>
@@ -80,7 +83,7 @@
 				{% if data.heating %}<tr><td><h3>Heating Type</h3></td><td><p>{{data.heating}}</p></td></tr>{% endif %}
 				{% if data.a_c %}<tr><td><h3>AC Type</h3></td><td><p>{{data.a_c}}</p></td></tr>{% endif %}
 			</table>
-			<div class="socialmedia"><h3><a href="mailto:michael@myrealestatepro.ca">EMAIL</a></h3> <h3><a href=" ">FACEBOOK</a></h3> <h3><a href="">TWITTER</a></h3>  <h3><a href="/property/{{data.ml_num}}" class="coppylink">COPY LINK</a></h3></div>				
+			<div class="socialmedia"><h3><a href="mailto:michael@myrealestatepro.ca">EMAIL</a></h3> <h3><a href=" ">FACEBOOK</a></h3> <h3><a href="">TWITTER</a></h3>  <h3><a href="/property/{{data.ml_num}}" class="coppylink">LINK</a></h3></div>				
 			<span class="request"><h6>Request information</h6>
 			<form class="requestform" action="/sendemail/" method="post">
 				{% csrf_token %}
@@ -103,7 +106,9 @@
 		</div>				
 	</div>
 </div>
-
+{% if basetemplate = "index.html" %}
+	</div>
+{% endif %}
 
 
 {% endblock %}

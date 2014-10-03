@@ -429,7 +429,9 @@ var app = {
 	},
 	property: {
 		init: function() {
-			$(".module").click(app.property.delete);
+			if(!$(".module").hasClass("moduleindex")){
+				$(".module").click(app.property.delete);
+			}
 			$(".module > div > div").click(app.property.stopprop);
 			app.property.resizemap();
 			app.property.coppyInit();

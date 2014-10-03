@@ -161,6 +161,10 @@
 		display: block;
 		padding-bottom:30px;
 	}
+	.hide2{
+		display: block;
+		line-height: 0;
+	}
 
 	.reference{
 		.slick-dots{
@@ -233,9 +237,22 @@
 	}
 
 	.module{
+	.grid{
+		position: static;
+	}
 	.medium-column7> div{
 			width: auto;
 			display: block;
 		}
+	}
+
+	#gmap{
+		// height: 200px;
+		padding-top: 0px;
+	    padding-left: 0%;
+		display: block;
+		position: relative;
+		right: none;
+		top: none;
 	}
 }
