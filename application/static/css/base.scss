@@ -977,6 +977,16 @@ label {
 	}
 }
 
+.moduleindex {
+		z-index: 1;
+		position: static;
+		background: #fff;
+		>div{
+			padding-top: 60px;
+		}
+}
+
+
 .request{
 	display:block;
     .requestform{

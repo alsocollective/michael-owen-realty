@@ -24,7 +24,7 @@
 .small-show {
   display: none; }
 
-.hide {
+.hide, .hide2 {
   display: none; }
 
 .column1 {
@@ -889,6 +889,13 @@ label {
   .module #gmap {
     padding-bottom: 30px; }
 
+.moduleindex {
+  z-index: 1;
+  position: static;
+  background: #fff; }
+  .moduleindex > div {
+    padding-top: 60px; }
+
 .request {
   display: block; }
   .request .requestform {
@@ -1054,7 +1061,7 @@ label {
   .offleft {
     left: -100%; }
 
-  .hide {
+  .hide, .hide2 {
     display: none; }
 
   .medium-hide {
@@ -1211,6 +1218,8 @@ label {
   .aboutimg2, .buyimg2 {
     margin-top: 80px; }
 
+  .module .grid {
+    position: relative; }
   .module > div {
     padding: 0;
     background: #fff; }
@@ -1220,7 +1229,10 @@ label {
 
   #gmap {
     padding-top: 30px;
-    padding-left: 1.282%; } }
+    padding-left: 1.282%;
+    position: absolute;
+    right: 0;
+    top: 0; } }
 @media all and (max-width: 500px) {
   .grid .small-leftmargin {
     margin-left: 1.282%; }
@@ -1341,6 +1353,10 @@ label {
     display: block;
     padding-bottom: 30px; }
 
+  .hide2 {
+    display: block;
+    line-height: 0; }
+
   .reference .slick-dots {
     bottom: none;
     top: 320px; }
@@ -1390,8 +1406,18 @@ label {
     #footer > div:first-child {
       background-size: 45%; }
 
+  .module .grid {
+    position: static; }
   .module .medium-column7 > div {
     width: auto;
-    display: block; } }
+    display: block; }
+
+  #gmap {
+    padding-top: 0px;
+    padding-left: 0%;
+    display: block;
+    position: relative;
+    right: none;
+    top: none; } }
 
 /*# sourceMappingURL=simple-style.css.map */
