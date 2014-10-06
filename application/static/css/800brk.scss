@@ -160,7 +160,7 @@
 			overflow-scrolling: touch;
 		}
 	}
-		.offleft{
+		.offleft{ 
 			left: -100%;
 		}
 
@@ -350,7 +350,7 @@
 			color: #7d6cb1;
 		}
 	}
-}
+} 
 
 	.aboutimg2, .buyimg2{
 		margin-top: 80px;
@@ -366,6 +366,11 @@
 		.medium-column7> div{
 			width: 45%;
 			display: inline-block;
+		}
+	}
+	.moduleindex{
+		#exbutton{
+			display:none;
 		}
 	}
 

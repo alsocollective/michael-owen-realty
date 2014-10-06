@@ -729,9 +729,10 @@ label {
 				padding-right: 25px;
 			}
 		}
-		ul:first-of-type {
-			margin-right: 4.761%;
-		}
+		// ul:first-of-type {
+		// 	margin-right: 4.761%;
+		// }
+
 	}
 	.column1 {
 		background: transparent;
@@ -850,7 +851,7 @@ label {
 	}
 	img {
 		width: 100%;
-		padding-bottom: 30px;
+		margin-bottom: 30px;
 	}
 	> div {
 		h3 {
@@ -938,6 +939,7 @@ label {
 		}
 		img {
 			width: 100%;
+			margin-bottom: 30px;
 		}
 		p {
 			font-size: $pP2;
@@ -1005,6 +1007,7 @@ label {
 	  // &:active{
 		.requestform{
 			display: block;
+			margin-bottom:30px;
 			input{
 				margin-bottom: 7px;
 				margin-right: 0.7%;
@@ -1018,7 +1021,9 @@ label {
 			}
 			#comments{
 				width:92%;
-				max-width: 110%;
+				height: 30px;
+				max-width: 100%;
+				max-height: 100px !important; 
 				color: $grey;
 				margin-bottom: 7px;
 			}
