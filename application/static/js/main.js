@@ -5,9 +5,9 @@ var app = {
 		loadingpage: false,
 		pagetransitiontime: 1000,
 		previousURL: null
-		// currentPage: "home"
 	},
 	init: function() {
+		app.social.init();
 		//ajax load pages
 		$("nav a").click(app.nav.navmenueclick);
 
@@ -22,7 +22,6 @@ var app = {
 
 		app.resize();
 		$(window).resize(app.resize);
-		// $(window).on("hashchange", app.url.gotohash);
 
 		$(window).on("popstate", app.url.changepage);
 	},
@@ -58,7 +57,7 @@ var app = {
 					location = "/" + name;
 				app.nav.changeurl(location);
 			}
-			url = app.url.addajax(url);
+			// url = app.url.addajax(url);
 			var newMainContainer = document.createElement("div");
 			newMainContainer.className = "mainwrapper offright";
 			document.body.appendChild(newMainContainer);
@@ -95,15 +94,20 @@ var app = {
 			$("#nav").width($($(".mainwrapper div")[0]).width());
 		}
 	},
+	social: {
+		init: function() {
+			$(".twitterlink").click(app.social.twitterLink);
+		},
+		twitterLink: function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			var w = window.open(this.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+			// return w ? false : true;
+			return false;
+		}
+	},
 	url: {
 		init: function() {
-			// var url = document.URL.split("#")[0].split("/")
-			// if (url.length < 5) {
-			// 	url = "home";
-			// } else {
-			// 	url = url[url.length - 2]
-			// }
-			// app.options.currentPage = url;
 			app.options.previousURL = document.URL.split("#")[0];
 			app.url.gotohashlocation();
 		},
@@ -117,26 +121,22 @@ var app = {
 			}, name, location);
 			app.nav.changeurl(location);
 			app.options.previousURL = document.URL;
-			// if (app.options.newhash && $("#" + app.options.newhash).length > 0) {
-			// 	location.hash = app.options.newhash
-			// 	app.options.newhash = null;
-			// }
 			return false;
 		},
-		addajax: function(url) {
-			var spliturl = url.split("/");
-			if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
-				spliturl[spliturl.length - 1] = "home";
-			}
-			var appendstring = "ajax";
-			if (spliturl.length < 5) {
-				spliturl[spliturl.length - 1] = appendstring + spliturl[spliturl.length - 1];
-			} else {
-				spliturl[spliturl.length - 2] = appendstring + spliturl[spliturl.length - 2];
-				spliturl[spliturl.length - 1] = "";
-			}
-			return spliturl.join("/");
-		},
+		// addajax: function(url) {
+		// 	var spliturl = url.split("/");
+		// 	if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
+		// 		spliturl[spliturl.length - 1] = "home";
+		// 	}
+		// 	var appendstring = "ajax";
+		// 	if (spliturl.length < 5) {
+		// 		spliturl[spliturl.length - 1] = appendstring + spliturl[spliturl.length - 1];
+		// 	} else {
+		// 		spliturl[spliturl.length - 2] = appendstring + spliturl[spliturl.length - 2];
+		// 		spliturl[spliturl.length - 1] = "";
+		// 	}
+		// 	return spliturl.join("/");
+		// },
 		setupPagescroll: function(className) {
 			var els = $(className + " h2");
 			els.waypoint(app.url.setSectionAsHash, {
@@ -144,8 +144,6 @@ var app = {
 			});
 		},
 		setSectionAsHash: function(event) {
-			// console.log(event);
-			// console.log($(this).prev());
 			if (event == "down") {
 				if ($(this).hasClass("whitenav")) {
 					$("#navbutton").addClass("white");
@@ -159,7 +157,6 @@ var app = {
 					$("#navbutton").removeClass("white");
 				}
 			}
-			// location.hash = app.url.slugify(this.innerHTML);
 		},
 		slugify: function(Text) {
 			return Text
@@ -217,78 +214,7 @@ var app = {
 				}
 			}
 			return false;
-
-			// if (url.length == 0 || url[1].length == 0) {
-			// 	app.nav.loadpage(document.URL, true);
-			// } else {
-			// 	if (url[1].length > 0 && $("#" + url[1]).length == 0) {
-			// 		app.property.loadproperty(null, url[1]);
-			// 	} else if (url[1].length == 0 && $(".module")) {
-			// 		var el = $(".module")[0];
-			// 		el.parentNode.removeChild(el);
-			// 	}
-			// }
 		}
-		// urlChange: function(event) {
-		// 	console.log("=-- url change --=");
-		// 	var splited = document.URL.split("#");
-		// 	if (splited.length > 0) {
-		// 		app.options.newhash = splited[1]
-		// 	}
-		// 	return false;
-		// 	if (document.URL.indexOf("#") > 0) {
-		// 		app.url.hashchange();
-		// 	} else {
-		// 		app.url.fullurlchange();
-		// 	}
-		// },
-		// fullurlchange: function() {
-		// 	console.log("page change");
-		// 	app.nav.loadpage(document.URL, true);
-		// },
-		// hashchange: function(event) {
-		// 	console.log("hash state change");
-		// 	console.log(document.URL.split("#")[0], app.options.previousURL);
-		// 	if (document.URL.split("#")[0] == app.options.previousURL) {
-		// 		console.log("gotohash location")
-		// 		app.url.gotohashlocation();
-		// 	} else {
-		// 		console.log("differnt URL");
-		// 		app.nav.loadpage(document.URL.split("#")[0]);
-		// 	}
-		// 	// app.options.newhash = document.URL.split("#")[1]
-
-
-
-		// 	// console.log("+-- hash change --+")
-		// 	// console.log(event);
-		// 	// console.log(document.URL);
-		// 	// if (app.options.loadingpage) {
-		// 	// 	event.preventDefault();
-		// 	// 	return false;
-		// 	// }
-		// 	// app.nav.loadpage(document.URL, true);
-		// },
-		// currentpage: function(location) {
-		// 	console.log("+-- current page --+")
-		// 	if (location.split("#").length) {
-		// 		console.log("true");
-		// 		return true
-		// 	}
-		// 	console.log("false");
-		// 	return false;
-		// },
-		// gotohash: function(event) {
-		// 	var split = document.URL.split("#");
-		// 	if (split.length > 0) {
-		// 		$.waypoints('disable')
-		// 		$('html,body').animate({
-		// 			scrollTop: $("#" + split[1]).offset().top
-		// 		}, 0, function() {
-		// 			$.waypoints('enable')
-		// 		});
-		// 	}
-		// }
 	},
 	about: {
 		init: function() {
@@ -491,6 +417,10 @@ var app = {
 			$(".propertylist li a").click(app.property.loadproperty);
 		},
 		loadproperty: function(event, hash) {
+			event.preventDefault();
+			if ($(event.target).hasClass("twitterlink")) {
+				return false;
+			}
 			var that = this;
 			if (event) {
 				event.preventDefault();

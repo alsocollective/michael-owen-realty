@@ -51,10 +51,12 @@
 					<td><h3>Community name</h3></td>
 					<td><p>{{data.community|titlecase}}</p></td>
 				</tr>
-				<tr>
-					<td><h3>Land Size</h3></td>
-					<td><p>{{data.depth}}  Fronting:{{data.comp_pts}} 7L.6A6Nx1D14.S0I0ZFET</p></td>
-				</tr>
+				{% if data.depth and data.comp_pts %}
+					<tr>
+						<td><h3>Land Size</h3></td>
+						<td><p> {{data.front_ft}}x{{data.depth}} {{data.lotsz_code}}<!-- Fronting:{{data.comp_pts}} --></p></td>
+					</tr>
+				{% endif %}
 				
 
 
@@ -101,9 +103,9 @@
 				</label><input class="emailsubmit" id="send" type="submit">
 			</form></span>
 			<script type="text/javascript">
-			if(typeof app !== 'undefined'){
-				app.email.csrftoken = "{{ csrf_token }}";
-			}
+				{% if basetemplate = "ajax.html" %}
+					app.email.csrftoken = "{{ csrf_token }}";
+				{% endif %}
 			</script>
 		</div>				
 	</div>
@@ -125,6 +127,9 @@
 		{% else %}
 			app.property.initslick();
 		{%endif%}
+		{% if basetemplate = "index.html" %}
+			app.email.csrftoken = "{{ csrf_token }}";
+		{% endif %}
 	});
 </script>
 {% endblock %}
