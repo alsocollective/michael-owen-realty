@@ -219,8 +219,8 @@ a {
 
 #underline {
   text-decoration: none;
-  border-bottom: 1.6px solid #7d6cb1;
-  color: #7d6cb1;
+  border-bottom: 1.6px solid #7467b4;
+  color: #7467b4;
   padding-bottom: 0px;
   margin-bottom: 3px;
   width: 110px; }
@@ -247,7 +247,7 @@ a {
   top: 0; }
 
 .purp {
-  color: #7d6cb1; }
+  color: #7467b4; }
 
 .titlebox {
   position: absolute;
@@ -275,14 +275,14 @@ a {
     display: inline-block;
     border: none;
     background: transparent;
-    border: 1px solid #7d6cb1;
+    border: 1px solid #7467b4;
     padding: 1em 0;
     text-transform: uppercase;
     margin-top: 2em; }
     .bigbutton button h3 {
-      color: #7d6cb1; }
+      color: #7467b4; }
   .bigbutton button:hover {
-    background: #7d6cb1; }
+    background: #7467b4; }
     .bigbutton button:hover h3 {
       color: #fff; }
 
@@ -305,7 +305,7 @@ a {
     width: 20px;
     height: 5px;
     margin-bottom: 5px;
-    border-bottom: solid 3px #7d6cb1; }
+    border-bottom: solid 3px #7467b4; }
 
 .propertylist {
   position: relative;
@@ -339,7 +339,7 @@ a {
         padding-top: 2em; }
     .propertylist li .share h3 {
       font-size: 0.65rem;
-      color: #7d6cb1;
+      color: #7467b4;
       display: none; }
     .propertylist li .share h3:first-child {
       display: inline-block; }
@@ -348,7 +348,7 @@ a {
     .propertylist li .share:hover h3:first-child {
       display: none; }
   .propertylist li:hover {
-    background: #82d723; }
+    background: #4ec868; }
     .propertylist li:hover img {
       -webkit-filter: grayscale(0%) opacity(1);
       -moz-filter: grayscale(0%) opacity(1);
@@ -379,7 +379,7 @@ a {
     page-break-inside: avoid; }
 
 .casestudy {
-  background: #7d6cb1;
+  background: #7467b4;
   padding-top: 60px;
   padding-bottom: 100px;
   position: relative;
@@ -439,7 +439,7 @@ nav {
   z-index: 9;
   position: relative; }
   nav .currentpage a {
-    border-bottom: solid 3px #7d6cb1; }
+    border-bottom: solid 3px #7467b4; }
   nav li {
     white-space: nowrap;
     display: inline-block; }
@@ -642,7 +642,7 @@ nav {
 #testimonials {
   margin-top: 120px;
   position: relative;
-  background: #82d723;
+  background: #4ec868;
   width: 100%;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -726,7 +726,7 @@ label {
 #searchfield .column4.offcolumn1 {
   position: relative; }
   #searchfield .column4.offcolumn1 h3 {
-    color: #7d6cb1; }
+    color: #7467b4; }
   #searchfield .column4.offcolumn1 > div {
     display: inline-block; }
   #searchfield .column4.offcolumn1 > div:first-child {
@@ -771,7 +771,7 @@ label {
   border: 1px solid #d8dadb;
   cursor: pointer; }
 #searchfield input[type="checkbox"]:checked + label span {
-  background: #7d6cb1; }
+  background: #7467b4; }
 #searchfield #searchlistings {
   margin-bottom: -92px; }
 
@@ -819,12 +819,12 @@ label {
   #neighbourhoods li a {
     text-decoration: none; }
 #neighbourhoods li:hover {
-  color: #7d6cb1; }
+  color: #7467b4; }
 
 #footer {
   margin-top: 120px;
   position: relative;
-  background: #7d6cb1;
+  background: #7467b4;
   width: 100%;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -877,7 +877,7 @@ label {
       padding-bottom: 10px;
       font-size: 1.1em; }
     .module .grid h3 {
-      color: #7d6cb1;
+      color: #7467b4;
       padding-bottom: 5px;
       font-size: 0.7rem;
       line-height: 1.6em; }
@@ -897,7 +897,7 @@ label {
       .module .grid table p {
         padding: 0;
         padding-right: 5px;
-        color: #7d6cb1;
+        color: #7467b4;
         font-size: 0.74em;
         line-height: 1.6em; }
   .module #gmap {
@@ -966,7 +966,7 @@ label {
         position: absolute;
         left: 10px;
         top: 14px;
-        background: #7d6cb1;
+        background: #7467b4;
         -webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
         -moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
         -o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
@@ -979,7 +979,7 @@ label {
         position: absolute;
         left: 10px;
         top: 22px;
-        background: #7d6cb1;
+        background: #7467b4;
         -webkit-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
         -moz-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
         -o-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
@@ -992,7 +992,7 @@ label {
         position: absolute;
         left: 10px;
         top: 30px;
-        background: #7d6cb1;
+        background: #7467b4;
         -webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
         -moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
         -o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
@@ -1045,7 +1045,7 @@ label {
     transition: left 0.5s ease-in-out; }
     nav .currentpage a {
       border-bottom: none;
-      background: #7d6cb1; }
+      background: #7467b4; }
     nav li {
       margin-left: 0% !important;
       width: 100% !important;
@@ -1060,7 +1060,7 @@ label {
         padding: 1.5em 0 1.5em 15.384%;
         font-size: 1.7em; }
     nav li:hover {
-      background: #7d6cb1; }
+      background: #7467b4; }
     nav ul {
       height: 100%;
       overflow: scroll;
@@ -1098,7 +1098,7 @@ label {
         position: absolute;
         left: 10px;
         top: 14px;
-        background: #7d6cb1;
+        background: #7467b4;
         -ms-transform: translate(1px, 9px) rotate(45deg);
         /* IE 9 */
         -webkit-transform: translate(1px, 9px) rotate(45deg);
@@ -1112,7 +1112,7 @@ label {
         position: absolute;
         left: 10px;
         top: 30px;
-        background: #7d6cb1;
+        background: #7467b4;
         -ms-transform: translate(0px, -7px) rotate(-45deg);
         /* IE 9 */
         -webkit-transform: translate(0px, -7px) rotate(-45deg);
