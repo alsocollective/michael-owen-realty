@@ -567,6 +567,10 @@ nav {
   #smallsplash404 .fivehundredimg {
     background-position: left; }
 
+.aboutimg {
+  height: 350px;
+  width: 100%; }
+
 .buyimg2, .aboutimg2 {
   background-size: cover;
   -o-background-size: cover;
@@ -620,7 +624,8 @@ nav {
 #about .describe-michael {
   position: absolute;
   bottom: 0;
-  color: #4e4e56;
+  margin-bottom: 79px;
+  color: #7467b4;
   line-height: 1.3em;
   font-family: "garvis-pro", serif;
   font-size: 22px;
@@ -744,7 +749,8 @@ label {
       display: inline-block; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput input {
         margin-bottom: 20px;
-        width: auto; }
+        width: 150px;
+        font-size: 1.0em; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child {
         text-align: right; }
       #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child input {
