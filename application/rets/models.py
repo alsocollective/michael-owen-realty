@@ -237,6 +237,8 @@ class ResidentialProperty(models.Model):
 
 class listitem(models.Model):
 	text = models.CharField(max_length=20000)
+	class Meta:
+		ordering = ['text']
 
 	def __unicode__(self):
 		return self.text
