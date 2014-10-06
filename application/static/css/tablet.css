@@ -23,7 +23,7 @@
       position: absolute;
       left: 10px;
       top: 14px;
-      background: #7d6cb1;
+      background: #7467b4;
       -webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
       -moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
       -o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
@@ -36,7 +36,7 @@
       position: absolute;
       left: 10px;
       top: 22px;
-      background: #7d6cb1;
+      background: #7467b4;
       -webkit-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
       -moz-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
       -o-transition: width 0.1s ease-in-out, background 0.1s ease-in-out;
@@ -49,7 +49,7 @@
       position: absolute;
       left: 10px;
       top: 30px;
-      background: #7d6cb1;
+      background: #7467b4;
       -webkit-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
       -moz-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
       -o-transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
@@ -102,7 +102,7 @@ nav {
   transition: left 0.5s ease-in-out; }
   nav .currentpage a {
     border-bottom: none;
-    background: #7d6cb1; }
+    background: #7467b4; }
   nav li {
     margin-left: 0% !important;
     width: 100% !important;
@@ -117,7 +117,7 @@ nav {
       padding: 1.5em 0 1.5em 15.384%;
       font-size: 1.7em; }
   nav li:hover {
-    background: #7d6cb1; }
+    background: #7467b4; }
   nav ul {
     height: 100%;
     overflow: scroll;
