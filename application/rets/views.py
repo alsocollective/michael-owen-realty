@@ -366,9 +366,9 @@ try:
 		elif "C" in valuein:
 			digit = int(re.search(r'\d+', valuein).group())
 			if(digit in [3,4,6,7,10,12,13,14,15]):
-				return "center"
-			else:
 				return "center-north"
+			else:
+				return "center"
 		else:
 			return "east"
 
@@ -502,9 +502,9 @@ try:
 			elif "C" in ward["ward"]:
 				digit = int(re.search(r'\d+', ward["ward"]).group())
 				if(digit in [3,4,6,7,10,12,13,14,15]):
-					torontoCon["center"] += ward["community"]
-				else:
 					torontoCon["center-north"] += ward["community"]
+				else:
+					torontoCon["center"] += ward["community"]
 			else:
 				torontoCon["east"] += ward["community"]
 

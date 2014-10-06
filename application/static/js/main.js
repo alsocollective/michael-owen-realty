@@ -57,7 +57,7 @@ var app = {
 					location = "/" + name;
 				app.nav.changeurl(location);
 			}
-			url = app.url.addajax(url);
+			// url = app.url.addajax(url);
 			var newMainContainer = document.createElement("div");
 			newMainContainer.className = "mainwrapper offright";
 			document.body.appendChild(newMainContainer);
@@ -123,20 +123,20 @@ var app = {
 			app.options.previousURL = document.URL;
 			return false;
 		},
-		addajax: function(url) {
-			var spliturl = url.split("/");
-			if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
-				spliturl[spliturl.length - 1] = "home";
-			}
-			var appendstring = "ajax";
-			if (spliturl.length < 5) {
-				spliturl[spliturl.length - 1] = appendstring + spliturl[spliturl.length - 1];
-			} else {
-				spliturl[spliturl.length - 2] = appendstring + spliturl[spliturl.length - 2];
-				spliturl[spliturl.length - 1] = "";
-			}
-			return spliturl.join("/");
-		},
+		// addajax: function(url) {
+		// 	var spliturl = url.split("/");
+		// 	if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
+		// 		spliturl[spliturl.length - 1] = "home";
+		// 	}
+		// 	var appendstring = "ajax";
+		// 	if (spliturl.length < 5) {
+		// 		spliturl[spliturl.length - 1] = appendstring + spliturl[spliturl.length - 1];
+		// 	} else {
+		// 		spliturl[spliturl.length - 2] = appendstring + spliturl[spliturl.length - 2];
+		// 		spliturl[spliturl.length - 1] = "";
+		// 	}
+		// 	return spliturl.join("/");
+		// },
 		setupPagescroll: function(className) {
 			var els = $(className + " h2");
 			els.waypoint(app.url.setSectionAsHash, {

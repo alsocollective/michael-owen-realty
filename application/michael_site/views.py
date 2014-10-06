@@ -10,6 +10,7 @@ import time
 import os.path
 from settings import MEDIA_URL, ALLOWED_HOSTS
 from rets.views import *
+from michael_site.settings import googlecred
 
 #	returns the template needed, if it's ajax, sends ajax, else sends full html
 def templateType(request):
@@ -52,7 +53,7 @@ def buy(request):
 	
 def search(request):
 	template = templateType(request)
-	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:9]
+	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
 	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured()}
 	out.update(csrf(request))
 	print "should have CSRF"
@@ -189,7 +190,48 @@ def sendemail(request):
 	emailBoutPorp(request.POST)
 	return HttpResponse("yesssssppp", content_type='application/json')
 
+import requests
+import time
 def sort(request):
+	lists = ResidentialProperty.objects.all().filter(area="Toronto")[100:500]
+	print lists
+	print "|||||||||||||||||||||||||||||||"
+	print "|||||||||||||||||||||||||||||||"
+	urlbase = 'https://maps.googleapis.com/maps/api/geocode/json?'
+	out = ""
+	counter = 0
+	for el in lists:
+		try:
+			counter += 1
+			if counter%10 == 0:
+				time.sleep(1)
+			
+
+			print "given area name: %s" %el.community
+
+			url = '%saddress=%s,+%s,+Canada'%(urlbase,el.addr.replace(" ","+"),el.area.replace(" ","+"))
+			r = requests.get(url, auth=(googlecred.user,googlecred.password))
+			json = r.json()['results'][0]
+			try:
+				out+= "%s,%s\n"%(el.community,json['address_components'][2]['short_name'])
+				pass	
+			except Exception, e:
+				print "too many calls where called at once. %s" %e
+				pass	
+		except Exception, e:
+			print "has no community name..."
+			pass			
+		# for el in json['address_components']:
+		# 	print el
+	print "|||||||||||||||||||||||||||||||"
+	print "|||||||||||||||||||||||||||||||"			
+
+
+	
+
+
+	return HttpResponse(out, content_type='application/json')
+
 	out = filloutlists()
 	value = getFullListOfMLS()
 	sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
