@@ -56,7 +56,6 @@ def search(request):
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
 	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured()}
 	out.update(csrf(request))
-	print "should have CSRF"
 	return render_to_response('search.html',out)	
 
 def fourofour(request):
@@ -193,7 +192,7 @@ def sendemail(request):
 import requests
 import time
 def sort(request):
-	lists = ResidentialProperty.objects.all().filter(area="Toronto")[100:500]
+	lists = ResidentialProperty.objects.all().filter(area="Toronto")
 	print lists
 	print "|||||||||||||||||||||||||||||||"
 	print "|||||||||||||||||||||||||||||||"
@@ -202,6 +201,7 @@ def sort(request):
 	counter = 0
 	for el in lists:
 		try:
+			# out += "%s\n"%
 			counter += 1
 			if counter%10 == 0:
 				time.sleep(1)
@@ -213,7 +213,7 @@ def sort(request):
 			r = requests.get(url, auth=(googlecred.user,googlecred.password))
 			json = r.json()['results'][0]
 			try:
-				out+= "%s,%s\n"%(el.community,json['address_components'][2]['short_name'])
+				out+= "%s,%s,%s\n"%(el.community,json['address_components'][2]['short_name'],el.municipality_district)
 				pass	
 			except Exception, e:
 				print "too many calls where called at once. %s" %e
@@ -236,5 +236,3 @@ def sort(request):
 	value = getFullListOfMLS()
 	sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
 	return HttpResponse(out, content_type='application/json')
-
-

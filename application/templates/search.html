@@ -41,7 +41,7 @@
 			</div>
 		</div><div class="column2 medium-column3 small-column4">
 			<h3>Neighbourhood</h3>
-			{% for region in filter.location.subsections.all %}<ul>
+			{% for region in filter.location %}<ul>
 				<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
 				{% for community in region.community.all %}
 					<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
