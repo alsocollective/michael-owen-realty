@@ -184,10 +184,39 @@ def getinitialpagedata(request):
 	return render_to_response('properties.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'data':properties[fromcounter:(fromcounter+12)],'totalcount':len(properties)})
 
 
+def get_client_ip(request):
+	x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+	if x_forwarded_for:
+		ip = x_forwarded_for.split(',')[0]
+	else:
+		ip = request.META.get('REMOTE_ADDR')
+	return ip
+
+
+
+from datetime import datetime, timedelta
 @csrf_protect
 def sendemail(request):
-	emailBoutPorp(request.POST)
-	return HttpResponse("yesssssppp", content_type='application/json')
+	ip = get_client_ip(request)
+
+	ipexists = EmailRmark.objects.filter(ipaddress = ip).order_by('-date')
+	try:
+		ipexists = ipexists[0]
+	except Exception, e:
+		ipexists = None
+		pass
+	now = datetime.now()
+
+	if (ipexists == None) or (now-ipexists.date > timedelta(seconds = 30)):
+		ipinstance = EmailRmark(ipaddress = ip)
+		ipinstance.save()				
+		# emailBoutPorp(request.POST)
+		return HttpResponse(json.dumps({'message':'Email Sent','status':'sent'}), content_type='application/json')
+	else:
+		return HttpResponse(json.dumps({'message':'you have sent and email too soon after your previous email','status':'error'}), content_type='application/json')
+
+
+
 
 import requests
 import time

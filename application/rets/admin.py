@@ -19,3 +19,4 @@ class filteropt(admin.ModelAdmin):
 	
 admin.site.register(FilterOptions)
 admin.site.register(Area,filteropt)
+admin.site.register(EmailRmark)

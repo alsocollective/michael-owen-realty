@@ -267,3 +267,10 @@ class Area(models.Model):
 	ward = models.BooleanField(default=False)
 	def __unicode__(self):
 		return self.text
+
+class EmailRmark(models.Model):
+	ipaddress = models.IPAddressField()
+	date = models.DateTimeField(auto_now=True)
+
+	def __unicode__(self):
+		return "%s %s"%(self.ipaddress, self.date.strftime('%H:%M:%S %m/%d/%Y'))

@@ -121,6 +121,7 @@
 {% block script %} 
 <script type="text/javascript">
 	$( document ).ready(function(){
+		console.log("property init")
 		app.property.init()		
 		{% if not data.numofphotos%}
 			app.property.loadrestofphotos("{{data.ml_num}}");

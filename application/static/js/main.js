@@ -158,12 +158,12 @@ var app = {
 				}
 			}
 		},
-		slugify: function(Text) {
-			return Text
-				.toLowerCase()
-				.replace(/ /g, '-')
-				.replace(/[^\w-]+/g, '');
-		},
+		// slugify: function(Text) {
+		// 	return Text
+		// 		.toLowerCase()
+		// 		.replace(/ /g, '-')
+		// 		.replace(/[^\w-]+/g, '');
+		// },
 		gotohashlocation: function() {
 			var gotoEl = $(location.hash);
 		},
@@ -272,8 +272,12 @@ var app = {
 			$("#searchresults ul").html(responce);
 			app.property.setup()
 		},
-		loadsuccessappend: function(responce) {
-			$("#searchresults ul").append(responce);
+		loadsuccessappend: function(responce, second, third) {
+			console.log(second, third.getResponseHeader())
+			var newdiv = $(document.createElement("ul"));
+			newdiv.addClass("propertylist leftmargin");
+			newdiv.append(responce);
+			$("#searchresults > div").before(newdiv);
 			app.property.setup()
 		},
 		responcefromInitialLoad: function(event) {
@@ -479,6 +483,8 @@ var app = {
 			$(".emailsubmit").click(app.email.submit);
 		},
 		submit: function(event) {
+			event.stopImmediatePropagation();
+			event.preventDefault();
 			var data = $(this.parentNode).serialize();
 			data['csrfmiddlewaretoken'] = app.email.csrftoken;
 			$.ajax({
@@ -488,14 +494,20 @@ var app = {
 				success: app.email.submitsuccess,
 				error: app.email.error
 			});
-
-			event.preventDefault();
 			return false;
 		},
 		submitsuccess: function(replied) {
+			// alert(replied.message);
 			console.log(replied);
+			var message = document.createElement("div");
+			message.className = replied.status + " message";
+			var p = document.createElement("p");
+			p.innerHTML = replied.message;
+			message.appendChild(p);
+			$(".request").append(message)
 		},
 		error: function(message) {
+			console.log("ERER")
 			console.log(message)
 		}
 	},
