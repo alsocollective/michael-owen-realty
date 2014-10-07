@@ -532,6 +532,11 @@ nav {
 	}
 }
 
+.aboutimg{
+	height: 350px;
+	width: 100%;
+}
+
 .buyimg2, .aboutimg2{
 	background-size: cover;
 	-o-background-size: cover;
@@ -596,7 +601,8 @@ nav {
 	.describe-michael {
 		position: absolute;
 		bottom: 0;
-		color: $grey;
+	    margin-bottom: 79px;
+		color: $purple1;
 		line-height: 1.3em;
 		font-family: $serif;
 		font-size: 22px;
@@ -673,6 +679,7 @@ input, textarea {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
+
 }
 label {
 	color: $grey;
@@ -774,11 +781,12 @@ label {
 		#priceinputs {
 			width: 100%;
 			.priceinput {
-				width: 50%;
+			    width: 50%;
 				display: inline-block;
 				input {
 					margin-bottom: 20px;
-					width: auto;
+					width:150px;
+					font-size: 1.0em;
 				}
 				&:last-child {
 					text-align: right;
