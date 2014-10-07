@@ -122,7 +122,7 @@ try:
 			results = session.Search(request)		
 			# print "Record count: " + `results.GetCount()`
 			columns = results.GetColumns()
-			file_ = open('data.json', 'w')
+			# file_ = open('data.json', 'w')
 			data = []
 			imagelist = []
 			while results.HasNext():
