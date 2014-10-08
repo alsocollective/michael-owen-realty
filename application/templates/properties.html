@@ -9,8 +9,25 @@
 			<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
 			<h3>{{prop.lp_dol|nicemoney}}</h3>
 			<p><span itemprop="itemOffered">{{prop.extras|limilength}}</span></p><br>
-			<div class="share"><h3>SHARE</h3> <h3><a href="mailto:michaesl@myrealestatepro.ca"> EMAIL</a></h3> <h3> &nbsp;&nbsp;FACEBOOK</h3> <h3> &nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?text=michealowen.ca/property/{{prop.ml_nm}}&source=webclient" class="twitterlink" >TWITTER</a></h3> <h3> &nbsp;&nbsp;LINK</h3></div>
-			<div></div>
+			<div class="share">
+				<div>
+					<h3>share</h3>
+				</div>
+				<div class="mover">
+					<h3>
+						<a href="mailto:michaesl@myrealestatepro.ca"> email</a>
+					</h3>
+					<h3>
+						&nbsp;&nbsp;facebook
+					</h3>
+					<h3>
+						&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?text=michealowen.ca/property/{{prop.ml_nm}}&source=webclient" class="twitterlink" >twitter</a>
+					</h3>
+					<h3>
+						<a href="/property/{{prop.ml_num}}" class="coppylink">&nbsp;&nbsp;link</a>
+					</h3>
+				</div>
+			</div>
 		</div>
 	</a>
 </li>{% endfor %}

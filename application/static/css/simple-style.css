@@ -124,28 +124,36 @@
     left: 0%; } }
 @-webkit-keyframes leftOffLeft {
   0% {
-    left: 0%; }
+    left: 0%;
+    opacity: 1; }
 
   100% {
-    left: -100%; } }
+    left: -100%;
+    opacity: 0; } }
 @-moz-keyframes leftOffLeft {
   0% {
-    left: 0%; }
+    left: 0%;
+    opacity: 1; }
 
   100% {
-    left: -100%; } }
+    left: -100%;
+    opacity: 0; } }
 @-o-keyframes leftOffLeft {
   0% {
-    left: 0%; }
+    left: 0%;
+    opacity: 1; }
 
   100% {
-    left: -100%; } }
+    left: -100%;
+    opacity: 0; } }
 @keyframes leftOffLeft {
   0% {
-    left: 0%; }
+    left: 0%;
+    opacity: 1; }
 
   100% {
-    left: -100%; } }
+    left: -100%;
+    opacity: 0; } }
 html, body {
   width: 100%;
   height: 100%;
@@ -329,7 +337,12 @@ a {
     display: inline-block;
     vertical-align: top;
     background: #d8dadb;
-    margin-bottom: 28px; }
+    margin-bottom: 28px;
+    -webkit-transition: background 0.1s;
+    -moz-transition: background 0.1s;
+    -ms-transition: background 0.1s;
+    -o-transition: background 0.1s;
+    transition: background 0.1s; }
     .propertylist li img {
       width: 100%; }
     .propertylist li .propertycontent {
@@ -337,16 +350,29 @@ a {
       width: 90%; }
       .propertylist li .propertycontent p {
         padding-top: 2em; }
-    .propertylist li .share h3 {
-      font-size: 0.65rem;
-      color: #7467b4;
-      display: none; }
-    .propertylist li .share h3:first-child {
-      display: inline-block; }
-    .propertylist li .share:hover h3 {
-      display: inline-block; }
-    .propertylist li .share:hover h3:first-child {
-      display: none; }
+    .propertylist li .share {
+      width: 100%;
+      display: block;
+      position: relative;
+      overflow: hidden; }
+      .propertylist li .share h3 {
+        font-size: 0.65rem;
+        color: #7467b4; }
+      .propertylist li .share div {
+        width: 100%; }
+      .propertylist li .share div.mover {
+        -webkit-transition: top 0.5s, background 0.1s;
+        -moz-transition: top 0.5s, background 0.1s;
+        -ms-transition: top 0.5s, background 0.1s;
+        -o-transition: top 0.5s, background 0.1s;
+        transition: top 0.5s, background 0.1s;
+        top: 0;
+        display: block;
+        position: absolute;
+        top: -100%;
+        background: #d8dadb; }
+      .propertylist li .share.clicked div:last-child {
+        top: 0; }
   .propertylist li:hover {
     background: #4ec868; }
     .propertylist li:hover img {
@@ -357,6 +383,8 @@ a {
       filter: grayscale(0%) opacity(1);
       filter: none;
       /* IE 6-9 */ }
+    .propertylist li:hover div.mover {
+      background: #4ec868; }
   .propertylist li:last-child {
     margin-right: 0; }
 

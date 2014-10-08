@@ -418,14 +418,21 @@ var app = {
 			}
 		},
 		setup: function() {
-			$(".propertylist li a").click(app.property.loadproperty);
+			$(".propertylist li").click(app.property.loadproperty);
+			app.property.coppyInit();
+			$(".share").click(app.property.toggleclicked);
+		},
+		toggleclicked: function(event) {
+			event.preventDefault();
+			$(this).toggleClass("clicked")
+			return false;
 		},
 		loadproperty: function(event, hash) {
 			event.preventDefault();
-			if ($(event.target).hasClass("twitterlink")) {
+			if ($(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
 				return false;
 			}
-			var that = this;
+			var that = $(this).find("a")[0];
 			if (event) {
 				event.preventDefault();
 			} else {
@@ -465,16 +472,34 @@ var app = {
 		},
 		coppyInit: function() {
 			var selected = $(".coppylink");
-			selected.click(app.property.coppyclicked)
+			selected.click(app.property.coppyclicked);
 			var client = new ZeroClipboard(selected);
 			client.on("copy", function(event) {
-				console.log(event.target);
+				console.log(event.target.href)
 				var clipboard = event.clipboardData;
 				clipboard.setData("text/plain", event.target.href);
 			})
 		},
+		coppyText: function(text) {
+			var parent = document.createElement("div"),
+				child = document.createElement("p");
+			parent.appendChild(child);
+			parent.className = "overlaycopytext";
+			child.innerHTML = 'coppied to clipboard:<br>"' + text + '"';
+			document.body.appendChild(parent);
+			setTimeout(app.property.deleteCoppyText, app.options.pagetransitiontime);
+		},
+		deleteCoppyText: function() {
+			var el = $(".overlaycopytext")[0];
+			el.parentNode.removeChild(el);
+		},
 		coppyclicked: function(event) {
 			event.preventDefault();
+			event.stopPropagation();
+			console.log($(".overlaycopytext").length)
+			if ($(".overlaycopytext").length == 0) {
+				app.property.coppyText(this.href)
+			}
 			return false;
 		}
 	},
