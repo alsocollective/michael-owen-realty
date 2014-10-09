@@ -98,9 +98,6 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-<<<<<<< HEAD
-@-webkit-keyframes $animation_name {
-=======
 .column5 .column1 {
   width: 18.519%;
   margin-right: 1.851%; }
@@ -131,51 +128,58 @@
   margin-right: 1.538%; }
 
 @-webkit-keyframes leftOffRight {
->>>>>>> 6a57740f32918590c478c4ab74ddacac29a02581
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@keyframes $animation_name {
+@keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes $animation_name {
+@keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
@@ -1576,5 +1580,3 @@ label {
     position: relative;
     right: none;
     top: none; } }
-
-/*# sourceMappingURL=simple-style.css.map */
