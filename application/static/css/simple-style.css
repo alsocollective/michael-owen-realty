@@ -98,6 +98,35 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
+.column5 .column1 {
+  width: 18.519%;
+  margin-right: 1.851%; }
+.column5 .column2 {
+  width: 38.889%;
+  margin-right: 1.851%; }
+.column5 .column3 {
+  width: 59.259%;
+  margin-right: 1.851%; }
+.column5 .column4 {
+  width: 79.629%;
+  margin-right: 1.851%; }
+
+.column6 .column1 {
+  width: 15.384%;
+  margin-right: 1.538%; }
+.column6 .column2 {
+  width: 32.306%;
+  margin-right: 1.538%; }
+.column6 .column3 {
+  width: 49.228%;
+  margin-right: 1.538%; }
+.column6 .column4 {
+  width: 66.15%;
+  margin-right: 1.538%; }
+.column6 .column5 {
+  width: 83.072%;
+  margin-right: 1.538%; }
+
 @-webkit-keyframes leftOffRight {
   0% {
     left: 100%; }
