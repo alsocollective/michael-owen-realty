@@ -98,9 +98,6 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-<<<<<<< HEAD
-@-webkit-keyframes $animation_name {
-=======
 .column5 .column1 {
   width: 18.519%;
   margin-right: 1.851%; }
@@ -130,8 +127,7 @@
   width: 83.072%;
   margin-right: 1.538%; }
 
-@-webkit-keyframes leftOffRight {
->>>>>>> 6a57740f32918590c478c4ab74ddacac29a02581
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
   100% {
@@ -803,41 +799,37 @@ label {
   background: transparent; }
   #searchfield .column1 ul {
     padding-top: 7px; }
-#searchfield .column4.offcolumn1 {
+#searchfield .column6.offcolumn1 {
   position: relative; }
-  #searchfield .column4.offcolumn1 h3 {
+  #searchfield .column6.offcolumn1 h3 {
     color: #7467b4; }
-  #searchfield .column4.offcolumn1 > div {
+  #searchfield .column6.offcolumn1 > div {
     display: inline-block; }
-  #searchfield .column4.offcolumn1 > div:first-child {
+  #searchfield .column6.offcolumn1 > div:first-child {
     padding-top: 0px;
-    margin-top: -1px;
-    width: 100%; }
-  #searchfield .column4.offcolumn1 #priceslider, #searchfield .column4.offcolumn1 #bedslider, #searchfield .column4.offcolumn1 #bathslider {
+    margin-top: -1px; }
+  #searchfield .column6.offcolumn1 #priceslider, #searchfield .column6.offcolumn1 #bedslider, #searchfield .column6.offcolumn1 #bathslider {
     margin: 10px 0 20px 0; }
-  #searchfield .column4.offcolumn1 .noUi-base {
+  #searchfield .column6.offcolumn1 .noUi-base {
     background: #d8dadb; }
-  #searchfield .column4.offcolumn1 .noUi-background {
+  #searchfield .column6.offcolumn1 .noUi-background {
     background: #d8dadb; }
-  #searchfield .column4.offcolumn1 .noUi-connect {
+  #searchfield .column6.offcolumn1 .noUi-connect {
     background: #ffc123; }
-  #searchfield .column4.offcolumn1 .noUi-handle {
+  #searchfield .column6.offcolumn1 .noUi-handle {
     border-color: #d8dadb; }
-  #searchfield .column4.offcolumn1 .column1 {
+  #searchfield .column6.offcolumn1 .column1 {
     position: relative; }
-  #searchfield .column4.offcolumn1 #priceinputs {
-    width: 100%; }
-    #searchfield .column4.offcolumn1 #priceinputs .priceinput {
-      width: 50%;
-      display: inline-block; }
-      #searchfield .column4.offcolumn1 #priceinputs .priceinput input {
-        margin-bottom: 20px;
-        width: 150px;
-        font-size: 1.0em; }
-      #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child {
-        text-align: right; }
-      #searchfield .column4.offcolumn1 #priceinputs .priceinput:last-child input {
-        text-align: right; }
+  #searchfield .column6.offcolumn1 #priceinputs .priceinput {
+    display: inline-block; }
+    #searchfield .column6.offcolumn1 #priceinputs .priceinput input {
+      margin-bottom: 20px;
+      width: 150px;
+      font-size: 1.0em; }
+    #searchfield .column6.offcolumn1 #priceinputs .priceinput:last-child {
+      text-align: right; }
+    #searchfield .column6.offcolumn1 #priceinputs .priceinput:last-child input {
+      text-align: right; }
 #searchfield input[type="checkbox"] {
   width: 0;
   overflow: hidden; }

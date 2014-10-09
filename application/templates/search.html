@@ -15,106 +15,114 @@
 <div class="main grid">
 
 
-<div id="neighbourhoods">
-	<div class="sectiontitle column1 leftmargin">
-		<h2 class="purplenav">
-			Neighbourhoods
-		</h2>
-	</div>
-	<div class="column2 leftmargin small-column4"><img src="{% static "img/Grey-Little-Italy.jpg"%}">
-	</div><div class="column3 medium-column5 medium-leftmargin small-column7" id="neighbourhoodajax">
-		<h3 class="purp"><span itemprop="addressLocality">Little Italy</span></h3>
-		<p>Little Italy, sometimes referred to as College Street West or College and Clinton, is a district in Toronto, Ontario, Canada. It is well known for its numerous Italian Canadian restaurants and businesses. The district is centred around a restaurant/bar/ shopping strip along College Street, the heart of which being the intersection of College and Clinton Streets and the adjacent residential area. It overlaps into two official City of Toronto neighbourhoods: Palmerston-Little Italy north of College Street and Trinity-Bellwoods to the south.</p>
-	</div><div class="column1 medium-column1 small-leftmargin small-column3">
-		<h3>west</h3>
-		<ul>
-			<li>Bloor West Village</li>
-			<li>High Park</li>
-			<li>The Junction</li>
-			<li>Roncesvalles</li>
-			<li>Parkdale</li>
-		</ul>
-		<h3>east</h3>
-		<ul>
-			<li>Other</li>
-			<li>Location</li>
-		</ul>
-	</div><div class="column1 medium-column1 small-column2">
-		<h3>central</h3>
-		<ul>
-			<li><a href="/ajaxneighbourhood/bloorwest">Bloor West Village </a></li>
-			<li><a href="/ajaxneighbourhood/highpark">High Park </a></li>
-			<li><a href="/ajaxneighbourhood/thejunction">The Junction </a></li>
-			<li><a href="/ajaxneighbourhood/roncesvalles">Roncesvalles </a></li>
-			<li><a href="/ajaxneighbourhood/parkdale">Parkdale </a></li>
-			<li><a href="/ajaxneighbourhood/bloorwest">The Junction </a></li>
-			<li><a href="/ajaxneighbourhood/bloorwest">Roncesvalles </a></li>
-			<li><a href="/ajaxneighbourhood/bloorwest">Parkdale </a></li>
-		</ul>
-	</div>
-</div>
-
-<div id="searchfield">
-	<div class="sectiontitle column1 leftmargin">
-		<h2 class="purplenav">
-			MLS Property search
-		</h2>
-	</div>	
-			
-	<form action="/proplist/" method="post" class="column6 offcolumn1 medium-offcolumn0 medium-column6 small-column7 filterform">
-		<div>
-			<h3>price range</h3>
-			<div id="priceslider"></div>
-			<div id="priceinputs">
-				<div class="priceinput"><input id="lowerprice" name="lowerprice" ></div><div class="priceinput"><input id="upperprice" name="upperprice"></div>
-			</div>
+	<div id="neighbourhoods">
+		<div class="sectiontitle column1 leftmargin">
+			<h2 class="purplenav">
+				Neighbourhoods
+			</h2>
 		</div>
-			<div class="column1 norightmargin small-column7">
-			<h3>bedroom</h3>
-			<div id="bedslider"></div>
-			<div class="bbinputs"><span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span></div>
-			<h3>bathroom</h3>
-			<div id="bathslider"></div>
-			<div class="bbinputs"><span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span></div>
-	</div>
-		</div><div class="column2 medium-column3 small-column4">
-			<h3>Neighbourhood</h3>
-			{% for region in filter.location %}<ul>
-				<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
-				{% for community in region.community.all %}
-					<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
-				{% endfor %}
-			</ul>{% endfor %}						
-		</div><div class="column1 medium-column2 small-column3">
-
-			<h3>home type</h3>
+		<div class="column2 leftmargin small-column4"><img src="{% static "img/Grey-Little-Italy.jpg"%}">
+		</div><div class="column3 medium-column5 medium-leftmargin small-column7" id="neighbourhoodajax">
+			<h3 class="purp"><span itemprop="addressLocality">Little Italy</span></h3>
+			<p>Little Italy, sometimes referred to as College Street West or College and Clinton, is a district in Toronto, Ontario, Canada. It is well known for its numerous Italian Canadian restaurants and businesses. The district is centred around a restaurant/bar/ shopping strip along College Street, the heart of which being the intersection of College and Clinton Streets and the adjacent residential area. It overlaps into two official City of Toronto neighbourhoods: Palmerston-Little Italy north of College Street and Trinity-Bellwoods to the south.</p>
+		</div><div class="column1 medium-column1 small-leftmargin small-column3">
+			<h3>west</h3>
 			<ul>
-				{% for type in filter.main.style.all %}
-					<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
-				{% endfor %}
+				<li>Bloor West Village</li>
+				<li>High Park</li>
+				<li>The Junction</li>
+				<li>Roncesvalles</li>
+				<li>Parkdale</li>
 			</ul>
+			<h3>east</h3>
+			<ul>
+				<li>Other</li>
+				<li>Location</li>
+			</ul>
+		</div><div class="column1 medium-column1 small-column2">
+			<h3>central</h3>
+			<ul>
+				<li><a href="/ajaxneighbourhood/bloorwest">Bloor West Village </a></li>
+				<li><a href="/ajaxneighbourhood/highpark">High Park </a></li>
+				<li><a href="/ajaxneighbourhood/thejunction">The Junction </a></li>
+				<li><a href="/ajaxneighbourhood/roncesvalles">Roncesvalles </a></li>
+				<li><a href="/ajaxneighbourhood/parkdale">Parkdale </a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">The Junction </a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Roncesvalles </a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Parkdale </a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="searchfield">
+		<div class="sectiontitle column1 leftmargin">
+			<h2 class="purplenav">
+				MLS Property search
+			</h2>
 		</div>	
-		{% csrf_token %}
-		<input class="from" name="from" value="0" style="display:none;">
-	</form>
-	<div class="column4 offcolumn1 medium-offcolumn0 small-column7">
-		<h3 style="display:none">Displaying 12 of 46 properties</h3>
+		
+		<form action="/proplist/" method="post" class="column6 offcolumn1 medium-offcolumn0 medium-column6 small-column7 filterform">
+			<div class="column4 nomarginright">
+				<h3>price range</h3>
+				<div id="priceslider"></div>
+				<div id="priceinputs">
+					<div class="priceinput">
+						<input id="lowerprice" name="lowerprice" >
+					</div>
+					<div class="priceinput">
+						<input id="upperprice" name="upperprice">
+					</div>
+				</div>
+			</div>
+			<div class="column1 norightmargin small-column7 floatleft">
+				<h3>bedroom</h3>
+				<div id="bedslider"></div>
+				<div class="bbinputs">
+					<span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span>
+				</div>
+				<h3>bathroom</h3>
+				<div id="bathslider"></div>
+				<div class="bbinputs">	
+					<span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span>
+				</div>
+			</div>
+			<div class="column2 medium-column3 small-column4">
+				<h3>Neighbourhood</h3>
+				{% for region in filter.location %}<ul>
+					<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
+					{% for community in region.community.all %}
+						<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
+					{% endfor %}
+				</ul>{% endfor %}						
+			</div><div class="column1 medium-column2 small-column3">
 
-	</div>
-	<div id="searchlistings" class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-		<button><h3>Search listings</h3></button>
-	</div>
-</div>
+				<h3>home type</h3>
+				<ul>
+					{% for type in filter.main.style.all %}
+						<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
+					{% endfor %}
+				</ul>
+			</div>	
+			{% csrf_token %}
+			<input class="from" name="from" value="0" style="display:none;">
+		</form>
+		<div class="column4 offcolumn1 medium-offcolumn0 small-column7">
+			<h3 style="display:none">Displaying 12 of 46 properties</h3>
 
-<div id="searchresults" >
-	<ul class="propertylist leftmargin">
-		{% include "properties.html" with data=featured %}		
-	</ul>	
-	<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-		<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
+		</div>
+		<div id="searchlistings" class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
+			<button><h3>Search listings</h3></button>
+		</div>
 	</div>
-</div>
 
+	<div id="searchresults" >
+		<ul class="propertylist leftmargin">
+			{% include "properties.html" with data=featured %}		
+		</ul>	
+		<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
+			<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
+		</div>
+	</div>
 
 </div>
 
