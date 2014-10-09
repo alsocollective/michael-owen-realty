@@ -98,59 +98,51 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-@-webkit-keyframes leftOffRight {
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-moz-keyframes leftOffRight {
+@-moz-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-o-keyframes leftOffRight {
+@-o-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@keyframes leftOffRight {
+@keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-webkit-keyframes leftOffLeft {
+@-webkit-keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes leftOffLeft {
+@-moz-keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes leftOffLeft {
+@-o-keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes leftOffLeft {
+@keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
@@ -1551,3 +1543,5 @@ label {
     position: relative;
     right: none;
     top: none; } }
+
+/*# sourceMappingURL=simple-style.css.map */
