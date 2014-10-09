@@ -480,6 +480,8 @@ var app = {
 				var clipboard = event.clipboardData;
 				clipboard.setData("text/plain", event.target.href);
 			})
+			var cliplink = document.createElement("div");
+			var linkh3 = document.createElement("h3");
 		},
 		coppyText: function(text) {
 			var parent = document.createElement("div"),
@@ -527,10 +529,12 @@ var app = {
 			console.log(replied);
 			var message = document.createElement("div");
 			message.className = replied.status + " message";
-			var p = document.createElement("p");
-			p.innerHTML = replied.message;
-			message.appendChild(p);
+			var h3 = document.createElement("h3");
+			h3.innerHTML = replied.message;
+			message.appendChild(h3);
 			$(".request").append(message)
+			$(".requestform").addClass("hideform")
+
 		},
 		error: function(message) {
 			console.log("ERER")

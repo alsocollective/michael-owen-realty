@@ -287,7 +287,7 @@ a {
 .desktop{ 
 	.propertylist{
 		li:hover{
-			background: $green;
+			background: $yellow;
 			img{
 				-webkit-filter: grayscale(0%) opacity(1);
 				-moz-filter: grayscale(0%) opacity(1);
@@ -297,10 +297,14 @@ a {
 				filter: none; /* IE 6-9 */
 			}
 			div.mover{
-				background: $green;
+				background: $yellow;
 			}
 		}
 	}
+}
+
+.coppylink{
+	color: $yellow;
 }
 
 .csscolumns .propertylist{
@@ -343,7 +347,25 @@ a {
 	// }
 
 .casestudy {
-	background: $purple1;
+	&.casesell{
+		background: $yellow;
+		h2, h3, p, h4, ul {
+		color: $grey;
+		}
+			div.sectiontitle {
+				display: inline-block;
+				position: static;
+			h2 {
+				color: $grey;
+			}
+			h2:before {
+				border-bottom-color: $grey;
+			}
+		}
+	}
+	&.casebuy{
+		background: $purple1;
+	}
 	padding-top: 60px;
 	padding-bottom: 100px;
 	position: relative;
@@ -638,7 +660,7 @@ nav {
 #testimonials {
 	margin-top: 120px;
 	position: relative;
-	background: $green;
+	background: $yellow;
 	width: 100%;
 	background-repeat: no-repeat;
 	background-position: left bottom;
@@ -937,7 +959,20 @@ label {
 		-webkit-box-shadow: inset 0 0 18px #000;
 		box-shadow: inset 0 0 18px #000;
 	}
+	h5{
+		text-transform: none;
+	}
+	&.footersell{
+		background: $yellow;
+		background-repeat: no-repeat;
+		h4, h5{
+			color: $grey;
+
+		}
+	}
 }
+
+
 
 .module {
 	position: fixed;
@@ -1025,6 +1060,7 @@ label {
 
 .request{
 	display:block;
+	position: relative;
     .requestform{
     	 display: none;
     }
@@ -1059,6 +1095,23 @@ label {
 			}
 		}
 	 // }
+	 &.hideform{
+	 	visibility: hidden;
+	 }
+}
+
+.message{
+	position:absolute;
+	width:100%;
+	height:90%;
+	top: 2em;
+	background: #fff;
+	&.sent{
+		.module .grid h3{color: $yellow;} 
+	}
+	&.error{
+			
+	}
 }
 
 @media all and (max-width: 1200px){
