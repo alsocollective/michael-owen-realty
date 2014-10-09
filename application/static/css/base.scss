@@ -792,7 +792,7 @@ label {
 			padding-top: 7px;
 		}
 	}
-	.column4.offcolumn1 {
+	.column6.offcolumn1 {
 		position: relative;
 		h3 {
 			color: $purple1;
@@ -803,7 +803,7 @@ label {
 		> div:first-child {
 			padding-top: 0px;
 			margin-top: -1px;
-			width: 100%;
+			// width: 100%;
 		}
 		#priceslider, #bedslider, #bathslider {
 			margin: 10px 0 20px 0;
@@ -824,9 +824,9 @@ label {
 			position: relative;
 		}
 		#priceinputs {
-			width: 100%;
+			//width: 100%;
 			.priceinput {
-			    width: 50%;
+			    //width: 50%;
 				display: inline-block;
 				input {
 					margin-bottom: 20px;
