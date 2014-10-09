@@ -38,30 +38,38 @@ def loadTestData():
 	# for column in columns:
 	# 		print column + ": " + results.GetString(column)
 
+def getCssClass(request):
+	out = "desktop"
+	if(request.is_tablet):
+		out = "mobile tablet"
+	if(request.is_phone):
+		out = "mobile phone"
+	return out
+
 def getFeatured():
 	return ResidentialProperty.objects.all().order_by('-featured')[:3]
 
 def home(request):
 	
-	return render_to_response('about.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured()})
+	return render_to_response('about.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request)})
 
 def sell(request):	
-	return render_to_response('sell.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request)})
+	return render_to_response('sell.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 
 def buy(request):
-	return render_to_response('buy.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request)})
+	return render_to_response('buy.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 	
 def search(request):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
-	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured()}
+	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured(),'pageType':getCssClass(request)}
 	out.update(csrf(request))
 	return render_to_response('search.html',out)	
 
 def fourofour(request):
-	return render_to_response('404.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
+	return render_to_response('404.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html",'pageType':getCssClass(request)})
 def fivehun(request):
-	return render_to_response('500.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html"})
+	return render_to_response('500.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html",'pageType':getCssClass(request)})
 
 
 

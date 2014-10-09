@@ -20,11 +20,14 @@
 	<link rel="icon" type="image/ico" href="{% static "assets/favicon.ico"%}"/>		
 
 	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
-	<!-- <link rel="stylesheet" type="text/css" href="{% static "css/tablet.css" %}"> -->
-	<!-- z<link rel="stylesheet" type="text/css" href="{% static "css/slick.css" %}"> -->
+	{% if pageType = "mobile tablet" %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/tablet.css" %}">
+	{% elif pageType = "mobile phone" %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/slick.css" %}">
+	{%endif%}	
 
 </head>
-<body>
+<body class="{{pageType}}">
 	<div id="nav">
 		<nav class="grid offleft">
 			<ul>
