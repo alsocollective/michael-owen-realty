@@ -14,77 +14,6 @@
 </div>
 <div class="main grid">
 
-<div id="featured">
-	<div class="sectiontitle column1 leftmargin">
-		<h2 class="purplenav">
-			featured properties
-		</h2>
-	</div>		
-	<ul class="propertylist leftmargin ">
-		{% include "properties.html" with data=featured %}
-	</ul>
-</div>
-
-<div id="searchfield">
-	<div class="sectiontitle column1 leftmargin">
-		<h2 class="purplenav">
-			MLS Property search
-		</h2>
-	</div>	
-
-	<form action="/proplist/" method="post" class="column4 offcolumn1 medium-offcolumn0 medium-column6 small-column7 filterform">
-		<div>
-			<h3>price range</h3>
-			<div id="priceslider"></div>
-			<div id="priceinputs">
-				<div class="priceinput"><input id="lowerprice" name="lowerprice" ></div><div class="priceinput"><input id="upperprice" name="upperprice"></div>
-			</div>
-		</div><div class="column2 medium-column3 small-column4">
-			<h3>Neighbourhood</h3>
-			{% for region in filter.location %}<ul>
-				<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
-				{% for community in region.community.all %}
-					<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
-				{% endfor %}
-			</ul>{% endfor %}						
-		</div><div class="column1 medium-column2 small-column3">
-
-			<h3>home type</h3>
-			<ul>
-				{% for type in filter.main.style.all %}
-					<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
-				{% endfor %}
-			</ul>
-		</div><div class="column1 norightmargin small-column7">
-			<h3>bedroom</h3>
-			<div id="bedslider"></div>
-			<div class="bbinputs"><span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span></div>
-			<h3>bathroom</h3>
-			<div id="bathslider"></div>
-			<div class="bbinputs"><span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span></div>
-
-		</div>	
-		{% csrf_token %}
-		<input class="from" name="from" value="0" style="display:none;">
-	</form>
-	<div class="column4 offcolumn1 medium-offcolumn0 small-column7">
-		<h3 style="display:none">Displaying 12 of 46 properties</h3>
-
-	</div>
-	<div id="searchlistings" class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-		<button><h3>Search listings</h3></button>
-	</div>
-</div>
-
-<div id="searchresults" >
-	<ul class="propertylist leftmargin">
-		{% include "properties.html" with data=data %}		
-	</ul>	
-	<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-		<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
-	</div>
-</div>
-
 
 <div id="neighbourhoods">
 	<div class="sectiontitle column1 leftmargin">
@@ -125,15 +54,77 @@
 	</div>
 </div>
 
+<div id="searchfield">
+	<div class="sectiontitle column1 leftmargin">
+		<h2 class="purplenav">
+			MLS Property search
+		</h2>
+	</div>	
+			
+	<form action="/proplist/" method="post" class="column6 offcolumn1 medium-offcolumn0 medium-column6 small-column7 filterform">
+		<div>
+			<div class="column4">
+			<h3>price range</h3>
+			<div id="priceslider"></div>
+			<div id="priceinputs">
+				<div class="priceinput"><input id="lowerprice" name="lowerprice" ></div><div class="priceinput"><input id="upperprice" name="upperprice"></div>
+			</div>
+		</div>
+			<div class="column1 norightmargin small-column7">
+			<h3>bedroom</h3>
+			<div id="bedslider"></div>
+			<div class="bbinputs"><span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span></div>
+			<h3>bathroom</h3>
+			<div id="bathslider"></div>
+			<div class="bbinputs"><span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span></div>
+	</div>
+		</div><div class="column2 medium-column3 small-column4">
+			<h3>Neighbourhood</h3>
+			{% for region in filter.location %}<ul>
+				<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
+				{% for community in region.community.all %}
+					<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
+				{% endfor %}
+			</ul>{% endfor %}						
+		</div><div class="column1 medium-column2 small-column3">
+
+			<h3>home type</h3>
+			<ul>
+				{% for type in filter.main.style.all %}
+					<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
+				{% endfor %}
+			</ul>
+		</div>	
+		{% csrf_token %}
+		<input class="from" name="from" value="0" style="display:none;">
+	</form>
+	<div class="column4 offcolumn1 medium-offcolumn0 small-column7">
+		<h3 style="display:none">Displaying 12 of 46 properties</h3>
+
+	</div>
+	<div id="searchlistings" class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
+		<button><h3>Search listings</h3></button>
+	</div>
+</div>
+
+<div id="searchresults" >
+	<ul class="propertylist leftmargin">
+		{% include "properties.html" with data=featured %}		
+	</ul>	
+	<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
+		<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
+	</div>
+</div>
+
 
 </div>
 
-<div id="footer" style="background-image:url({% static "img/symmetrical_house_1_purple.png"%})">
-	<div style="background-image:url({% static "img/symmetrical_house_2_purple.png"%})"></div>
+<div id="footer" style="background-image:url({% static "img/symmetrical_house_1_purple2.png"%})">
+	<div style="background-image:url({% static "img/symmetrical_house_2_purple2.png"%})"></div>
 	<div class="shadow"></div>
 		<div class="contact grid">
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <span itemprop="telephone"><a href="tel:+14169966936">416.996.6936</a></span> or send Michael an <span itemprop="email"><a href="mailto:michael@myrealestatepro.ca">email</a>.</h4></span><span itemprop="address"  itemprop="streetAddress"><h5>477 MOUNT PLEASANT ROAD TORONTO, ON M4S 2L9 </span><br>PH: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><span itemprop="telephone"><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a></span><br><span itemprop="email">EMAIL: <a href="mailto:michael@myrealestatepro.ca">MICHAEL@MYREALESTATEPRO.CA</a></h5></span>
+				<h4>Whether you’re a first-time buyer, empty-nester or seasoned investor, please do not hesitate to give Michael a call directly at <span itemprop="telephone"><a href="tel:+14169966936">416.996.6936</a></span> or send Michael an <span itemprop="email"><a href="mailto:michael@myrealestatepro.ca">email</a>.</h4></span><span itemprop="address"  itemprop="streetAddress"><h5>477 Mount Pleasant Road Toronto, ON M4S 2L9 </span><br>PHONE: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><span itemprop="telephone"><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a></span><br><span itemprop="email">EMAIL: <a href="mailto:michael@myrealestatepro.ca">michael@myrealestatepro.ca</a></h5></span>
 			</div>
 	</div>
 </div>
