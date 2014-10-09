@@ -123,20 +123,6 @@ var app = {
 			app.options.previousURL = document.URL;
 			return false;
 		},
-		// addajax: function(url) {
-		// 	var spliturl = url.split("/");
-		// 	if (spliturl[spliturl.length - 1] == "" && spliturl.length < 5) {
-		// 		spliturl[spliturl.length - 1] = "home";
-		// 	}
-		// 	var appendstring = "ajax";
-		// 	if (spliturl.length < 5) {
-		// 		spliturl[spliturl.length - 1] = appendstring + spliturl[spliturl.length - 1];
-		// 	} else {
-		// 		spliturl[spliturl.length - 2] = appendstring + spliturl[spliturl.length - 2];
-		// 		spliturl[spliturl.length - 1] = "";
-		// 	}
-		// 	return spliturl.join("/");
-		// },
 		setupPagescroll: function(className) {
 			var els = $(className + " h2");
 			els.waypoint(app.url.setSectionAsHash, {
@@ -144,6 +130,7 @@ var app = {
 			});
 		},
 		setSectionAsHash: function(event) {
+			return false; //THIS IS here becuase we are no longer using this function
 			if (event == "down") {
 				if ($(this).hasClass("whitenav")) {
 					$("#navbutton").addClass("white");
@@ -158,12 +145,7 @@ var app = {
 				}
 			}
 		},
-		// slugify: function(Text) {
-		// 	return Text
-		// 		.toLowerCase()
-		// 		.replace(/ /g, '-')
-		// 		.replace(/[^\w-]+/g, '');
-		// },
+
 		gotohashlocation: function() {
 			var gotoEl = $(location.hash);
 		},
