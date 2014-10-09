@@ -213,7 +213,7 @@ def sendemail(request):
 		# emailBoutPorp(request.POST)
 		return HttpResponse(json.dumps({'message':'Email Sent','status':'sent'}), content_type='application/json')
 	else:
-		return HttpResponse(json.dumps({'message':'you have sent and email too soon after your previous email','status':'error'}), content_type='application/json')
+		return HttpResponse(json.dumps({'message':'Error, Please Wait Before Sending Another Email','status':'error'}), content_type='application/json')
 
 
 
