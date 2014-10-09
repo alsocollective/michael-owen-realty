@@ -15,8 +15,8 @@ body {
 	position: relative;
 }
 
-h1, h2, h3 {
-	color: $purple3;
+h1, h2, h3 { 
+	color: #fff;
 	padding: 0;
 	margin: 0;
 }
@@ -130,6 +130,7 @@ a {
 		font-size: 9em;
 		line-height: 0.9em;
 		font-weight: 200;
+		color: $purple3;
 	}
 	top: 100px;
 	z-index: 2;
@@ -169,7 +170,8 @@ a {
 		}
 	}
 	button:hover {
-		background: $purple1;
+		background: $yellow;
+		border: 1px solid $yellow;
 		h3 {
 			color: #fff;
 		}
@@ -183,6 +185,7 @@ a {
 .sectiontitle {
 	position: absolute;
 	h2 {
+		color: $purple3;
 		font-size: $h2P;
 		font-size: $h2Em;
 		line-height: 1.3em;
@@ -529,6 +532,9 @@ nav {
 #smallsplash {
 	position: relative;
 	height: 600px;
+	h1{
+		color: #fff;
+	}
 	.mainimg {
 		position: absolute;
 		background-size: cover;
@@ -809,7 +815,7 @@ label {
 			background: $grey2;
 		}
 		.noUi-connect {
-			background: $purple2;
+			background: $yellow;
 		}
 		.noUi-handle {
 			border-color: $grey2;

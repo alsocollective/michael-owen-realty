@@ -194,7 +194,7 @@ body {
   position: relative; }
 
 h1, h2, h3 {
-  color: #6b4fa0;
+  color: #fff;
   padding: 0;
   margin: 0; }
 
@@ -293,7 +293,8 @@ a {
   .titlebox h1 {
     font-size: 9em;
     line-height: 0.9em;
-    font-weight: 200; }
+    font-weight: 200;
+    color: #6b4fa0; }
   .titlebox span {
     display: block; }
 
@@ -319,7 +320,8 @@ a {
     .bigbutton button h3 {
       color: #7467b4; }
   .bigbutton button:hover {
-    background: #7467b4; }
+    background: #ffc123;
+    border: 1px solid #ffc123; }
     .bigbutton button:hover h3 {
       color: #fff; }
 
@@ -329,6 +331,7 @@ a {
 .sectiontitle {
   position: absolute; }
   .sectiontitle h2 {
+    color: #6b4fa0;
     font-size: 13px;
     font-size: 0.8rem;
     line-height: 1.3em;
@@ -614,6 +617,8 @@ nav {
 #smallsplash {
   position: relative;
   height: 600px; }
+  #smallsplash h1 {
+    color: #fff; }
   #smallsplash .mainimg {
     position: absolute;
     background-size: cover;
@@ -819,7 +824,7 @@ label {
   #searchfield .column4.offcolumn1 .noUi-background {
     background: #d8dadb; }
   #searchfield .column4.offcolumn1 .noUi-connect {
-    background: #7d5ab1; }
+    background: #ffc123; }
   #searchfield .column4.offcolumn1 .noUi-handle {
     border-color: #d8dadb; }
   #searchfield .column4.offcolumn1 .column1 {
