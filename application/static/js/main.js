@@ -429,7 +429,7 @@ var app = {
 		},
 		loadproperty: function(event, hash) {
 			event.preventDefault();
-			if ($(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
+			if ($(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
 				return false;
 			}
 			var that = $(this).find("a")[0];
@@ -448,14 +448,15 @@ var app = {
 			return false;
 		},
 		stopprop: function(event) {
-			event.stopPropagation();
+			if (!$(event.target).hasClass("emaillink")) {
+				event.stopPropagation();
+			}
 		},
 		loadedproperty: function(response, status, xhr) {
 			app.property.init();
 			location.hash = $(".module > div")[0].id;
 		},
 		loadrestofphotos: function(popid) {
-			console.log(popid);
 			$.ajax({
 				dataType: "json",
 				url: "/newimages/" + popid,

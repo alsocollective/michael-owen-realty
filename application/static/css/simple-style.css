@@ -98,51 +98,59 @@
   width: 74.420%;
   margin-right: 2.325%; }
 
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@keyframes $animation_name {
+@keyframes leftOffRight {
   0% {
     left: 100%; }
+
   100% {
     left: 0%; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes $animation_name {
+@keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
@@ -356,32 +364,33 @@ a {
       .propertylist li .share div {
         width: 100%; }
       .propertylist li .share div.mover {
-        -webkit-transition: top 0.5s, background 0.1s;
-        -moz-transition: top 0.5s, background 0.1s;
-        -ms-transition: top 0.5s, background 0.1s;
-        -o-transition: top 0.5s, background 0.1s;
-        transition: top 0.5s, background 0.1s;
-        top: 0;
+        -webkit-transition: bottom 0.5s, background 0.1s;
+        -moz-transition: bottom 0.5s, background 0.1s;
+        -ms-transition: bottom 0.5s, background 0.1s;
+        -o-transition: bottom 0.5s, background 0.1s;
+        transition: bottom 0.5s, background 0.1s;
+        bottom: 0;
         display: block;
         position: absolute;
-        top: -100%;
+        bottom: -100%;
         background: #d8dadb; }
       .propertylist li .share.clicked div:last-child {
         top: 0; }
-  .propertylist li:hover {
+    .propertylist li li:last-child {
+      margin-right: 0; }
+
+.desktop .propertylist li:hover {
+  background: #ffc123; }
+  .desktop .propertylist li:hover img {
+    -webkit-filter: grayscale(0%) opacity(1);
+    -moz-filter: grayscale(0%) opacity(1);
+    -ms-filter: grayscale(0%) opacity(1);
+    -o-filter: grayscale(0%) opacity(1);
+    filter: grayscale(0%) opacity(1);
+    filter: none;
+    /* IE 6-9 */ }
+  .desktop .propertylist li:hover div.mover {
     background: #ffc123; }
-    .propertylist li:hover img {
-      -webkit-filter: grayscale(0%) opacity(1);
-      -moz-filter: grayscale(0%) opacity(1);
-      -ms-filter: grayscale(0%) opacity(1);
-      -o-filter: grayscale(0%) opacity(1);
-      filter: grayscale(0%) opacity(1);
-      filter: none;
-      /* IE 6-9 */ }
-    .propertylist li:hover div.mover {
-      background: #ffc123; }
-  .propertylist li:last-child {
-    margin-right: 0; }
 
 .coppylink {
   color: #ffc123; }
@@ -1299,9 +1308,9 @@ label {
   #about img {
     padding: 0px 0px 30px 0px; }
 
-  .propertylist li:hover {
+  .propertylist li:active {
     background: #d8dadb; }
-    .propertylist li:hover img {
+    .propertylist li:active img {
       -webkit-filter: grayscale(100%) opacity(0.8);
       -moz-filter: grayscale(100%) opacity(0.8);
       -ms-filter: grayscale(100%) opacity(0.8);
@@ -1310,14 +1319,6 @@ label {
       filter: gray; }
   .propertylist li:hover {
     color: #4e4e56; }
-  .propertylist li .share:hover h3:first-child {
-    display: inline-block; }
-  .propertylist li .share:hover h3 {
-    display: none; }
-  .propertylist li .share:active h3:first-child {
-    display: none; }
-  .propertylist li .share:active h3 {
-    display: inline-block; }
 
   .csscolumns .propertylist {
     -webkit-column-count: 2; }
@@ -1550,5 +1551,3 @@ label {
     position: relative;
     right: none;
     top: none; } }
-
-/*# sourceMappingURL=simple-style.css.map */

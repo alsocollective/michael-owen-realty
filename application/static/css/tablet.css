@@ -249,25 +249,17 @@ nav {
 #about img {
   padding: 0px 0px 30px 0px; }
 
-.propertylist li:hover {
+.propertylist li:active {
   background: #d8dadb; }
-  .propertylist li:hover img {
+  .propertylist li:active img {
     -webkit-filter: grayscale(100%) opacity(0.8);
     -moz-filter: grayscale(100%) opacity(0.8);
     -ms-filter: grayscale(100%) opacity(0.8);
     -o-filter: grayscale(100%) opacity(0.8);
     filter: grayscale(100%) opacity(0.8);
     filter: gray; }
-.propertylist li:hover {
+.propertylist li:active {
   color: #4e4e56; }
-.propertylist li .share:hover h3:first-child {
-  display: inline-block; }
-.propertylist li .share:hover h3 {
-  display: none; }
-.propertylist li .share:active h3:first-child {
-  display: none; }
-.propertylist li .share:active h3 {
-  display: inline-block; }
 
 #neighbourhoods > div:nth-child(2) {
   display: block; }
@@ -299,5 +291,3 @@ nav {
 #gmap {
   padding-top: 30px;
   padding-left: 1.282%; }
-
-/*# sourceMappingURL=tablet.css.map */

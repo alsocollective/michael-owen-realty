@@ -287,7 +287,7 @@
 		}
 
 	.propertylist {
-		li:hover{
+		li:active{
 			background: #d8dadb;
 			// h3,p{color:#fff;}
 			img{
@@ -303,23 +303,20 @@
 		color: $grey;
 		}
 		li{
-			.share:hover{
-				h3:first-child{
-					display: inline-block;
-				}
-				h3{
-					display: none;
-				}
-			}
-			.share:active{
+			// .share{
+			// 	div:first-child{
+			// 		display: none;
+			// 	}
+			// }
+			// .share:active{
 
-				h3:first-child{
-					display: none;
-				}
-				h3{
-					display: inline-block;
-				}
-			}
+			// 	h3:first-child{
+			// 		display: none;
+			// 	}
+			// 	h3{
+			// 		display: inline-block;
+			// 	}
+			// }
 		}
 	}
 
