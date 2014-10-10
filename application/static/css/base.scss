@@ -933,6 +933,17 @@ label {
 	li:hover {
 		color: $purple1;
 	}
+	.column5 > div{
+		display: inline-block;
+		h3 {
+			padding: 20px 0;
+		}
+		h3:first-child {
+			padding: 0;
+			padding-bottom: 20px;
+			margin-top: -13px;
+		}		
+	}
 }
 
 #footer {
