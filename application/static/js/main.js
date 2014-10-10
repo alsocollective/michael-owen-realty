@@ -4,7 +4,8 @@ var app = {
 	options: {
 		loadingpage: false,
 		pagetransitiontime: 1000,
-		previousURL: null
+		previousURL: null,
+		slickinstance: null
 	},
 	init: function() {
 		app.social.init();
@@ -69,7 +70,7 @@ var app = {
 				oldW.addClass('offleft');
 				setTimeout(function() {
 					newW.removeClass('offright');
-				}, app.options.pagetransitiontime);
+				}, app.options.pagetransitiontime * 2);
 				app.nav.deleteEl(oldW[0], app.options.pagetransitiontime);
 				app.url.gotohashlocation();
 				app.options.previousURL = document.URL.split("#")[0];
@@ -216,6 +217,7 @@ var app = {
 			app.search.neighbourhoodSetup();
 			app.search.initajax();
 			app.search.setupCheckAllButtons();
+			app.search.setupDeletinputonselect();
 		},
 		initajax: function() {
 			$("#searchlistings button").click(app.search.loadInitialContent);
@@ -240,7 +242,9 @@ var app = {
 			$("#morelistings input")[0].value = value + from;
 		},
 		loadInitialContent: function(event) {
-			var data = $(".filterform").serialize()
+			var data = $(".filterform")
+			app.search.checkifinputisgood(data);
+			data = data.serialize();
 			app.search.updatefrom(data);
 			data['csrfmiddlewaretoken'] = propertySettings.csrftoken;
 			$.ajax({
@@ -249,6 +253,31 @@ var app = {
 				data: data,
 				success: app.search.loadsuccess
 			});
+		},
+		checkifinputisgood: function(datain) {
+			console.log(datain);
+			var toreturn = true,
+				price1 = parseInt(datain.find("#lowerprice").val().replace(",", "").replace("$", "")),
+				price2 = parseInt(datain.find("#upperprice").val().replace(",", "").replace("$", "")),
+				bed1 = parseInt(datain.find("#lowerbed").val()),
+				bed2 = parseInt(datain.find("#upperbed").val()),
+				bath1 = parseInt(datain.find("#upperbath").val()),
+				bath2 = parseInt(datain.find("#upperbath").val());
+
+			if (price2 - price1 < 100000) {
+				alert("the difference in price is too little");
+			}
+			if (bed2 - bed1) {
+				alert("you need more range of bedrooms");
+			}
+			if (bath2 - bath2) {
+				alert("you need more range of bathrooms");
+			}
+			// 3 checks, 
+			// 		bad/bed min and max are at least 1 apart
+			//		price atleast 100,000 in range
+			//		more than 2 neighbourhoods selected
+			return true;
 		},
 		loadsuccess: function(responce) {
 			$("#searchresults ul").html(responce);
@@ -357,6 +386,12 @@ var app = {
 		},
 		makeUnCheck: function(i, el) {
 			el.checked = false;
+		},
+		setupDeletinputonselect: function() {
+			$('input').click(app.search.deletinputonselect);
+		},
+		deletinputonselect: function(event) {
+			this.value = "";
 		}
 	},
 	sell: {
@@ -382,12 +417,16 @@ var app = {
 			this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
 		},
 		initslick: function() {
-			$('.propertyimages').slick({
+			function resizezero() {
+				app.options.slickinstance[0].slick.setPosition();
+			}
+			app.options.slickinstance = $('.propertyimages').slick({
 				dots: false,
 				arrows: true,
 				slidesToShow: 1,
 				adaptiveHeight: true
 			});
+			$('.propertyimages img').load(resizezero);
 		},
 		resizemap: function() {
 			var iframe = $("#gmap iframe");

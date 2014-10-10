@@ -133,51 +133,79 @@
   width: 83.072%;
   margin-right: 1.538%; }
 
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffRight {
   0% {
     left: 100%; }
+
+  50% {
+    left: 100%;
+    opacity: 0; }
+
   100% {
-    left: 0%; } }
-@-moz-keyframes $animation_name {
+    left: 0%;
+    opacity: 1; } }
+@-moz-keyframes leftOffRight {
   0% {
     left: 100%; }
+
+  50% {
+    left: 100%;
+    opacity: 0; }
+
   100% {
-    left: 0%; } }
-@-o-keyframes $animation_name {
+    left: 0%;
+    opacity: 1; } }
+@-o-keyframes leftOffRight {
   0% {
     left: 100%; }
+
+  50% {
+    left: 100%;
+    opacity: 0; }
+
   100% {
-    left: 0%; } }
-@keyframes $animation_name {
+    left: 0%;
+    opacity: 1; } }
+@keyframes leftOffRight {
   0% {
     left: 100%; }
+
+  50% {
+    left: 100%;
+    opacity: 0; }
+
   100% {
-    left: 0%; } }
-@-webkit-keyframes $animation_name {
+    left: 0%;
+    opacity: 1; } }
+@-webkit-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes $animation_name {
+@keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
@@ -558,22 +586,22 @@ nav {
   overflow-scrolling: touch; }
   .mainwrapper.offright {
     -webkit-animation-delay: 0s;
-    -webkit-animation-duration: 1s;
+    -webkit-animation-duration: 2s;
     -webkit-animation-name: leftOffRight;
     -webkit-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
     -moz-animation-delay: 0s;
-    -moz-animation-duration: 1s;
+    -moz-animation-duration: 2s;
     -moz-animation-name: leftOffRight;
     -moz-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
     -o-animation-delay: 0s;
-    -o-animation-duration: 1s;
+    -o-animation-duration: 2s;
     -o-animation-name: leftOffRight;
     -o-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
     animation-delay: 0s;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-name: leftOffRight;
     animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
@@ -1674,5 +1702,3 @@ label {
     position: relative;
     right: none;
     top: none; } }
-
-/*# sourceMappingURL=simple-style.css.map */

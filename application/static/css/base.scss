@@ -506,7 +506,7 @@ nav {
 	// -o-transition: left 1s ease-in-out;
 	// transition: left 1s ease-in-out;
 	&.offright {
-		@include animation(0s, 1s, leftOffRight);		
+		@include animation(0s, 2s, leftOffRight);		
 
 		// left: 100%;
 		overflow: hidden;
