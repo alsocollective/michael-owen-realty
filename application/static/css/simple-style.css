@@ -9,6 +9,12 @@
 .rightalign {
   text-align: right; }
 
+.floatleft {
+  float: left; }
+
+.floatright {
+  float: right; }
+
 .center {
   text-align: center; }
 
@@ -127,59 +133,51 @@
   width: 83.072%;
   margin-right: 1.538%; }
 
-@-webkit-keyframes leftOffRight {
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-moz-keyframes leftOffRight {
+@-moz-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-o-keyframes leftOffRight {
+@-o-keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@keyframes leftOffRight {
+@keyframes $animation_name {
   0% {
     left: 100%; }
-
   100% {
     left: 0%; } }
-@-webkit-keyframes leftOffLeft {
+@-webkit-keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes leftOffLeft {
+@-moz-keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes leftOffLeft {
+@-o-keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes leftOffLeft {
+@keyframes $animation_name {
   0% {
     left: 0%;
     opacity: 1; }
-
   100% {
     left: -100%;
     opacity: 0; } }
@@ -325,6 +323,9 @@ a {
     .bigbutton button:hover h3 {
       color: #fff; }
 
+.closebigbutton {
+  display: none; }
+
 .titleboxmargins {
   position: relative; }
 
@@ -432,7 +433,7 @@ a {
   column-count: 3;
   column-gap: 1.53%;
   width: 83.33%; }
-  .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column3, .csscolumns .propertylist .small-column7 {
+  .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column7, .csscolumns .propertylist .small-column7 {
     width: auto;
     margin-right: 0 !important; }
   .csscolumns .propertylist li {
@@ -448,12 +449,12 @@ a {
   position: relative;
   overflow: hidden; }
   .casestudy.casesell {
-    background: #ffc123; }
+    background: #ffcd49; }
     .casestudy.casesell h2, .casestudy.casesell h3, .casestudy.casesell p, .casestudy.casesell h4, .casestudy.casesell ul {
       color: #4e4e56; }
     .casestudy.casesell div.sectiontitle {
       display: inline-block;
-      position: static; }
+      position: relative; }
       .casestudy.casesell div.sectiontitle h2 {
         color: #4e4e56; }
       .casestudy.casesell div.sectiontitle h2:before {
@@ -491,11 +492,13 @@ a {
     left: -14px; }
   .casestudy div.sectiontitle {
     display: inline-block;
-    position: static; }
+    position: relative; }
     .casestudy div.sectiontitle h2 {
       color: #fff; }
     .casestudy div.sectiontitle h2:before {
       border-bottom-color: #fff; }
+    .casestudy div.sectiontitle h2 .bothcases {
+      text-transform: none; }
 
 .dashbefore {
   position: relative; }
@@ -709,8 +712,8 @@ nav {
   padding: 30px 0 80px 0; }
 #about .describe-michael {
   position: absolute;
-  bottom: 0;
-  margin-bottom: 79px;
+  top: 0;
+  margin-top: 55px;
   color: #7467b4;
   line-height: 1.3em;
   font-family: "garvis-pro", serif;
@@ -742,8 +745,9 @@ nav {
     vertical-align: top; }
     #testimonials .reference > div {
       position: relative; }
-  #testimonials h4 {
-    position: relative; }
+  #testimonials .grid h4, #testimonials h5 {
+    position: relative;
+    color: #4e4e56; }
   #testimonials h4:before {
     content: '\201C';
     width: 0;
@@ -769,8 +773,6 @@ label {
   position: relative;
   background: #fff; }
 
-#searchfield .sectiontitle {
-  position: absolute; }
 #searchfield ul {
   padding-bottom: 30px; }
 #searchfield h3 {
@@ -791,9 +793,9 @@ label {
     max-width: 40px; }
   #searchfield .bbinputs input:last-child {
     text-align: right; }
-#searchfield .column2 ul {
+#searchfield .neighbourhoodslist ul {
   padding-top: 7px;
-  width: 47.619%;
+  width: 24%;
   display: inline-block;
   height: 150px;
   padding-left: 30px;
@@ -801,42 +803,44 @@ label {
   margin-bottom: 8px;
   overflow: scroll;
   position: relative; }
-  #searchfield .column2 ul li {
+  #searchfield .neighbourhoodslist ul li {
     padding-right: 25px; }
 #searchfield .column1 {
   background: transparent; }
   #searchfield .column1 ul {
     padding-top: 7px; }
-#searchfield .column6.offcolumn1 {
+#searchfield .column6.norightmargin {
   position: relative; }
-  #searchfield .column6.offcolumn1 h3 {
+  #searchfield .column6.norightmargin h3 {
     color: #7467b4; }
-  #searchfield .column6.offcolumn1 > div {
-    display: inline-block; }
-  #searchfield .column6.offcolumn1 > div:first-child {
+  #searchfield .column6.norightmargin > div {
+    display: block; }
+  #searchfield .column6.norightmargin > div:first-child {
     padding-top: 0px;
     margin-top: -1px; }
-  #searchfield .column6.offcolumn1 #priceslider, #searchfield .column6.offcolumn1 #bedslider, #searchfield .column6.offcolumn1 #bathslider {
+  #searchfield .column6.norightmargin #priceslider, #searchfield .column6.norightmargin #bedslider, #searchfield .column6.norightmargin #bathslider {
     margin: 10px 0 20px 0; }
-  #searchfield .column6.offcolumn1 .noUi-base {
+  #searchfield .column6.norightmargin .noUi-base {
     background: #d8dadb; }
-  #searchfield .column6.offcolumn1 .noUi-background {
+  #searchfield .column6.norightmargin .noUi-background {
     background: #d8dadb; }
-  #searchfield .column6.offcolumn1 .noUi-connect {
+  #searchfield .column6.norightmargin .noUi-connect {
     background: #ffc123; }
-  #searchfield .column6.offcolumn1 .noUi-handle {
+  #searchfield .column6.norightmargin .noUi-handle {
     border-color: #d8dadb; }
-  #searchfield .column6.offcolumn1 .column1 {
+  #searchfield .column6.norightmargin .column1 {
     position: relative; }
-  #searchfield .column6.offcolumn1 #priceinputs .priceinput {
+  #searchfield .column6.norightmargin .hometype {
     display: inline-block; }
-    #searchfield .column6.offcolumn1 #priceinputs .priceinput input {
+  #searchfield .column6.norightmargin #priceinputs .priceinput {
+    display: inline-block; }
+    #searchfield .column6.norightmargin #priceinputs .priceinput input {
       margin-bottom: 20px;
       width: 150px;
       font-size: 1.0em; }
-    #searchfield .column6.offcolumn1 #priceinputs .priceinput:last-child {
+    #searchfield .column6.norightmargin #priceinputs .priceinput:last-child {
       text-align: right; }
-    #searchfield .column6.offcolumn1 #priceinputs .priceinput:last-child input {
+    #searchfield .column6.norightmargin #priceinputs .priceinput:last-child input {
       text-align: right; }
 #searchfield input[type="checkbox"] {
   width: 0;
@@ -887,8 +891,7 @@ label {
     padding: 20px 0; }
   #neighbourhoods > div h3:first-child {
     padding: 0;
-    padding-bottom: 20px;
-    margin-top: -13px; }
+    padding-bottom: 20px; }
 #neighbourhoods > div:first-child {
   display: block; }
 #neighbourhoods li {
@@ -937,7 +940,7 @@ label {
   #footer h5 {
     text-transform: none; }
   #footer.footersell {
-    background: #ffc123;
+    background: #ffcd49;
     background-repeat: no-repeat; }
     #footer.footersell h4, #footer.footersell h5 {
       color: #4e4e56; }
@@ -961,6 +964,10 @@ label {
       display: inline-block; }
       .module .grid > div > p:last-child {
         padding-bottom: 60px; }
+    .module .grid h6 {
+      margin: 0em;
+      margin-top: 2.5em;
+      margin-bottom: 1.00em; }
     .module .grid img {
       width: 100%;
       margin-bottom: 30px; }
@@ -968,10 +975,18 @@ label {
       font-size: 13px;
       font-size: 0.8em; }
     .module .grid h2 {
-      color: #4e4e56;
+      color: #6b4fa0;
+      font-size: 0.8em;
+      line-height: 1.3em;
       text-transform: uppercase;
-      padding-bottom: 10px;
-      font-size: 1.1em; }
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-top: 28.5px;
+      margin-bottom: 20px; }
+    .module .grid .smalltop {
+      padding-top: 10px; }
+    .module .grid .socialmedia {
+      margin-top: 20px; }
     .module .grid h3 {
       color: #7467b4;
       padding-bottom: 5px;
@@ -983,13 +998,18 @@ label {
       border-spacing: 0px;
       width: 100%;
       margin: 0 0 20px 0; }
+      .module .grid table tbody tr:nth-child(odd) {
+        background-color: rgba(116, 103, 180, 0.15); }
       .module .grid table tr td:first-child {
         width: 60%; }
+      .module .grid table tr {
+        line-height: 1.2em; }
       .module .grid table td {
         vertical-align: top;
         padding: 0; }
       .module .grid table h3 {
-        padding: 0; }
+        padding-left: 4px;
+        vertical-align: middle; }
       .module .grid table p {
         padding: 0;
         padding-right: 5px;
@@ -1047,6 +1067,9 @@ label {
 
 @media all and (max-width: 1200px) {
   .large-hide {
+    display: none; } }
+@media all and (max-width: 2000px) {
+  .large-hide2 {
     display: none; } }
 @media all and (max-width: 800px) {
   #navbutton {
@@ -1143,7 +1166,7 @@ label {
     max-width: 100% !important;
     width: 100% !important;
     height: 100%;
-    background: #7467b4;
+    background: rgba(255, 255, 255, 0.8);
     z-index: 9;
     position: absolute;
     left: 0;
@@ -1153,7 +1176,7 @@ label {
     transition: left 0.5s ease-in-out; }
     nav .currentpage a {
       border-bottom: none;
-      background: #4ec868; }
+      background: #ffc123; }
     nav li {
       margin-left: 0% !important;
       width: 100% !important;
@@ -1161,14 +1184,14 @@ label {
       white-space: nowrap;
       display: block; }
       nav li a {
-        color: #fff;
+        color: #7467b4;
         display: inline-block;
         width: 84.616%;
         text-align: left;
         padding: 1.5em 0 1.5em 15.384%;
         font-size: 1.7em; }
     nav li:hover {
-      background: #4ec868; }
+      background: rgba(255, 193, 35, 0.5); }
     nav ul {
       height: 100%;
       overflow: scroll;
@@ -1232,6 +1255,9 @@ label {
 
   .medium-hide {
     display: none; }
+
+  .medium-show {
+    display: block; }
 
   .medium-leftmargin {
     margin-left: 1.282%; }
@@ -1369,7 +1395,8 @@ label {
 
   #about .describe-michael {
     position: relative;
-    padding-top: 0px; }
+    padding-top: 0px;
+    margin-top: 10px; }
   #about img {
     padding: 0px 0px 30px 0px; }
 
@@ -1383,11 +1410,21 @@ label {
       filter: grayscale(100%) opacity(0.8);
       filter: gray; }
   .propertylist li:hover {
-    color: #4e4e56; }
+    color: #4e4e56;
+    background: #d8dadb; }
+  .propertylist li {
+    display: inline-block; }
+  .propertylist .propertyimage {
+    display: inline-block; }
 
   .csscolumns .propertylist {
-    -webkit-column-count: 2; }
+    -webkit-column-count: 1; }
 
+  .neighmargin {
+    padding-top: 20px; }
+
+  #neighbourhoods > div h3:first-child {
+    padding-top: 20px; }
   #neighbourhoods > div:nth-child(2) {
     display: block; }
   #neighbourhoods li:hover {
@@ -1401,7 +1438,8 @@ label {
     padding-bottom: 350px; }
 
   .bigbutton button:hover {
-    background: none; }
+    background: none;
+    border: 1px solid #7467b4; }
     .bigbutton button:hover h3 {
       color: #7d6cb1; }
 
@@ -1429,6 +1467,8 @@ label {
 @media all and (max-width: 30em) {
   .grid .small-leftmargin {
     margin-left: 1.282%; }
+  .grid .small-noleftmargin {
+    margin-left: 0px; }
   .grid .small-column1 {
     width: 12.820%;
     margin-right: 1.282%;
@@ -1571,6 +1611,8 @@ label {
     -webkit-column-count: 1;
     width: 100%; }
 
+  #neighbourhoods > div h3:first-child {
+    padding-top: 0px; }
   #neighbourhoods > div:nth-child(3) p {
     margin-left: 0px;
     margin-bottom: 30px; }
@@ -1608,6 +1650,22 @@ label {
   .module .medium-column7 > div {
     width: auto;
     display: block; }
+  .module .closebigbutton {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin-bottom: 2em; }
+    .module .closebigbutton button {
+      width: 100%;
+      display: inline-block;
+      border: none;
+      padding: 1em 0;
+      text-transform: uppercase;
+      margin-top: 2em;
+      background: #7467b4; }
+      .module .closebigbutton button h3 {
+        color: #fff;
+        padding-bottom: 0px; }
 
   #gmap {
     padding-top: 0px;
@@ -1616,3 +1674,5 @@ label {
     position: relative;
     right: none;
     top: none; } }
+
+/*# sourceMappingURL=simple-style.css.map */
