@@ -110,12 +110,13 @@
 	}
 	nav {
 		color: #fff;
+		//border: 2px solid $purple1;
 		text-transform: uppercase;
 		letter-spacing: 4px;
 		max-width: 100% !important;
 		width: 100% !important;
 		height: 100%;
-		background: $purple1;
+		background: rgba(255,255,255,0.8);
 		z-index: 9;
 		position: absolute;
 		left: 0;
@@ -125,12 +126,12 @@
 		transition: left 0.5s ease-in-out;
 		.currentpage a {
 			border-bottom: none;
-			background: $green;
+			background: $yellow;
 		}
 		li {
 			margin-left: 0% !important;
 			a {
-				color: #fff;
+				color: $purple1;
 				display: inline-block;
 				width: 84.616%;
 				text-align: left;
@@ -141,9 +142,10 @@
 			text-align: left;
 			white-space: nowrap;
 			display: block;
+
 		}
 		li:hover{
-			background: $green;
+			background: $yellow2;
 		}
 		ul {
 			height: 100%;
@@ -208,6 +210,7 @@
 
 	.hide,.hide2 {display:none}
 	.medium-hide {display:none}
+	.medium-show {display:block;}
 	.medium-leftmargin {margin-left: 1.282%;}
 	.medium-noleftmargin {margin-left: 0%;}
 	.medium-column1 {width: 12.820%;margin-right: 1.282%;min-height: 20px;}
@@ -280,6 +283,7 @@
 		.describe-michael {
 			position: relative;
 			padding-top:0px;
+			margin-top: 10px;
 		}
 		img {
 			padding: 0px 0px 30px 0px;
@@ -300,9 +304,11 @@
 			}
 		}
 		li:hover {
-		color: $grey;
+			color: $grey;
+			background: $greybackground;
 		}
 		li{
+			display: inline-block;
 			// .share{
 			// 	div:first-child{
 			// 		display: none;
@@ -318,13 +324,23 @@
 			// 	}
 			// }
 		}
+		.propertyimage{
+			display: inline-block;
+		}
 	}
 
 	.csscolumns .propertylist{
-		-webkit-column-count:2;
+		-webkit-column-count:1;
+	}
+
+	.neighmargin{
+		padding-top: 20px;	
 	}
 
 	#neighbourhoods{
+		>div h3:first-child{
+			padding-top: 20px;	
+		}
 		>div:nth-child(2){
 			display: block;
 		}
@@ -332,9 +348,11 @@
 		color: $grey;
 		}
 	}
+
 	#footer {
 		margin-top: 80px;
 	}
+
 	#footer .contact {
 		padding-top: 62px;
 		padding-bottom: 350px;
@@ -343,6 +361,7 @@
 	.bigbutton {
 	button:hover {
 		background: none;
+		border: 1px solid $purple1;
 		h3 {
 			color: #7d6cb1;
 		}

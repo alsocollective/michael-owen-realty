@@ -147,7 +147,7 @@ a {
 
 .fourofour .titlebox{
 	span{
-		display: inline;
+		display: inline; 
 	}
 }
 
@@ -176,6 +176,10 @@ a {
 			color: #fff;
 		}
 	}
+}
+
+.closebigbutton{
+	display:none;
 }
 
 .titleboxmargins {
@@ -319,7 +323,7 @@ a {
 	column-count:3;
 	column-gap:1.53%;
 	width:83.33%;
-	.column2, .medium-column3, .small-column7{
+	.column2, .medium-column7, .small-column7{ 
 		width: auto;
 		margin-right: 0 !important; 
 	}
@@ -351,13 +355,13 @@ a {
 
 .casestudy {
 	&.casesell{
-		background: $yellow;
+		background: $yellow3;
 		h2, h3, p, h4, ul {
 		color: $grey;
 		}
 			div.sectiontitle {
 				display: inline-block;
-				position: static;
+				position: relative;
 			h2 {
 				color: $grey;
 			}
@@ -373,6 +377,7 @@ a {
 	padding-bottom: 100px;
 	position: relative;
 	overflow: hidden;
+
 	p {
 		color: #fff;
 		padding-top: 24px;
@@ -407,17 +412,22 @@ a {
 		width: 0;
 		display: inline-block;
 		position: absolute;
-		left: -14px;
+		left: -14px; 
 	}
 	div.sectiontitle {
 		display: inline-block;
-		position: static;
+		position: relative;
 		h2 {
 			color: #fff;
 		}
 		h2:before {
 			border-bottom-color: #fff;
 		}
+
+			h2{
+				.bothcases{text-transform:none;}
+				}
+		
 	}
 
 }
@@ -645,8 +655,8 @@ nav {
 	}
 	.describe-michael {
 		position: absolute;
-		bottom: 0;
-	    margin-bottom: 79px;
+		top: 0;
+	    margin-top: 55px;
 		color: $purple1;
 		line-height: 1.3em;
 		font-family: $serif;
@@ -688,9 +698,10 @@ nav {
 			position: relative;
 		}
 	}
-	h4{
+	.grid h4,h5{
 		position: relative;
-	}
+		color: $grey;
+	} 
 	h4:before {
 		content: '\201C';
 		width: 0;
@@ -736,7 +747,7 @@ label {
 
 #searchfield {
 	.sectiontitle {
-		position: absolute;
+		//position: absolute; //why?
 	}
 	ul{
 		padding-bottom: 30px;
@@ -766,10 +777,10 @@ label {
 			text-align: right;
 		}
 	}
-	.column2 {
+	.neighbourhoodslist {
 		ul {
 			padding-top: 7px;
-			width: 47.619%;
+			width: 24%;
 			display: inline-block;
 			height: 150px;
 			padding-left: 30px;
@@ -792,13 +803,14 @@ label {
 			padding-top: 7px;
 		}
 	}
-	.column6.offcolumn1 {
+
+	.column6.norightmargin {
 		position: relative;
 		h3 {
 			color: $purple1;
 		}
-		> div {
-			display: inline-block;
+		> div {  
+			display: block;
 		}
 		> div:first-child {
 			padding-top: 0px;
@@ -822,6 +834,9 @@ label {
 		}
 		.column1 {
 			position: relative;
+		}
+		.hometype{
+			display: inline-block;
 		}
 		#priceinputs {
 			//width: 100%;
@@ -913,7 +928,7 @@ label {
 		h3:first-child {
 			padding: 0;
 			padding-bottom: 20px;
-			margin-top: -13px;
+		//	margin-top: -13px;
 		}
 		display: inline-block;
 	}
@@ -969,7 +984,7 @@ label {
 		text-transform: none;
 	}
 	&.footersell{
-		background: $yellow;
+		background: $yellow3;
 		background-repeat: no-repeat;
 		h4, h5{
 			color: $grey;
@@ -1003,6 +1018,11 @@ label {
 				padding-bottom: 60px;
 			}
 		}
+		h6{
+			margin: 0em;
+			margin-top:2.5em;
+			margin-bottom: 1.00em;
+		}
 		img {
 			width: 100%;
 			margin-bottom: 30px;
@@ -1012,11 +1032,22 @@ label {
 			font-size: $pEm2;
 		}
 		h2 {
-			color: $grey;
+			color: $purple3;
+			font-size: 0.8em;
+			line-height: 1.3em;
 			text-transform: uppercase;
-			padding-bottom: 10px;
-			font-size: 1.1em;
+			font-weight: 700;
+			letter-spacing: 2px;
+			margin-top: 28.5px;
+			margin-bottom: 20px;
 		}
+		.smalltop{
+			padding-top: 10px;
+		}
+		.socialmedia{
+			margin-top:20px;
+		}
+
 		h3 {
 			color: $purple1;
 			padding-bottom: 5px;
@@ -1030,15 +1061,22 @@ label {
 			border-spacing: 0px;
 			width: 100%;
 			margin: 0 0 20px 0;
+			tbody tr:nth-child(odd) {
+			   		background-color: rgba(116,103,180,0.15);
+			}
 			tr td:first-child {
 				width: 60%;
+			}
+			tr{
+				line-height:1.2em;
 			}
 			td {
 				vertical-align: top;
 				padding: 0;
 			}
 			h3 {
-				padding: 0;
+				padding-left: 4px;
+				vertical-align: middle;
 			}
 			p {
 				padding: 0;
@@ -1122,6 +1160,9 @@ label {
 
 @media all and (max-width: 1200px){
 	.large-hide {display:none}
+}
+@media all and (max-width: 2000px){
+	.large-hide2 {display:none}
 }
 @import "800brk";
 @import "500brk";
