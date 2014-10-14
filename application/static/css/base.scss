@@ -777,7 +777,7 @@ label {
 			text-align: right;
 		}
 	}
-	.neighbourhoodslist {
+	.quarterwidths {
 		ul {
 			padding-top: 7px;
 			width: 24%;
@@ -877,6 +877,16 @@ label {
 	}
 	#searchlistings {
 		margin-bottom: -92px;
+	}
+	.erroronsearch{
+		.errormessage{
+			display: inline-block;
+		}
+	}
+	.errormessage{
+		display: none;
+		color: #f00 !important;
+		font-size: .65em;
 	}
 }
 
@@ -1012,16 +1022,24 @@ label {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.6);
 	z-index: 101;
 	overflow: scroll;
+
+	@include animation(0s, 0.2s, fadein);		
+
 	> div {
 		padding-top: 92px;
 		vertical-align: middle;
 		padding-bottom: 92px;
 
 	}
-	.grid {
+	.grid{
+		display: none;
+	}
+	&.loaded .grid {
+		@include animation(0s, 0.5s, fadein);
+		display: block;
 		background: #fff;
 		> div {
 			display: inline-block;
@@ -1101,6 +1119,19 @@ label {
 	#gmap{
 		padding-bottom: 30px;
 	}
+	.firstimageloading{
+		position: relative;		
+		div{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: block;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
 }
 
 .moduleindex {
@@ -1168,6 +1199,8 @@ label {
 			
 	}
 }
+
+
 
 @media all and (max-width: 1200px){
 	.large-hide {display:none}

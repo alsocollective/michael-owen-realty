@@ -242,8 +242,16 @@ var app = {
 			$("#morelistings input")[0].value = value + from;
 		},
 		loadInitialContent: function(event) {
-			var data = $(".filterform")
-			app.search.checkifinputisgood(data);
+			var data = $(".filterform"),
+				test = app.search.checkifinputisgood(data);
+			$(".erroronsearch").removeClass("erroronsearch");
+			if (test != false) {
+				for (var a = 0, max = test.length; a < max; ++a) {
+					$(".filterform ." + test[a]).addClass("erroronsearch");
+					console.log(test[a]);
+				}
+				return false;
+			}
 			data = data.serialize();
 			app.search.updatefrom(data);
 			data['csrfmiddlewaretoken'] = propertySettings.csrftoken;
@@ -255,29 +263,36 @@ var app = {
 			});
 		},
 		checkifinputisgood: function(datain) {
-			console.log(datain);
-			var toreturn = true,
-				price1 = parseInt(datain.find("#lowerprice").val().replace(",", "").replace("$", "")),
-				price2 = parseInt(datain.find("#upperprice").val().replace(",", "").replace("$", "")),
+			var toreturn = false,
+				price1 = parseInt(datain.find("#lowerprice").val().replace(",", "").replace(",", "").replace("$", "")),
+				price2 = parseInt(datain.find("#upperprice").val().replace(",", "").replace(",", "").replace("$", "")),
 				bed1 = parseInt(datain.find("#lowerbed").val()),
 				bed2 = parseInt(datain.find("#upperbed").val()),
-				bath1 = parseInt(datain.find("#upperbath").val()),
-				bath2 = parseInt(datain.find("#upperbath").val());
+				bath1 = parseFloat(datain.find("#lowerbath").val()),
+				bath2 = parseFloat(datain.find("#upperbath").val()),
+				neightbourhoods = datain.find(".neighbourhoodslist :checked");
 
 			if (price2 - price1 < 100000) {
-				alert("the difference in price is too little");
+				toreturn = app.search.addtoreturn(toreturn, "priceselector");
 			}
-			if (bed2 - bed1) {
-				alert("you need more range of bedrooms");
+			if (bed2 - bed1 < 1) {
+				toreturn = app.search.addtoreturn(toreturn, "bedroomselector");
 			}
-			if (bath2 - bath2) {
-				alert("you need more range of bathrooms");
+			if (bath2 - bath1 < 1) {
+				toreturn = app.search.addtoreturn(toreturn, "bathroomselector");
 			}
-			// 3 checks, 
-			// 		bad/bed min and max are at least 1 apart
-			//		price atleast 100,000 in range
-			//		more than 2 neighbourhoods selected
-			return true;
+			if (neightbourhoods.length > 0 && neightbourhoods.length < 3) {
+				toreturn = app.search.addtoreturn(toreturn, "neighbourhoodslist");
+			}
+			return toreturn;
+		},
+		addtoreturn: function(out, variable) {
+			if (out == false) {
+				out = [variable]
+			} else {
+				out.push(variable)
+			}
+			return out
 		},
 		loadsuccess: function(responce) {
 			$("#searchresults ul").html(responce);
@@ -409,6 +424,7 @@ var app = {
 			app.property.coppyInit();
 			app.email.init();
 			app.property.exitbutton();
+			$(".module").addClass("loaded")
 		},
 		exitbutton: function() {
 			$('#exbutton > div').click(app.property.exitbuttonexit);
@@ -449,9 +465,11 @@ var app = {
 			return false;
 		},
 		loadproperty: function(event, hash) {
-			event.preventDefault();
-			if ($(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
-				return false;
+			if (event) {
+				event.preventDefault();
+				if ($(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
+					return false;
+				}
 			}
 			var that = $(this).find("a")[0];
 			if (event) {

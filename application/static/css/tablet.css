@@ -92,8 +92,8 @@ nav {
   max-width: 100% !important;
   width: 100% !important;
   height: 100%;
-  background: #7d5ab1;
   z-index: 9;
+  background: transparent;
   position: absolute;
   left: 0;
   -webkit-transition: left 0.5s ease-in-out;
@@ -108,7 +108,8 @@ nav {
     width: 100% !important;
     text-align: left;
     white-space: nowrap;
-    display: block; }
+    display: block;
+    background-color: #7d5ab1; }
     nav li a {
       color: #fff;
       display: inline-block;

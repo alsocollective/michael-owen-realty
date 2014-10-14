@@ -3,21 +3,25 @@
 	-webkit-animation-duration: $duration;
 	-webkit-animation-name: $animation;
 	-webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+	-webkit-animation-timing-function: ease-out;
 
 	-moz-animation-delay: $delay;
 	-moz-animation-duration: $duration;
 	-moz-animation-name: $animation;
 	-moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+	-moz-animation-timing-function: ease-out;
 
 	-o-animation-delay: $delay;
 	-o-animation-duration: $duration;
 	-o-animation-name: $animation;
 	-o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+	-o-animation-timing-function: ease-out;
 
 	animation-delay: $delay;
 	animation-duration: $duration;
 	animation-name: $animation;
 	animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+	animation-timing-function: ease-out;	
 }
 
 @mixin keyframe ($animation_name) {
@@ -63,5 +67,28 @@
 	100% {
 		left: -100%;
 		opacity: 0;
+	}
+}
+@include keyframe(open) {
+	0% {
+		left: 50%;
+		width: 0%;
+		top: 50%;
+		height: 0%;
+	}
+
+	100% {
+		left: 0%;
+		width: 100%;
+		top: 0%;
+		height: 100%;
+	}
+}
+@include keyframe(fadein) {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
 	}
 }

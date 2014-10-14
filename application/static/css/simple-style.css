@@ -209,6 +209,78 @@
   100% {
     left: -100%;
     opacity: 0; } }
+@-webkit-keyframes open {
+  0% {
+    left: 50%;
+    width: 0%;
+    top: 50%;
+    height: 0%; }
+
+  100% {
+    left: 0%;
+    width: 100%;
+    top: 0%;
+    height: 100%; } }
+@-moz-keyframes open {
+  0% {
+    left: 50%;
+    width: 0%;
+    top: 50%;
+    height: 0%; }
+
+  100% {
+    left: 0%;
+    width: 100%;
+    top: 0%;
+    height: 100%; } }
+@-o-keyframes open {
+  0% {
+    left: 50%;
+    width: 0%;
+    top: 50%;
+    height: 0%; }
+
+  100% {
+    left: 0%;
+    width: 100%;
+    top: 0%;
+    height: 100%; } }
+@keyframes open {
+  0% {
+    left: 50%;
+    width: 0%;
+    top: 50%;
+    height: 0%; }
+
+  100% {
+    left: 0%;
+    width: 100%;
+    top: 0%;
+    height: 100%; } }
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fadein {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+@-o-keyframes fadein {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
 html, body {
   width: 100%;
   height: 100%;
@@ -590,21 +662,25 @@ nav {
     -webkit-animation-name: leftOffRight;
     -webkit-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    -webkit-animation-timing-function: ease-out;
     -moz-animation-delay: 0s;
     -moz-animation-duration: 2s;
     -moz-animation-name: leftOffRight;
     -moz-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    -moz-animation-timing-function: ease-out;
     -o-animation-delay: 0s;
     -o-animation-duration: 2s;
     -o-animation-name: leftOffRight;
     -o-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    -o-animation-timing-function: ease-out;
     animation-delay: 0s;
     animation-duration: 2s;
     animation-name: leftOffRight;
     animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    animation-timing-function: ease-out;
     overflow: hidden; }
   .mainwrapper.offleft {
     -webkit-animation-delay: 0s;
@@ -612,21 +688,25 @@ nav {
     -webkit-animation-name: leftOffLeft;
     -webkit-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    -webkit-animation-timing-function: ease-out;
     -moz-animation-delay: 0s;
     -moz-animation-duration: 1s;
     -moz-animation-name: leftOffLeft;
     -moz-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    -moz-animation-timing-function: ease-out;
     -o-animation-delay: 0s;
     -o-animation-duration: 1s;
     -o-animation-name: leftOffLeft;
     -o-animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    -o-animation-timing-function: ease-out;
     animation-delay: 0s;
     animation-duration: 1s;
     animation-name: leftOffLeft;
     animation-fill-mode: forwards;
     /* this prevents the animation from restarting! */
+    animation-timing-function: ease-out;
     overflow: hidden; }
 
 .main {
@@ -821,7 +901,7 @@ label {
     max-width: 40px; }
   #searchfield .bbinputs input:last-child {
     text-align: right; }
-#searchfield .neighbourhoodslist ul {
+#searchfield .quarterwidths ul {
   padding-top: 7px;
   width: 24%;
   display: inline-block;
@@ -831,7 +911,7 @@ label {
   margin-bottom: 8px;
   overflow: scroll;
   position: relative; }
-  #searchfield .neighbourhoodslist ul li {
+  #searchfield .quarterwidths ul li {
     padding-right: 25px; }
 #searchfield .column1 {
   background: transparent; }
@@ -887,6 +967,12 @@ label {
   background: #7467b4; }
 #searchfield #searchlistings {
   margin-bottom: -92px; }
+#searchfield .erroronsearch .errormessage {
+  display: inline-block; }
+#searchfield .errormessage {
+  display: none;
+  color: #f00 !important;
+  font-size: .65em; }
 
 .touch #searchfield .noUi-horizontal {
   height: 12px; }
@@ -979,30 +1065,81 @@ label {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 101;
-  overflow: scroll; }
+  overflow: scroll;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-duration: 0.2s;
+  -webkit-animation-name: fadein;
+  -webkit-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  -webkit-animation-timing-function: ease-out;
+  -moz-animation-delay: 0s;
+  -moz-animation-duration: 0.2s;
+  -moz-animation-name: fadein;
+  -moz-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  -moz-animation-timing-function: ease-out;
+  -o-animation-delay: 0s;
+  -o-animation-duration: 0.2s;
+  -o-animation-name: fadein;
+  -o-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  -o-animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-duration: 0.2s;
+  animation-name: fadein;
+  animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  animation-timing-function: ease-out; }
   .module > div {
     padding-top: 92px;
     vertical-align: middle;
     padding-bottom: 92px; }
   .module .grid {
+    display: none; }
+  .module.loaded .grid {
+    -webkit-animation-delay: 0s;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: fadein;
+    -webkit-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-delay: 0s;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-name: fadein;
+    -moz-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -moz-animation-timing-function: ease-out;
+    -o-animation-delay: 0s;
+    -o-animation-duration: 0.5s;
+    -o-animation-name: fadein;
+    -o-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -o-animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    animation-timing-function: ease-out;
+    display: block;
     background: #fff; }
-    .module .grid > div {
+    .module.loaded .grid > div {
       display: inline-block; }
-      .module .grid > div > p:last-child {
+      .module.loaded .grid > div > p:last-child {
         padding-bottom: 60px; }
-    .module .grid h6 {
+    .module.loaded .grid h6 {
       margin: 0em;
       margin-top: 2.5em;
       margin-bottom: 1.00em; }
-    .module .grid img {
+    .module.loaded .grid img {
       width: 100%;
       margin-bottom: 30px; }
-    .module .grid p {
+    .module.loaded .grid p {
       font-size: 13px;
       font-size: 0.8em; }
-    .module .grid h2 {
+    .module.loaded .grid h2 {
       color: #6b4fa0;
       font-size: 0.8em;
       line-height: 1.3em;
@@ -1011,34 +1148,34 @@ label {
       letter-spacing: 2px;
       margin-top: 28.5px;
       margin-bottom: 20px; }
-    .module .grid .smalltop {
+    .module.loaded .grid .smalltop {
       padding-top: 10px; }
-    .module .grid .socialmedia {
+    .module.loaded .grid .socialmedia {
       margin-top: 20px; }
-    .module .grid h3 {
+    .module.loaded .grid h3 {
       color: #7467b4;
       padding-bottom: 5px;
       font-size: 0.7rem;
       line-height: 1.6em; }
-    .module .grid > div:nth-child(2) table {
+    .module.loaded .grid > div:nth-child(2) table {
       margin: 20px 0 30px 0; }
-    .module .grid table {
+    .module.loaded .grid table {
       border-spacing: 0px;
       width: 100%;
       margin: 0 0 20px 0; }
-      .module .grid table tbody tr:nth-child(odd) {
+      .module.loaded .grid table tbody tr:nth-child(odd) {
         background-color: rgba(116, 103, 180, 0.15); }
-      .module .grid table tr td:first-child {
+      .module.loaded .grid table tr td:first-child {
         width: 60%; }
-      .module .grid table tr {
+      .module.loaded .grid table tr {
         line-height: 1.2em; }
-      .module .grid table td {
+      .module.loaded .grid table td {
         vertical-align: top;
         padding: 0; }
-      .module .grid table h3 {
+      .module.loaded .grid table h3 {
         padding-left: 4px;
         vertical-align: middle; }
-      .module .grid table p {
+      .module.loaded .grid table p {
         padding: 0;
         padding-right: 5px;
         color: #7467b4;
@@ -1046,6 +1183,17 @@ label {
         line-height: 1.6em; }
   .module #gmap {
     padding-bottom: 30px; }
+  .module .firstimageloading {
+    position: relative; }
+    .module .firstimageloading div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center; }
 
 .moduleindex {
   z-index: 1;
