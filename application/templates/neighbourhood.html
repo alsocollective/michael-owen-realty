@@ -1,5 +1,14 @@
 {% extends basetemplate %}
+{% load staticfiles %}
 {% block content %}
-		<h3 class="purp">{{location.title}}</h3>
+<div class="column5 leftmargin medium-column7">
+	<div class="column2 small-column4">
+		<br class=".hide .medium-show .small-hide">
+		<img src="{% static "img/"%}{{location.image}}">
+	</div><div class="norightmargin column3 medium-column5 medium-leftmargin small-column7" id="neighbourhoodajax">
+		<h3 class="purp"><span itemprop="addressLocality">{{location.title}}</span></h3>
 		<p>{{location.content}}</p>
+	</div>
+</div>
+
 {% endblock %}

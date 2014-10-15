@@ -21,10 +21,11 @@
 				Neighbourhoods
 			</h2>
 		</div>
-		<div class="column5 leftmargin medium-column7">
+		<div class="column5 leftmargin medium-column7" id="neighbourhoodajax">
 			<div class="column2 small-column4">
+				<br class=".hide .medium-show .small-hide">
 				<img src="{% static "img/Grey-Little-Italy.jpg"%}">
-			</div><div class="norightmargin column3 medium-column5 medium-leftmargin small-column7" id="neighbourhoodajax">
+			</div><div class="norightmargin column3 medium-column5 medium-leftmargin small-column7" >
 				<h3 class="purp"><span itemprop="addressLocality">Little Italy</span></h3>
 				<p>Little Italy, sometimes referred to as College Street West or College and Clinton, is a district in Toronto, Ontario, Canada. It is well known for its numerous Italian Canadian restaurants and businesses. The district is centred around a restaurant/bar/ shopping strip along College Street, the heart of which being the intersection of College and Clinton Streets and the adjacent residential area. It overlaps into two official City of Toronto neighbourhoods: Palmerston-Little Italy north of College Street and Trinity-Bellwoods to the south.</p>
 			</div>
@@ -43,19 +44,19 @@
 		</div><div class="column1 medium-column2 small-leftmargin small-column3"><!--norightmargin -->
 			<h3>west</h3>
 			<ul>
-				<li>Bloor West Village</li>
-				<li>High Park</li>
-				<li>The Junction</li>
-				<li>Roncesvalles</li>
-				<li>Parkdale</li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Bloor West Village</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">High Park</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">The Junction</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Roncesvalles</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Parkdale</a></li>
 			</ul>
 			<h3>east</h3>
 			<ul>
-				<li>Other</li>
-				<li>Location</li>
-				<li>Different</li>
-				<li>Area of Town</li>	
-				<li>Somewhere else</li>				
+				<li><a href="/ajaxneighbourhood/bloorwest">Other</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Location</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Different</a></li>
+				<li><a href="/ajaxneighbourhood/bloorwest">Area of Town</a></li>	
+				<li><a href="/ajaxneighbourhood/bloorwest">Somewhere else</a></li>				
 			</ul>
 		</div>
 	</div>
@@ -132,7 +133,7 @@
 			{% include "properties.html" with data=featured %}		
 		</ul>	
 		<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-			<button id="morelistings"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
+			<button id="morelistings" class="hide"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
 		</div>
 	</div>
 

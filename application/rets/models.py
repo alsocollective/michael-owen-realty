@@ -265,6 +265,7 @@ class Area(models.Model):
 	community = models.ManyToManyField('listitem',related_name='community_area', blank=True,null=True)
 	subsections = models.ManyToManyField('Area',related_name='area-thing', blank=True,null=True)
 	ward = models.BooleanField(default=False)
+	# payloadText = models.CharField(max_length=20000)
 	def __unicode__(self):
 		return self.text
 

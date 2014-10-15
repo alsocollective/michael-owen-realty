@@ -241,9 +241,15 @@
 		.medium-column4 {width: 66.15%;margin-right: 1.538%;}
 		.medium-column5 {width: 83.072%;margin-right: 1.538%;}	
 	}
-	.medium-column7{
-		.medium-column7{width: 100%;}
-	}
+	.medium-column7,.column7 { 
+	    .medium-column1,.column1 {width:13.157%; margin-right:1.315%;}
+	    .medium-column2,.column2 {width:26.315%; margin-right:1.315% !important;}
+	    .medium-column3,.column3 {width:39.473%; margin-right:1.315%;}
+	    .medium-column4,.column4 {width:52.631%; margin-right:1.315%;}
+	    .medium-column5,.column5 {width:65.789%; margin-right:1.315%;}
+	    .medium-column6,.column6 {width:78.947%; margin-right:1.315%;}
+	    .medium-column7,.column7 {width:100%; margin-right:1.315%;}
+	}	
 
 	.titlebox{
 		 top: 100px ;
@@ -355,11 +361,18 @@
 	}
 
 	#neighbourhoods{
+		text-align: right;
+		> div{
+			text-align: left;
+		}
 		>div h3:first-child{
 			padding-top: 20px;	
 		}
 		>div:nth-child(2){
 			display: block;
+			>div:first-child{
+				line-height: 1.75em;
+			}
 		}
 		li:hover {
 		color: $grey;

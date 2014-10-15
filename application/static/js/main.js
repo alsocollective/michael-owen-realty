@@ -239,6 +239,7 @@ var app = {
 			from = from[from.length - 1];
 			value = value.substring(0, value.length - from.length);
 			from = parseInt(from) + 12;
+			$("#morelistings").removeClass("hide");
 			$("#morelistings input")[0].value = value + from;
 		},
 		loadInitialContent: function(event) {
@@ -295,14 +296,22 @@ var app = {
 			return out
 		},
 		loadsuccess: function(responce) {
+			var removeel = $("#searchresults ul");
+			for (var a = 1, max = removeel.length; a < max; ++a) {
+				console.log(removeel)
+				removeel[a].parentNode.removeChild(removeel[a]);
+			}
 			$("#searchresults ul").html(responce);
 			app.property.setup()
 		},
 		loadsuccessappend: function(responce, second, third) {
-			console.log(second, third.getResponseHeader())
+			if (responce.length < 100) {
+				$("#morelistings").addClass("hide")
+				return false;
+			}
 			var newdiv = $(document.createElement("ul"));
 			newdiv.addClass("propertylist leftmargin");
-			newdiv.append(responce);
+			$(newdiv).html(responce);
 			$("#searchresults > div").before(newdiv);
 			app.property.setup()
 		},
@@ -318,6 +327,7 @@ var app = {
 				start: [0, 800000],
 				connect: true,
 				behaviour: 'drag',
+				margin: 100000,
 				range: {
 					'min': [0],
 					'max': [1500000]
@@ -342,6 +352,7 @@ var app = {
 				start: [1, 3],
 				connect: true,
 				behaviour: 'drag',
+				margin: 1,
 				range: {
 					'min': [propertySettings.bed.min],
 					'max': [propertySettings.bed.max]
@@ -363,6 +374,7 @@ var app = {
 			priceslider.noUiSlider({
 				start: [1, 3],
 				connect: true,
+				margin: 1,
 				behaviour: 'drag',
 				range: {
 					'min': [propertySettings.bath.min],
