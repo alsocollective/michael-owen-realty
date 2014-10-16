@@ -155,132 +155,152 @@
   width: 100%;
   margin-right: 1.315%; }
 
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@keyframes $animation_name {
+@keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes $animation_name {
+@keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@-o-keyframes $animation_name {
+@-o-keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@keyframes $animation_name {
+@keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
-@-o-keyframes $animation_name {
+@-o-keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
-@keyframes $animation_name {
+@keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 html, body {
@@ -424,6 +444,8 @@ a {
     border: 1px solid #ffc123; }
     .bigbutton button:hover h3 {
       color: #fff; }
+  .bigbutton.morelistingsparent {
+    margin-top: 0; }
   .bigbutton #morelistings.hide {
     display: none; }
 
@@ -993,6 +1015,9 @@ label {
 
 .propertyimages {
   margin-top: 30px; }
+
+.propertyimage {
+  width: 100%; }
 
 .socialmedia a {
   padding-right: 10px;
@@ -1842,8 +1867,10 @@ label {
     top: 320px; }
 
   #testimonials {
+    background-position: left bottom;
     background-size: 45%; }
     #testimonials > div:first-child {
+      background-position: right bottom;
       background-size: 45%; }
     #testimonials .reference {
       padding-bottom: 240px; }
@@ -1886,8 +1913,10 @@ label {
 
   #footer {
     margin-top: 60px;
-    background-size: 45%; }
+    background-position: left bottom !important;
+    background-size: 45% !important; }
     #footer > div:first-child {
+      background-position: right bottom;
       background-size: 45%; }
     #footer .contact {
       padding-bottom: 240px; }
@@ -1920,6 +1949,7 @@ label {
     display: block;
     position: relative;
     right: none;
-    top: none; } }
+    top: none; }
 
-/*# sourceMappingURL=simple-style.css.map */
+  .module #exbutton {
+    right: 0; } }

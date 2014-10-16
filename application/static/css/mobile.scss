@@ -177,8 +177,10 @@
 	}
 
 	#testimonials {
+		background-position: left bottom;		
 		background-size:45%; 
 			> div:first-child {
+				background-position: right bottom;
 				background-size:45%;
 			}
 		.reference{
@@ -239,8 +241,10 @@
 
 	#footer{
 		margin-top: 60px;
-		background-size:45%; 
+		background-position: left bottom !important;		
+		background-size:45% !important; 
 			> div:first-child {
+				background-position: right bottom;
 				background-size:45%;
 			}
 		.contact{
@@ -290,4 +294,8 @@
 		position: relative;
 		right: none;
 		top: none;
+	}
+
+	.module #exbutton{
+		right: 0;
 	}

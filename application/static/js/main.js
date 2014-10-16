@@ -223,6 +223,7 @@ var app = {
 			app.search.setupCheckAllButtons();
 			app.search.setupDeletinputonselect();
 			app.nav.splashsize();
+			app.search.setupResultsSlick();
 		},
 		initajax: function() {
 			$("#searchlistings button").click(app.search.loadInitialContent);
@@ -301,12 +302,14 @@ var app = {
 			return out
 		},
 		loadsuccess: function(responce) {
-			var removeel = $("#searchresults ul");
-			for (var a = 1, max = removeel.length; a < max; ++a) {
-				console.log(removeel)
-				removeel[a].parentNode.removeChild(removeel[a]);
-			}
-			$("#searchresults ul").html(responce);
+			// var removeel = $("#searchresults ul");
+			// for (var a = 1, max = removeel.length; a < max; ++a) {
+			// 	console.log(removeel)
+			// 	removeel[a].parentNode.removeChild(removeel[a]);
+			// }
+			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
+
+			// $("#searchresults ul").html(responce);
 			app.property.setup()
 		},
 		loadsuccessappend: function(responce, second, third) {
@@ -314,10 +317,11 @@ var app = {
 				$("#morelistings").addClass("hide")
 				return false;
 			}
-			var newdiv = $(document.createElement("ul"));
-			newdiv.addClass("propertylist leftmargin");
-			$(newdiv).html(responce);
-			$("#searchresults > div").before(newdiv);
+			// var newdiv = $(document.createElement("ul"));
+			// newdiv.addClass("propertylist leftmargin");
+			// $(newdiv).html(responce);
+			// $("#searchresults > div").before(newdiv);
+			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
 			app.property.setup()
 		},
 		responcefromInitialLoad: function(event) {
@@ -424,6 +428,11 @@ var app = {
 		},
 		deletinputonselect: function(event) {
 			this.value = "";
+		},
+		setupResultsSlick: function() {
+			app.options.searchresults = $("#searchresults").slick({
+				adaptiveHeight: true
+			});
 		}
 	},
 	sell: {
@@ -454,10 +463,12 @@ var app = {
 			$(".module").addClass("loaded")
 		},
 		exitbutton: function() {
-			$('#exbutton > div').click(app.property.exitbuttonexit);
+			$('#exbutton > div, .closebigbutton').click(app.property.exitbuttonexit);
 		},
 		exitbuttonexit: function(event) {
-			this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
+			console.log(this);
+			var el = this.parentNode.parentNode.parentNode.parentNode;
+			el.parentNode.removeChild(el)
 		},
 		initslick: function() {
 			function resizezero() {

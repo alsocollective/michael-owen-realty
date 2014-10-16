@@ -176,6 +176,9 @@ a {
 			color: #fff;
 		}
 	}
+	&.morelistingsparent{
+		margin-top: 0;
+	}
 	#morelistings.hide{
 		display: none;
 	}
@@ -917,6 +920,9 @@ label {
 
 .propertyimages { 
 	margin-top: 30px;
+}
+.propertyimage{
+	width: 100%;
 }
 
 .socialmedia {

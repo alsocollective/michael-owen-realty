@@ -129,13 +129,13 @@
 	</div>
 
 	<div id="searchresults" >
-		<ul class="propertylist small-noleftmargin leftmargin">
+		<div><ul class="propertylist small-noleftmargin leftmargin">
 			{% include "properties.html" with data=featured %}		
-		</ul>	
-		<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7">
-			<button id="morelistings" class="hide"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
-		</div>
+		</ul></div>	
 	</div>
+	<div class="column2 offcolumn2 bigbutton medium-offcolumn1 medium-column4 small-offcolumn0 small-column7 morelistingsparent">
+		<button id="morelistings" class="hide"><h3>display more listings</h3><input style="display:none;" value="from=12"></button>
+	</div>	
 
 </div>
 
