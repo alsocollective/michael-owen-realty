@@ -1292,6 +1292,25 @@ label {
   .message.sent .module .grid h3 {
     color: #ffc123; }
 
+.pullquotes {
+  height: 100%; }
+  .pullquotes > div:first-child {
+    height: 100%; }
+    .pullquotes > div:first-child > div:first-child {
+      height: 100%; }
+  .pullquotes .slide {
+    display: table;
+    height: 100%; }
+  .pullquotes p {
+    display: table-cell;
+    vertical-align: middle;
+    color: #fff;
+    text-align: center; }
+  .pullquotes .slick-dots button:before {
+    color: #fff; }
+  .pullquotes .slick-dots .slick-active button:before {
+    color: #ddd; }
+
 @media all and (max-width: 1200px) {
   .large-hide {
     display: none; } }

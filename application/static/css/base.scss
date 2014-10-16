@@ -1254,6 +1254,34 @@ label {
 	}
 }
 
+.pullquotes{
+	height: 100%;
+	> div:first-child{
+		height: 100%;
+		> div:first-child{
+			height: 100%;
+		}
+	}
+	.slide{
+		display: table;
+		height: 100%;
+	}
+	p{
+		display: table-cell;
+		vertical-align: middle;
+		color:#fff;
+		text-align: center;
+	}
+	.slick-dots{
+		button:before{
+			color: #fff;
+		}
+		.slick-active button:before{
+			color: #ddd;
+		}
+	}
+}
+
 
 
 @media all and (max-width: 1200px){

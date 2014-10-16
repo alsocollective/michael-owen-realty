@@ -109,7 +109,20 @@
 		</div>	
 	</div>	
 </div>	
-<div class="aboutimg2" style="background-image: url({% static "img/DavisvilleToronto-lrg-2.jpg"%});"><div class="shadow"></div></div>
+<div class="aboutimg2" style="background-image: url({% static "img/DavisvilleToronto-lrg-2.jpg"%});">
+	<div class="shadow"></div>
+	<div class="pullquotes">
+		<div class="slide">
+			<p>Pull quote 1</p>
+		</div>
+		<div class="slide">
+			<p>Pull quote 2</p>
+		</div>
+		<div class="slide">
+			<p>Pull quote 3</p>
+		</div>
+	</div>
+</div>
 <div class="main grid">
 	<div id="mback">
 		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
@@ -142,8 +155,8 @@
 {% block script %} 
 <script type="text/javascript">
 	 $( document ).ready(function(){
-	 	//$(".single-tem").slick();
-	 	 app.about.init();
+	 	app.about.init();
+ 		app.sell.init();
 	 });
 </script>
 {% endblock %}
