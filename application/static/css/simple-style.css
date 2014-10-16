@@ -526,9 +526,6 @@ a {
   .desktop .propertylist li:hover div.mover {
     background: #ffc123; }
 
-.coppylink {
-  color: #ffc123; }
-
 .csscolumns .propertylist {
   -moz-column-count: 3;
   -moz-column-gap: 1.53%;
@@ -1699,11 +1696,23 @@ label {
     right: -43px;
     display: none; }
 
-  .socialmedia {
-    display: none; }
-
-  .socialmediabuttons {
-    display: none; }
+  .socialmedia button {
+    width: 97%;
+    display: inline-block;
+    border: none;
+    background: transparent;
+    border: 1px solid #7467b4;
+    padding: 0.5em 0;
+    text-align: left;
+    padding-right: 5px;
+    padding-top: 0.8em;
+    margin-bottom: 7px; }
+    .socialmedia button h3 {
+      line-height: 1.4em;
+      color: #7467b4; }
+    .socialmedia button a {
+      padding-left: 10px;
+      vertical-align: middle; }
 
   #gmap {
     padding-top: 30px;
@@ -1894,6 +1903,9 @@ label {
 
   .module .grid {
     position: static; }
+    .module .grid p {
+      padding-bottom: 0px !important;
+      margin-left: 0px !important; }
   .module .medium-column7 > div {
     width: auto;
     display: block; }
@@ -1911,7 +1923,7 @@ label {
       margin-top: 2em;
       background: #7467b4; }
       .module .closebigbutton button h3 {
-        color: #fff;
+        color: #fff !important;
         padding-bottom: 0px; }
 
   #gmap {
