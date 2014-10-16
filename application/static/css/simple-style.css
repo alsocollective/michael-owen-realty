@@ -825,8 +825,9 @@ nav {
 #about .describe-michael {
   position: absolute;
   top: 0;
+  padding-top: 190px;
   margin-top: 55px;
-  color: #7467b4;
+  color: #4e4e56;
   line-height: 1.3em;
   font-family: "garvis-pro", serif;
   font-size: 22px;
@@ -1101,7 +1102,8 @@ label {
     vertical-align: middle;
     padding-bottom: 92px; }
   .module .grid {
-    display: none; }
+    display: none;
+    position: relative; }
   .module.loaded .grid {
     -webkit-animation-delay: 0s;
     -webkit-animation-duration: 0.5s;
@@ -1174,11 +1176,12 @@ label {
       .module.loaded .grid table tr {
         line-height: 1.2em; }
       .module.loaded .grid table td {
-        vertical-align: top;
+        vertical-align: middle;
         padding: 0; }
       .module.loaded .grid table h3 {
         padding-left: 4px;
-        vertical-align: middle; }
+        vertical-align: middle;
+        padding-top: 0.45em; }
       .module.loaded .grid table p {
         padding: 0;
         padding-right: 5px;
@@ -1205,6 +1208,50 @@ label {
   background: #fff; }
   .moduleindex > div {
     padding-top: 60px; }
+  .moduleindex #exbutton {
+    right: -43px;
+    display: none; }
+
+#exbutton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  display: block;
+  background: transparent; }
+  #exbutton > div {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px; }
+    #exbutton > div div:first-child {
+      content: " ";
+      width: 25px;
+      height: 2px;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 14px;
+      background: #7467b4;
+      -ms-transform: translate(1px, 9px) rotate(45deg);
+      /* IE 9 */
+      -webkit-transform: translate(1px, 9px) rotate(45deg);
+      /* Chrome, Safari, Opera */
+      transform: translate(1px, 9px) rotate(45deg); }
+    #exbutton > div div:last-child {
+      content: " ";
+      width: 25px;
+      height: 2px;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 30px;
+      background: #7467b4;
+      -ms-transform: translate(0px, -7px) rotate(-45deg);
+      /* IE 9 */
+      -webkit-transform: translate(0px, -7px) rotate(-45deg);
+      /* Chrome, Safari, Opera */
+      transform: translate(0px, -7px) rotate(-45deg); }
 
 .request {
   display: block;
@@ -1224,7 +1271,7 @@ label {
       width: 0;
       overflow: hidden; }
     .request .requestform #comments {
-      width: 92%;
+      width: 91%;
       height: 30px;
       max-width: 100%;
       max-height: 100px !important;
@@ -1323,18 +1370,18 @@ label {
       -webkit-transform: translate(1px, 9px) rotate(45deg);
       /* Chrome, Safari, Opera */
       transform: translate(1px, 9px) rotate(45deg);
-      background: #fff; }
+      background: #7467b4; }
     #navbutton.navactive > div div:nth-child(2) {
       width: 0px;
       /* IE 9 */
-      background: #fff; }
+      background: #7467b4; }
     #navbutton.navactive > div div:last-child {
       -ms-transform: translate(0px, -7px) rotate(-45deg);
       /* IE 9 */
       -webkit-transform: translate(0px, -7px) rotate(-45deg);
       /* Chrome, Safari, Opera */
       transform: translate(0px, -7px) rotate(-45deg);
-      background: #fff; }
+      background: #7467b4; }
 
   #nav {
     position: static; }
@@ -1346,7 +1393,7 @@ label {
     max-width: 100% !important;
     width: 100% !important;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     z-index: 9;
     position: absolute;
     left: 0;
@@ -1376,6 +1423,8 @@ label {
         border-right-width: 0px;
         border-left-width: 0px;
         border-bottom-width: 0px; }
+      nav li:first-child a {
+        border-top-width: 0px; }
     nav li:hover {
       background: rgba(255, 193, 35, 0.5); }
     nav ul {
@@ -1394,47 +1443,6 @@ label {
 
   .offleft {
     left: -100%; }
-
-  #exbutton {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 99;
-    display: block;
-    background: transparent; }
-    #exbutton > div {
-      position: relative;
-      display: block;
-      width: 50px;
-      height: 50px; }
-      #exbutton > div div:first-child {
-        content: " ";
-        width: 25px;
-        height: 2px;
-        display: block;
-        position: absolute;
-        left: 10px;
-        top: 14px;
-        background: #7467b4;
-        -ms-transform: translate(1px, 9px) rotate(45deg);
-        /* IE 9 */
-        -webkit-transform: translate(1px, 9px) rotate(45deg);
-        /* Chrome, Safari, Opera */
-        transform: translate(1px, 9px) rotate(45deg); }
-      #exbutton > div div:last-child {
-        content: " ";
-        width: 25px;
-        height: 2px;
-        display: block;
-        position: absolute;
-        left: 10px;
-        top: 30px;
-        background: #7467b4;
-        -ms-transform: translate(0px, -7px) rotate(-45deg);
-        /* IE 9 */
-        -webkit-transform: translate(0px, -7px) rotate(-45deg);
-        /* Chrome, Safari, Opera */
-        transform: translate(0px, -7px) rotate(-45deg); }
 
   .hide, .hide2 {
     display: none; }
@@ -1659,6 +1667,8 @@ label {
 
   .module .grid {
     position: relative; }
+  .module #exbutton {
+    right: -43px; }
   .module > div {
     padding: 0;
     background: #fff; }
@@ -1667,6 +1677,13 @@ label {
     display: inline-block; }
 
   .moduleindex #exbutton {
+    right: -43px;
+    display: none; }
+
+  .socialmedia {
+    display: none; }
+
+  .socialmediabuttons {
     display: none; }
 
   #gmap {

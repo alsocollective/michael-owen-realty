@@ -1,4 +1,4 @@
-@import"variables";
+ @import"variables";
 
 	#navbutton{
 		&.white{
@@ -90,17 +90,17 @@
 					-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
 					-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
 					transform: translate(1px,9px) rotate(45deg) ;
-					background: #fff;
+					background: $purple1;
 				}
 				div:nth-child(2){
 					width:0px; /* IE 9 */
-					background: #fff;
+					background: $purple1;
 				}
 				div:last-child{
 					-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
 					-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
 					transform: translate(0px,-7px) rotate(-45deg) ;
-					background: #fff;
+					background: $purple1;
 				}
 			}
 		}
@@ -117,7 +117,7 @@
 		max-width: 100% !important;
 		width: 100% !important;
 		height: 100%;
-		background: rgba(255,255,255,0.8);
+		background: rgba(255,255,255,0.85);
 		z-index: 9;
 		position: absolute;
 		left: 0;
@@ -144,7 +144,9 @@
 				border-right-width: 0px;
 				border-left-width: 0px;
 				border-bottom-width: 0px;
-
+			}
+			&:first-child a{
+				border-top-width: 0px;
 			}
 			width: 100% !important;
 			text-align: left;
@@ -173,48 +175,6 @@
 		.offleft{ 
 			left: -100%;
 		}
-
-	#exbutton{
-		position: absolute;
-		right: 0;
-		top:0;	
-		z-index: 99;
-		display: block;
-		background: transparent;	
-		> div{
-			position: relative;
-			display: block;
-			width: 50px;
-			height: 50px;
-		
-			div:first-child{
-				content:" ";
-				width: 25px;
-				height: 2px;
-				display: block;
-				position: absolute;
-				left: 10px;
-				top: 14px;
-				background: $purple1;
-				-ms-transform: translate(1px,9px) rotate(45deg) ; /* IE 9 */
-				-webkit-transform: translate(1px,9px) rotate(45deg) ; /* Chrome, Safari, Opera */
-				transform: translate(1px,9px) rotate(45deg) ;
-			}
-			div:last-child{
-				content:" ";
-				width: 25px;
-				height: 2px;
-				display: block;
-				position: absolute;
-				left: 10px;
-				top: 30px;
-				background: $purple1;
-				-ms-transform: translate(0px,-7px) rotate(-45deg) ; /* IE 9 */
-				-webkit-transform: translate(0px,-7px) rotate(-45deg) ; /* Chrome, Safari, Opera */
-				transform: translate(0px,-7px) rotate(-45deg) ;
-			}	
-		}
-	}
 
 	.hide,.hide2 {display:none}
 	.medium-hide {display:none}
@@ -412,6 +372,10 @@
 	.module{
 		.grid{
 			position: relative;
+
+		}
+		#exbutton{
+			right:-43px;
 		}
 		> div{
 			padding: 0;
@@ -424,9 +388,19 @@
 	}
 	.moduleindex{
 		#exbutton{
-			display:none;
+			right:-43px;
+			display: none;
 		}
+
 	}
+
+.socialmedia{
+	display: none;
+}
+
+.socialmediabuttons{
+	display: none;
+}
 
 	#gmap{
 		// height: 200px;
