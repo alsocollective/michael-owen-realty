@@ -65,7 +65,20 @@
 	</div>	
 </div>
 
-<div class="buyimg2" style="background-image: url({% static "img/Toronto_-_ON_-_Aerial_view-purple.jpg"%});"><div class="shadow"></div></div>
+<div class="buyimg2" style="background-image: url({% static "img/Toronto_-_ON_-_Aerial_view-purple.jpg"%});">
+	<div class="shadow"></div>
+	<div class="pullquotes">
+		<div class="slide">
+			<p>Pull quote 1</p>
+		</div>
+		<div class="slide">
+			<p>Pull quote 2</p>
+		</div>
+		<div class="slide">
+			<p>Pull quote 3</p>
+		</div>
+	</div>
+</div>
 
 <div class="main grid">
 	<div id="factors">
@@ -93,3 +106,11 @@
 </div>
 {% endblock %}
 {% block buynav %}currentpage{% endblock %}
+{% block script %} 
+<script type="text/javascript">
+	$( document ).ready(function(){
+		// app.init();	
+		app.sell.init();
+	});
+</script>
+{% endblock %}

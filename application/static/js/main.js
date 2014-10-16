@@ -93,6 +93,9 @@ var app = {
 		},
 		correctSize: function() {
 			$("#nav").width($($(".mainwrapper div")[0]).width());
+		},
+		splashsize: function() {
+			$("#splash, #smallsplash").height($(window).height() - 100);
 		}
 	},
 	social: {
@@ -206,6 +209,7 @@ var app = {
 				arrows: false
 			});
 			app.property.setup()
+			app.nav.splashsize();
 		}
 	},
 	search: {
@@ -218,6 +222,7 @@ var app = {
 			app.search.initajax();
 			app.search.setupCheckAllButtons();
 			app.search.setupDeletinputonselect();
+			app.nav.splashsize();
 		},
 		initajax: function() {
 			$("#searchlistings button").click(app.search.loadInitialContent);
@@ -424,6 +429,16 @@ var app = {
 	sell: {
 		init: function() {
 			console.log("sell setting up");
+			app.sell.slicksetup();
+			app.nav.splashsize();
+		},
+		slicksetup: function() {
+			$(".pullquotes").slick({
+				dots: true,
+				arrows: false,
+				slidesToShow: 1,
+				adaptiveHeight: false
+			});
 		}
 	},
 	property: {
@@ -595,6 +610,7 @@ var app = {
 	resize: function() {
 		app.nav.correctSize();
 		app.property.resizemap();
+		app.nav.splashsize();
 	},
 	getCookie: function(name) {
 		var cookieValue = null;
