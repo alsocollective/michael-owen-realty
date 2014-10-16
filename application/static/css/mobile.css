@@ -184,6 +184,9 @@ p {
 
 .module .grid {
   position: static; }
+  .module .grid p {
+    padding-bottom: 0px !important;
+    margin-left: 0px !important; }
 .module .medium-column7 > div {
   width: auto;
   display: block; }
@@ -201,7 +204,7 @@ p {
     margin-top: 2em;
     background: #7467b4; }
     .module .closebigbutton button h3 {
-      color: #fff;
+      color: #fff !important;
       padding-bottom: 0px; }
 
 #gmap {

@@ -395,11 +395,31 @@
 	}
 
 .socialmedia{
-	display: none;
-}
+	button {
+		width: 97%;
+		display: inline-block;
+		border: none;
+		background: transparent;
+		border: 1px solid $purple1;
+		// font-size: 1.2em;
+		padding: 0.5em 0;
+		text-align: left;
+		padding-right: 5px;
+		//text-transform: uppercase;
+		//margin-top: 0.1em;
+		padding-top: 0.8em;
+		margin-bottom: 7px;
+		h3 {
+			line-height: 1.4em;
+			color: $purple1;
+		}
+		a{
+			padding-left: 10px;
+			vertical-align: middle;
+		}
+	}
 
-.socialmediabuttons{
-	display: none;
+	
 }
 
 	#gmap{

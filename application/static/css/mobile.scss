@@ -258,6 +258,10 @@
 	.module{
 	.grid{
 		position: static;
+		p{
+			padding-bottom:0px !important;
+			margin-left: 0px !important;
+		}
 	}
 	.medium-column7> div{
 			width: auto;
@@ -279,7 +283,7 @@
 				margin-top: 2em;
 				background: $purple1;
 					h3 {
-						color: #fff;
+						color: #fff !important;
 						padding-bottom: 0px;
 					}
 				}
