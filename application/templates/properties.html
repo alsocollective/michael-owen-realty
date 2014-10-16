@@ -6,7 +6,9 @@
 			<img class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">			
 		</div>
 		<div class="propertycontent">
-			<h3 class="purp">featured</h3><br>
+			{% if prop.featured %}
+				<h3 class="purp"> featured</h3><br>
+			{% endif %}
 			<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3><br>
 			<h3>{{prop.lp_dol|nicemoney}}</h3>
 			<p><span itemprop="itemOffered">{{prop.extras|limilength}}</span></p><br>
