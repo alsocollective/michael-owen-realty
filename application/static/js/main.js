@@ -308,9 +308,12 @@ var app = {
 			// 	removeel[a].parentNode.removeChild(removeel[a]);
 			// }
 			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
-
+			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
 			// $("#searchresults ul").html(responce);
 			app.property.setup()
+		},
+		loadedlength: function() {
+			return ($("#searchresults .slick-track .slick-slide").length - 2);
 		},
 		loadsuccessappend: function(responce, second, third) {
 			if (responce.length < 100) {
@@ -322,6 +325,7 @@ var app = {
 			// $(newdiv).html(responce);
 			// $("#searchresults > div").before(newdiv);
 			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
+			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
 			app.property.setup()
 		},
 		responcefromInitialLoad: function(event) {
