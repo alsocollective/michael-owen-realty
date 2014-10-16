@@ -92,8 +92,8 @@ nav {
   max-width: 100% !important;
   width: 100% !important;
   height: 100%;
+  background: rgba(255, 255, 255, 0.8);
   z-index: 9;
-  background: transparent;
   position: absolute;
   left: 0;
   -webkit-transition: left 0.5s ease-in-out;
@@ -102,23 +102,28 @@ nav {
   transition: left 0.5s ease-in-out; }
   nav .currentpage a {
     border-bottom: none;
-    background: #7467b4; }
+    background: #ffc123; }
   nav li {
     margin-left: 0% !important;
     width: 100% !important;
     text-align: left;
     white-space: nowrap;
-    display: block;
-    background-color: #7d5ab1; }
+    display: block; }
     nav li a {
-      color: #fff;
+      color: #7467b4;
       display: inline-block;
       width: 84.616%;
       text-align: left;
       padding: 1.5em 0 1.5em 15.384%;
-      font-size: 1.7em; }
+      font-size: 1.7em;
+      border-style: solid;
+      border-color: #7467b4;
+      border-width: 1px;
+      border-right-width: 0px;
+      border-left-width: 0px;
+      border-bottom-width: 0px; }
   nav li:hover {
-    background: #7467b4; }
+    background: rgba(255, 193, 35, 0.5); }
   nav ul {
     height: 100%;
     overflow: scroll;
@@ -136,11 +141,55 @@ nav {
 .offleft {
   left: -100%; }
 
-.hide {
+#exbutton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  display: block;
+  background: transparent; }
+  #exbutton > div {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px; }
+    #exbutton > div div:first-child {
+      content: " ";
+      width: 25px;
+      height: 2px;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 14px;
+      background: #7467b4;
+      -ms-transform: translate(1px, 9px) rotate(45deg);
+      /* IE 9 */
+      -webkit-transform: translate(1px, 9px) rotate(45deg);
+      /* Chrome, Safari, Opera */
+      transform: translate(1px, 9px) rotate(45deg); }
+    #exbutton > div div:last-child {
+      content: " ";
+      width: 25px;
+      height: 2px;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 30px;
+      background: #7467b4;
+      -ms-transform: translate(0px, -7px) rotate(-45deg);
+      /* IE 9 */
+      -webkit-transform: translate(0px, -7px) rotate(-45deg);
+      /* Chrome, Safari, Opera */
+      transform: translate(0px, -7px) rotate(-45deg); }
+
+.hide, .hide2 {
   display: none; }
 
 .medium-hide {
   display: none; }
+
+.medium-show {
+  display: block; }
 
 .medium-leftmargin {
   margin-left: 1.282%; }
@@ -205,10 +254,65 @@ nav {
   left: 85.897%;
   position: relative; }
 
+.medium-column5 .medium-column1 {
+  width: 18.519%;
+  margin-right: 1.851%; }
+.medium-column5 .medium-column2 {
+  width: 38.889%;
+  margin-right: 1.851% !important; }
+.medium-column5 .medium-column3 {
+  width: 59.259%;
+  margin-right: 1.851%; }
+.medium-column5 .medium-column4 {
+  width: 79.629%;
+  margin-right: 1.851%; }
+
+.medium-column6 .medium-column1 {
+  width: 15.384%;
+  margin-right: 1.538%; }
+.medium-column6 .medium-column2 {
+  width: 32.306%;
+  margin-right: 1.538% !important; }
+.medium-column6 .medium-column3 {
+  width: 49.228%;
+  margin-right: 1.538%; }
+.medium-column6 .medium-column4 {
+  width: 66.15%;
+  margin-right: 1.538%; }
+.medium-column6 .medium-column5 {
+  width: 83.072%;
+  margin-right: 1.538%; }
+
+.medium-column7 .medium-column1, .medium-column7 .column1, .column7 .medium-column1, .column7 .column1 {
+  width: 13.157%;
+  margin-right: 1.315%; }
+.medium-column7 .medium-column2, .medium-column7 .column2, .column7 .medium-column2, .column7 .column2 {
+  width: 26.315%;
+  margin-right: 1.315% !important; }
+.medium-column7 .medium-column3, .medium-column7 .column3, .column7 .medium-column3, .column7 .column3 {
+  width: 39.473%;
+  margin-right: 1.315%; }
+.medium-column7 .medium-column4, .medium-column7 .column4, .column7 .medium-column4, .column7 .column4 {
+  width: 52.631%;
+  margin-right: 1.315%; }
+.medium-column7 .medium-column5, .medium-column7 .column5, .column7 .medium-column5, .column7 .column5 {
+  width: 65.789%;
+  margin-right: 1.315%; }
+.medium-column7 .medium-column6, .medium-column7 .column6, .column7 .medium-column6, .column7 .column6 {
+  width: 78.947%;
+  margin-right: 1.315%; }
+.medium-column7 .medium-column7, .medium-column7 .column7, .column7 .medium-column7, .column7 .column7 {
+  width: 100%;
+  margin-right: 1.315%; }
+
 .titlebox {
   top: 100px; }
   .titlebox h1 {
     font-size: 8rem; }
+
+.reference .slick-dots {
+  bottom: none;
+  top: 300px; }
 
 .casestudy div.sectiontitle {
   display: block;
@@ -216,10 +320,6 @@ nav {
   padding-bottom: 100px; }
 .casestudy p, .casestudy ul {
   padding-top: 12px; }
-
-.reference .slick-dots {
-  bottom: none;
-  top: 300px; }
 
 #smallsplash .buyimg, #smallsplash .sellimg, #smallsplash .propertyimg {
   background-position: left; }
@@ -246,7 +346,8 @@ nav {
 
 #about .describe-michael {
   position: relative;
-  padding-top: 0px; }
+  padding-top: 0px;
+  margin-top: 10px; }
 #about img {
   padding: 0px 0px 30px 0px; }
 
@@ -259,13 +360,32 @@ nav {
     -o-filter: grayscale(100%) opacity(0.8);
     filter: grayscale(100%) opacity(0.8);
     filter: gray; }
-.propertylist li:active {
-  color: #4e4e56; }
+.propertylist li:hover {
+  color: #4e4e56;
+  background: #d8dadb; }
+.propertylist li {
+  display: inline-block; }
+.propertylist .propertyimage {
+  display: inline-block; }
 
-#neighbourhoods > div:nth-child(2) {
-  display: block; }
-#neighbourhoods li:hover {
-  color: #4e4e56; }
+.csscolumns .propertylist {
+  -webkit-column-count: 1; }
+
+.neighmargin {
+  padding-top: 20px; }
+
+#neighbourhoods {
+  text-align: right; }
+  #neighbourhoods > div {
+    text-align: left; }
+  #neighbourhoods > div h3:first-child {
+    padding-top: 20px; }
+  #neighbourhoods > div:nth-child(2) {
+    display: block; }
+    #neighbourhoods > div:nth-child(2) > div:first-child {
+      line-height: 1.75em; }
+  #neighbourhoods li:hover {
+    color: #4e4e56; }
 
 #footer {
   margin-top: 80px; }
@@ -275,13 +395,16 @@ nav {
   padding-bottom: 350px; }
 
 .bigbutton button:hover {
-  background: none; }
+  background: none;
+  border: 1px solid #7467b4; }
   .bigbutton button:hover h3 {
     color: #7d6cb1; }
 
 .aboutimg2, .buyimg2 {
   margin-top: 80px; }
 
+.module .grid {
+  position: relative; }
 .module > div {
   padding: 0;
   background: #fff; }
@@ -289,6 +412,14 @@ nav {
   width: 45%;
   display: inline-block; }
 
+.moduleindex #exbutton {
+  display: none; }
+
 #gmap {
   padding-top: 30px;
-  padding-left: 1.282%; }
+  padding-left: 1.282%;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+/*# sourceMappingURL=tablet.css.map */

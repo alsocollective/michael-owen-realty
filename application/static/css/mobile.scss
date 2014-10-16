@@ -1,7 +1,10 @@
-	@import "variables";
+@import"variables";
 	.grid {
 		.small-leftmargin {
 			margin-left: 1.282%;
+		}
+		.small-noleftmargin {
+			margin-left: 0px;
 		}
 		.small-column1 {
 			width: 12.820%;
@@ -161,11 +164,25 @@
 		display: block;
 		padding-bottom:30px;
 	}
-	
+	.hide2{
+		display: block;
+		line-height: 0;
+	}
+
 	.reference{
 		.slick-dots{
 			bottom:none;
 			top:320px;
+		}
+	}
+
+	#testimonials {
+		background-size:45%; 
+			> div:first-child {
+				background-size:45%;
+			}
+		.reference{
+			padding-bottom: 240px;
 		}
 	}
 	
@@ -177,7 +194,15 @@
 		padding-bottom: 0px;
 	}
 
+	.csscolumns .propertylist{
+		-webkit-column-count:1;
+		width:100%;
+	}
+
 	#neighbourhoods {
+		>div h3:first-child{
+			padding-top: 0px;
+		}
 		> div:nth-child(3) {
 			p {
 				margin-left: 0px;
@@ -214,11 +239,55 @@
 
 	#footer{
 		margin-top: 60px;
+		background-size:45%; 
+			> div:first-child {
+				background-size:45%;
+			}
+		.contact{
+			padding-bottom: 240px;
+		}
 	}
 
+
+
+
 	.module{
+	.grid{
+		position: static;
+	}
 	.medium-column7> div{
 			width: auto;
 			display: block;
 		}
+			.closebigbutton{
+			display: block;
+			position: relative;
+			text-align: center;
+			//height: 80px;
+			margin-bottom: 2em;
+			button {
+				width: 100%;
+				display: inline-block;
+				border: none;
+				// font-size: 1.2em;
+				padding: 1em 0;
+				text-transform: uppercase;
+				margin-top: 2em;
+				background: $purple1;
+					h3 {
+						color: #fff;
+						padding-bottom: 0px;
+					}
+				}
+			}
+	}
+
+	#gmap{
+		// height: 200px;
+		padding-top: 0px;
+	    padding-left: 0%;
+		display: block;
+		position: relative;
+		right: none;
+		top: none;
 	}

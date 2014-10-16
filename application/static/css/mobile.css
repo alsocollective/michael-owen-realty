@@ -1,5 +1,7 @@
 .grid .small-leftmargin {
   margin-left: 1.282%; }
+.grid .small-noleftmargin {
+  margin-left: 0px; }
 .grid .small-column1 {
   width: 12.820%;
   margin-right: 1.282%;
@@ -117,9 +119,20 @@ nav ul {
   display: block;
   padding-bottom: 30px; }
 
+.hide2 {
+  display: block;
+  line-height: 0; }
+
 .reference .slick-dots {
   bottom: none;
   top: 320px; }
+
+#testimonials {
+  background-size: 45%; }
+  #testimonials > div:first-child {
+    background-size: 45%; }
+  #testimonials .reference {
+    padding-bottom: 240px; }
 
 .casestudy {
   padding-bottom: 0px; }
@@ -127,6 +140,12 @@ nav ul {
     padding-bottom: 0px;
     margin-left: 0px; }
 
+.csscolumns .propertylist {
+  -webkit-column-count: 1;
+  width: 100%; }
+
+#neighbourhoods > div h3:first-child {
+  padding-top: 0px; }
 #neighbourhoods > div:nth-child(3) p {
   margin-left: 0px;
   margin-bottom: 30px; }
@@ -152,8 +171,41 @@ p {
   font-size: 0.92rem; }
 
 #footer {
-  margin-top: 60px; }
+  margin-top: 60px;
+  background-size: 45%; }
+  #footer > div:first-child {
+    background-size: 45%; }
+  #footer .contact {
+    padding-bottom: 240px; }
 
+.module .grid {
+  position: static; }
 .module .medium-column7 > div {
   width: auto;
   display: block; }
+.module .closebigbutton {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin-bottom: 2em; }
+  .module .closebigbutton button {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    padding: 1em 0;
+    text-transform: uppercase;
+    margin-top: 2em;
+    background: #7467b4; }
+    .module .closebigbutton button h3 {
+      color: #fff;
+      padding-bottom: 0px; }
+
+#gmap {
+  padding-top: 0px;
+  padding-left: 0%;
+  display: block;
+  position: relative;
+  right: none;
+  top: none; }
+
+/*# sourceMappingURL=mobile.css.map */
