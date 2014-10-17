@@ -158,14 +158,10 @@
   width: 100%;
   margin-right: 1.315%; }
 
-<<<<<<< HEAD
-@-webkit-keyframes $animation_name {
-=======
 .norightmargin {
   margin-right: 0% !important; }
 
-@-webkit-keyframes leftOffRight {
->>>>>>> 356552f0a7e2d1c93e09b794669b90966ecab5cc
+@-webkit-keyframes $animation_name {
   0% {
     left: 100%; }
   50% {
