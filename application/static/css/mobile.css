@@ -112,7 +112,7 @@ nav li:nth-child(6) a, nav li:last-child a {
 #about img {
   padding: 0px 0 30px; }
 
-.module .grid > div > p:last-child {
+.module .grid > div > div > p:last-child {
   padding-bottom: 20px;
   padding-top: 0px;
   margin-left: 0px; }
@@ -189,7 +189,7 @@ p {
   .module .grid p {
     padding-bottom: 0px !important;
     margin-left: 0px !important; }
-.module .medium-column7 > div {
+.module .medium-column7 .medium-column7 > div {
   width: auto;
   display: block; }
 .module .closebigbutton {
@@ -219,5 +219,3 @@ p {
 
 .module #exbutton {
   right: 0; }
-
-/*# sourceMappingURL=mobile.css.map */

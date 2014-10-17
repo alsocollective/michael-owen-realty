@@ -146,7 +146,7 @@
 	// 	padding-top:80px;
 	// }
 
-	.module .grid >div >p:last-child{
+	.module .grid >div >div >p:last-child{
 		padding-bottom:20px;
 		padding-top:0px;
 		margin-left: 0px;
@@ -267,7 +267,7 @@
 			margin-left: 0px !important;
 		}
 	}
-	.medium-column7> div{
+	.medium-column7 .medium-column7> div{
 			width: auto;
 			display: block;
 		}
