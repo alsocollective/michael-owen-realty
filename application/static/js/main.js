@@ -307,6 +307,12 @@ var app = {
 			// 	console.log(removeel)
 			// 	removeel[a].parentNode.removeChild(removeel[a]);
 			// }
+			var count = app.search.loadedlength();
+
+			while (count > 1) {
+				app.options.searchresults.slickRemove(count - 1);
+				count = app.search.loadedlength();
+			}
 			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
 			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
 			// $("#searchresults ul").html(responce);
@@ -326,6 +332,7 @@ var app = {
 			// $("#searchresults > div").before(newdiv);
 			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
 			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
+			app.search.gotosearchlistings();
 			app.property.setup()
 		},
 		responcefromInitialLoad: function(event) {
@@ -437,6 +444,12 @@ var app = {
 			app.options.searchresults = $("#searchresults").slick({
 				adaptiveHeight: true
 			});
+
+		},
+		gotosearchlistings: function() {
+			$(".mainwrapper").animate({
+				scrollTop: ($("#searchlistings").offset().top * -1)
+			}, 1000);
 		}
 	},
 	sell: {
@@ -470,9 +483,10 @@ var app = {
 			$('#exbutton > div, .closebigbutton').click(app.property.exitbuttonexit);
 		},
 		exitbuttonexit: function(event) {
-			console.log(this);
 			var el = this.parentNode.parentNode.parentNode.parentNode;
-			el.parentNode.removeChild(el)
+			if (el && el.parentNode) {
+				el.parentNode.removeChild(el)
+			}
 		},
 		initslick: function() {
 			function resizezero() {
@@ -497,9 +511,12 @@ var app = {
 			}
 		},
 		setup: function() {
-			$(".propertylist li").click(app.property.loadproperty);
+			$(".propertylist li.new").click(app.property.loadproperty).each(app.property.removenewclass);
 			app.property.coppyInit();
 			$(".share").click(app.property.toggleclicked);
+		},
+		removenewclass: function() {
+			$(this).removeClass("new");
 		},
 		toggleclicked: function(event) {
 			event.preventDefault();
@@ -526,6 +543,7 @@ var app = {
 			newEl.className = "module";
 			document.body.appendChild(newEl);
 			$(newEl).load(that.href, app.property.loadedproperty);
+			event.stopPropagation();
 			return false;
 		},
 		stopprop: function(event) {
