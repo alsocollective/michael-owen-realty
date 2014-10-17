@@ -127,7 +127,7 @@ nav li:nth-child(6) a, nav li:last-child a {
 
 .reference .slick-dots {
   bottom: none;
-  top: 320px; }
+  top: 420px; }
 
 #testimonials {
   background-position: left bottom;
@@ -219,3 +219,5 @@ p {
 
 .module #exbutton {
   right: 0; }
+
+/*# sourceMappingURL=mobile.css.map */
