@@ -483,7 +483,7 @@ var app = {
 			$('#exbutton > div, .closebigbutton').click(app.property.exitbuttonexit);
 		},
 		exitbuttonexit: function(event) {
-			var el = this.parentNode.parentNode.parentNode.parentNode;
+			var el = this.parentNode.parentNode.parentNode.parentNode.parentNode;
 			if (el && el.parentNode) {
 				el.parentNode.removeChild(el)
 			}
@@ -614,6 +614,7 @@ var app = {
 			event.preventDefault();
 			var data = $(this.parentNode).serialize();
 			data['csrfmiddlewaretoken'] = app.email.csrftoken;
+			$(this.parentNode).addClass("hide").removeClass("requestform");
 			$.ajax({
 				type: "POST",
 				url: '/sendemail/',
