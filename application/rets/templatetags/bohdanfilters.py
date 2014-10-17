@@ -6,7 +6,7 @@ import re
 import locale
 from django.utils.safestring import mark_safe
 register = template.Library()
-locale.setlocale(locale.LC_ALL, 'en_US')
+#locale.setlocale(locale.LC_ALL, 'en_US')
 
 
 @register.filter(name='get_key')
