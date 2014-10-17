@@ -612,6 +612,9 @@ a {
     position: absolute;
     left: -14px; }
 
+.floatright {
+  float: right; }
+
 nav {
   padding-bottom: 25px;
   color: #7d5ab1;
@@ -1446,6 +1449,17 @@ label {
         border-bottom-width: 0px; }
       nav li:first-child a {
         border-top-width: 0px; }
+    nav li:nth-child(6), nav li:last-child {
+      width: 50% !important;
+      display: inline-block;
+      margin-right: 0%; }
+      nav li:nth-child(6) a, nav li:last-child a {
+        border-bottom-width: 1px;
+        font-size: 1.4em;
+        padding: 1em 0 1em 31.5%; }
+    nav li:last-child a {
+      border-left-width: 1px;
+      padding: 1em 0 1em 15.384%; }
     nav li:hover {
       background: rgba(255, 193, 35, 0.5); }
     nav ul {
@@ -1813,6 +1827,8 @@ label {
     -ms-overflow-scrolling: touch;
     -o-overflow-scrolling: touch;
     overflow-scrolling: touch; }
+  nav li:nth-child(6) a, nav li:last-child a {
+    font-size: 1.1em !important; }
 
   #smallsplash .propertyimg {
     background-position: 34% 0%; }

@@ -85,6 +85,8 @@ nav ul {
   -ms-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
   overflow-scrolling: touch; }
+nav li:nth-child(6) a, nav li:last-child a {
+  font-size: 1.1em !important; }
 
 #smallsplash .propertyimg {
   background-position: 34% 0%; }
