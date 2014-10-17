@@ -1271,13 +1271,14 @@ label {
 	.slide{
 		display: table;
 		height: 100%;
+		> div{
+			display: table-cell;
+			vertical-align: middle;
+			color:#fff;
+			text-align: left;
+		}		
 	}
-	p{
-		display: table-cell;
-		vertical-align: middle;
-		color:#fff;
-		text-align: center;
-	}
+
 	.slick-dots{
 		button:before{
 			color: #fff;
