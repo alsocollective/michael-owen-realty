@@ -341,7 +341,17 @@ nav {
 .propertylist li {
   display: inline-block; }
 .propertylist .propertyimage {
-  display: inline-block; }
+  display: inline-block;
+  margin-right: 0px; }
+.propertylist .propertycontent {
+  display: inline-block;
+  width: 52.631% !important;
+  padding: 1% 0% 0% 1% !important;
+  margin-right: 0px; }
+  .propertylist .propertycontent p {
+    padding-top: 0.5em !important; }
+  .propertylist .propertycontent .share {
+    padding-top: 0.7em !important; }
 
 .csscolumns .propertylist {
   -webkit-column-count: 1; }
@@ -417,3 +427,5 @@ nav {
   position: absolute;
   right: 0;
   top: 0; }
+
+/*# sourceMappingURL=tablet.css.map */

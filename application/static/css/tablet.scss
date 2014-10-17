@@ -336,6 +336,19 @@
 		}
 		.propertyimage{
 			display: inline-block;
+			margin-right: 0px;
+		}
+		.propertycontent{
+			display: inline-block;
+			width:52.631% !important;
+			padding: 1% 0% 0% 1% !important;
+			margin-right: 0px;
+			p{ 
+				padding-top: 0.5em !important;
+			}
+			.share{
+				padding-top: 0.7em !important;
+			}
 		}
 	}
 
