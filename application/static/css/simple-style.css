@@ -1336,6 +1336,9 @@ label {
   .pullquotes .slick-dots .slick-active button:before {
     color: #ddd; }
 
+.lightunderline {
+  border-bottom: solid 1px #ccc; }
+
 @media all and (max-width: 1200px) {
   .large-hide {
     display: none; } }
