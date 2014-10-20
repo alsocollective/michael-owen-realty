@@ -470,7 +470,7 @@ var app = {
 	property: {
 		init: function() {
 			if (!$(".module").hasClass("moduleindex")) {
-				$(".module").click(app.property.delete);
+				$(".module").click(app.property.deleteprop);
 			}
 			$(".module > div > div").click(app.property.stopprop);
 			app.property.resizemap();
@@ -504,7 +504,7 @@ var app = {
 			var iframe = $("#gmap iframe");
 			iframe.height(iframe.width() * 0.8);
 		},
-		delete: function() {
+		deleteprop: function() {
 			if (this.parentNode) {
 				this.parentNode.removeChild(this);
 				location.hash = "";
@@ -572,6 +572,9 @@ var app = {
 		},
 		coppyInit: function() {
 			var selected = $(".coppylink");
+			if(selected.length==0){
+				return false;
+			}
 			selected.click(app.property.coppyclicked);
 			var client = new ZeroClipboard(selected);
 			client.on("copy", function(event) {
