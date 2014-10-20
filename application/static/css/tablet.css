@@ -322,7 +322,9 @@ nav {
 #about .describe-michael {
   position: relative;
   padding-top: 0px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  top: 0;
+  margin-bottom: 0px; }
 #about img {
   padding: 0px 0px 30px 0px; }
 
@@ -354,7 +356,9 @@ nav {
     padding-top: 0.7em !important; }
 
 .csscolumns .propertylist {
-  -webkit-column-count: 1; }
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1; }
 
 .neighmargin {
   padding-top: 20px; }

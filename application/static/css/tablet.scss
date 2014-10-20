@@ -294,6 +294,8 @@
 			position: relative;
 			padding-top:0px;
 			margin-top: 10px;
+			top: 0;
+			margin-bottom: 0px;
 		}
 		img {
 			padding: 0px 0px 30px 0px;
@@ -301,6 +303,7 @@
 		}
 
 	.propertylist {
+
 		li:active{
 			background: #d8dadb;
 			// h3,p{color:#fff;}
@@ -354,6 +357,8 @@
 
 	.csscolumns .propertylist{
 		-webkit-column-count:1;
+		-moz-column-count:1;
+		column-count:1;
 	}
 
 	.neighmargin{
