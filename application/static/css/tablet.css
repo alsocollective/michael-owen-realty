@@ -330,21 +330,38 @@ nav {
 
 .propertylist li:active {
   background: #d8dadb; }
-  .propertylist li:active img {
-    -webkit-filter: grayscale(100%) opacity(0.8);
-    -moz-filter: grayscale(100%) opacity(0.8);
-    -ms-filter: grayscale(100%) opacity(0.8);
-    -o-filter: grayscale(100%) opacity(0.8);
-    filter: grayscale(100%) opacity(0.8);
-    filter: gray; }
 .propertylist li:hover {
   color: #4e4e56;
   background: #d8dadb; }
 .propertylist li {
-  display: inline-block; }
-.propertylist .propertyimage {
+  position: relative;
   display: inline-block;
-  margin-right: 0px; }
+  overflow: hidden; }
+  .propertylist li .propertyimage {
+    display: inline-block;
+    margin-right: 0px;
+    position: absolute;
+    height: 100%; }
+    .propertylist li .propertyimage .backgroundimage {
+      display: block;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      -webkit-filter: grayscale(100%) opacity(0.8);
+      -moz-filter: grayscale(100%) opacity(0.8);
+      -ms-filter: grayscale(100%) opacity(0.8);
+      -o-filter: grayscale(100%) opacity(0.8);
+      filter: grayscale(100%) opacity(0.8);
+      filter: gray; }
+    .propertylist li .propertyimage img {
+      display: none; }
+.propertylist li:hover .propertyimage .backgroundimage {
+  -webkit-filter: grayscale(0%) opacity(1);
+  -moz-filter: grayscale(0%) opacity(1);
+  -ms-filter: grayscale(0%) opacity(1);
+  -o-filter: grayscale(0%) opacity(1);
+  filter: grayscale(0%) opacity(1);
+  filter: gray; }
 .propertylist .propertycontent {
   display: inline-block;
   width: 52.631% !important;
@@ -354,8 +371,15 @@ nav {
     padding-top: 0.5em !important; }
   .propertylist .propertycontent .share {
     padding-top: 0.7em !important; }
+    .propertylist .propertycontent .share > a {
+      display: none; }
+    .propertylist .propertycontent .share .mover {
+      display: block;
+      position: static; }
+      .propertylist .propertycontent .share .mover .coppylink {
+        display: none; }
     .propertylist .propertycontent .share.clicked div:last-child {
-      padding-top: 0.7em !important; }
+      padding-top: 0 !important; }
 
 .csscolumns .propertylist {
   -webkit-column-count: 1;

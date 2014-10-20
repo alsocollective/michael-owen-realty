@@ -587,9 +587,9 @@ var app = {
 				child = document.createElement("p");
 			parent.appendChild(child);
 			parent.className = "overlaycopytext";
-			child.innerHTML = 'coppied to clipboard:<br>"' + text + '"';
+			child.innerHTML = 'copied to clipboard:<br>"' + text + '"';
 			document.body.appendChild(parent);
-			setTimeout(app.property.deleteCoppyText, app.options.pagetransitiontime);
+			setTimeout(app.property.deleteCoppyText, app.options.pagetransitiontime + 250);
 		},
 		deleteCoppyText: function() {
 			var el = $(".overlaycopytext")[0];
@@ -598,7 +598,6 @@ var app = {
 		coppyclicked: function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			console.log($(".overlaycopytext").length)
 			if ($(".overlaycopytext").length == 0) {
 				app.property.coppyText(this.href)
 			}

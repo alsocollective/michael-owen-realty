@@ -310,6 +310,54 @@
 
   100% {
     opacity: 1; } }
+@-webkit-keyframes fadeinout {
+  0% {
+    opacity: 0; }
+
+  25% {
+    opacity: 1; }
+
+  75% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+@-moz-keyframes fadeinout {
+  0% {
+    opacity: 0; }
+
+  25% {
+    opacity: 1; }
+
+  75% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+@-o-keyframes fadeinout {
+  0% {
+    opacity: 0; }
+
+  25% {
+    opacity: 1; }
+
+  75% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+@keyframes fadeinout {
+  0% {
+    opacity: 0; }
+
+  25% {
+    opacity: 1; }
+
+  75% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
 html, body {
   width: 100%;
   height: 100%;
@@ -510,6 +558,10 @@ a {
     -ms-transition: background 0.1s;
     -o-transition: background 0.1s;
     transition: background 0.1s; }
+    .propertylist li .propertyimage {
+      background-image: transparent !important; }
+      .propertylist li .propertyimage .backgroundimage {
+        display: none; }
     .propertylist li img {
       width: 100%; }
     .propertylist li .propertycontent {
@@ -535,10 +587,10 @@ a {
         transition: bottom 0.5s, background 0.1s;
         display: block;
         position: absolute;
-        top: -100%;
+        bottom: 100%;
         background: #d8dadb; }
       .propertylist li .share.clicked div:last-child {
-        top: -1px; }
+        bottom: 0%; }
     .propertylist li li:last-child {
       margin-right: 0; }
 
@@ -1031,6 +1083,9 @@ label {
   padding-right: 10px;
   text-decoration: none; }
 
+.mobile .socialmedia button:last-child, .tablet .socialmedia button:last-child {
+  display: none; }
+
 #neighbourhoods .sectiontitle {
   position: relative;
   padding-bottom: 30px; }
@@ -1107,6 +1162,11 @@ label {
   background: rgba(0, 0, 0, 0.6);
   z-index: 101;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
   -webkit-animation-delay: 0s;
   -webkit-animation-duration: 0.2s;
   -webkit-animation-name: fadein;
@@ -1349,6 +1409,46 @@ label {
   background-repeat: repeat-x;
   background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAMzMzAAAACH/C1hNUCBEYXRhWE1QPD94cGFja…wbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==);
   background-position: left 20px; }
+
+.overlaycopytext {
+  position: absolute;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: table;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-duration: 1.25s;
+  -webkit-animation-name: fadeinout;
+  -webkit-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  -webkit-animation-timing-function: ease-out;
+  -moz-animation-delay: 0s;
+  -moz-animation-duration: 1.25s;
+  -moz-animation-name: fadeinout;
+  -moz-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  -moz-animation-timing-function: ease-out;
+  -o-animation-delay: 0s;
+  -o-animation-duration: 1.25s;
+  -o-animation-name: fadeinout;
+  -o-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  -o-animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-duration: 1.25s;
+  animation-name: fadeinout;
+  animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+  animation-timing-function: ease-out; }
+  .overlaycopytext p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 2em;
+    color: #7467b4; }
 
 @media all and (max-width: 1200px) {
   .large-hide {
@@ -1689,21 +1789,38 @@ label {
 
   .propertylist li:active {
     background: #d8dadb; }
-    .propertylist li:active img {
-      -webkit-filter: grayscale(100%) opacity(0.8);
-      -moz-filter: grayscale(100%) opacity(0.8);
-      -ms-filter: grayscale(100%) opacity(0.8);
-      -o-filter: grayscale(100%) opacity(0.8);
-      filter: grayscale(100%) opacity(0.8);
-      filter: gray; }
   .propertylist li:hover {
     color: #4e4e56;
     background: #d8dadb; }
   .propertylist li {
-    display: inline-block; }
-  .propertylist .propertyimage {
+    position: relative;
     display: inline-block;
-    margin-right: 0px; }
+    overflow: hidden; }
+    .propertylist li .propertyimage {
+      display: inline-block;
+      margin-right: 0px;
+      position: absolute;
+      height: 100%; }
+      .propertylist li .propertyimage .backgroundimage {
+        display: block;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        -webkit-filter: grayscale(100%) opacity(0.8);
+        -moz-filter: grayscale(100%) opacity(0.8);
+        -ms-filter: grayscale(100%) opacity(0.8);
+        -o-filter: grayscale(100%) opacity(0.8);
+        filter: grayscale(100%) opacity(0.8);
+        filter: gray; }
+      .propertylist li .propertyimage img {
+        display: none; }
+  .propertylist li:hover .propertyimage .backgroundimage {
+    -webkit-filter: grayscale(0%) opacity(1);
+    -moz-filter: grayscale(0%) opacity(1);
+    -ms-filter: grayscale(0%) opacity(1);
+    -o-filter: grayscale(0%) opacity(1);
+    filter: grayscale(0%) opacity(1);
+    filter: gray; }
   .propertylist .propertycontent {
     display: inline-block;
     width: 52.631% !important;
@@ -1713,8 +1830,15 @@ label {
       padding-top: 0.5em !important; }
     .propertylist .propertycontent .share {
       padding-top: 0.7em !important; }
+      .propertylist .propertycontent .share > a {
+        display: none; }
+      .propertylist .propertycontent .share .mover {
+        display: block;
+        position: static; }
+        .propertylist .propertycontent .share .mover .coppylink {
+          display: none; }
       .propertylist .propertycontent .share.clicked div:last-child {
-        padding-top: 0.7em !important; }
+        padding-top: 0 !important; }
 
   .csscolumns .propertylist {
     -webkit-column-count: 1;
@@ -1817,6 +1941,9 @@ label {
   .grid .small-column7 {
     width: 97.435%;
     margin-right: 1.282%; }
+  .grid .small-offcolumn-none {
+    left: 0;
+    position: relative; }
   .grid .small-offcolumn0 {
     left: 1.282%;
     position: relative; }
@@ -1941,16 +2068,21 @@ label {
     -webkit-column-count: 1;
     width: 100%; }
 
-  .propertylist .propertycontent {
-    padding: 5% 0 5% 5% !important;
-    width: 90% !important; }
-    .propertylist .propertycontent p {
-      padding-top: 2em !important; }
-  .propertylist .propertyimage {
-    display: block; }
-  .propertylist .small-column7 {
-    width: auto;
-    margin-right: 0 !important; }
+  .propertylist {
+    position: static; }
+    .propertylist .propertycontent {
+      padding: 5% 0 5% 5% !important;
+      width: 90% !important; }
+      .propertylist .propertycontent p {
+        padding-top: 2em !important; }
+    .propertylist li .propertyimage {
+      display: block;
+      position: relative; }
+      .propertylist li .propertyimage img {
+        display: block; }
+    .propertylist .small-column7 {
+      width: auto;
+      margin-right: 0 !important; }
 
   #neighbourhoods > div h3:first-child {
     padding-top: 0px; }

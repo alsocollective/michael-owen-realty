@@ -307,40 +307,47 @@
 		li:active{
 			background: #d8dadb;
 			// h3,p{color:#fff;}
-			img{
-				-webkit-filter: grayscale(100%) opacity(0.8);
-				-moz-filter: grayscale(100%) opacity(0.8);
-				-ms-filter: grayscale(100%) opacity(0.8);
-				-o-filter: grayscale(100%) opacity(0.8);
-				filter: grayscale(100%) opacity(0.8);
-				filter: gray;
-			}
 		}
 		li:hover {
 			color: $grey;
-			background: $greybackground;
+			background: $greybackground;			
 		}
 		li{
+			position: relative;
 			display: inline-block;
-			// .share{
-			// 	div:first-child{
-			// 		display: none;
-			// 	}
-			// }
-			// .share:active{
+			overflow: hidden;
 
-			// 	h3:first-child{
-			// 		display: none;
-			// 	}
-			// 	h3{
-			// 		display: inline-block;
-			// 	}
-			// }
+			.propertyimage{
+				display: inline-block;
+				margin-right: 0px;
+				position: absolute;
+				height: 100%;
+				.backgroundimage{
+					display: block;
+					background-size:cover;
+					background-position: center;
+					height: 100%;
+					-webkit-filter: grayscale(100%) opacity(0.8);
+					-moz-filter: grayscale(100%) opacity(0.8);
+					-ms-filter: grayscale(100%) opacity(0.8);
+					-o-filter: grayscale(100%) opacity(0.8);
+					filter: grayscale(100%) opacity(0.8);
+					filter: gray;		
+				}	
+				img{
+					display: none;
+				}
+			}			
 		}
-		.propertyimage{
-			display: inline-block;
-			margin-right: 0px;
+		li:hover .propertyimage .backgroundimage{
+			-webkit-filter: grayscale(0%) opacity(1);
+			-moz-filter: grayscale(0%) opacity(1);
+			-ms-filter: grayscale(0%) opacity(1);
+			-o-filter: grayscale(0%) opacity(1);
+			filter: grayscale(0%) opacity(1);
+			filter: gray;	
 		}
+
 		.propertycontent{
 			display: inline-block;
 			width:52.631% !important;
@@ -351,11 +358,21 @@
 			}
 			.share{
 				padding-top: 0.7em !important;
-					&.clicked{
-					div:last-child{
-						padding-top: 0.7em !important;
+				> a{
+					display: none;
+				}
+				.mover{
+					display: block;
+					position: static;
+					.coppylink{
+						display: none;
 					}
-			}	
+				}
+				&.clicked{
+					div:last-child{
+						padding-top: 0 !important;
+					}
+				}	
 			}
 		}
 	}

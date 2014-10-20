@@ -147,18 +147,12 @@
 				<span class="request large-hide2 medium-hide small-show"><h6>Request information</h6>
 				<form class="requestform large-hide2 medium-hide small-show" action="/sendemail/" method="post">
 					{% csrf_token %}
-					<textarea id="comments" placeholder="Comments" name="message"></textarea>	
-					<label for="formfirst" alt="first name"><!-- <h3>First name</h3> -->
-					</label><input id="formfirst" type="text" name="firstname" placeholder="First name"><!--
-					--><label for="formlast" alt="last name"><!-- <h3>Last name</h3> -->
-					</label><input id="formlast" type="text" name="lastname" placeholder="Last name"><!--
-					--><label for="email" alt="email"><!-- <h3>Email</h3> -->
-					</label><input id="email" type="text" name="email" placeholder="Email"><!--
-					--><label for="phone" alt="phone"><!-- <h3>Phone</h3> -->
-					</label><input id="phone" type="text" name="phone" placeholder="Phone"><!--
-					--><label for="comments" alt="comments"><!-- <h3>Comments</h3> -->
-					<!-- <label for="send" alt="send"><h6>SEND</h6></label> -->
-					</label><input class="emailsubmit" id="send" type="submit">
+					<textarea id="comments" placeholder="Comments" name="message"></textarea>
+					<label for="formfirst2" alt="first name"></label><input id="formfirst2" type="text" name="firstname" placeholder="First name"/>
+					<label for="formlast2" alt="last name"></label><input id="formlast2" type="text" name="lastname" placeholder="Last name"/>
+					<label for="email2" alt="email"></label><input id="email2" type="text" name="email" placeholder="Email"/>
+					<label for="phone2" alt="phone"></label><input id="phone2" type="text" name="phone" placeholder="Phone"/>
+					<input class="emailsubmit" id="send" type="submit">
 				</form></span>
 
 				<div class="closebigbutton"><button><h3>CLOSE</h3></button></div>
