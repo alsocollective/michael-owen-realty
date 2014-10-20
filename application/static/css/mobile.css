@@ -148,6 +148,17 @@ nav li:nth-child(6) a, nav li:last-child a {
   -webkit-column-count: 1;
   width: 100%; }
 
+.propertylist .propertycontent {
+  padding: 5% 0 5% 5% !important;
+  width: 90% !important; }
+  .propertylist .propertycontent p {
+    padding-top: 2em !important; }
+.propertylist .propertyimage {
+  display: block; }
+.propertylist .small-column7 {
+  width: auto;
+  margin-right: 0 !important; }
+
 #neighbourhoods > div h3:first-child {
   padding-top: 0px; }
 #neighbourhoods > div:nth-child(3) p {

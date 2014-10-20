@@ -543,7 +543,7 @@ a {
   column-count: 3;
   column-gap: 1.53%;
   width: 83.33%; }
-  .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column7, .csscolumns .propertylist .small-column7 {
+  .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column7 {
     width: auto;
     margin-right: 0 !important; }
   .csscolumns .propertylist li {
@@ -1660,9 +1660,7 @@ label {
   #about .describe-michael {
     position: relative;
     padding-top: 0px;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    top: 0px; }
+    margin-top: 10px; }
   #about img {
     padding: 0px 0px 30px 0px; }
 
@@ -1917,6 +1915,17 @@ label {
   .csscolumns .propertylist {
     -webkit-column-count: 1;
     width: 100%; }
+
+  .propertylist .propertycontent {
+    padding: 5% 0 5% 5% !important;
+    width: 90% !important; }
+    .propertylist .propertycontent p {
+      padding-top: 2em !important; }
+  .propertylist .propertyimage {
+    display: block; }
+  .propertylist .small-column7 {
+    width: auto;
+    margin-right: 0 !important; }
 
   #neighbourhoods > div h3:first-child {
     padding-top: 0px; }

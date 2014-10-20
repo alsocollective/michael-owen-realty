@@ -205,6 +205,27 @@
 		width:100%;
 	}
 
+	.propertylist{
+
+		.propertycontent{
+			padding: 5% 0 5% 5% !important;
+			width: 90% !important;
+			p {
+				padding-top: 2em !important;
+			}
+		}
+		.propertyimage{
+			display: block;
+		}
+		.share{
+
+		}
+		.small-column7{ 
+			width: auto;
+			margin-right: 0 !important; 
+		}
+	}
+
 	#neighbourhoods {
 		>div h3:first-child{
 			padding-top: 0px;
