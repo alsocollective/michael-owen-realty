@@ -279,17 +279,17 @@ a {
 				-ms-transition: bottom 0.5s, background 0.1s;
 				-o-transition: bottom 0.5s, background 0.1s;
 				transition: bottom 0.5s, background 0.1s;				
-				bottom: 0;
+				//bottom: 0;
 				display: block;
 				position: absolute;
-				bottom: -100%;
+				top: -100%;
 				background: $greybackground;
 			}	
 
 			// &:hover,
 			&.clicked{
 				div:last-child{
-					top: 0;
+					top: -1px;
 				}
 			}			
 		}
@@ -318,7 +318,7 @@ a {
 }
 
 .coppylink{
-	
+
 }
 
 .csscolumns .propertylist{
@@ -1022,9 +1022,9 @@ label {
 	&.footersell{
 		background: $yellow3;
 		background-repeat: no-repeat;
+		background-position: left bottom;
 		h4, h5{
 			color: $grey;
-
 		}
 	}
 }
@@ -1277,7 +1277,7 @@ label {
 		}
 	}
 	.slide{
-		display: table;
+		display: table !important;
 		height: 100%;
 		> div{
 			display: table-cell;

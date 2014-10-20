@@ -351,6 +351,11 @@
 			}
 			.share{
 				padding-top: 0.7em !important;
+					&.clicked{
+					div:last-child{
+						padding-top: 0.7em !important;
+					}
+			}	
 			}
 		}
 	}
@@ -366,7 +371,7 @@
 	}
 
 	#neighbourhoods{
-		text-align: right;
+	//	text-align: right;
 		> div{
 			text-align: left;
 		}
@@ -391,6 +396,10 @@
 	#footer .contact {
 		padding-top: 62px;
 		padding-bottom: 350px;
+	}
+
+	#footer .footersell{
+
 	}
 
 	.bigbutton {

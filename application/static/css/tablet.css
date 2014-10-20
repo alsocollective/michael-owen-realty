@@ -354,6 +354,8 @@ nav {
     padding-top: 0.5em !important; }
   .propertylist .propertycontent .share {
     padding-top: 0.7em !important; }
+    .propertylist .propertycontent .share.clicked div:last-child {
+      padding-top: 0.7em !important; }
 
 .csscolumns .propertylist {
   -webkit-column-count: 1;
@@ -363,18 +365,16 @@ nav {
 .neighmargin {
   padding-top: 20px; }
 
-#neighbourhoods {
-  text-align: right; }
-  #neighbourhoods > div {
-    text-align: left; }
-  #neighbourhoods > div h3:first-child {
-    padding-top: 20px; }
-  #neighbourhoods > div:nth-child(2) {
-    display: block; }
-    #neighbourhoods > div:nth-child(2) > div:first-child {
-      line-height: 1.75em; }
-  #neighbourhoods li:hover {
-    color: #4e4e56; }
+#neighbourhoods > div {
+  text-align: left; }
+#neighbourhoods > div h3:first-child {
+  padding-top: 20px; }
+#neighbourhoods > div:nth-child(2) {
+  display: block; }
+  #neighbourhoods > div:nth-child(2) > div:first-child {
+    line-height: 1.75em; }
+#neighbourhoods li:hover {
+  color: #4e4e56; }
 
 #footer {
   margin-top: 80px; }
