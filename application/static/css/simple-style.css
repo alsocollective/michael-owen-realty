@@ -162,132 +162,152 @@
 .norightmargin {
   margin-right: 0% !important; }
 
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@keyframes $animation_name {
+@keyframes leftOffRight {
   0% {
     left: 100%; }
+
   50% {
     left: 100%;
     opacity: 0; }
+
   100% {
     left: 0%;
     opacity: 1; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-o-keyframes $animation_name {
+@-o-keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@keyframes $animation_name {
+@keyframes leftOffLeft {
   0% {
     left: 0%;
     opacity: 1; }
+
   100% {
     left: -100%;
     opacity: 0; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@-o-keyframes $animation_name {
+@-o-keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@keyframes $animation_name {
+@keyframes open {
   0% {
     left: 50%;
     width: 0%;
     top: 50%;
     height: 0%; }
+
   100% {
     left: 0%;
     width: 100%;
     top: 0%;
     height: 100%; } }
-@-webkit-keyframes $animation_name {
+@-webkit-keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
-@-moz-keyframes $animation_name {
+@-moz-keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
-@-o-keyframes $animation_name {
+@-o-keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
-@keyframes $animation_name {
+@keyframes fadein {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1; } }
 html, body {
@@ -1998,5 +2018,3 @@ label {
 
   .module #exbutton {
     right: 0; } }
-
-/*# sourceMappingURL=simple-style.css.map */
