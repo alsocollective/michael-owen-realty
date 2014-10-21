@@ -519,6 +519,11 @@ var app = {
 			$(this).removeClass("new");
 		},
 		toggleclicked: function(event) {
+			if ($(event.target).hasClass("emaillink")) {
+				event.stopPropagation();
+				app.property.coppyText("opening email", "Get more info from Michael")
+				return true;
+			}
 			event.preventDefault();
 			$(this).toggleClass("clicked")
 			return false;
@@ -572,7 +577,7 @@ var app = {
 		},
 		coppyInit: function() {
 			var selected = $(".coppylink");
-			if(selected.length==0){
+			if (selected.length == 0) {
 				return false;
 			}
 			selected.click(app.property.coppyclicked);
@@ -585,12 +590,12 @@ var app = {
 			var cliplink = document.createElement("div");
 			var linkh3 = document.createElement("h3");
 		},
-		coppyText: function(text) {
+		coppyText: function(eventtype, text) {
 			var parent = document.createElement("div"),
 				child = document.createElement("p");
 			parent.appendChild(child);
 			parent.className = "overlaycopytext";
-			child.innerHTML = 'copied to clipboard:<br>"' + text + '"';
+			child.innerHTML = eventtype + ':<br>"' + text + '"';
 			document.body.appendChild(parent);
 			setTimeout(app.property.deleteCoppyText, app.options.pagetransitiontime + 250);
 		},
@@ -602,7 +607,7 @@ var app = {
 			event.preventDefault();
 			event.stopPropagation();
 			if ($(".overlaycopytext").length == 0) {
-				app.property.coppyText(this.href)
+				app.property.coppyText('copied to clipboard', this.href)
 			}
 			return false;
 		}
