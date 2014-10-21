@@ -48,19 +48,24 @@
 		{% block content %}
 		{% endblock %}
 	</div>
+<!-- 
 	<script type="text/javascript" src="{% static "js/lib/jquery.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/lib/jquery.nouislider.full.min.js" %}"></script>
-	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="{% static "//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/lib/jquery-migrate-1.2.1.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/lib/slick.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/lib/modernizr.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/lib/waypoints.min.js" %}"></script>
-
+ -->
 	<!--[if gte IE 9]><!-->
 		<script type="text/javascript" src="{% static "js/lib/ZeroClipboard.min.js" %}"></script>
 	<!--<![endif]-->
 
-
+<!-- 
 	<script type="text/javascript" src="{% static "js/main.js" %}"></script> 
+ -->
+ 
+ 	<script type="text/javascript" src="{% static "js/main.min.js" %}"></script>
+
 	<!--[if gte IE 9]><!-->
 		<script type="text/javascript">
 			ZeroClipboard.config( { swfPath: "{% static "js/lib/ZeroClipboard.swf" %}" } );
@@ -86,5 +91,24 @@
 
 	{% block script %} 
 	{% endblock %}
+
+<script>
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '336911309824780',
+		xfbml      : true,
+		version    : 'v2.1'
+	});
+};
+
+(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+</script>	
 </body>
 </html>

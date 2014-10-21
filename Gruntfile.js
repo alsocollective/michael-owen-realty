@@ -23,9 +23,12 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					'application/static/js/main.min.js': [
-						// 'application/static/js/dragdivscroll-ck.js',
-						// 'application/static/js/jquery.js',
-						// 'application/static/js/jquery.lazyload.min.js',
+						'application/static/js/lib/jquery.min.js',
+						'application/static/js/lib/jquery.nouislider.full.min.js',
+						'application/static/js/lib/jquery-migrate-1.2.1.min.js',
+						'application/static/js/lib/slick.min.js',
+						'application/static/js/lib/modernizr.js',
+						'application/static/js/lib/waypoints.min.js',
 						'application/static/js/main.js',
 					]
 				}

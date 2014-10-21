@@ -487,6 +487,7 @@ var app = {
 			app.email.init();
 			app.property.exitbutton();
 			$(".module").addClass("loaded")
+			$(".module .facebooklink").click(app.property.openfacebooklink);
 		},
 		exitbutton: function() {
 			$('#exbutton > div, .closebigbutton').click(app.property.exitbuttonexit);
@@ -529,21 +530,38 @@ var app = {
 		removenewclass: function() {
 			$(this).removeClass("new");
 		},
+		openfacebooklink: function(event) {
+			event.stopPropagation();
+			event.preventDefault();
+			FB.ui({
+				method: 'send',
+				link: event.target.href,
+			});
+			return false;
+		},
 		toggleclicked: function(event) {
 			if ($(event.target).hasClass("emaillink")) {
 				event.stopPropagation();
 				app.property.coppyText("opening email", "Get more info from Michael")
 				return true;
+			} else if ($(event.target).hasClass("facebooklink")) {
+				event.stopPropagation();
+				event.preventDefault();
+				FB.ui({
+					method: 'send',
+					link: event.target.href,
+				});
+				return false;
 			}
 			event.preventDefault();
 			$(this).toggleClass("clicked")
 			return false;
 		},
 		loadproperty: function(event, hash) {
+			console.log(event);
 			if (event) {
 				event.preventDefault();
-				if ($(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
-					console.log(event.target)
+				if ($(event.target).hasClass("facebooklink") || $(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
 					return false;
 				}
 			}
