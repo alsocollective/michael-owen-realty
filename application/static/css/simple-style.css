@@ -590,7 +590,7 @@ a {
         bottom: 100%;
         background: #d8dadb; }
       .propertylist li .share.clicked div:last-child {
-        bottom: 0%; }
+        bottom: -80%; }
     .propertylist li li:last-child {
       margin-right: 0; }
 
@@ -623,7 +623,10 @@ a {
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     -moz-page-break-inside: avoid;
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+    -webkit-break-inside: avoid-column;
+    -moz-break-inside: avoid-column;
+    break-inside: avoid-column; }
 
 .casestudy {
   padding-top: 60px;
@@ -1039,7 +1042,8 @@ label {
       text-align: right; }
 #searchfield input[type="checkbox"] {
   width: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  opacity: 0; }
 #searchfield input[type="checkbox"] + label span {
   display: inline-block;
   position: absolute;
@@ -1060,6 +1064,9 @@ label {
   display: none;
   color: #f00 !important;
   font-size: .65em; }
+
+#searchresults .slick-slide .centertext {
+  text-align: center; }
 
 .touch #searchfield .noUi-horizontal {
   height: 12px; }
@@ -1376,8 +1383,8 @@ label {
     .request .requestform #send {
       width: 48%;
       margin-bottom: 15px; }
-  .request.hideform {
-    visibility: hidden; }
+  .request .hideform {
+    display: none !important; }
 
 .message {
   width: 100%;
@@ -1450,6 +1457,12 @@ label {
     font-size: 2em;
     color: #7467b4; }
 
+@media all and (max-width: 1140px) {
+  .propertylist li .share.clicked div:last-child {
+    bottom: -175%; } }
+@media all and (max-width: 945px) {
+  .propertylist li .share.clicked div:last-child {
+    bottom: -235%; } }
 @media all and (max-width: 1200px) {
   .large-hide {
     display: none; } }

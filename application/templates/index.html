@@ -1,5 +1,4 @@
 {% load staticfiles %}
-<!DOCTYPE html>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
@@ -7,7 +6,7 @@
 	<script type="text/javascript" src="//use.typekit.net/ivd3jdw.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=10.0,user-scalable=no">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0;maximum-scale=10.0;user-scalable=no; minimal-ui">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content=""> 
 	{# Michael Owen is a real estate sales representative in Toronto, Ontario. Michael advises his clients on the purchase, sale, leasing and development of their homes and real estate investments. #}
@@ -71,12 +70,18 @@
 
 <!--[if lt IE 9]>
 	<style type="text/css">
-
 		body #nav .grid ul li { display:inline; }
-
 		body #nav { background-color:transparent; }
-
 	</style>
+<![endif]-->
+
+<!--[if IE]>
+	<script type="text/javascript">
+		$( document ).ready(function(){
+			console.log("this was triggerd")
+			$('html').removeClass("csscolumns").addClass("no-csscolumns");
+		});
+	</script>
 <![endif]-->
 
 	{% block script %} 

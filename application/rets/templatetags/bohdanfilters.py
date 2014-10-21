@@ -1,9 +1,7 @@
 from django import template
 from django.template.defaultfilters import stringfilter
-import math
-import urllib
-import re
-import locale
+import math ,urllib, re
+from django.contrib.humanize.templatetags.humanize import intcomma
 from django.utils.safestring import mark_safe
 register = template.Library()
 #locale.setlocale(locale.LC_ALL, 'en_US')
@@ -23,7 +21,7 @@ def get_key(value, arg):
 
 @register.filter(name='nicemoney', needs_autoescape=True)
 def nicemoney(value, autoescape=None):
-	return mark_safe('<span itemprop="priceCurrency" content="CAD">$</span><span itemprop="price">%s</span>'%locale.format("%d", value, grouping=True))
+	return mark_safe('<span itemprop="priceCurrency" content="CAD">$</span><span itemprop="price">%s</span>'%intcomma(value))
 
 @register.filter(name="urlify")
 def urlify(value):

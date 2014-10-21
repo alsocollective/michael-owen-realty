@@ -7,7 +7,7 @@
 	<div class="titlebox titleboxmargins grid">
 
 		<h1>
-			<spa§n class="leftalign">Property<br>Search</span>
+			<span class="leftalign">Property<br/>Search</span>
 			</h1>
 	</div>
 	<div class="mainimg propertyimg" style="background-image: url({% static "img/Grey_Skyline_Property.jpg"%});"></div>
@@ -71,7 +71,7 @@
 		<form action="/proplist/" method="post" class="column6 offcolumn1 norightmargin medium-offcolumn0 medium-column6 small-column7 filterform">
 			<div class="column3 norightmargin floatleft quarterwidths priceselector">
 				<h3>price range</h3>
-				<h3 class="errormessage">please have a range of $100,000</h4>
+				<h4 class="errormessage">please have a range of $100,000</h4>
 				<div id="priceslider"></div>
 				<div id="priceinputs">
 					<div class="priceinput">
@@ -84,7 +84,7 @@
 			</div>
 			<div class="column1 norightmargin small-column7 hometype bedroomselector">
 				<h3>bedroom</h3>
-				<h3 class="errormessage">please have a range of 1 bedroom</h4>
+				<h4 class="errormessage">please have a range of 1 bedroom</h4>
 				<div id="bedslider"></div>
 				<div class="bbinputs">
 					<span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span>
@@ -92,7 +92,7 @@
 			</div>
 				<div class="column1 norightmargin small-column7 hometype bathroomselector">
 				<h3>bathroom</h3>
-				<h3 class="errormessage">please have a range of 1 bathroom</h4>
+				<h4 class="errormessage">please have a range of 1 bathroom</h4>
 				<div id="bathslider"></div>
 				<div class="bbinputs">	
 					<span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span>
@@ -100,7 +100,7 @@
 			</div>
 			<div class="column4 medium-column3 small-column4 hometype neighbourhoodslist quarterwidths">
 				<h3>Neighbourhood</h3>
-				<h3 class="errormessage">please select atleast 3 Neighbourhoods, or all(by selecting none)</h4>				
+				<h4 class="errormessage">please select atleast 3 Neighbourhoods, or all(by selecting none)</h4>				
 				{% for region in filter.location %}<ul>
 					<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
 					{% for community in region.community.all %}

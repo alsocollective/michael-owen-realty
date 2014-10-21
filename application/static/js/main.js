@@ -206,7 +206,9 @@ var app = {
 		init: function() {
 			$('.reference').slick({
 				dots: true,
-				arrows: false
+				arrows: false,
+				autoplay: true,
+				autoplaySpeed: 10000
 			});
 			app.property.setup()
 			app.nav.splashsize();
@@ -313,7 +315,12 @@ var app = {
 				app.options.searchresults.slickRemove(count - 1);
 				count = app.search.loadedlength();
 			}
-			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
+			if (responce.length < 20) {
+				app.options.searchresults.slickAdd("<div><div class='grid'><h3 class='centertext column6'>There was no properties that matches this query,<br>please change your search parameters.</h3></div></div>");
+				$("#morelistings").addClass("hide");
+			} else {
+				app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
+			}
 			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
 			// $("#searchresults ul").html(responce);
 			app.property.setup()
@@ -463,7 +470,9 @@ var app = {
 				dots: true,
 				arrows: false,
 				slidesToShow: 1,
-				adaptiveHeight: false
+				adaptiveHeight: false,
+				autoplay: true,
+				autoplaySpeed: 10000
 			});
 		}
 	},
@@ -496,7 +505,9 @@ var app = {
 				dots: false,
 				arrows: true,
 				slidesToShow: 1,
-				adaptiveHeight: true
+				adaptiveHeight: true,
+				autoplay: true,
+				autoplaySpeed: 5000
 			});
 			$('.propertyimages img').load(resizezero);
 		},
@@ -532,6 +543,7 @@ var app = {
 			if (event) {
 				event.preventDefault();
 				if ($(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
+					console.log(event.target)
 					return false;
 				}
 			}
@@ -621,7 +633,7 @@ var app = {
 			event.preventDefault();
 			var data = $(this.parentNode).serialize();
 			data['csrfmiddlewaretoken'] = app.email.csrftoken;
-			$(this.parentNode).addClass("hide").removeClass("requestform");
+			$(this.parentNode).addClass("hideform"); //.removeClass("requestform");
 			$.ajax({
 				type: "POST",
 				url: '/sendemail/',
@@ -632,8 +644,6 @@ var app = {
 			return false;
 		},
 		submitsuccess: function(replied) {
-			// alert(replied.message);
-			console.log(replied);
 			var message = document.createElement("div");
 			message.className = replied.status + " message";
 			var h3 = document.createElement("h3");
