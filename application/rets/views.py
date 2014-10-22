@@ -15,7 +15,7 @@ try:
 	import time
 	import os.path
 	import re
-	from michael_site.settings import rets_connection
+	from michael_site.settings import rets_connection,MEDIA_ROOT
 
 
 	#	example case...
@@ -110,7 +110,7 @@ try:
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 			print "Error logging in"
 		else:
-			lastHourDateTime = datetime.today() - timedelta(hours = 24)
+			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
 			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
 			request.SetStandardNames(True)
@@ -178,7 +178,7 @@ try:
 		session.Logout();
 
 	def getfirstimage(imageid):
-		if(os.path.isfile("static/images/%s-1.jpg"%imageid)):
+		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
 			print "image already loaded"
 			return "image already exists"
 		print "new image %s" %imageid
@@ -198,7 +198,7 @@ try:
 				# content_type = object_descriptor.GetContentType()
 				# description = object_descriptor.GetDescription()
 				output_file_name = object_key + "-" + str(object_id) + ".jpg"
-				file = open("static/images/%s" %output_file_name, 'wb')
+				file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
 				file.write(object_descriptor.GetDataAsString())
 				file.close()
 				print "\tloaded"
@@ -231,7 +231,7 @@ try:
 				# content_type = object_descriptor.GetContentType()
 				# description = object_descriptor.GetDescription()
 				output_file_name = object_key + "-" + str(object_id) + ".jpg"
-				file = open("static/images/%s" %output_file_name, 'wb')
+				file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
 				file.write(object_descriptor.GetDataAsString())
 				file.close()
 				count += 1;
