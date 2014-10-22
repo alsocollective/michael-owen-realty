@@ -4,8 +4,8 @@ from django.template.defaultfilters import slugify
 class ResidentialProperty(models.Model):
 	acres = models.CharField(max_length=800, blank=True)
 	addl_mo_fee = models.IntegerField(blank=True,null=True) 
-	addr = models.CharField(max_length=5000, blank=True)
-	a_c = models.CharField(max_length=3000, blank=True)
+	addr = models.CharField(max_length=1000, blank=True)
+	a_c = models.CharField(max_length=100, blank=True)
 	all_inc = models.CharField(max_length=100, blank=True)
 	yr_built = models.CharField(max_length=500, blank=True)
 	sqft = models.CharField(max_length=900, blank=True)
@@ -14,8 +14,8 @@ class ResidentialProperty(models.Model):
 	area_code = models.CharField(max_length=400, blank=True)
 	tv = models.IntegerField(blank=True,null=True) 
 	ass_year = models.IntegerField(blank=True,null=True) 
-	bsmt1_out = models.CharField(max_length=3000, blank=True)
-	bsmt2_out = models.CharField(max_length=3000, blank=True)
+	bsmt1_out = models.CharField(max_length=1000, blank=True)
+	bsmt2_out = models.CharField(max_length=1000, blank=True)
 	br = models.IntegerField(blank=True,null=True) 
 	br_plus = models.IntegerField(blank=True,null=True) 
 	cable = models.CharField(max_length=100, blank=True)
@@ -236,7 +236,7 @@ class ResidentialProperty(models.Model):
 			return None
 
 class listitem(models.Model):
-	text = models.CharField(max_length=10000)
+	text = models.CharField(max_length=1000)
 	class Meta:
 		ordering = ['text']
 
@@ -261,7 +261,7 @@ class FilterOptions(models.Model):
 	gar_spaces = models.ForeignKey('minmax',related_name='gar_spaces', blank=True,null=True)
 
 class Area(models.Model):
-	text = models.CharField(max_length=10000)
+	text = models.CharField(max_length=1000)
 	community = models.ManyToManyField('listitem',related_name='community_area', blank=True,null=True)
 	subsections = models.ManyToManyField('Area',related_name='area-thing', blank=True,null=True)
 	ward = models.BooleanField(default=False)
