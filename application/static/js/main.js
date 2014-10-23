@@ -600,7 +600,7 @@ var app = {
 		addednewimages: function(data, textstatus) {
 			var out = "";
 			for (var a = 1; a < data.count; ++a) {
-				out += '<div><img src="/static/images/' + data.id + "-" + a + '.jpg"></div>';
+				out += '<div><img src="http://also-static.com/michaelowenrealestate/static/images/' + data.id + "-" + a + '.jpg"></div>';
 			}
 			$(".propertyimages").html(out);
 			app.property.initslick();
