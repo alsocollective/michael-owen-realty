@@ -104,7 +104,7 @@ try:
 			dump_all_classes(metadata, resource)
 
 	def loadData():
-		# session = librets.RetsSession(rets_connection.login_url)
+		session = librets.RetsSession(rets_connection.login_url)
 		# session.SetHttpLogName("log.1.txt");
 
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
