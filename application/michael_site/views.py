@@ -101,25 +101,27 @@ def loadallimages(request,propertyid):
 
 
 def testView(request):
-	# try:
-	datain = loadData()
-	filteroptions = FilterOptions.objects.all()
-	for data in datain:	
-		possibleobject = ResidentialProperty.objects.filter(ml_num=data["MLS"])
-		if(possibleobject.exists()):
-			filteroptions = updateResidentialPropertyAttributes(data,possibleobject[0],filteroptions)			
-		else:
-			filteroptions = saveResidentialPropertyAttributes(data,filteroptions)
-	
-	value = getFullListOfMLS()
-	sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
-	filloutlists()# checkFilters()
-	return HttpResponse("update the treb with %d entreis"%len(datain), content_type='application/json')	
+	try:
+		datain = loadData()
+		if(len(datain) == 0):
+			return HttpResponse("data length returned was zero", content_type='application/json')
+		filteroptions = FilterOptions.objects.all()
+		for data in datain:	
+			possibleobject = ResidentialProperty.objects.filter(ml_num=data["MLS"])
+			if(possibleobject.exists()):
+				filteroptions = updateResidentialPropertyAttributes(data,possibleobject[0],filteroptions)			
+			else:
+				filteroptions = saveResidentialPropertyAttributes(data,filteroptions)
+		
+		value = getFullListOfMLS()
+		sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
+		filloutlists()# checkFilters()
+		return HttpResponse("update the treb with %d entreis"%len(datain), content_type='application/json')	
 
-	# except Exception, e:
-	# 	print "Could not acceses the TREB DB"
-	# 	print e
-	# 	return HttpResponse("Could not acceses the TREB DB", content_type='application/json')	
+	except Exception, e:
+		print "Could not acceses the TREB DB"
+		print e
+		return HttpResponse("Could not acceses the TREB DB", content_type='application/json')	
 
 
 def percentageofattricbutes(request):

@@ -98,46 +98,51 @@ def printoutbasics(session):
 		dump_all_classes(metadata, resource)
 
 def loadData():
-	session = librets.RetsSession(rets_connection.login_url)
-	logger.debug("began to load data from rets")	
-	# session.SetHttpLogName("log.1.txt");
+	try:
+		
+		session = librets.RetsSession(rets_connection.login_url)
+		logger.debug("began to load data from rets")	
+		# session.SetHttpLogName("log.1.txt");
 
-	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
-		print "Error logging in"
-	else:
-		lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
-		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
-		request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
-		request.SetStandardNames(True)
-		request.SetSelect("")
-		request.SetLimit(0)
-		request.SetOffset(1)	
-		request.SetFormatType(librets.SearchRequest.COMPACT_DECODED)
-		request.SetCountType(librets.SearchRequest.RECORD_COUNT_AND_RESULTS)	
-		results = session.Search(request)		
-		# print "Record count: " + `results.GetCount()`
-		columns = results.GetColumns()
-		# file_ = open('data.json', 'w')
-		data = []
-		imagelist = []
-		while results.HasNext():
-			out = {}
-			for column in columns:
-				if(column == "MLS"):
-					imagelist.append(results.GetString(column))
-				out[column] = results.GetString(column)
-			data.append(out)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
+		else:
+			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
+			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
+			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
+			request.SetStandardNames(True)
+			request.SetSelect("")
+			request.SetLimit(0)
+			request.SetOffset(1)	
+			request.SetFormatType(librets.SearchRequest.COMPACT_DECODED)
+			request.SetCountType(librets.SearchRequest.RECORD_COUNT_AND_RESULTS)	
+			results = session.Search(request)		
+			# print "Record count: " + `results.GetCount()`
+			columns = results.GetColumns()
+			# file_ = open('data.json', 'w')
+			data = []
+			imagelist = []
+			while results.HasNext():
+				out = {}
+				for column in columns:
+					if(column == "MLS"):
+						imagelist.append(results.GetString(column))
+					out[column] = results.GetString(column)
+				data.append(out)
 
-		logger.debug("retrived the list of mls entries, loading images")	
+			logger.debug("retrived the list of mls entries, loading images")	
 
-		for mls in imagelist:
-			thread.start_new_thread(getfirstimage, (mls,))
+			for mls in imagelist:
+				thread.start_new_thread(getfirstimage, (mls,))
 
-		logger.debug("finished loading returning the data")				
-		session.Logout();			
-		return data
-	session.Logout();
-	return [];
+			logger.debug("finished loading returning the data")				
+			session.Logout()		
+			return data
+		session.Logout()
+		return [];
+	except Exception, e:
+		return []
+
 
 def getFullListOfMLS():
 	session = librets.RetsSession(rets_connection.login_url)
