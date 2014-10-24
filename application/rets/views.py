@@ -137,7 +137,7 @@ def loadData():
 		session.Logout();			
 		return data
 	session.Logout();
-	return None;
+	return [];
 
 def getFullListOfMLS():
 	session = librets.RetsSession(rets_connection.login_url)
