@@ -7,14 +7,10 @@ from datetime import datetime, timedelta
 from rets.relat import ResidentialRelations, ResidentialRelations_rev
 from django.template.defaultfilters import slugify
 from rets.models import *
-import thread
-import json
-import librets
-import time
-import os.path
-import re
+import thread, json, librets, time, os.path, re, logging
 from michael_site.settings import rets_connection,MEDIA_ROOT
 
+logger = logging.getLogger(__name__)
 
 #	example case...
 # 	emailBoutPorp({"sender":"bohdananderson@gmail.com","body":"WHY hello there!"})
@@ -103,6 +99,7 @@ def printoutbasics(session):
 
 def loadData():
 	session = librets.RetsSession(rets_connection.login_url)
+	logger.debug("began to load data from rets")	
 	# session.SetHttpLogName("log.1.txt");
 
 	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
@@ -131,8 +128,12 @@ def loadData():
 				out[column] = results.GetString(column)
 			data.append(out)
 
+		logger.debug("retrived the list of mls entries, loading images")	
+
 		for mls in imagelist:
 			thread.start_new_thread(getfirstimage, (mls,))
+
+		logger.debug("finished loading returning the data")				
 		session.Logout();			
 		return data
 	session.Logout();
