@@ -141,7 +141,7 @@ def loadData():
 		session.Logout()
 		return [];
 	except Exception, e:
-		return []
+		return HttpResponse("Could not acceses the TREB DB", content_type='application/json')	
 
 
 def getFullListOfMLS():
