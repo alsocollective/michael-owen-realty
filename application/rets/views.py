@@ -101,14 +101,16 @@ def loadData():
 	try:
 		
 		session = librets.RetsSession(rets_connection.login_url)
-		print "\tconnected to librets"
+		print "connected to librets"
 		# session.SetHttpLogName("log.1.txt");
 
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 			print "Error logging in"
 		else:
+			print "connection"
 			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
 			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
+			print "making request"
 			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
 			request.SetStandardNames(True)
 			request.SetSelect("")
@@ -116,10 +118,12 @@ def loadData():
 			request.SetOffset(1)	
 			request.SetFormatType(librets.SearchRequest.COMPACT_DECODED)
 			request.SetCountType(librets.SearchRequest.RECORD_COUNT_AND_RESULTS)	
+			print "sending request"
 			results = session.Search(request)		
 			# print "Record count: " + `results.GetCount()`
 			columns = results.GetColumns()
 			# file_ = open('data.json', 'w')
+			print "going through all the results"			
 			data = []
 			imagelist = []
 			while results.HasNext():
@@ -130,13 +134,12 @@ def loadData():
 					out[column] = results.GetString(column)
 				data.append(out)
 
-			logger.debug("retrived the list of mls entries, loading images")	
-
+			print "loading images"			
 			for mls in imagelist:
 				# thread.start_new_thread(getfirstimage, (mls,))
 				getfirstimage(mls)
 
-			logger.debug("finished loading returning the data")				
+			print "returning the data"
 			session.Logout()		
 			return data
 		session.Logout()
