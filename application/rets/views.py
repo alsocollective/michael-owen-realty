@@ -142,6 +142,7 @@ def loadData():
 		print "returning the data"
 		session.Logout()		
 		return data
+		
 		session.Logout()
 		return [];
 	except Exception, e:

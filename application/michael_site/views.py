@@ -106,8 +106,13 @@ def testView(request):
 		print "== loading data =="
 		datain = loadData()
 		print "== data loaded =="
-		if(len(datain) == 0):
-			return HttpResponse("data length returned was zero", content_type='application/json')
+		try:
+			if(len(datain) == 0):
+				return HttpResponse("data length returned was zero", content_type='application/json')			
+			pass
+		except Exception, e:
+			return HttpResponse("data went wrong: "+e, content_type='application/json')
+		
 		filteroptions = FilterOptions.objects.all()
 		for data in datain:	
 			possibleobject = ResidentialProperty.objects.filter(ml_num=data["MLS"])
