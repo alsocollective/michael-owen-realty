@@ -133,7 +133,8 @@ def loadData():
 			logger.debug("retrived the list of mls entries, loading images")	
 
 			for mls in imagelist:
-				thread.start_new_thread(getfirstimage, (mls,))
+				# thread.start_new_thread(getfirstimage, (mls,))
+				getfirstimage(mls)
 
 			logger.debug("finished loading returning the data")				
 			session.Logout()		
