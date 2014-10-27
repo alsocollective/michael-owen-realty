@@ -111,7 +111,7 @@ def testView(request):
 				return HttpResponse("data length returned was zero", content_type='application/json')			
 			pass
 		except Exception, e:
-			return HttpResponse("data went wrong: "+e, content_type='application/json')
+			return HttpResponse("data went wrong: ", content_type='application/json')
 		
 		filteroptions = FilterOptions.objects.all()
 		for data in datain:	
