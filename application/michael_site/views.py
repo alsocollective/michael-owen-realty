@@ -101,8 +101,11 @@ def loadallimages(request,propertyid):
 
 
 def testView(request):
+	print "=== testView ==="
 	try:
+		print "== loading data =="
 		datain = loadData()
+		print "== data loaded =="
 		if(len(datain) == 0):
 			return HttpResponse("data length returned was zero", content_type='application/json')
 		filteroptions = FilterOptions.objects.all()

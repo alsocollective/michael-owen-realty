@@ -101,7 +101,7 @@ def loadData():
 	try:
 		
 		session = librets.RetsSession(rets_connection.login_url)
-		logger.debug("began to load data from rets")	
+		print "\tconnected to librets"
 		# session.SetHttpLogName("log.1.txt");
 
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
