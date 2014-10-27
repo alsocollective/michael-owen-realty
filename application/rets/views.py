@@ -103,46 +103,45 @@ def loadData():
 		session = librets.RetsSession(rets_connection.login_url)
 		print "connected to librets"
 		# session.SetHttpLogName("log.1.txt");
+		print session.Login(rets_connection.user_id, rets_connection.passwd)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
+		else:
+			print "connection"
+			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
+			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
+			print "making request"
+			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
+			request.SetStandardNames(True)
+			request.SetSelect("")
+			request.SetLimit(0)
+			request.SetOffset(1)	
+			request.SetFormatType(librets.SearchRequest.COMPACT_DECODED)
+			request.SetCountType(librets.SearchRequest.RECORD_COUNT_AND_RESULTS)	
+			print "sending request"
+			results = session.Search(request)		
+			# print "Record count: " + `results.GetCount()`
+			columns = results.GetColumns()
+			# file_ = open('data.json', 'w')
+			print "going through all the results"			
+			data = []
+			imagelist = []
+			while results.HasNext():
+				out = {}
+				for column in columns:
+					if(column == "MLS"):
+						imagelist.append(results.GetString(column))
+					out[column] = results.GetString(column)
+				data.append(out)
 
-		# if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
-		# 	print "Error logging in"
-		# else:
-		print "connection"
-		lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
-		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
-		print "making request"
-		request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
-		request.SetStandardNames(True)
-		request.SetSelect("")
-		request.SetLimit(0)
-		request.SetOffset(1)	
-		request.SetFormatType(librets.SearchRequest.COMPACT_DECODED)
-		request.SetCountType(librets.SearchRequest.RECORD_COUNT_AND_RESULTS)	
-		print "sending request"
-		results = session.Search(request)		
-		# print "Record count: " + `results.GetCount()`
-		columns = results.GetColumns()
-		# file_ = open('data.json', 'w')
-		print "going through all the results"			
-		data = []
-		imagelist = []
-		while results.HasNext():
-			out = {}
-			for column in columns:
-				if(column == "MLS"):
-					imagelist.append(results.GetString(column))
-				out[column] = results.GetString(column)
-			data.append(out)
+			print "loading images"			
+			for mls in imagelist:
+				# thread.start_new_thread(getfirstimage, (mls,))
+				getfirstimage(mls)
 
-		print "loading images"			
-		for mls in imagelist:
-			# thread.start_new_thread(getfirstimage, (mls,))
-			getfirstimage(mls)
-
-		print "returning the data"
-		session.Logout()		
-		return data
-		
+			print "returning the data"
+			session.Logout()		
+			return data
 		session.Logout()
 		return [];
 	except Exception, e:
