@@ -29,7 +29,7 @@ urlpatterns = patterns('',
 
     
 
-    url(r'^test', 'michael_site.views.testView', name='testView'),
+    url(r'^test/', 'michael_site.views.testView', name='testView'),
     url(r'^sort/', 'michael_site.views.sort', name='sort'),    
     url(r'^percent', 'michael_site.views.percentageofattricbutes', name='percentageofattricbutes'),
 )
