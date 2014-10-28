@@ -99,12 +99,6 @@ def printoutbasics(session):
 
 import subprocess
 def loadData():
-	print "runbohdan"
-	p = subprocess.Popen('python /home/bohdan/script.py', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	out, error = p.communicate()	
-	print out
-	print error
-	print "end"
 	try:
 		session = librets.RetsSession(rets_connection.login_url)
 		print "connected to librets"
