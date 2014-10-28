@@ -100,7 +100,7 @@ def printoutbasics(session):
 import os
 def loadData():
 	print "runbohdan"
-	os.system("/home/bohdan/script.py")
+	os.system("python /home/bohdan/script.py")
 	print "end"
 	try:
 		session = librets.RetsSession(rets_connection.login_url)
