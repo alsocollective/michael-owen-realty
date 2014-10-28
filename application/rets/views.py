@@ -97,9 +97,11 @@ def printoutbasics(session):
 	for resource in metadata.GetAllResources():
 		dump_all_classes(metadata, resource)
 
+
+import getpass
 def loadData():
+	print getpass.getuser()	
 	try:
-		
 		session = librets.RetsSession(rets_connection.login_url)
 		print "connected to librets"
 		# session.SetHttpLogName("log.1.txt");
