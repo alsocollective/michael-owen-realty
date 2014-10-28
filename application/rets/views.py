@@ -97,10 +97,13 @@ def printoutbasics(session):
 	for resource in metadata.GetAllResources():
 		dump_all_classes(metadata, resource)
 
-import os
+import subprocess
 def loadData():
 	print "runbohdan"
-	os.system("python /home/bohdan/script.py")
+	p = subprocess.Popen('python /home/bohdan/script.py', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	out, error = p.communicate()	
+	print out
+	print error
 	print "end"
 	try:
 		session = librets.RetsSession(rets_connection.login_url)
