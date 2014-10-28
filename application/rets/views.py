@@ -102,7 +102,6 @@ def loadData():
 		
 		session = librets.RetsSession(rets_connection.login_url)
 		print "connected to librets"
-		print "%s -- %s"%(rets_connection.user_id, rets_connection.passwd)
 		# session.SetHttpLogName("log.1.txt");
 		print session.Login(rets_connection.user_id, rets_connection.passwd)
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
