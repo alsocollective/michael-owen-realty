@@ -532,7 +532,8 @@ a {
 .propertylist {
   position: relative;
   width: 100%;
-  margin-bottom: -28px; }
+  padding-bottom: 2em;
+  padding-top: 3em; }
   .propertylist a {
     text-decoration: none;
     color: inherit; }
@@ -627,6 +628,24 @@ a {
     -webkit-break-inside: avoid-column;
     -moz-break-inside: avoid-column;
     break-inside: avoid-column; }
+  .csscolumns .propertylist .pageidicator {
+    position: absolute;
+    bottom: 0em;
+    text-align: center;
+    width: 100%; }
+    .csscolumns .propertylist .pageidicator h2 {
+      color: #7467b4;
+      width: 100%;
+      text-align: center; }
+  .csscolumns .propertylist .pageidicator_top {
+    position: absolute;
+    top: 0em;
+    text-align: center;
+    width: 100%; }
+    .csscolumns .propertylist .pageidicator_top h2 {
+      color: #7467b4;
+      width: 100%;
+      text-align: center; }
 
 .casestudy {
   padding-top: 60px;
@@ -1456,6 +1475,12 @@ label {
     text-align: center;
     font-size: 2em;
     color: #7467b4; }
+
+.totalcount, .thiscount {
+  display: none; }
+
+.morelistingsparent {
+  display: none !important; }
 
 @media all and (max-width: 1140px) {
   .propertylist li .share.clicked div:last-child {

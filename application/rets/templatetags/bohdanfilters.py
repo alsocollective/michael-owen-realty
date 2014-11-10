@@ -58,3 +58,11 @@ def limilength(value):
 		out = out.replace(',', '').replace(' ', '').replace('.', '')
 		return "%s..."%(value[:limited.rfind(split[len(split)-1])-1],)
 	return value
+
+@register.filter(name="devidebysix")
+def devidebysix(count):
+	return (count/6)+1;
+
+# @register.filter(name="pagify")
+# def pagify(count,value):
+

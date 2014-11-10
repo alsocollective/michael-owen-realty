@@ -217,7 +217,9 @@ a {
 .propertylist {
 	position: relative; 
 	width: 100%;
-	margin-bottom: -28px;
+	// margin-bottom: -28px;
+	padding-bottom: 2em;
+	padding-top: 3em; 
 	a{
 		text-decoration: none;
 		color: inherit;
@@ -351,6 +353,28 @@ a {
 		-moz-break-inside:avoid-column;
 		break-inside:avoid-column;
 	}
+	.pageidicator{
+		position: absolute;
+		bottom: 0em;
+		text-align: center;	
+		width: 100%;
+		h2{
+			color: $purple1;
+			width: 100%;
+			text-align: center;		
+		}
+	}
+	.pageidicator_top{
+		position: absolute;
+		top: 0em;
+		text-align: center;	
+		width: 100%;
+		h2{
+			color: $purple1;
+			width: 100%;
+			text-align: center;		
+		}
+	}	
 }
 
  //  .grayscale { 
@@ -1342,6 +1366,13 @@ label {
 		font-size: 2em;
 		color: $purple1;
 	}
+}
+
+.totalcount,.thiscount{
+	display: none;
+}
+.morelistingsparent{
+	display: none !important;
 }
 
 @media all and (max-width: 1140px){

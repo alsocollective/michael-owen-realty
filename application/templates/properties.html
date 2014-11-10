@@ -1,5 +1,20 @@
 {% load staticfiles %}
 {% load bohdanfilters%}
+{% if totalcount%}
+	<div class="pageidicator_top">
+		
+		<h2>
+			{% if thiscount|devidebysix != 1 %}
+				<span class="slideprevious">&#8592;</span>
+			{% endif %}
+			{{thiscount|devidebysix}}/{{totalcount|devidebysix}}
+			{% if thiscount|devidebysix != totalcount|devidebysix %}
+				<span class="slidenext">&#8594;</span>
+			{% endif %}
+		</h2>
+		
+	</div>
+{% endif %}
 {% for prop in data %}<li class="column2 medium-column7 small-column7 new">
 	<a href="/property/{{prop.ml_num}}">
 		<div class="propertyimage medium-column3 small-column7">
@@ -38,4 +53,23 @@
 			</div>
 		</div>
 	</a>
-</li>{% endfor %}
+</li>
+{% endfor %}
+{% if totalcount%}
+	<input class="totalcount" value="{{totalcount|devidebysix}}">
+	<input class="thiscount" value="{{thiscount|devidebysix}}">	
+	<div class="pageidicator">
+		
+		<h2>
+			{% if thiscount|devidebysix != 1 %}
+				<span class="slideprevious">&#8592;</span>
+			{% endif %}
+			{{thiscount|devidebysix}}/{{totalcount|devidebysix}}
+			{% if thiscount|devidebysix != totalcount|devidebysix %}
+				<span class="slidenext">&#8594;</span>
+			{% endif %}
+		</h2>
+		
+	</div>
+{% endif %}
+

@@ -246,7 +246,7 @@ var app = {
 			var from = value.split("=");
 			from = from[from.length - 1];
 			value = value.substring(0, value.length - from.length);
-			from = parseInt(from) + 12;
+			from = parseInt(from) + 6;
 			$("#morelistings").removeClass("hide");
 			$("#morelistings input")[0].value = value + from;
 		},
@@ -322,8 +322,29 @@ var app = {
 				app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
 			}
 			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
+			setTimeout(function() {
+				app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
+			}, 500)
 			// $("#searchresults ul").html(responce);
-			app.property.setup()
+			app.search.enableresultbuttons();
+			app.property.setup();
+		},
+		enableresultbuttons: function() {
+			$(".slideprevious").click(app.search.previousePage);
+			$(".slidenext").click(app.search.nextPage);
+		},
+		previousePage: function() {
+			app.options.searchresults.slickPrev();
+		},
+		nextPage: function() {
+			var current = app.options.searchresults.slickCurrentSlide(),
+				total = app.search.loadedlength() - 1;
+			console.log(current, total)
+			if (current == total) {
+				$("#morelistings").click();
+			} else {
+				app.options.searchresults.slickNext();
+			}
 		},
 		loadedlength: function() {
 			return ($("#searchresults .slick-track .slick-slide").length - 2);
@@ -339,8 +360,21 @@ var app = {
 			// $("#searchresults > div").before(newdiv);
 			app.options.searchresults.slickAdd("<div><ul class='propertylist leftmargin'>" + responce + "</ul></div>");
 			app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
+			setTimeout(function() {
+				app.options.searchresults.slickGoTo(app.search.loadedlength() - 1);
+			}, 500)
+			app.search.hideGetNextIfFinished();
 			app.search.gotosearchlistings();
+			app.search.enableresultbuttons();
 			app.property.setup()
+		},
+		hideGetNextIfFinished: function() {
+			var count = $(".thiscount"),
+				total = $(".totalcount");
+			if (count[count.length - 1].value == total[total.length - 1].value) {
+				console.log("yeseseseses")
+				$("#morelistings").addClass("hide");
+			}
 		},
 		responcefromInitialLoad: function(event) {
 			console.log("submit was triggered")
@@ -449,13 +483,15 @@ var app = {
 		},
 		setupResultsSlick: function() {
 			app.options.searchresults = $("#searchresults").slick({
-				adaptiveHeight: true
+				adaptiveHeight: true,
+				arrows: false
+				// infinite: false,
+				// dots: false
 			});
-
 		},
 		gotosearchlistings: function() {
 			$(".mainwrapper").animate({
-				scrollTop: ($("#searchlistings").offset().top * -1)
+				scrollTop: ($(".mainwrapper").scrollTop() + $("#searchlistings").offset().top)
 			}, 1000);
 		}
 	},

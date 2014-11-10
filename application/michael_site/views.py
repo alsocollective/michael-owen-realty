@@ -197,8 +197,8 @@ def getinitialpagedata(request):
 
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(**kwargs)
 	# properties = [ResidentialProperty.objects.get(ml_num='E3019520')]
-
-	return render_to_response('properties.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'data':properties[fromcounter:(fromcounter+12)],'totalcount':len(properties)})
+	print "number of properties: %d" %len(properties)
+	return render_to_response('properties.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'data':properties[fromcounter:(fromcounter+6)],'thiscount':fromcounter,'totalcount':len(properties)})
 
 
 def get_client_ip(request):
