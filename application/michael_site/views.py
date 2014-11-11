@@ -155,10 +155,15 @@ def getinitialpagedata(request):
 	print "|||||||||||||||||"
 	for pop in request.POST:
 		poporigin = pop
-		if "community" in pop:
+		print pop
+		if "onlyjandd" in pop:
+			kwargs["rltr__in"] = ["ROYAL LEPAGE/J & D DIVISION, BROKERAGE"]
+			continue
+		elif "community" in pop:
 			try:
 				kwargs["community__in"].append(pop[9:])		
 			except Exception, e:
+				print e
 				kwargs["community__in"] = [pop[9:]]
 				pass
 			continue
@@ -169,6 +174,7 @@ def getinitialpagedata(request):
 			try:
 				kwargs["style__in"].append(pop[5:])		
 			except Exception, e:
+				print e
 				kwargs["style__in"] = [pop[5:]]
 				pass
 			continue			
@@ -179,22 +185,24 @@ def getinitialpagedata(request):
 		elif "price" in pop:
 			pop = "lp_dol%s"%addminmax(pop)
 
+		print "bottom"
 		if pop == 'csrfmiddlewaretoken' or pop == 'from':
 			pass
 		else :
 			try:
 				kwargs[pop] = int(request.POST[poporigin].replace("$","").replace(",","").replace(" ",""))
 			except Exception, e:
+				print e
 				try:
 					kwargs[pop] = float(request.POST[poporigin].replace("$","").replace(",","").replace(" ",""))
 				except Exception, e:
+					print e
 					kwargs[pop] =request.POST[poporigin]
+		print "done loop\n----------------"
 	
-	# for prop in kwargs:
-	# 	print "%s:%s" %(prop,kwargs[prop])
 
 	fromcounter = int(request.POST["from"])
-
+	print "trying the queiry"
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(**kwargs)
 	# properties = [ResidentialProperty.objects.get(ml_num='E3019520')]
 	print "number of properties: %d" %len(properties)

@@ -115,7 +115,10 @@
 						<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
 					{% endfor %}
 				</ul>
-			</div>	
+			</div><div class="column1 norightmargin medium-column2 small-column3 hometype">
+
+				<input type="checkbox" id="onlyjandd" name="onlyjandd"><label for="onlyjandd"><span></span>Only search for Royal LePage Johnston & Daniel Division, Brokerage</label>
+			</div>
 			{% csrf_token %}
 			<input class="from" name="from" value="0" style="display:none;">
 		</form>
