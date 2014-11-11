@@ -594,6 +594,8 @@ a {
         bottom: -80%; }
     .propertylist li li:last-child {
       margin-right: 0; }
+  .propertylist .agencey {
+    padding: 0.5em 0; }
 
 .desktop .propertylist li:hover {
   background: #ffc123; }
