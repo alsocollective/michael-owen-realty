@@ -20,3 +20,14 @@ class filteropt(admin.ModelAdmin):
 admin.site.register(FilterOptions)
 admin.site.register(Area,filteropt)
 admin.site.register(EmailRmark)
+
+class AboutPageAdmin(admin.ModelAdmin):
+	filter_horizontal = ('section_one','pullquotes_one','section_two','pullquotes_two','section_three')
+
+admin.site.register(TextField)
+admin.site.register(AboutPage,AboutPageAdmin)
+admin.site.register(CaseStudy)
+admin.site.register(SellPage)
+admin.site.register(BuyPage)
+admin.site.register(NeightbourHood)
+admin.site.register(SearchPage)

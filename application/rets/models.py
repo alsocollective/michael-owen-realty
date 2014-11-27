@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from easy_thumbnails.fields import ThumbnailerImageField
 
 class ResidentialProperty(models.Model):
 	acres = models.TextField(max_length=800, blank=True)
@@ -275,3 +276,87 @@ class EmailRmark(models.Model):
 
 	def __unicode__(self):
 		return "%s %s"%(self.ipaddress, self.date.strftime('%H:%M:%S %m/%d/%Y'))
+
+
+
+
+
+class TextField(models.Model):
+	title = models.CharField(max_length=255,blank=True,null=True)
+	text = models.TextField(max_length=1000,blank=True,null=True)
+	order = models.IntegerField(default=99,blank=True,null=True)
+
+	def __unicode__(self):
+		return slugify(self.title)
+
+
+class AboutPage(models.Model):
+	image = ThumbnailerImageField(upload_to='selfimage',blank=True,null=True)#models.ImageField("michealsimage",upload_to=settings.STATIC_ROOT, blank=True, null=True)
+	biography = models.TextField(max_length=1000,blank=True,null=True)
+	section_one = models.ManyToManyField(TextField,blank=True,null=True,related_name='AboutPage_section_one')
+	pullquotes_one = models.ManyToManyField(TextField,blank=True,null=True,related_name='AboutPage_quote_one')
+	section_two = models.ManyToManyField(TextField,blank=True,null=True,related_name='AboutPage_section_two')
+	pullquotes_two = models.ManyToManyField(TextField,blank=True,null=True,related_name='AboutPage_quote_two')
+	section_three = models.ManyToManyField(TextField,blank=True,null=True,related_name='AboutPage_section_three')
+	footer = models.TextField(max_length=1000,blank=True,null=True)
+	created = models.DateTimeField(auto_now=True)
+
+	def __unicode__(self):
+		return self.created.strftime('%Y/%m/%d %H:%M:%S')
+
+class CaseStudy(models.Model):
+	title = models.CharField(max_length=255,blank=True,null=True)
+	clientNeeds = models.ManyToManyField(TextField,blank=True,null=True,related_name='caseStudy_client')
+	sellingProcess = models.ManyToManyField(TextField,blank=True,null=True,related_name='caseStudy_selling')
+	outcomes = models.ManyToManyField(TextField,blank=True,null=True,related_name='caseStudy_outcome')
+	def __unicode__(self):
+		return self.title	
+
+class SellPage(models.Model):
+	caseStudy = models.ManyToManyField(CaseStudy,blank=True,null=True)
+	section = models.ManyToManyField(TextField,blank=True,null=True)
+	footer = models.TextField(max_length=1000,blank=True,null=True)
+	created = models.DateTimeField(auto_now=True)
+	
+	def __unicode__(self):
+		return self.created.strftime('%Y/%m/%d %H:%M:%S')
+
+class BuyPage(models.Model):
+	caseStudy = models.ManyToManyField(CaseStudy,blank=True,null=True)
+	section_one = models.ManyToManyField(TextField,blank=True,null=True,related_name='buypage_sec_one')
+	pullquotes = models.ManyToManyField(TextField,blank=True,null=True,related_name='buypage_quote')
+	section_two = models.ManyToManyField(TextField,blank=True,null=True,related_name='buypage_sec_two')
+	footer = models.TextField(max_length=1000,blank=True,null=True)
+	created = models.DateTimeField(auto_now=True)
+	
+	def __unicode__(self):
+		return self.created.strftime('%Y/%m/%d %H:%M:%S')
+
+LOCATIONS = (('west','west'),('east','east'),('center','center'),('center north','center north'))
+class NeightbourHood(models.Model):
+	title = models.CharField(max_length=500,blank=True,null=True)
+	description = models.TextField(max_length=1000,blank=True,null=True)
+	image = ThumbnailerImageField(upload_to='neighbourhood',blank=True,null=True)
+	location = models.CharField(max_length=99, choices=LOCATIONS)
+	slug = models.SlugField(blank=True)
+
+	def save(self,*args, **kwargs):
+		self.slug = slugify(self.title)
+		super(NeightbourHood, self).save(*args, **kwargs)
+	
+	def __unicode__(self):
+		return self.title
+
+
+class SearchPage(models.Model):
+	locations = models.ManyToManyField(NeightbourHood,blank=True,null=True)
+	footer = models.TextField(max_length=1000,blank=True,null=True)
+	created = models.DateTimeField(auto_now=True)
+
+	def __unicode__(self):
+		return self.created.strftime('%Y/%m/%d %H:%M:%S')
+
+
+
+
+

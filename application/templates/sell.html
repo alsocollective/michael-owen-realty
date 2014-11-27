@@ -16,32 +16,21 @@
 <div class="casestudy casesell">
 	<div class="shadow"></div>
 	<div class="titleboxmargins grid">
-		<div class="sectiontitle column3 leftmargin medium-noleftmargin medium-offcolumn1 medium-column5 small-offcolumn0 small-column7">
-			<h2 class="whitenav bothcases">CASE STUDY:<br> Moving From Condo to House</h2>
+		{% for case in pagecontent.caseStudy.all %}
+		<div class="sectiontitle column3 {%if forloop.first%}leftmargin medium-noleftmargin{%else%}offcolumn1{%endif%} medium-offcolumn1 medium-column5 small-offcolumn0 small-column7">
+			<h2 class="whitenav bothcases">CASE STUDY:<br>{{case.title|safe}}</h2>
 			<h3>client needs</h3>
 			<ul>
-				<li>Selling a condo and purchasing a home.</li>
-				<li>Looking for more space, more bedrooms, including a backyard wtih parking.</li>
-				<li>Working with a limited budget & need the highest selling price for their condo.</li>
+				{% for item in case.clientNeeds.all%}
+					<li>{{item.text|safe}}</li>
+				{% endfor %}
 			</ul>
 			<h3>the selling process</h3>
-			<p>Considering the market conditions, Michael advised his clients to purchase a new home prior to selling their condominium. Michael also suggested his clients, who were quite handy, begin preparing their condo for sale while searching for a new house. We found a home downtown Toronto with an open building permit and a half completed renovation. This scared most other buyers off and we saw an opportunity to get a solid home for a fair price in a super hot seller's market. This type of purchase does come with some risk but after a full assessment we determined it was manageable considering the clients also wanted to complete a few other renovations. <br><br> The property was closed quickly so the work could begin simultaneously as we were finishing the preparations for selling the condominium and getting it on the market. We held back on offers and priced the condo just above the current market value and received one offer on the property.</p>
+			<p>{{case.sellingProcess.all.0.text|safe}}</p>
 			<h3>outcomes</h3>
-			<p>Michael's clients were able to complete the majority of the renovations on their new home prior to moving in. We agreed to a longer closing on the condominium allowing a few weeks to complete some of the renovations at the new home.</p>
+			<p>{{case.outcomes.all.0.text|safe}}</p>
 		</div>
-		<div class="sectiontitle column3 offcolumn1 medium-offcolumn1 medium-column5 small-offcolumn0 small-column7">
-			<h2 class="whitenav bothcases">CASE STUDY:<br>LOOKING FOR A QUICK SALE</h2>
-			<h3>client needs</h3>
-			<ul>
-				<li>Selling a home as part of an Estate.</li>
-				<li>Located downtown Toronto and not looking to do any repairs.</li>
-				<li>Looking for a quick sale for the highest selling price possible.</li>
-			</ul>
-			<h3>the selling process</h3>
-			<p>Considering the market conditions Michael advised his clients to prepare the home and remove, donate or sell the unwanted personal belongings in the home. A family should not be rushed though this process and Michael suggested these activities to ultimately help the sale of the property move more smoothly. The home was in need of some repairs and some cosmetic upgrades but rather the renovating the home we decided to hold back offers until a particular date and we set the asking price just below the current market value and in relation to the required repairs. We received 5 offers in total and the home sold for the maximum amount the market would allow for a home in less then perfect condition.</p>
-			<h3>outcomes</h3>
-			<p>Through the steps Michael outlined, the clients benefited from a smooth transaction and with 5 offers on the property we were able to maximum the market potential and the clients received the highest price possible for the property.</p>
-		</div>
+		{% endfor %}
 	</div>
 </div>
 
@@ -53,13 +42,9 @@
 			</h2>
 		</div>
 		<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
-			<h3 class="column1 small-column7">Preparation <span class="small-hide"><br></span>is key</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Preparing the property is an obvious task in marketing and selling real estate, the questions is, <span class="lightunderline">what do you do and where do you need to spend money?</span> If any. This all comes down to the strategy you are employing and of course the current market conditions. Assessing your property's advantages and disadvantages, assembling the required documents and information, <span class="lightunderline">developing a strategy and determining a marketing price</span> is all part of the preparations and is arguable the most import step.</p>
-			<h3 class="column1 small-column7">Typical Documents</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">There are many documents required to sell a property plus other documentation that is not required but can be very helpful in achieving your goals and further protecting your interests. </p>
-			<h3 class="column1 small-column7">Cost <span class="small-hide"><br></span>of Selling</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">The costs of selling a property are <span class="lightunderline">typically covered by the funds the seller receives from the buyer</span> in the purchase of the property. The agent you choose and the strategy you employ can effect the net amount the seller receives from the sale of the property. Depending on the strategy, your costs may include renovations to the property, a survey, home inspection fees, legal fees and moving expenses.</p>
-			<h3 class="column1 small-column7">Determining <span class="medium-hide"><br></span>the Value</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0"><span class="lightunderline">Ultimately the market determines the true value of a property.</span> The property characteristics need to be taken into consideration before you are able to compare the property to other similar properties and establish a competitive price. There are other factors that can affect the selling price of your property such as the market conditions, property characteristics and having the right Real Estate sales representative.</p>
-			<h3 class="column1 small-column7">Avoiding <span class="medium-hide"><br></span>Costly <span class="medium-hide"><br></span>Mistakes</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">Engaging an <span class="lightunderline">experienced real estate agent</span> you can trust will ensure your interests are protected and you avoid costly pitfalls. <span class="lightunderline">Overpricing the property and employing the wrong strategy in relation to the market conditions is most common mistake people make with selling a property.</span></p>
-			<h3 class="column1 small-column7">Competitive Advantages</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0"><span class="lightunderline">There are many competitive advantages to each property,</span> leveraging those advantages in context with the current market conditions is crucial in a successful strategy. Michael has experience in assessing and identifying these advantages, developing a strategy and leveraging these advantages to achieve the highest selling price possible.</p>
-			<!-- </div>	 -->
+			{% for section in pagecontent.section.all %}
+				<h3 class="column1">{{section.title|safe}}</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">{{section.text|safe}}</p>
+			{% endfor %}
 		</div>					
 	</div>	
 </div>
@@ -68,7 +53,7 @@
 	<div class="shadow"></div>
 		<div class="contact grid">
 			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				<h4>If you are looking to relocate or if you are an international buyer, feel free to give Michael a call directly at <span itemprop="telephone"><a href="tel:+14169966936">416.996.6936</a></span> or send him an <span itemprop="email"><a href="mailto:michael@myrealestatepro.ca">email</a>.</h4></span><span itemprop="address"  itemprop="streetAddress"><h5>477 Mount Pleasant Road Toronto, ON M4S 2L9 </span><br>PHONE: <a href="tel:+14164892121">416.489.2121</a><br>FAX: <a href="tel:+14164896297">416.489.6297</a><span itemprop="telephone"><br>DIRECT: <a href="tel:+14169966936">416.996.6936</a></span><br><span itemprop="email">EMAIL: <a href="mailto:michael@myrealestatepro.ca">michael@myrealestatepro.ca</a></h5></span>
+				{{pagecontent.footer|safe}}
 			</div>
 	</div>
 </div>

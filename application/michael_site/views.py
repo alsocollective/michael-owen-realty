@@ -50,20 +50,25 @@ def getFeatured():
 	return ResidentialProperty.objects.all().order_by('-featured')[:3]
 
 def home(request):
-	
-	return render_to_response('about.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request)})
+	out = AboutPage.objects.all().order_by("created")[0]
+	return render_to_response('about.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request)})
 
 def sell(request):	
-	return render_to_response('sell.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
+	out = SellPage.objects.all().order_by("created")[0]	
+	return render_to_response('sell.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 
 def buy(request):
-	return render_to_response('buy.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
+	out = BuyPage.objects.all().order_by("created")[0]		
+	return render_to_response('buy.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 	
 def search(request):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
 	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured(),'pageType':getCssClass(request)}
 	out.update(csrf(request))
+	out["pagecontent"] = SearchPage.objects.all().order_by("created")[0]			
+	out["desscrrrippttiion"] = NeightbourHood.objects.get(slug="little-italy")
+
 	return render_to_response('search.html',out)	
 
 def fourofour(request):
@@ -82,7 +87,14 @@ def ajaxproperty(request):
 	return render_to_response('property.html',out)
 
 def ajaxneighbourhood(request, urlneighbourhood):
-	out = {"title":urlneighbourhood,"content":"blah blah"}
+	try:
+		out = NeightbourHood.objects.get(slug=urlneighbourhood)
+		pass
+	except Exception, e:
+		print e
+		out = {"title":"Nothing Found"}
+		pass
+	# out = {"title":urlneighbourhood,"content":"blah blah"}
 	return render_to_response('neighbourhood.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html", "location":out})
 
 def property(request,propertyid):
