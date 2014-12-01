@@ -26,8 +26,7 @@ urlpatterns = patterns('',
     url(r'^proplist/', 'michael_site.views.getinitialpagedata', name='getinitialpagedata'),
     url(r'^sendemail/', 'michael_site.views.sendemail', name='sendemail'),
 
-
-    
+    url(r'^sitemap/', 'michael_site.views.sitemap', name='sitemap'),    
 
     url(r'^test/', 'michael_site.views.testView', name='testView'),
     url(r'^sort/', 'michael_site.views.sort', name='sort'),    
