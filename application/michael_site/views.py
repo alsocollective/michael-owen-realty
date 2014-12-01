@@ -69,7 +69,11 @@ def search(request):
 	out["pagecontent"] = SearchPage.objects.all().order_by("created")[0]			
 	out["desscrrrippttiion"] = NeightbourHood.objects.get(slug="little-italy")
 
-	return render_to_response('search.html',out)	
+	return render_to_response('search.html',out)
+
+def sell(request):	
+	out = SellPage.objects.all().order_by("created")[0]	
+	return render_to_response('sitemap.xml',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 
 def fourofour(request):
 	return render_to_response('404.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html",'pageType':getCssClass(request)})
