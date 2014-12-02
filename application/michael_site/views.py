@@ -77,7 +77,7 @@ def fivehun(request):
 	return render_to_response('500.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html",'pageType':getCssClass(request)})
 
 def sitemap(request):
-	return render_to_response('sitemap.xml')
+	return render_to_response('sitemap.xhtml')
 
 
 
