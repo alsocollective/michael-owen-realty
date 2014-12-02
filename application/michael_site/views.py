@@ -77,10 +77,11 @@ def fivehun(request):
 	return render_to_response('500.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html",'pageType':getCssClass(request)})
 
 def sitemap(request):
-	return render_to_response('sitemap.xhtml')
-
-
-
+	buy = str(BuyPage.objects.all().order_by("created")[0]).split()[0].replace("/","-")
+	sell = str(SellPage.objects.all().order_by("created")[0]).split()[0].replace("/","-")
+	about = str(AboutPage.objects.all().order_by("created")[0]).split()[0].replace("/","-")
+	search = str(SearchPage.objects.all().order_by("created")[0]).split()[0].replace("/","-")
+	return render(request,'sitemap.xml',{"BuyPage":buy, "SellPage":sell, "AboutPage":about, "SearchPage":search},content_type="application/xhtml+xml")
 
 
 
