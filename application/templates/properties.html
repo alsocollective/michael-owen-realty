@@ -15,7 +15,7 @@
 		
 	</div>
 {% endif %}
-{% for prop in data %}<li class="column2 medium-column7 small-column7 new">
+{% for prop in data %}<li class="column2 medium-column7 small-column7 new" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 	<a href="/property/{{prop.ml_num}}">
 		<div class="propertyimage medium-column3 small-column7">
 			<img itemprop="image" class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg">
