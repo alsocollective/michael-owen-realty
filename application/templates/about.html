@@ -2,55 +2,59 @@
 {% load bohdanfilters%}
 {% load staticfiles %}
 {% block content %}
+
 	<div class="contain">
+
 		<div class="main grid">
 
-			<div id="splash" itemscope itemtype="http://schema.org/LocalBusiness">
-
-				
+			<div id="splash" itemscope itemtype="http://schema.org/LocalBusiness"><!-- SD BUSINESS SCHEMA -->
 
 				<div class="titlebox">
-					<h1>
-					<span itemprop="broker"><span class="leftalign">Michael</span>
-					<span class="rightalign">Owen</span></span>
-					<span class="center">Realty</span>
+
+					<h1 itemprop="name">
+						<span class="leftalign">Michael</span>
+						<span class="rightalign">Owen</span>
+						<span class="center">Realty</span>
 					</h1>
+
 				</div>
+
 				<div id="special" class="column2 offcolumn6 medium-offcolumn5 medium-column3 small-offcolumn0 small-column6">
-					<ul> <!-- class="column1 medium-column3 small-column4" -->
-					<li>Royal LePage</li></span>
-					<li>Johnston &amp; Daniel</li></span>
-					<li>Division, Brokerage</li>
-				</ul><!-- <ul class="column1 norightmargin medium-column3 small-column3">
-					<li>Featured <span>Property:</span></li>
-					<li>Little Italy</li>
-					<li>392 Manning Ave</li>
-			</ul> -->
-		</div>
+					<ul>
+						<li itemprop="worksFor">Royal LePage</li>
+						<li itemprop="worksFor">Johnston &amp; Daniel</li>
+						<li>Division, Brokerage</li>
+					</ul>
+				</div>
 
-			</span>
+				<div class="mainimg">
+					<div></div><div></div>
+				</div>
 
-		<div class="mainimg">
-			<div></div><div></div>
-		</div>
-	</div>
-	<div id="fprop" itemscope itemtype="http://schema.org/Product">
+			</div>
+
+
+	<div id="fprop">
+
 		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-			<h2 id="featured-properties" class="purplenav">
-			featured properties
-			</h2>
+
+			<h2 id="featured-properties" class="purplenav">featured properties</h2>
+
 		</div>
-		<ul class="propertylist leftmargin ">
+
+		<ul class="propertylist leftmargin" itemscope itemtype="http://schema.org/Product"><!-- SD PRODUCT SCHEMA -->
 			{% include "properties.html" with data=featured %}
 		</ul>
+
 	</div>
-	<div id="about" itemscope itemtype="http://schema.org/Person">
+
+	<div id="about" itemscope itemtype="http://schema.org/Person"><!-- SD PERSON SCHEMA -->
 		<div itemprop ="image" class="sectiontitle column2 leftmargin medium-column2 small-column4">
 			<h2 id="about-michael-owen" class="purplenav">
 			about <span itemprop="name">Michael Owen</span>
 			</h2>
 		</div>
-		<img src="{{MEDIA_URL}}{{pagecontent.image}}" class="leftmargin column3">
+		<img src="{{MEDIA_URL}}{{pagecontent.image}}" class="leftmargin column3" itemprop="image">
 		<div class="describe-michael column4 medium-offcolumn0 medium-column6 small-column7" itemprop="description">
 			{{pagecontent.biography|safe}}
 		</div>
