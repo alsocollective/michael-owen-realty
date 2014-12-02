@@ -2,9 +2,13 @@
 {% load bohdanfilters%}
 {% load staticfiles %}
 {% block content %}
-	<div class="contain" itemscope itemtype="http://schema.org/Person">
+	<div class="contain">
 		<div class="main grid">
-			<div id="splash">
+
+			<div id="splash" itemscope itemtype="http://schema.org/LocalBusiness">
+
+				<span itemscope itemtype="http://schema.org/Person">
+
 				<div class="titlebox">
 					<h1>
 					<span itemprop="broker"><span itemprop="name"><span class="leftalign">Michael</span>
@@ -23,6 +27,9 @@
 					<li>392 Manning Ave</li>
 			</ul> -->
 		</div>
+
+			</span>
+
 		<div class="mainimg">
 			<div></div><div></div>
 		</div>
@@ -44,9 +51,8 @@
 			</h2>
 		</div>
 		<img src="{{MEDIA_URL}}{{pagecontent.image}}" class="leftmargin column3">
-		<div class="describe-michael column4 medium-offcolumn0 medium-column6 small-column7"><span itemprop ="description">
+		<div class="describe-michael column4 medium-offcolumn0 medium-column6 small-column7">
 			{{pagecontent.biography|safe}}
-			</span>
 		</div>
 	</div>
 	<div id="factors">
