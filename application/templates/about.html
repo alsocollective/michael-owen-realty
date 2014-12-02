@@ -2,25 +2,25 @@
 {% load bohdanfilters%}
 {% load staticfiles %}
 {% block content %}
-<div class="contain itemscope itemtype="http://schema.org/Person"">
-<div class="main grid">
-	<div id="splash">
-		<div class="titlebox">
-		<h1>
-			<span class="leftalign" itemprop="name">Michael</span>
-			<span class="rightalign" itemprop="name">Owen</span>
-			<span class="center" itemprop="jobTitle">Realty</span>
-			</h1>
-		</div>
-		<div id="special" class="column2 offcolumn6 medium-offcolumn5 medium-column3 small-offcolumn0 small-column6">  <spam itemprop="broker">
-			<ul> <!-- class="column1 medium-column3 small-column4" -->
-				<li>Royal LePage</li>
-				<li>Johnston &amp; Daniel</li>
-				<li>Division, Brokerage</li></span>
-			</ul><!-- <ul class="column1 norightmargin medium-column3 small-column3">
-				<li>Featured <span>Property:</span></li>
-				<li>Little Italy</li>
-				<li>392 Manning Ave</li>
+	<div class="contain" itemscope itemtype="http://schema.org/Person">
+		<div class="main grid">
+			<div id="splash">
+				<div class="titlebox">
+					<h1>
+					<span class="leftalign" itemprop="name">Michael</span>
+					<span class="rightalign" itemprop="name">Owen</span>
+					<span class="center" itemprop="jobTitle">Realty</span>
+					</h1>
+				</div>
+				<div id="special" class="column2 offcolumn6 medium-offcolumn5 medium-column3 small-offcolumn0 small-column6">  <span itemprop="broker">
+					<ul> <!-- class="column1 medium-column3 small-column4" -->
+					<li>Royal LePage</li>
+					<li>Johnston &amp; Daniel</li>
+					<li>Division, Brokerage</li></span>
+				</ul><!-- <ul class="column1 norightmargin medium-column3 small-column3">
+					<li>Featured <span>Property:</span></li>
+					<li>Little Italy</li>
+					<li>392 Manning Ave</li>
 			</ul> -->
 		</div>
 		<div class="mainimg">
@@ -30,9 +30,9 @@
 	<div id="fprop">
 		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
 			<h2 id="featured-properties" class="purplenav">
-				featured properties
+			featured properties
 			</h2>
-		</div>				
+		</div>
 		<ul class="propertylist leftmargin ">
 			{% include "properties.html" with data=featured %}
 		</ul>
@@ -40,7 +40,7 @@
 	<div id="about">
 		<div class="sectiontitle column2 leftmargin medium-column2 small-column4">
 			<h2 id="about-michael-owen" class="purplenav">
-				about Michael Owen
+			about Michael Owen
 			</h2>
 		</div>
 		<img src="{{MEDIA_URL}}{{pagecontent.image}}" class="leftmargin column3">
@@ -49,98 +49,94 @@
 			</span>
 		</div>
 	</div>
-	<div id="factors"> 
+	<div id="factors">
 		<div class="sectiontitle column1 leftmargin medium-column2 small-column5">
 			<h2 id="factors-to-consider-when-picking-an-agent">
-				Factors to <span class="small-hide"><br></span>consider <span class="small-hide"><br></span>when picking<span class="small-hide"><br></span> an agent
+			Factors to <span class="small-hide"><br></span>consider <span class="small-hide"><br></span>when picking<span class="small-hide"><br></span> an agent
 			</h2>
 		</div>
-
 		<div class="centeredtext column4 offcolumn1 medium-offcolumn0 medium-column6 small-column7 small-offcolumn0 ">
 			{% for section in pagecontent.section_one.all %}
 				<h3 class="column1">{{section.title|safe}}</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">{{section.text|safe}}</p>
 			{% endfor %}
-		</div>					
+		</div>
 	</div>
 </div>
 </div>
 <div id="testimonials" itemprop="review" itemscope itemtype="http://schema.org/Review" style="background-image:url({% static "img/symmetrical_house_1_yellow.png"%})" >
-	<div style="background-image:url({% static "img/symmetrical_house_2_yellow.png"%})" ></div>
-	<div class="shadow"></div>
-	<div class="reference">
-		{% for quote in pagecontent.pullquotes_one.all %}
+<div style="background-image:url({% static "img/symmetrical_house_2_yellow.png"%})" ></div>
+<div class="shadow"></div>
+<div class="reference">
+	{% for quote in pagecontent.pullquotes_one.all %}
 		<div>
-			<div class ="grid"> 
+			<div class ="grid">
 				<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
 					<h4>{{quote.text|safe}}</h4>
 					<h5>{{quote.title|safe}}</h5>
 				</div>
 			</div>
-		</div>		
+		</div>
+	{% endfor %}
+</div>
+</div>
+<div class="main grid">
+<div id="mback">
+	<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
+		<h2 id="michaels-background" class="purplenav">
+		Michael's background
+		</h2>
+	</div>
+	<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
+		{% for section in pagecontent.section_two.all %}
+			<h3 class="column1">{{section.title|safe}}</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">{{section.text|safe}}</p>
 		{% endfor %}
 	</div>
 </div>
-<div class="main grid">
-	<div id="mback">
-		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-			<h2 id="michaels-background" class="purplenav">
-				Michael's background
-			</h2>
-		</div>
-
-		<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
-			{% for section in pagecontent.section_two.all %}
-				<h3 class="column1">{{section.title|safe}}</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">{{section.text|safe}}</p>
-			{% endfor %}
-		</div>	
-	</div>	
-</div>	
+</div>
 <div class="aboutimg2" style="background-image: url({% static "img/DavisvilleToronto-lrg-2.jpg"%});">
-	<div class="shadow"></div>
-	<div class="pullquotes">
-		{% for quote in pagecontent.pullquotes_two.all %}
+<div class="shadow"></div>
+<div class="pullquotes">
+	{% for quote in pagecontent.pullquotes_two.all %}
 		<div class="slide">
 			<div>
-				<div class ="grid"> 
+				<div class ="grid">
 					<h4 class="offcolumn1 column5 medium-offcolumn0 medium-column7">{{quote.text|safe}}</h4>
 				</div>
 			</div>
-		</div>		
-		{% endfor %}		
-	</div>
+		</div>
+	{% endfor %}
+</div>
 </div>
 <div class="main grid">
-	<div id="mback">
-		<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-			<h2 id="michaels-background" class="purplenav">
-				Frequently Asked <span class="small-hide"><br></span>Questions
-			</h2>
-		</div>
-
-		<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
-			{% for section in pagecontent.section_three.all %}
-				<h3 class="column1">{{section.title|safe}}</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">{{section.text|safe}}</p>
-			{% endfor %}			
-		</div>	
+<div id="mback">
+	<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
+		<h2 id="michaels-background" class="purplenav">
+		Frequently Asked <span class="small-hide"><br></span>Questions
+		</h2>
 	</div>
+	<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
+		{% for section in pagecontent.section_three.all %}
+			<h3 class="column1">{{section.title|safe}}</h3><p class="column3 norightmargin medium-offcolumn1 small-offcolumn0">{{section.text|safe}}</p>
+		{% endfor %}
+	</div>
+</div>
 </div>
 <div id="footer" style="background-image:url({% static "img/symmetrical_house_1_purple2.png"%})">
-	<div style="background-image:url({% static "img/symmetrical_house_2_purple2.png"%})"></div>
-	<div class="shadow"></div>
-		<div class="contact grid">
-			<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
-				{{pagecontent.footer|safe}}
-			</div>
+<div style="background-image:url({% static "img/symmetrical_house_2_purple2.png"%})"></div>
+<div class="shadow"></div>
+<div class="contact grid">
+	<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
+		{{pagecontent.footer|safe}}
 	</div>
 </div>
-
+</div>
 {% endblock %}
 {% block aboutnav %}currentpage{% endblock %}
-{% block script %} 
+{% block script %}
 <script type="text/javascript">
-	 $( document ).ready(function(){
-	 	app.about.init();
- 		app.sell.init();
-	 });
+	$( document ).ready(function(){
+		app.about.init();
+		app.sell.init();
+	});
 </script>
 {% endblock %}
