@@ -14,7 +14,7 @@
 					<h1 itemprop="name">
 						<span class="leftalign">Michael</span>
 						<span class="rightalign">Owen</span>
-						<span class="center">Realty</span>
+						<span class="center">Real Estate</span>
 					</h1>
 
 				</div>
@@ -49,11 +49,11 @@
 	</div>
 
 	<div id="about" itemscope itemtype="http://schema.org/Person"><!-- SD PERSON SCHEMA -->
-		<div itemprop ="image" class="sectiontitle column2 leftmargin medium-column2 small-column4">
-			<h2 id="about-michael-owen" class="purplenav">
-			about <span itemprop="name">Michael Owen</span>
-			</h2>
+		
+		<div class="sectiontitle column2 leftmargin medium-column2 small-column4">   
+			<h2 id="about-michael-owen" class="purplenav">about <span itemprop="name">Michael Owen</span></h2>
 		</div>
+
 		<img src="{{MEDIA_URL}}{{pagecontent.image}}" class="leftmargin column3" itemprop="image">
 		<div class="describe-michael column4 medium-offcolumn0 medium-column6 small-column7" itemprop="description">
 			{{pagecontent.biography|safe}}
@@ -73,14 +73,14 @@
 	</div>
 </div>
 </div>
-<div id="testimonials" itemprop="review" itemscope itemtype="http://schema.org/Review" style="background-image:url({% static "img/symmetrical_house_1_yellow.png"%})" >
+<div id="testimonials" style="background-image:url({% static "img/symmetrical_house_1_yellow.png"%})" >
 <div style="background-image:url({% static "img/symmetrical_house_2_yellow.png"%})" ></div>
 <div class="shadow"></div>
-<div class="reference">
+<div class="reference" itemscope itemtype="http://schema.org/Review">
 	{% for quote in pagecontent.pullquotes_one.all %}
 		<div>
 			<div class ="grid">
-				<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
+				<div class="offcolumn1 column5 medium-offcolumn0 medium-column7" itemprop="review">
 					<h4>{{quote.text|safe}}</h4>
 					<h5>{{quote.title|safe}}</h5>
 				</div>
@@ -92,9 +92,7 @@
 <div class="main grid">
 <div id="mback">
 	<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-		<h2 id="michaels-background" class="purplenav">
-		Michael's background
-		</h2>
+		<h2 id="michaels-background" class="purplenav">Michael's background</h2>
 	</div>
 	<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
 		{% for section in pagecontent.section_two.all %}
@@ -120,9 +118,7 @@
 <div class="main grid">
 <div id="mback">
 	<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
-		<h2 id="michaels-background" class="purplenav">
-		Frequently Asked <span class="small-hide"><br></span>Questions
-		</h2>
+		<h2 id="michaels-background" class="purplenav">Frequently Asked <span class="small-hide"><br></span>Questions</h2>
 	</div>
 	<div class="centeredtext offcolumn1 column4 medium-offcolumn0 medium-column6 small-column7">
 		{% for section in pagecontent.section_three.all %}
