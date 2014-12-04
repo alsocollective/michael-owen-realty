@@ -1,40 +1,41 @@
-$purple1: rgb(116, 103, 180); //old purple 1 $purple1: rgb(125, 108, 177);
-$purple2: rgb(125, 90, 177);
-$purple3: rgb(107, 79, 160);
+$purple1: rgb(116, 103, 180) !global; //old purple 1 $purple1: rgb(125, 108, 177);
+$purple2: rgb(125, 90, 177) !global;
+$purple3: rgb(107, 79, 160) !global;
 // $purple3: #6b4fa0;
 // $purple3: #6633cc;
 
 
-$grey: rgb(78, 78, 86);
-$grey2: #d8dadb;
-$greybackground: #d8dadb;
+$grey: rgb(78, 78, 86) !global;
+$grey2: #d8dadb !global;
+$greybackground: #d8dadb !global;
 // $green: rgb(135, 233, 34);
-$green: rgb(78, 200, 104); //old green $green: rgb(130, 215, 35);
-$yellow: rgb(255, 193, 35); 
-$yellow2: rgba(255, 193, 35, 0.5); 
-$yellow3: rgba(255, 205, 73, 1.0); 
+$green: rgb(78, 200, 104) !global; //old green $green: rgb(130, 215, 35);
+$yellow: rgb(255, 193, 35) !global; 
+$yellow2: rgba(255, 193, 35, 0.5) !global; 
+$yellow3: rgba(255, 205, 73, 1.0) !global; 
 
-$smallPixel: 12px;
-$smallSize: 0.75rem;
-$h2P: 13px;
-$h2Em: 0.8rem;
-$h4P: 22px;
-$h4Em: 1.4rem;
-$pP: 15px;
-$pEm: 1rem;
-$pP2: 13px;
-$pEm2: 0.8em;
+$smallPixel: 12px !global;
+$smallSize: 0.75rem !global;
+$h2P: 13px !global;
+$h2Em: 0.8rem !global;
+$h4P: 22px !global;
+$h4Em: 1.4rem !global;
+$pP: 15px !global;
+$pEm: 1rem !global;
+$pP2: 13px !global;
+$pEm2: 0.8em !global;
 
-$h1Emmedium: 8rem;
-$h1Emsmall: 4.7rem;
+$h1Emmedium: 8rem !global;
+$h1Emsmall: 4.7rem !global;
 
-$h2Psmall: 12px;
-$h2Emsmall: 0.75rem;
-$h4Psmall: 17px;
-$h4Emsmall: 0.97rem;
-$pPsmall: 14px;
-$pEmsmall: 0.92rem;
+$h2Psmall: 12px !global;
+$h2Emsmall: 0.75rem !global;
+$h4Psmall: 17px !global;
+$h4Emsmall: 0.97rem !global;
+$pPsmall: 14px !global;
+$pEmsmall: 0.92rem !global;
 
-$serif: "garvis-pro", serif;
+$serif: "garvis-pro", serif !global;
 
-$border1: solid 3px $purple1;
+$border1: solid 3px $purple1 !global;
+$border0: solid 0px $purple1 !global;
