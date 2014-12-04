@@ -251,7 +251,7 @@ def sendemail(request):
 	if (ipexists == None) or (now-ipexists.date > timedelta(seconds = 30)):
 		ipinstance = EmailRmark(ipaddress = ip)
 		ipinstance.save()				
-		# emailBoutPorp(request.POST)
+		emailBoutPorp(request.POST)
 		return HttpResponse(json.dumps({'message':'Email Sent','status':'sent'}), content_type='application/json')
 	else:
 		return HttpResponse(json.dumps({'message':'Error, Please Wait Before Sending Another Email','status':'error'}), content_type='application/json')

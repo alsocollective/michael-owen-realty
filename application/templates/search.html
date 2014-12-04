@@ -32,7 +32,7 @@
 				<p>{{desscrrrippttiion.description}}</p>
 			</div>
 		</div><div class="column1 medium-leftmargin medium-offcolumn2 medium-column2 medium-noleftmargin small-column3 small-offcolumn0">
-			<h3 class="neighmargin">Centural</h3>
+			<h3 class="neighmargin">Center</h3>
 			<ul>		
 			{% for location in pagecontent.locations.all %}
 				{% if location.location == 'center' %}
@@ -40,7 +40,7 @@
 				{% endif %}
 			{% endfor %}
 			</ul>
-			<h3 class="neighmargin">Centural North</h3>
+			<h3 class="neighmargin">Center North</h3>
 			<ul>		
 			{% for location in pagecontent.locations.all %}
 				{% if location.location == 'center north' %}
@@ -77,7 +77,7 @@
 		</div>	
 		
 		<form action="/proplist/" method="post" class="column6 offcolumn1 norightmargin medium-offcolumn0 medium-column6 small-column7 filterform">
-			<div class="column3 norightmargin floatleft quarterwidths priceselector">
+			<div class="column3 medium-column4 small-column7 floatleft quarterwidths priceselector">
 				<h3>price range</h3>
 				<h4 class="errormessage">please have a range of $100,000</h4>
 				<div id="priceslider"></div>
@@ -90,7 +90,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="column1 norightmargin small-column7 hometype bedroomselector">
+			<div class="column1 small-column7 hometype bedroomselector">
 				<h3>bedroom</h3>
 				<h4 class="errormessage">please have a range of 1 bedroom</h4>
 				<div id="bedslider"></div>
@@ -98,7 +98,7 @@
 					<span><input id="lowerbed" name="lowerbed" ></span><span><input id="upperbed" name="upperbed"></span>
 				</div>
 			</div>
-				<div class="column1 norightmargin small-column7 hometype bathroomselector">
+			<div class="column1 small-column7 hometype bathroomselector">
 				<h3>bathroom</h3>
 				<h4 class="errormessage">please have a range of 1 bathroom</h4>
 				<div id="bathslider"></div>
@@ -106,7 +106,8 @@
 					<span><input id="lowerbath" name="lowerbath" ></span><span><input id="upperbath" name="upperbath"></span>
 				</div>
 			</div>
-			<div class="column4 medium-column3 small-column4 hometype neighbourhoodslist quarterwidths">
+			<br>
+			<div class="column4 medium-column5 small-column7 hometype neighbourhoodslist quarterwidths">
 				<h3>Neighbourhood</h3>
 				<h4 class="errormessage">please select atleast 3 Neighbourhoods, or all(by selecting none)</h4>				
 				{% for region in filter.location %}<ul>
@@ -115,7 +116,8 @@
 						<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
 					{% endfor %}
 				</ul>{% endfor %}						
-			</div><div class="column1 norightmargin medium-column2 small-column3 hometype">
+			</div>
+			<div class="column1 norightmargin medium-column1 small-column3 hometype">
 
 				<h3 >home type</h3>
 				<ul>
@@ -123,7 +125,8 @@
 						<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
 					{% endfor %}
 				</ul>
-			</div><div class="column1 norightmargin medium-column2 small-column3 hometype">
+			</div>
+			<div class="column5 medium-column5 small-column3 hometype">
 
 				<input type="checkbox" id="onlyjandd" name="onlyjandd"><label for="onlyjandd"><span></span>Only search for Royal LePage Johnston & Daniel Division, Brokerage</label>
 			</div>

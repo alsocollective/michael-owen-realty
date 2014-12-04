@@ -886,6 +886,9 @@ label {
 		}
 		.hometype{
 			display: inline-block;
+			ul{
+				padding-bottom: 10px;
+			}
 		}
 		#priceinputs {
 			//width: 100%;
@@ -940,6 +943,9 @@ label {
 	}
 }
 
+.slick-slide{
+	background: #fff;
+}
 #searchresults .slick-slide .centertext{
 	text-align: center;
 }

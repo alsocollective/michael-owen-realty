@@ -1051,6 +1051,8 @@ label {
     position: relative; }
   #searchfield .column6.norightmargin .hometype {
     display: inline-block; }
+    #searchfield .column6.norightmargin .hometype ul {
+      padding-bottom: 10px; }
   #searchfield .column6.norightmargin #priceinputs .priceinput {
     display: inline-block; }
     #searchfield .column6.norightmargin #priceinputs .priceinput input {
@@ -1085,6 +1087,9 @@ label {
   display: none;
   color: #f00 !important;
   font-size: .65em; }
+
+.slick-slide {
+  background: #fff; }
 
 #searchresults .slick-slide .centertext {
   text-align: center; }
