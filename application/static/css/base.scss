@@ -509,6 +509,14 @@ nav {
 			padding: 1.5em 0 0.5em 0;
 			text-decoration: none;
 			color: inherit;
+			border-bottom: $border0;
+			-webkit-transition: border-bottom-width 0.1s ease-in-out;
+			-moz-transition: border-bottom-width 0.1s ease-in-out;
+			-o-transition: border-bottom-width 0.1s ease-in-out;
+			transition: border-bottom-width 0.1s ease-in-out;			
+		}
+		a:hover{
+			border-bottom: $border1;
 		}
 		white-space: nowrap;
 		display: inline-block;
@@ -794,9 +802,15 @@ label {
 }
 
 #searchfield {
+	form{
+		> div:last-of-type {
+			padding-top: 25px;
+		}
+	}
 	.sectiontitle {
 		//position: absolute; //why?
 	}
+
 	ul{
 		padding-bottom: 30px;
 	}
@@ -804,7 +818,7 @@ label {
 		display: block;
 	}
 	.bbinputs {
-		padding-bottom: 50px;
+		padding-bottom: 25px;
 		span {
 			display: inline-block;
 			width: 50%;
@@ -839,6 +853,8 @@ label {
 			position: relative;
 			li{
 				padding-right: 25px;
+				line-height: 0.9em;
+				padding-bottom: 0.3em;
 			}
 		}
 		// ul:first-of-type {
@@ -857,6 +873,7 @@ label {
 		position: relative;
 		h3 {
 			color: $purple1;
+			padding-top: 25px;		
 		}
 		> div {  
 			display: block;
@@ -886,6 +903,9 @@ label {
 		}
 		.hometype{
 			display: inline-block;
+			ul{
+				padding-bottom: 10px;
+			}
 		}
 		#priceinputs {
 			//width: 100%;
@@ -940,6 +960,9 @@ label {
 	}
 }
 
+#searchresults .slick-slide{
+	background: #fff;
+}
 #searchresults .slick-slide .centertext{
 	text-align: center;
 }

@@ -736,7 +736,14 @@ nav {
       *display: inline;
       padding: 1.5em 0 0.5em 0;
       text-decoration: none;
-      color: inherit; }
+      color: inherit;
+      border-bottom: solid 0px #7467b4;
+      -webkit-transition: border-bottom-width 0.1s ease-in-out;
+      -moz-transition: border-bottom-width 0.1s ease-in-out;
+      -o-transition: border-bottom-width 0.1s ease-in-out;
+      transition: border-bottom-width 0.1s ease-in-out; }
+    nav li a:hover {
+      border-bottom: solid 3px #7467b4; }
   nav ul {
     padding: 0;
     width: 100%;
@@ -992,12 +999,14 @@ label {
   position: relative;
   background: #fff; }
 
+#searchfield form > div:last-of-type {
+  padding-top: 25px; }
 #searchfield ul {
   padding-bottom: 30px; }
 #searchfield h3 {
   display: block; }
 #searchfield .bbinputs {
-  padding-bottom: 50px; }
+  padding-bottom: 25px; }
   #searchfield .bbinputs span {
     display: inline-block;
     width: 50%;
@@ -1023,7 +1032,9 @@ label {
   overflow: scroll;
   position: relative; }
   #searchfield .quarterwidths ul li {
-    padding-right: 25px; }
+    padding-right: 25px;
+    line-height: 0.9em;
+    padding-bottom: 0.3em; }
 #searchfield .column1 {
   background: transparent; }
   #searchfield .column1 ul {
@@ -1031,7 +1042,8 @@ label {
 #searchfield .column6.norightmargin {
   position: relative; }
   #searchfield .column6.norightmargin h3 {
-    color: #7467b4; }
+    color: #7467b4;
+    padding-top: 25px; }
   #searchfield .column6.norightmargin > div {
     display: block; }
   #searchfield .column6.norightmargin > div:first-child {
@@ -1051,6 +1063,8 @@ label {
     position: relative; }
   #searchfield .column6.norightmargin .hometype {
     display: inline-block; }
+    #searchfield .column6.norightmargin .hometype ul {
+      padding-bottom: 10px; }
   #searchfield .column6.norightmargin #priceinputs .priceinput {
     display: inline-block; }
     #searchfield .column6.norightmargin #priceinputs .priceinput input {
@@ -1085,6 +1099,9 @@ label {
   display: none;
   color: #f00 !important;
   font-size: .65em; }
+
+#searchresults .slick-slide {
+  background: #fff; }
 
 #searchresults .slick-slide .centertext {
   text-align: center; }
