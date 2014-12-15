@@ -9,7 +9,7 @@
 
 			<div id="splash" itemscope itemtype="http://schema.org/LocalBusiness"><!-- SD BUSINESS SCHEMA -->
 
-				<div class="titlebox">
+				<div class="titlebox offcolumn1">
 
 					<h1 itemprop="name">
 						<span class="block offcolumn1">Michael</span>
@@ -29,7 +29,7 @@
 				</div>
 
 				<div class="mainimg">
-					<div></div><div></div>
+					<div class="houselft" style="background-image:url({% static "img/house1.jpg"%});background-size: contain;background-repeat: no-repeat;"><!--background-position: left top;background-size: 80%;background-repeat: no-repeat;background-position-x: 38%;--></div><div class="housergt" style="background-image:url({% static "img/house2.jpg"%});background-size: contain;background-repeat: no-repeat;background-position: right;"><!--background-repeat: no-repeat;background-position: right top;background-size: 80%;--></div>
 				</div>
 
 			</div>
@@ -143,8 +143,9 @@
 <script type="text/javascript">
 	$( document ).ready(function(){
 		app.about.init();
-		app.sell.init();
-		ga('send', 'index');
+		// app.sell.init();
+		console.log("SEND INDEX !!!!!!!!!!!!!!")
+		ga('send', 'pageview','/');
 	});
 </script>
 {% endblock %}

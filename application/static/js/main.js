@@ -5,7 +5,8 @@ var app = {
 		loadingpage: false,
 		pagetransitiontime: 1000,
 		previousURL: null,
-		slickinstance: null
+		slickinstance: null,
+		socialIncrament: 1
 	},
 	init: function() {
 		app.social.init();
@@ -33,6 +34,17 @@ var app = {
 			}
 			var href = this.href,
 				test = href.split(":")[0];
+
+			if (ga) {
+				var last = href.split("/");
+				last = last[last.length - 1];
+				if (test != "mailto" && test != "tel") {
+					ga('send', 'event', 'nav', 'click', last);
+				} else {
+					ga('send', 'event', 'contact', 'click', "nav " + this.innerHTML);
+				}
+			}
+
 			if (test != "mailto" && test != "tel") {
 				if (app.options.loadingpage) {
 					event.preventDefault();
@@ -99,10 +111,17 @@ var app = {
 		}
 	},
 	social: {
+		ga: function(means) {
+			++app.options.socialIncrament;
+			if (ga) {
+				ga('send', 'event', 'social', 'click', means, app.options.socialIncrament);
+			}
+		},
 		init: function() {
 			$(".twitterlink").click(app.social.twitterLink);
 		},
 		twitterLink: function(event) {
+			app.social.ga("twitter");
 			event.preventDefault();
 			event.stopPropagation();
 			var w = window.open(this.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
@@ -190,7 +209,6 @@ var app = {
 					app.property.loadproperty(null, url[1]);
 				}
 			} else if (currentpage != newpage) {
-				console.log(currentpage, newpage)
 				app.nav.loadpage(document.URL, true);
 			} else {
 				var el = $(".module");
@@ -210,8 +228,10 @@ var app = {
 				autoplay: true,
 				autoplaySpeed: 10000
 			});
-			app.property.setup()
+			app.property.setup();
+			app.sell.slicksetup();
 			app.nav.splashsize();
+			app.tracking.footInit();
 		}
 	},
 	search: {
@@ -226,6 +246,7 @@ var app = {
 			app.search.setupDeletinputonselect();
 			app.nav.splashsize();
 			app.search.setupResultsSlick();
+			app.tracking.footInit();
 		},
 		initajax: function() {
 			$("#searchlistings button").click(app.search.loadInitialContent);
@@ -254,10 +275,17 @@ var app = {
 			var data = $(".filterform"),
 				test = app.search.checkifinputisgood(data);
 			$(".erroronsearch").removeClass("erroronsearch");
+			console.log("YESSSSSSSSSSSS")
+			console.log(data);
+			if (ga) {
+				ga('send', 'pageview', {
+					'page': '/search?id=1',
+					'title': 'search query'
+				});
+			}
 			if (test != false) {
 				for (var a = 0, max = test.length; a < max; ++a) {
 					$(".filterform ." + test[a]).addClass("erroronsearch");
-					console.log(test[a]);
 				}
 				return false;
 			}
@@ -372,7 +400,6 @@ var app = {
 			var count = $(".thiscount"),
 				total = $(".totalcount");
 			if (count[count.length - 1].value == total[total.length - 1].value) {
-				console.log("yeseseseses")
 				$("#morelistings").addClass("hide");
 			}
 		},
@@ -455,6 +482,9 @@ var app = {
 		},
 		neighbourhoodClick: function(event) {
 			$('#neighbourhoodajax').load(this.href);
+			if (ga) {
+				ga('send', 'event', 'neighbourhood', 'click', this.innerHTML);
+			}
 			event.preventDefault();
 			return false;
 		},
@@ -497,9 +527,9 @@ var app = {
 	},
 	sell: {
 		init: function() {
-			console.log("sell setting up");
 			app.sell.slicksetup();
 			app.nav.splashsize();
+			app.tracking.footInit();
 		},
 		slicksetup: function() {
 			$(".pullquotes").slick({
@@ -519,11 +549,60 @@ var app = {
 			}
 			$(".module > div > div").click(app.property.stopprop);
 			app.property.resizemap();
-			app.property.coppyInit();
 			app.email.init();
 			app.property.exitbutton();
 			$(".module").addClass("loaded")
 			$(".module .facebooklink").click(app.property.openfacebooklink);
+			$(".module .twitterlink").click(app.social.twitterLink);
+			$(".module .emaillink").click(app.property.gaEmail);
+			app.property.coppyInit();
+			var el = $(".module >div");
+			var id = el[0].id;
+			var price = el.find('span[itemprop="price"] span[itemprop="price"]')[0].innerHTML;
+
+			price = price.split(",")
+			var out = "";
+			for (var a = 0, max = price.length; a < max; ++a) {
+				out += price[a];
+			}
+			price = out;
+			type = el.find(".buildingtype")[0].innerHTML;
+			style = el.find(".buildingstyle")[0].innerHTML;
+			// ga('set', 'dimension1', "" + price);
+			// ga('set', 'dimension3', "" + id);
+			// ga('set', 'dimension4', "" + style);
+			// ga('set', 'dimension2', "" + type);
+			// ga('send', 'pageview', '/property')
+			ga('send', 'pageview', {
+				'dimension1': "" + price,
+				'dimension3': "" + id,
+				'dimension4': "" + style,
+				'dimension2': "" + type
+			})
+			console.log(price, id, style, type)
+
+			// ga('send', 'event', 'property viewed', 'clicked', {
+			// 	"title": "prop viewed",
+			// 	"mlsnumber": id,
+			// 	"prop-price": price,
+			// 	"prop-style": style,
+			// 	"prop-type": type
+			// })
+
+
+			// ga('ecommerce:addItem', {
+			// 	'id': id,
+			// 	'name': type,
+			// 	'category': style,
+			// 	'price': price + ".00",
+			// 	'quantity': '1',
+			// 	'currency': 'CAD'
+			// });
+			// ga('ecommerce:send');
+
+		},
+		gaEmail: function() {
+			app.social.ga("email");
 		},
 		exitbutton: function() {
 			$('#exbutton > div, .closebigbutton').click(app.property.exitbuttonexit);
@@ -569,23 +648,26 @@ var app = {
 		openfacebooklink: function(event) {
 			event.stopPropagation();
 			event.preventDefault();
+			app.social.ga("facebook");
 			FB.ui({
 				method: 'send',
-				link: event.target.href,
+				link: event.target.href
 			});
 			return false;
 		},
 		toggleclicked: function(event) {
 			if ($(event.target).hasClass("emaillink")) {
 				event.stopPropagation();
+				app.social.ga("email");
 				app.property.coppyText("opening email", "Get more info from Michael")
 				return true;
 			} else if ($(event.target).hasClass("facebooklink")) {
 				event.stopPropagation();
 				event.preventDefault();
+				app.social.ga("facebook");
 				FB.ui({
 					method: 'send',
-					link: event.target.href,
+					link: event.target.href
 				});
 				return false;
 			}
@@ -594,10 +676,10 @@ var app = {
 			return false;
 		},
 		loadproperty: function(event, hash) {
-			console.log(event);
 			if (event) {
 				event.preventDefault();
-				if ($(event.target).hasClass("facebooklink") || $(event.target).hasClass("emaillink") || $(event.target).hasClass("twitterlink") || $(event.target).hasClass("coppylink") || $(event.target).hasClass("share") || event.target.innerHTML == "share") {
+				var xy = $(event.target);
+				if (xy.hasClass("facebooklink") || xy.hasClass("emaillink") || xy.hasClass("twitterlink") || xy.hasClass("coppylink") || xy.hasClass("share") || xy.innerHTML == "share") {
 					return false;
 				}
 			}
@@ -623,8 +705,11 @@ var app = {
 			}
 		},
 		loadedproperty: function(response, status, xhr) {
-			app.property.init();
-			location.hash = $(".module > div")[0].id;
+			console.log(status);
+			if (status == "success") {
+				app.property.init();
+				location.hash = $(".module > div")[0].id;
+			}
 		},
 		loadrestofphotos: function(popid) {
 			$.ajax({
@@ -649,7 +734,6 @@ var app = {
 			selected.click(app.property.coppyclicked);
 			var client = new ZeroClipboard(selected);
 			client.on("copy", function(event) {
-				console.log(event.target.href)
 				var clipboard = event.clipboardData;
 				clipboard.setData("text/plain", event.target.href);
 			})
@@ -710,6 +794,16 @@ var app = {
 		error: function(message) {
 			console.log("ERER")
 			console.log(message)
+		}
+	},
+	tracking: {
+		footInit: function() {
+			$("#footer a").click(app.tracking.trackFunction);
+		},
+		trackFunction: function(event) {
+			if (ga) {
+				ga('send', 'event', "contact", 'click', "footer " + this.innerHTML);
+			}
 		}
 	},
 	resize: function() {
