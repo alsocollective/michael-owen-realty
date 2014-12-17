@@ -659,7 +659,7 @@ var app = {
 			if ($(event.target).hasClass("emaillink")) {
 				event.stopPropagation();
 				app.social.ga("email");
-				app.property.coppyText("opening email", "Get more info from Michael")
+				app.property.coppyText("Opening Email", "Request more info from Michael")
 				return true;
 			} else if ($(event.target).hasClass("facebooklink")) {
 				event.stopPropagation();
@@ -747,7 +747,7 @@ var app = {
 			parent.className = "overlaycopytext";
 			child.innerHTML = eventtype + ':<br>"' + text + '"';
 			document.body.appendChild(parent);
-			setTimeout(app.property.deleteCoppyText, app.options.pagetransitiontime + 250);
+			setTimeout(app.property.deleteCoppyText, app.options.pagetransitiontime + 350);
 		},
 		deleteCoppyText: function() {
 			var el = $(".overlaycopytext")[0];
@@ -757,7 +757,7 @@ var app = {
 			event.preventDefault();
 			event.stopPropagation();
 			if ($(".overlaycopytext").length == 0) {
-				app.property.coppyText('copied to clipboard', this.href)
+				app.property.coppyText('Copied to Clipboard', this.href)
 			}
 			return false;
 		}
