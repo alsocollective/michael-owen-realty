@@ -38,6 +38,13 @@ def loadTestData():
 	# for column in columns:
 	# 		print column + ": " + results.GetString(column)
 
+def getPhoneEmail(request):
+	#no need to get it for ajax...
+	if(request.is_ajax()):
+		return {}
+	return {"phone":TextField.objects.get(title="phone").text,"email":TextField.objects.get(title="email").text}
+
+
 def getCssClass(request):
 	out = "desktop"
 	if(request.is_tablet):
@@ -50,23 +57,24 @@ def getFeatured():
 	return ResidentialProperty.objects.all().order_by('-featured')[:3]
 
 def home(request):
+	getPhoneEmail(request)
 	out = AboutPage.objects.all().order_by("created")[0]
 	page = "Home"
-	return render_to_response('about.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':page})
+	return render_to_response('about.html',{"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':page})
 
 def sell(request):	
 	out = SellPage.objects.all().order_by("created")[0]
 	page = "Selling"
-	return render_to_response('sell.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request), 'pageTitle':page})
+	return render_to_response('sell.html',{"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request), 'pageTitle':page})
 
 def buy(request):
 	out = BuyPage.objects.all().order_by("created")[0]		
-	return render_to_response('buy.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
+	return render_to_response('buy.html',{"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 	
 def search(request):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
-	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured(),'pageType':getCssClass(request)}
+	out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured(),'pageType':getCssClass(request)}
 	out.update(csrf(request))
 	out["pagecontent"] = SearchPage.objects.all().order_by("created")[0]			
 	out["desscrrrippttiion"] = NeightbourHood.objects.get(slug="little-italy")
@@ -101,12 +109,12 @@ def ajaxneighbourhood(request, urlneighbourhood):
 		out = {"title":"Nothing Found"}
 		pass
 	# out = {"title":urlneighbourhood,"content":"blah blah"}
-	return render_to_response('neighbourhood.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html", "location":out})
+	return render_to_response('neighbourhood.html',{"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html", "location":out})
 
 def property(request,propertyid):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.get(ml_num = propertyid)
-	out = {"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
+	out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
 	out.update(csrf(request))
 	# percentages = getPercentages(True)
 	return render_to_response('property.html',out)
