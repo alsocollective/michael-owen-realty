@@ -70,7 +70,6 @@ var app = {
 					location = "/" + name;
 				app.nav.changeurl(location);
 			}
-
 			// url = app.url.addajax(url);
 			var newMainContainer = document.createElement("div");
 			newMainContainer.className = "mainwrapper offright";
@@ -103,8 +102,6 @@ var app = {
 		changeurl: function(link) {
 			$(".currentpage").removeClass("currentpage");
 			$($('a[href="' + link + '"]')[0].parentNode).addClass("currentpage")
-			console.log("U R L"+link);
-			//document.getElementById('main-title').innerHTML = "Michael Owen Real Estate:"+url;
 		},
 		correctSize: function() {
 			$("#nav").width($($(".mainwrapper div")[0]).width());
