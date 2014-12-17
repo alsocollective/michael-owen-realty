@@ -51,8 +51,7 @@ def getFeatured():
 
 def home(request):
 	out = AboutPage.objects.all().order_by("created")[0]
-	pageReq = request
-	return render_to_response('about.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':pageReq})
+	return render_to_response('about.html',{"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':request})
 
 def sell(request):	
 	out = SellPage.objects.all().order_by("created")[0]	
