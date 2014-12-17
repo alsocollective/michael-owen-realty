@@ -77,12 +77,12 @@
 <div id="testimonials" style="background-image:url({% static "img/symmetrical_house_old_L_yellow.png"%})" >
 <div style="background-image:url({% static "img/symmetrical_house_new_R_yellow.png"%})" ></div>
 <div class="shadow"></div>
-<div class="reference" itemscope itemtype="http://schema.org/Review">
+<div class="reference">
 	{% for quote in pagecontent.pullquotes_one.all %}
 		<div>
 			<div class ="grid">
-				<div class="offcolumn1 column5 medium-offcolumn0 medium-column7" itemprop="review">
-					<h4 itemprop="reviewBody">{{quote.text|safe}}</h4>
+				<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
+					<h4>{{quote.text|safe}}</h4>
 					<h5>{{quote.title|safe}}</h5>
 				</div>
 			</div>
