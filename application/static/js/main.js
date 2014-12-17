@@ -71,6 +71,7 @@ var app = {
 				app.nav.changeurl(location);
 			}
 
+			console.log("U R L"+url)
 			document.getElementById('main-title').innerHTML = "Michael Owen Real Estate:"+url;
 
 
