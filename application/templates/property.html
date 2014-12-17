@@ -24,12 +24,14 @@
 				</span>
 						
 				<div class="propertyimages" itemprop="image">
+
 					{% if data.numofphotos %}
 						{% for count in data.numofphotos|get_range%}
 							<div><img {% if forloop.last %} class='lastimage'{% endif %} src="{% static ""%}images/{{data.ml_num}}-{{count}}.jpg"></div>
 						{% endfor %}
 					{% elif data.firstphoto %}
-						<div class="firstimageloading"><img src="{% static ""%}images/{{data.ml_num}}-1.jpg"><div style="background-image:url({% static "img/preloader.gif"%});"></div></div>
+						<div class="firstimageloading"><img src="{% static ""%}images/{{data.ml_num}}-1.jpg"><div><h3>Loading ...</h3></div></div>
+
 					{% endif %}
 				</div>{% if data.addr and data.area and data.county %}<div id="gmap">
 					<span itemscope itemprop="hasMap" itemtype="http://schema.org/Map">
@@ -176,7 +178,7 @@
 		{% if not data.numofphotos%}
 			app.property.loadrestofphotos("{{data.ml_num}}");
 		{% else %}
-		$(".lastimage").load(app.property.initslick());		
+			$(".lastimage").load(app.property.initslick());		
 		{%endif%}
 		{% if basetemplate = "index.html" %}
 			app.email.csrftoken = "{{ csrf_token }}";

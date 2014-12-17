@@ -108,7 +108,7 @@ def loadData():
 			print "Error logging in"
 		else:
 			print "connection"
-			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
+			lastHourDateTime = datetime.today() - timedelta(hours = 24)
 			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 			print "making request"
 			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))

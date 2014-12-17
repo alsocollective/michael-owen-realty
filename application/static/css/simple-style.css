@@ -461,6 +461,9 @@ a {
 .purp {
   color: #7467b4; }
 
+#splash .titlebox h1 {
+  text-shadow: 1px 1px 20px #fff; }
+
 .titlebox {
   position: absolute;
   top: 100px;
@@ -655,7 +658,7 @@ a {
   position: relative;
   overflow: hidden; }
   .casestudy.casesell {
-    background: #ffcd49; }
+    background: #ffc123; }
     .casestudy.casesell h2, .casestudy.casesell h3, .casestudy.casesell p, .casestudy.casesell h4, .casestudy.casesell ul {
       color: #4e4e56; }
     .casestudy.casesell div.sectiontitle {
@@ -719,7 +722,7 @@ a {
   float: right; }
 
 nav {
-  padding-bottom: 25px;
+  padding-bottom: 28px;
   color: #7d5ab1;
   font-size: 12px;
   font-size: 0.75rem;
@@ -732,6 +735,7 @@ nav {
     white-space: nowrap;
     display: inline-block; }
     nav li a {
+      font-size: 1.1em;
       display: inline-block;
       *display: inline;
       padding: 1.5em 0 0.5em 0;
@@ -1021,10 +1025,9 @@ label {
   #searchfield .bbinputs input:last-child {
     text-align: right; }
 #searchfield .quarterwidths ul {
-  padding-top: 7px;
+  padding-top: 12px;
   width: 24%;
   display: inline-block;
-  height: 150px;
   padding-left: 30px;
   margin-left: -30px;
   margin-bottom: 8px;
@@ -1074,6 +1077,18 @@ label {
       text-align: right; }
     #searchfield .column6.norightmargin #priceinputs .priceinput:last-child input {
       text-align: right; }
+  #searchfield .column6.norightmargin .neighbourhoodslist h3 {
+    display: inline-block;
+    border-right: solid #7467b4 3px;
+    padding: 0;
+    padding-right: 15px;
+    margin-top: 25px;
+    margin-right: 36px; }
+  #searchfield .column6.norightmargin .neighbourhoodslist h4 {
+    font-family: "pragmatica-web",sans-serif;
+    font-size: 2em; }
+  #searchfield .column6.norightmargin .neighbourhoodslist > span input, #searchfield .column6.norightmargin .neighbourhoodslist > span label {
+    margin-top: 28px; }
 #searchfield input[type="checkbox"] {
   width: 0;
   overflow: hidden;
@@ -1191,7 +1206,7 @@ label {
   #footer h5 {
     text-transform: none; }
   #footer.footersell {
-    background: #ffcd49;
+    background: #ffc123;
     background-repeat: no-repeat;
     background-position: left bottom; }
     #footer.footersell h4, #footer.footersell h5 {
@@ -1334,13 +1349,17 @@ label {
     position: relative; }
     .module .firstimageloading div {
       position: absolute;
+      display: table;
       width: 100%;
       height: 100%;
       top: 0;
-      left: 0;
-      display: block;
-      background-repeat: no-repeat;
-      background-position: center; }
+      left: 0; }
+      .module .firstimageloading div h3 {
+        color: #fff !important;
+        padding-top: 50%;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle; }
 
 .moduleindex {
   z-index: 1;
@@ -1814,6 +1833,8 @@ label {
   #smallsplash .buyimg, #smallsplash .sellimg, #smallsplash .propertyimg {
     background-position: left; }
 
+  #searchfield .quarterwidths ul {
+    height: 150px; }
   #searchfield .column4.offcolumn1 > div:first-child {
     padding-top: 100px; }
 

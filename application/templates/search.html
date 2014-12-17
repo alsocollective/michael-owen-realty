@@ -109,6 +109,9 @@
 			<br>
 			<div class="column4 medium-column5 small-column7 hometype neighbourhoodslist quarterwidths">
 				<h3>Neighbourhood</h3>
+				<span><input type="checkbox" id="allneighbourhoods" name="notuse"><label for="allneighbourhoods" class="bold"><span></span>select all</label></span>
+				<br>
+
 				<h4 class="errormessage">please select atleast 3 Neighbourhoods, or all(by selecting none)</h4>				
 				{% for region in filter.location %}<ul>
 					<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
