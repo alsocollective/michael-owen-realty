@@ -124,6 +124,9 @@ a {
 	color: $purple1;
 }
 
+#splash .titlebox h1{
+	text-shadow: 1px 1px 20px #fff;
+}
 .titlebox {
 	position: absolute;
 	h1 {
@@ -399,7 +402,7 @@ a {
 
 .casestudy {
 	&.casesell{
-		background: $yellow3;
+		background: $yellow;
 		h2, h3, p, h4, ul {
 		color: $grey;
 		}
@@ -492,7 +495,7 @@ a {
 }
 
 nav {
-	padding-bottom:25px;
+	padding-bottom: 28px;
 	color: $purple2;
 	font-size: $smallPixel;
 	font-size: $smallSize;
@@ -504,6 +507,7 @@ nav {
 	}
 	li {
 		a {
+			font-size: 1.1em;
 			display: inline-block;
 			*display:inline;
 			padding: 1.5em 0 0.5em 0;
@@ -843,10 +847,10 @@ label {
 	}
 	.quarterwidths {
 		ul {
-			padding-top: 7px;
+			padding-top: 12px;
 			width: 24%;
 			display: inline-block;
-			height: 150px;
+			// height: 150px;
 			padding-left: 30px;
 			margin-left: -30px;
 			margin-bottom: 8px;
@@ -924,6 +928,23 @@ label {
 				&:last-child input {
 					text-align: right;
 				}
+			}
+		}
+		.neighbourhoodslist{
+			h3{
+				display: inline-block;
+				border-right: solid #7467b4 3px;
+				padding: 0;
+				padding-right: 15px;
+				margin-top: 25px;
+				margin-right: 36px;
+			}
+			h4{
+				font-family: "pragmatica-web",sans-serif;
+				font-size: 2em;
+			}
+			>span input,>span label{
+				margin-top: 28px;
 			}
 		}
 	}
@@ -1090,7 +1111,7 @@ label {
 		text-transform: none;
 	}
 	&.footersell{
-		background: $yellow3;
+		background: $yellow;
 		background-repeat: no-repeat;
 		background-position: left bottom;
 		h4, h5{
@@ -1219,13 +1240,18 @@ label {
 		position: relative;		
 		div{
 			position: absolute;
+			display: table;
 			width: 100%;
 			height: 100%;
 			top: 0;
 			left: 0;
-			display: block;
-			background-repeat: no-repeat;
-			background-position: center;
+			h3{
+				color: #fff !important;
+				padding-top: 50%;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+			}
 		}
 	}
 }

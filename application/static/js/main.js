@@ -74,6 +74,9 @@ var app = {
 			var newMainContainer = document.createElement("div");
 			newMainContainer.className = "mainwrapper offright";
 			document.body.appendChild(newMainContainer);
+
+			var location = url.split("/"),
+				name = location[location.length - 1];
 			$(newMainContainer).load(url, function(response, status, xhr) {
 				$.waypoints('destroy');
 				var wrappers = $(".mainwrapper"),
@@ -86,6 +89,7 @@ var app = {
 				app.nav.deleteEl(oldW[0], app.options.pagetransitiontime);
 				app.url.gotohashlocation();
 				app.options.previousURL = document.URL.split("#")[0];
+				document.getElementById("main-title").innerHTML = "Michael Owen Real Estate | " + name
 			});
 		},
 		deleteEl: function(element, time) {
@@ -275,13 +279,27 @@ var app = {
 			var data = $(".filterform"),
 				test = app.search.checkifinputisgood(data);
 			$(".erroronsearch").removeClass("erroronsearch");
-			console.log("YESSSSSSSSSSSS")
 			console.log(data);
+
 			if (ga) {
+
+				// ga('send', 'pageview', {
+				// 	'page': '/search?id=1',
+				// 	'title': 'search query'
+				// });
+				var price = data.find("#upperprice")[0].value.split(" ")[1].split(",")
+				var out = "";
+				for (var a = 0, max = price.length; a < max; ++a) {
+					out += price[a];
+				}
+				price = out;
+				console.log(price);
+
 				ga('send', 'pageview', {
-					'page': '/search?id=1',
-					'title': 'search query'
-				});
+					'Page': "/search-query",
+					'title': 'A query search',
+					'dimension5': "" + price
+				})
 			}
 			if (test != false) {
 				for (var a = 0, max = test.length; a < max; ++a) {
@@ -489,7 +507,8 @@ var app = {
 			return false;
 		},
 		setupCheckAllButtons: function() {
-			$(".filterform .bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
+			$(".filterform ul .bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
+			$(".quarterwidths >span label.bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
 		},
 		checkAllRelatedCheckboxes: function(event) {
 			if (this.checked) {
@@ -574,6 +593,8 @@ var app = {
 			// ga('set', 'dimension2', "" + type);
 			// ga('send', 'pageview', '/property')
 			ga('send', 'pageview', {
+				'page': "/property",
+				'title': 'Click on a property',
 				'dimension1': "" + price,
 				'dimension3': "" + id,
 				'dimension4': "" + style,

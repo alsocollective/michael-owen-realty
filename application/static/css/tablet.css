@@ -299,6 +299,8 @@ nav {
 #smallsplash .buyimg, #smallsplash .sellimg, #smallsplash .propertyimg {
   background-position: left; }
 
+#searchfield .quarterwidths ul {
+  height: 150px; }
 #searchfield .column4.offcolumn1 > div:first-child {
   padding-top: 100px; }
 
