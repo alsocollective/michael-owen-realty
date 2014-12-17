@@ -70,6 +70,10 @@ var app = {
 					location = "/" + name;
 				app.nav.changeurl(location);
 			}
+
+			document.getElementById('main-title').innerHTML = "Michael Owen Real Estate:"+url;
+
+
 			// url = app.url.addajax(url);
 			var newMainContainer = document.createElement("div");
 			newMainContainer.className = "mainwrapper offright";
