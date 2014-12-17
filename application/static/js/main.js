@@ -726,11 +726,14 @@ var app = {
 			}
 		},
 		loadedproperty: function(response, status, xhr) {
-			console.log(status);
 			if (status == "success") {
-				app.property.init();
 				location.hash = $(".module > div")[0].id;
 			}
+			// console.log(status);
+			// if (status == "success") {
+			// 	app.property.init();
+			// 	location.hash = $(".module > div")[0].id;
+			// }
 		},
 		loadrestofphotos: function(popid) {
 			$.ajax({
