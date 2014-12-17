@@ -44,15 +44,15 @@
 <body class="{{pageType}}">
 	<div id="nav">
 		<nav class="grid offleft">
-			<ul>
-				<li class="column1 leftmargin  {% block aboutnav %}{% endblock %}"><a href="/">Michael Owen</a>
+			<ul itemscope itemtype="http://schema.org/Person">
+				<li class="column1 leftmargin  {% block aboutnav %}{% endblock %}"><a href="/" itemprop="name">Michael Owen</a>
 				</li><li class="column1  {% block searchnav %}{% endblock %}"><a href="/search">Property Search</a>
 				</li><li class="column1  {% block sellnav %}{% endblock %}"><a href="/sell">Selling Property</a>
 				</li><li class="column1  {% block buynav %}{% endblock %}"><a href="/buy">Buying Property</a>
 
 				</li><li class="column1 medium-hide">
-				</li><li class="column1 "><a href="tel:+14169966936"><span class="large-hide">Phone: </span><span class="medium-hide">416.996.6936</span><span class="medium-show">Call</span></a>
-				</li><li class="column1 "><a href="mailto:michael@myrealestatepro.ca"><span class="large-hide">Email: </span><span class="medium-hide">michael@myrealestatepro.ca </span><span class="medium-show">Email</span> </a></li>
+				</li><li class="column1"><a href="tel:+14169966936"><span class="large-hide">Phone: </span><span class="medium-hide" itemprop="telephone">416.996.6936</span><span class="medium-show">Call</span></a>
+				</li><li class="column1 "><a href="mailto:michael@myrealestatepro.ca"><span class="large-hide">Email: </span><span class="medium-hide" itemprop="email">michael@myrealestatepro.ca </span><span class="medium-show">Email</span> </a></li>
 			</ul>
 		</nav>
 	</div>
