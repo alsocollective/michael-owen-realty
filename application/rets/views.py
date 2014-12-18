@@ -136,8 +136,8 @@ def loadData():
 
 			print "loading images"			
 			for mls in imagelist:
-				# thread.start_new_thread(getfirstimage, (mls,))
-				getfirstimage(mls)
+				thread.start_new_thread(getfirstimage, (mls,))
+				# getfirstimage(mls)
 
 			print "returning the data"
 			session.Logout()		
