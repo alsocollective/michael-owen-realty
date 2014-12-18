@@ -282,11 +282,6 @@ var app = {
 			console.log(data);
 
 			if (ga) {
-
-				// ga('send', 'pageview', {
-				// 	'page': '/search?id=1',
-				// 	'title': 'search query'
-				// });
 				var price = data.find("#upperprice")[0].value.split(" ")[1].split(",")
 				var out = "";
 				for (var a = 0, max = price.length; a < max; ++a) {
@@ -336,9 +331,9 @@ var app = {
 			if (bath2 - bath1 < 1) {
 				toreturn = app.search.addtoreturn(toreturn, "bathroomselector");
 			}
-			if (neightbourhoods.length > 0 && neightbourhoods.length < 3) {
-				toreturn = app.search.addtoreturn(toreturn, "neighbourhoodslist");
-			}
+			// if (neightbourhoods.length > 0 && neightbourhoods.length < 3) {
+			// 	toreturn = app.search.addtoreturn(toreturn, "neighbourhoodslist");
+			// }
 			return toreturn;
 		},
 		addtoreturn: function(out, variable) {

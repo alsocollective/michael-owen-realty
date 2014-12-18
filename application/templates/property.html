@@ -11,16 +11,21 @@
 		<div class="leftmargin column6 medium-column7">
 			<div class="column2 leftmargin medium-noleftmargin medium-column7 small-offcolumn0 small-column7">
 				<span class="hide2">
-					<h2>
+					<h2 class="neighbourhoodtitle">
+						<span itemprop="addressLocality">{{data.community|titlecase}}</span>
+					</h2>
+					<p class="addresslocation">
 						{% if data.addr and data.area and data.county %}
 							<span itemprop="name">{{data.addr}}, <br> {{data.area}}, {{data.county}}, {{data.zip}}</span>
+							</br>
 						{% endif %}
-					</h2>
-					<span itemprop="priceCurrency" content="CAD">
-						<h2 >
+						</p>
+					<h2 class="houseprice">
+						<span class="hide2"><br></span>
+						<span itemprop="priceCurrency" content="CAD">
 							<span itemprop="price">{{data.lp_dol|nicemoney}}</span>
-						</h2>
-					</span>					
+						</span>
+					</h2>
 				</span>
 						
 				<div class="propertyimages" itemprop="image">
@@ -46,25 +51,29 @@
 			</div>
 			<div class="column2 medium-column4 small-offcolumn0 small-column7">
 				
-				<h2>
+				<h2 class="neighbourhoodtitle">
+					<span itemprop="addressLocality">{{data.community|titlecase}}</span>
+				</h2>
+				<p class="addresslocation">
 					{% if data.addr and data.area and data.county %}
-						<span itemprop="name">{{data.addr}}, <span class="hide2"><br></span> {{data.area}}, {{data.county}}, {{data.zip}}</span>
+						<span itemprop="name">{{data.addr}}, <br> {{data.area}}, {{data.county}}, {{data.zip}}</span>
 						</br>
 					{% endif %}
+					</p>
+				<h2 class="houseprice">
 					<span class="hide2"><br></span>
 					<span itemprop="priceCurrency" content="CAD">
 						<span itemprop="price">{{data.lp_dol|nicemoney}}</span>
 					</span>
 				</h2>
-				<p> A two storey single family home located in Little Italy. Includes four bedrooms and four washrooms. </p>
+				
+				<h6>Description</h6>
+				<p><span itemprop="description">{{data.extras}}</span></p>
 
 				<div class="socialmedia medium-hide">
 					{% include "socialmedia.html" %}
 				</div>				
 				
-				<h6>Description</h6>
-				<p><span itemprop="description">{{data.extras}}</span></p>
-
 				<div class="socialmedia large-hide2 medium-show small-hide">
 					{% include "socialmediabuttons.html" %}
 				</div>	
