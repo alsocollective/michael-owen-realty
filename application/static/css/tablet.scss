@@ -168,11 +168,12 @@
 			a{
 				border-left-width: 1px;
 				padding: 1em 0 1em 15.384%;
+				margin: 0!important;
 			}
 		}
 
 
-		li:hover{
+		li a:hover{
 			background: $yellow2;
 		}
 		ul {
