@@ -27,6 +27,8 @@ urlpatterns = patterns('',
     url(r'^sendemail/', 'michael_site.views.sendemail', name='sendemail'),
 
     url(r'^sitemap/', 'michael_site.views.sitemap', name='sitemap'),    
+    url(r'^robots.txt', 'michael_site.views.robots', name='forbots'),
+
 
     url(r'^test/', 'michael_site.views.testView', name='testView'),
     url(r'^sort/', 'michael_site.views.sort', name='sort'),    

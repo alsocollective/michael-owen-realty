@@ -316,3 +316,9 @@ def sort(request):
 	value = getFullListOfMLS()
 	sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
 	return HttpResponse(out, content_type='application/json')
+
+
+
+def robots(request):
+	return render_to_response('robots.txt',{"data":0})
+
