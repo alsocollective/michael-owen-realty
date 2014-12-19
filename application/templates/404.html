@@ -1,8 +1,37 @@
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-Custom 404 page <s>-bohdan</s>
-</body>
-</html>
+{% extends basetemplate %}
+{% load staticfiles %}
+{% block content %}
+<div id="smallsplash404" class="fourofour">
+	<div class="titlebox titleboxmargins grid">
+
+		<h1>
+			<span class="leftalign">404 Error</span>
+		</h1>
+		<h6>You've taken a wrong turn. You will be redirected back home in <span id="myspan">5</span>.</h6>
+	</div>
+	<div class="mainimg fourofourimg" style="background-image: url({% static "img/Grey404_DavisvilleToronto.jpg"%});"></div>
+</div>
+
+<script type="text/javascript">
+var counter = 5;
+var span = document.getElementById("myspan");
+var x = function(){
+	if(counter==0){
+		window.location.replace("http://michaelowenrealestate.com/");
+	}
+	if(counter<=0){
+		return false;
+	}
+	counter--;
+	span.innerHTML=counter;
+}
+
+window.onload = function(){
+	setInterval(x,1000);
+
+}
+
+</script>
+
+{% endblock %}
+{% block buynav %}currentpage{% endblock %}
