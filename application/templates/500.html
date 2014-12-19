@@ -1,6 +1,57 @@
-{% extends basetemplate %}
-{% load staticfiles %}
-{% block content %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html lang="en">
+<head>
+	<script type="text/javascript" src="//use.typekit.net/ivd3jdw.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0;maximum-scale=10.0;user-scalable=no; minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Michael Owen is an expert in real estate sales, investment, and consulting at Royal at LePage, Canada's real estate brokerage.">
+	<meta name="keywords" content="real estate, property investment, commercial property investment, real estate purchasing, real estate selling, property search, toronto, royal lepage, realtor, realty">
+	<meta name="author" content="Michael Owen">
+
+	{# Google Webmaster Tools #}
+	<meta name="google-site-verification" content="vXEnTGCN22hbU7FdVpRXrFleJF-T2glVILc4HN1IsIM" />
+
+	{# Michael Owen Sales Representative #}
+	<title id="main-title">Michael Owen Real Estate</title>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/static/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/static/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/static/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/static/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/static/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/static/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/static/apple-touch-icon-152x152.png">
+	<link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32">
+	<meta name="msapplication-TileColor" content="#ffc40d">
+	<meta name="msapplication-TileImage" content="/static/mstile-144x144.png">
+
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+	{% if pageType = "mobile tablet" %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/tablet.css" %}">
+	{% elif pageType = "mobile phone" %}
+		<link rel="stylesheet" type="text/css" href="{% static "css/slick.css" %}">
+	{%endif%}	
+	<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		// ga('create', 'UA-37086718-6', 'auto');
+		ga('create', 'UA-37086718-6', {
+  			'cookieDomain': 'none'
+		});
+		ga('require', 'ecommerce');
+
+	</script>
+</head>
+<body class="desktop">
 <div id="smallsplash404" class="fivehundred">
 	<div class="titlebox titleboxmargins grid">
 
@@ -9,7 +60,90 @@
 		</h1>
 		<h6>We are experiencing some internal issues.<span class="small-hidden"><br></span> Please inform us of this problem by sending us an <a data-email="collaborate@alsocollective.com" href="mailto:collaborate@alsocollective.com">email</a>,<span class="small-hidden"><br></span>then returning to our <a href="http://michaelowenrealestate.com/">homepage</a>.</h6>
 	</div>
-	<div class="mainimg fivehundredimg" style="background-image: url({% static "img/Grey500_Toronto_from_Niagara.jpg"%});"></div>
+	<div class="mainimg fivehundredimg" style="background-image: url(background-image: url(http://also-static.com/michaelowenrealestate/static/img/Grey500_Toronto_from_Niagara.jpg);"></div>
 </div>
-{% endblock %}
-{% block buynav %}currentpage{% endblock %}
+
+
+
+
+<script type="text/javascript">
+var counter = 5;
+var span = document.getElementById("myspan");
+var x = function(){
+	if(counter==0){
+		window.location.replace("http://michaelowenrealestate.com/");
+	}
+	if(counter<=0){
+		return false;
+	}
+	counter--;
+	span.innerHTML=counter;
+}
+
+window.onload = function(){
+	setInterval(x,1000);
+
+}
+
+</script>
+
+
+	</div>
+
+	<!--[if gte IE 9]><!-->
+		<script type="text/javascript" src="./Michael Owen Real Estate_files/ZeroClipboard.min.js"></script>
+	<!--<![endif]-->
+
+
+
+ 	<script type="text/javascript" src="./Michael Owen Real Estate_files/main.min.js"></script>
+
+	<!--[if gte IE 9]><!-->
+		<script type="text/javascript">
+			ZeroClipboard.config( { swfPath: "http://also-static.com/michaelowenrealestate/static/js/lib/ZeroClipboard.swf" } );
+			app.init();
+		</script>
+	<!--<![endif]-->
+
+<!--[if lt IE 9]>
+	<style type="text/css">
+		body #nav .grid ul li { display:inline; }
+		body #nav { background-color:transparent; }
+	</style>
+<![endif]-->
+
+<!--[if IE]>
+	<script type="text/javascript">
+		$( document ).ready(function(){
+			console.log("this was triggerd")
+			$('html').removeClass("csscolumns").addClass("no-csscolumns");
+		});
+	</script>
+<![endif]-->
+
+	 
+	
+
+<script>
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '336911309824780',
+		xfbml      : true,
+		version    : 'v2.1'
+	});
+};
+
+(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+	
+</body>
+</html>
+	
+

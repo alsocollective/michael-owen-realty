@@ -14,8 +14,8 @@ urlpatterns = patterns('',
     # url(r'^ajaxbuy/', 'michael_site.views.buy', name='ajaxbuy'),
     # url(r'^ajaxsearch/', 'michael_site.views.search', name='ajaxsearch'),
 
-    url(r'^404/', 'michael_site.views.fourofour', name='fourofour'),
-    url(r'^500/', 'michael_site.views.fivehun', name='fivehun'),   
+    # url(r'^404/', 'michael_site.views.fourofour', name='fourofour'),
+    # url(r'^500/', 'michael_site.views.fivehun', name='fivehun'),   
 
 
     url(r'^ajaxproperty/', 'michael_site.views.ajaxproperty', name='ajaxproperty'),
