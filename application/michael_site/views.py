@@ -112,12 +112,16 @@ def ajaxneighbourhood(request, urlneighbourhood):
 	return render_to_response('neighbourhood.html',{"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':"ajax.html", "location":out})
 
 def property(request,propertyid):
-	template = templateType(request)
-	properties = ResidentialProperty.objects.get(ml_num = propertyid)
-	out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
-	out.update(csrf(request))
-	# percentages = getPercentages(True)
-	return render_to_response('property.html',out)
+	try:
+		template = templateType(request)
+		properties = ResidentialProperty.objects.get(ml_num = propertyid)
+		out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
+		out.update(csrf(request))
+		# percentages = getPercentages(True)
+		return render_to_response('property.html',out)
+	except Exception, e:
+		raise Http404
+
 
 def loadallimages(request,propertyid):
 	count = getAllImages(propertyid)
