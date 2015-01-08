@@ -431,7 +431,7 @@ var app = {
 				margin: 100000,
 				range: {
 					'min': [0],
-					'max': [1500000]
+					'max': [3000000]
 				},
 				format: wNumb({
 					mark: '.',

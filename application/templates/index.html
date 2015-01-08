@@ -8,15 +8,18 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0;maximum-scale=10.0;user-scalable=no; minimal-ui">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Michael Owen is an expert in real estate sales, investment, and consulting at Royal at LePage, Canada's real estate brokerage.">
+	{%block meta%}	
+		<meta name="description" content="Michael Owen is an expert in real estate sales, investment, and consulting at Royal at LePage, Canada's real estate brokerage.">
+	{%endblock%}	
 	<meta name="keywords" content="real estate, property investment, commercial property investment, real estate purchasing, real estate selling, property search, toronto, royal lepage, realtor, realty">
 	<meta name="author" content="Michael Owen">
+	<meta name="msvalidate.01" content="817272A047BDF1A3601D225793DC2635" />
 
 	{# Google Webmaster Tools #}
 	<meta name="google-site-verification" content="vXEnTGCN22hbU7FdVpRXrFleJF-T2glVILc4HN1IsIM" />
 
 	{# Michael Owen Sales Representative #}
-	<title id="main-title">Michael Owen Real Estate</title>
+	<title id="main-title">Michael Owen Real Estate {%block pagetitle%}{% endblock%}</title>
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/static/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/static/apple-touch-icon-114x114.png">

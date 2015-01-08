@@ -143,6 +143,7 @@ def testView(request):
 		except Exception, e:
 			return HttpResponse("data went wrong: ", content_type='application/json')
 		
+		print "got something"
 		filteroptions = FilterOptions.objects.all()
 		for data in datain:	
 			possibleobject = ResidentialProperty.objects.filter(ml_num=data["MLS"])
@@ -276,50 +277,56 @@ def sendemail(request):
 import requests
 import time
 def sort(request):
-	lists = ResidentialProperty.objects.all().filter(area="Toronto")
-	print lists
-	print "|||||||||||||||||||||||||||||||"
-	print "|||||||||||||||||||||||||||||||"
-	urlbase = 'https://maps.googleapis.com/maps/api/geocode/json?'
-	out = ""
-	counter = 0
-	for el in lists:
-		try:
-			# out += "%s\n"%
-			counter += 1
-			if counter%10 == 0:
-				time.sleep(1)
+	filloutlists()
+
+	return HttpResponse(Area.objects.all(), content_type='application/json')
+
+
+
+	# lists = ResidentialProperty.objects.all().filter(area="Toronto")
+	# print lists
+	# print "|||||||||||||||||||||||||||||||"
+	# print "|||||||||||||||||||||||||||||||"
+	# urlbase = 'https://maps.googleapis.com/maps/api/geocode/json?'
+	# out = ""
+	# counter = 0
+	# for el in lists:
+	# 	try:
+	# 		# out += "%s\n"%
+	# 		counter += 1
+	# 		if counter%10 == 0:
+	# 			time.sleep(1)
 			
 
-			print "given area name: %s" %el.community
+	# 		print "given area name: %s" %el.community
 
-			url = '%saddress=%s,+%s,+Canada'%(urlbase,el.addr.replace(" ","+"),el.area.replace(" ","+"))
-			r = requests.get(url, auth=(googlecred.user,googlecred.password))
-			json = r.json()['results'][0]
-			try:
-				out+= "%s,%s,%s\n"%(el.community,json['address_components'][2]['short_name'],el.municipality_district)
-				pass	
-			except Exception, e:
-				print "too many calls where called at once. %s" %e
-				pass	
-		except Exception, e:
-			print "has no community name..."
-			pass			
-		# for el in json['address_components']:
-		# 	print el
-	print "|||||||||||||||||||||||||||||||"
-	print "|||||||||||||||||||||||||||||||"			
+	# 		url = '%saddress=%s,+%s,+Canada'%(urlbase,el.addr.replace(" ","+"),el.area.replace(" ","+"))
+	# 		r = requests.get(url, auth=(googlecred.user,googlecred.password))
+	# 		json = r.json()['results'][0]
+	# 		try:
+	# 			out+= "%s,%s,%s\n"%(el.community,json['address_components'][2]['short_name'],el.municipality_district)
+	# 			pass	
+	# 		except Exception, e:
+	# 			print "too many calls where called at once. %s" %e
+	# 			pass	
+	# 	except Exception, e:
+	# 		print "has no community name..."
+	# 		pass			
+	# 	# for el in json['address_components']:
+	# 	# 	print el
+	# print "|||||||||||||||||||||||||||||||"
+	# print "|||||||||||||||||||||||||||||||"			
 
 
 	
 
 
-	return HttpResponse(out, content_type='application/json')
+	# return HttpResponse(out, content_type='application/json')
 
-	out = filloutlists()
-	value = getFullListOfMLS()
-	sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
-	return HttpResponse(out, content_type='application/json')
+	# out = filloutlists()
+	# value = getFullListOfMLS()
+	# sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
+	# return HttpResponse(out, content_type='application/json')
 
 
 

@@ -127,18 +127,19 @@ def loadData():
 			data = []
 			imagelist = []
 			while results.HasNext():
-				out = {}
-				for column in columns:
-					if(column == "MLS"):
-						imagelist.append(results.GetString(column))
-					out[column] = results.GetString(column)
-				data.append(out)
+				out = {}				
+				if(results.GetString("Area")=="Toronto"):
+					for column in columns:
+						out[column] = results.GetString(column)						
+						if(column == "MLS"):
+							imagelist.append(results.GetString(column))
+					data.append(out)
 
 			print "loading images"			
 			for mls in imagelist:
 				thread.start_new_thread(getfirstimage, (mls,))
 				# getfirstimage(mls)
-
+				pass
 			print "returning the data"
 			session.Logout()		
 			return data
@@ -148,6 +149,12 @@ def loadData():
 		return [];
 		# return []HttpResponse("Could not acceses the TREB DB in some way", content_type='application/json')	
 
+
+# if(results.GetString("Area") == "Toronto"):
+# 	imagelist.append(results.GetString("MLS")
+# 	for column in columns:
+# 		out[column] = results.GetString(column)
+# 	data.append(out)
 
 def getFullListOfMLS():
 	session = librets.RetsSession(rets_connection.login_url)
