@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin	
+from django.views.generic import TemplateView
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -31,8 +33,10 @@ urlpatterns = patterns('',
 
 
     url(r'^test/', 'michael_site.views.testView', name='testView'),
-    url(r'^sort/', 'michael_site.views.sort', name='sort'),    
-    url(r'^percent', 'michael_site.views.percentageofattricbutes', name='percentageofattricbutes'),
+    # url(r'^sort/', 'michael_site.views.sort', name='sort'),    
+    # url(r'^percent', 'michael_site.views.percentageofattricbutes', name='percentageofattricbutes'),
+
+    (r'^google3b84a25d4ebf8fc9.html$', TemplateView.as_view(template_name='google3b84a25d4ebf8fc9.html')),    
 )
 
 from django.conf import settings
