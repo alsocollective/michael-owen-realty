@@ -216,7 +216,7 @@ def SingleUpdate():
 		print "Record count: " + `results.GetCount()`
 		columns = results.GetColumns()
 
-		data = []
+		datain = []
 		imagelist = []
 		while results.HasNext():
 			out = {}				
@@ -225,7 +225,7 @@ def SingleUpdate():
 					out[column] = results.GetString(column)						
 					if(column == "MLS"):
 						imagelist.append(results.GetString(column))
-				data.append(out)
+				datain.append(out)
 
 		print "loading images"			
 		for mls in imagelist:
@@ -234,6 +234,20 @@ def SingleUpdate():
 			pass
 		print "returning the data"
 		session.Logout()		
+
+
+		print "got something"
+		filteroptions = FilterOptions.objects.all()
+		for data in datain:	
+			possibleobject = ResidentialProperty.objects.filter(ml_num=data["MLS"])
+			if(possibleobject.exists()):
+				filteroptions = updateResidentialPropertyAttributes(data,possibleobject[0],filteroptions)			
+			else:
+				filteroptions = saveResidentialPropertyAttributes(data,filteroptions)
+		
+		sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
+		filloutlists()# checkFilters()
+
 		return data
 
 
