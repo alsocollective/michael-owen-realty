@@ -235,8 +235,8 @@ def SingleUpdate():
 			print "returning the data"
 			session.Logout()		
 			return data
-		session.Logout()
-		return [];
+		except Exception, e:
+			return [];
 
 def getfirstimage(imageid):
 	if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
