@@ -216,6 +216,7 @@ def SingleUpdate():
 		print "Record count: " + `results.GetCount()`
 		columns = results.GetColumns()
 
+		data = []
 		imagelist = []
 		while results.HasNext():
 			out = {}				
