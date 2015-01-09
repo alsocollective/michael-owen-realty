@@ -211,32 +211,30 @@ def SingleUpdate():
 		request.SetOffset(1)	
 		request.SetFormatType(librets.SearchRequest.COMPACT_DECODED)
 		request.SetCountType(librets.SearchRequest.RECORD_COUNT_AND_RESULTS)
-		try:
-			results = session.Search(request)	
+		results = session.Search(request)	
 
-			print "Record count: " + `results.GetCount()`
-			columns = results.GetColumns()
+		print "Record count: " + `results.GetCount()`
+		columns = results.GetColumns()
 
-			imagelist = []
-			while results.HasNext():
-				out = {}				
-				if(results.GetString("Area")=="Toronto" and results.GetString("SaleLease")=="Sale"):
-					for column in columns:
-						out[column] = results.GetString(column)						
-						if(column == "MLS"):
-							imagelist.append(results.GetString(column))
-					data.append(out)
+		imagelist = []
+		while results.HasNext():
+			out = {}				
+			if(results.GetString("Area")=="Toronto" and results.GetString("SaleLease")=="Sale"):
+				for column in columns:
+					out[column] = results.GetString(column)						
+					if(column == "MLS"):
+						imagelist.append(results.GetString(column))
+				data.append(out)
 
-			print "loading images"			
-			for mls in imagelist:
-				thread.start_new_thread(getfirstimage, (mls,))
-				# getfirstimage(mls)
-				pass
-			print "returning the data"
-			session.Logout()		
-			return data
-		except Exception, e:
-			return [];
+		print "loading images"			
+		for mls in imagelist:
+			thread.start_new_thread(getfirstimage, (mls,))
+			# getfirstimage(mls)
+			pass
+		print "returning the data"
+		session.Logout()		
+		return data
+
 
 def getfirstimage(imageid):
 	if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
