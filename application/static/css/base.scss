@@ -953,6 +953,15 @@ label {
 				margin-top: 28px;
 			}
 		}
+		.hideall{
+			li{
+				display: none;
+			}
+			.storey112 li.storey112,.storey212 li.storey212,.storey2 li.storey2,.storey3 li.storey3,.apartment li.apartment,.backsplit li.backsplit,.bungalow li.bungalow,.sidesplit li.sidesplit{
+				display: list-item;
+			}
+
+		}
 	}
 	input[type="checkbox"] {
 		width: 0;
@@ -1241,6 +1250,9 @@ label {
 	}
 	#gmap{
 		padding-bottom: 30px;
+		iframe{
+			min-height: 250px;
+		}
 	}
 	.firstimageloading{
 		position: relative;		
@@ -1480,3 +1492,7 @@ label {
 }
 @import "800brk";
 @import "500brk";
+
+#apartment{
+	display: none!important;
+}

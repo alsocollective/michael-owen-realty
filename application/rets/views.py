@@ -10,6 +10,7 @@ from rets.models import *
 import thread, json, librets, time, os.path, re, logging
 from michael_site.settings import rets_connection,MEDIA_ROOT
 
+
 logger = logging.getLogger(__name__)
 
 #	example case...
@@ -128,7 +129,7 @@ def loadData():
 			imagelist = []
 			while results.HasNext():
 				out = {}				
-				if(results.GetString("Area")=="Toronto"):
+				if(results.GetString("Area")=="Toronto" and results.GetString("SaleLease")=="Sale"):
 					for column in columns:
 						out[column] = results.GetString(column)						
 						if(column == "MLS"):
@@ -159,7 +160,7 @@ def loadData():
 def getFullListOfMLS():
 	session = librets.RetsSession(rets_connection.login_url)
 
-	session.SetHttpLogName("log.txt");
+	# session.SetHttpLogName("log.txt");
 
 	if (not session.Login(rets_connection.user_id_photo, rets_connection.passwd)):
 		print "Error logging in"
@@ -432,9 +433,8 @@ def filloutlists():
 			item.save()			
 			myFilter.gar_type.add(item)
 
-	communities = ResidentialProperty.objects.filter(area='Toronto').values('community','municipality_district').distinct()
-	wards = ResidentialProperty.objects.filter(area='Toronto').values('municipality_district').distinct()
-
+	communities = ResidentialProperty.objects.filter(area='Toronto',s_r="Sale",status="A").values('community','municipality_district').distinct()
+	wards = ResidentialProperty.objects.filter(area='Toronto',s_r="Sale",status="A").values('municipality_district').distinct()
 	newArea = Area(text="torontoCon")
 	newArea.save()
 
@@ -450,7 +450,17 @@ def filloutlists():
 		warddic[ward].save()
 
 	for com in communities:
-		li = listitem(text=com['community'])
+		# area = ResidentialProperty.objects.order_by('area')#.values('area').filter(status="A").distinct()
+		# print area
+		unique_housingtypes = ResidentialProperty.objects.filter(community=com['community'],s_r="Sale",status="A").values('style').distinct()#.values('area').filter(status="A").distinct()
+		print unique_housingtypes
+		housetypesString = ""
+		for ht in unique_housingtypes:
+			stringToAdd = (re.sub('[-]','',slugify(ht["style"])))
+			if "storey" in stringToAdd:
+				stringToAdd = "storey" + stringToAdd[:-6]
+			housetypesString += (" "+stringToAdd)
+		li = listitem(text=com['community'],subText=housetypesString)
 		li.save()
 		warddic[actualward(com['municipality_district'])].community.add(li)
 

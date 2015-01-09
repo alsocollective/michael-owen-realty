@@ -1,7 +1,6 @@
 {% extends basetemplate %}
 {% load staticfiles %}
 {% load bohdanfilters%}
-{% block content %}
 {%block pagetitle%}
 | property {{data.ml_num}}
 {% endblock%}
@@ -9,6 +8,8 @@
 {%block meta%}
 
 {%endblock%}
+
+{% block content %}
 
 {% if basetemplate = "index.html" %}
 	<div class="module moduleindex">

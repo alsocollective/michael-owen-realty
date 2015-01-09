@@ -1,6 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from easy_thumbnails.fields import ThumbnailerImageField
+import re
 
 class ResidentialProperty(models.Model):
 	acres = models.TextField(max_length=800, blank=True)
@@ -238,6 +239,16 @@ class ResidentialProperty(models.Model):
 
 class listitem(models.Model):
 	text = models.TextField(max_length=1000)
+	subText = models.TextField(max_length=1000, blank=True, null=True)
+	slug = models.SlugField(blank=True)
+
+	def save(self,*args, **kwargs):
+		stringToAdd = (re.sub('[-]','',slugify(self.text)))
+		if "storey" in stringToAdd:
+			stringToAdd = "storey" + stringToAdd[:-6]		
+		self.slug = stringToAdd
+		super(listitem, self).save(*args, **kwargs)
+
 	class Meta:
 		ordering = ['text']
 

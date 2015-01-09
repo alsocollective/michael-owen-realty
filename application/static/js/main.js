@@ -41,7 +41,7 @@ var app = {
 				if (test != "mailto" && test != "tel") {
 					ga('send', 'event', 'nav', 'click', last);
 				} else {
-					ga('send', 'event', 'contact', 'click', "nav " + this.innerHTML);
+					ga('send', 'event', 'contact', 'click', "nav " + this);
 				}
 			}
 
@@ -295,6 +295,7 @@ var app = {
 					'title': 'A query search',
 					'dimension5': "" + price
 				})
+				ga('send', 'event', "search", 'click', price);
 			}
 			if (test != false) {
 				for (var a = 0, max = test.length; a < max; ++a) {
@@ -425,7 +426,7 @@ var app = {
 				priceslider = $("#priceslider")
 			}
 			priceslider.noUiSlider({
-				start: [0, 800000],
+				start: [0, 1500000],
 				connect: true,
 				behaviour: 'drag',
 				margin: 100000,
@@ -450,7 +451,7 @@ var app = {
 				priceslider = $("#bedslider")
 			}
 			priceslider.noUiSlider({
-				start: [1, 3],
+				start: [1, 6],
 				connect: true,
 				behaviour: 'drag',
 				margin: 1,
@@ -473,7 +474,7 @@ var app = {
 				priceslider = $("#bathslider")
 			}
 			priceslider.noUiSlider({
-				start: [1, 3],
+				start: [1, 6],
 				connect: true,
 				margin: 1,
 				behaviour: 'drag',
@@ -504,6 +505,7 @@ var app = {
 		setupCheckAllButtons: function() {
 			$(".filterform ul .bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
 			$(".quarterwidths >span label.bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
+			$(".column1.hometype input").click(app.search.changeStateOfShowingProp);
 		},
 		checkAllRelatedCheckboxes: function(event) {
 			if (this.checked) {
@@ -511,7 +513,15 @@ var app = {
 			} else {
 				$(this.parentNode.parentNode).find("input").each(app.search.makeUnCheck)
 			}
-
+		},
+		changeStateOfShowingProp: function(event) {
+			if ($(".hometype.neighbourhoodslist.quarterwidths ul")[0].className.split(" ")[0].length == 0) {
+				$(".hometype.neighbourhoodslist.quarterwidths").addClass("hideall")
+			}
+			$(".hometype.neighbourhoodslist.quarterwidths ul").toggleClass(this.id);
+			if ($(".hometype.neighbourhoodslist.quarterwidths ul")[0].className.split(" ")[0].length == 0) {
+				$(".hometype.neighbourhoodslist.quarterwidths").removeClass("hideall")
+			}
 		},
 		makeCheck: function(i, el) {
 			el.checked = true;
@@ -572,7 +582,7 @@ var app = {
 			app.property.coppyInit();
 			var el = $(".module >div");
 			var id = el[0].id;
-			var price = el.find('span[itemprop="price"] span[itemprop="price"]')[0].innerHTML;
+			var price = el.find('.houseprice span span')[0].innerHTML;
 
 			price = price.split(",")
 			var out = "";
@@ -595,6 +605,8 @@ var app = {
 				'dimension4': "" + style,
 				'dimension2': "" + type
 			})
+			ga('send', 'event', "property", 'click', id);
+
 			console.log(price, id, style, type)
 
 			// ga('send', 'event', 'property viewed', 'clicked', {

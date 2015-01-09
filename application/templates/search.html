@@ -26,7 +26,7 @@
 		<div class="column5 leftmargin medium-column7" id="neighbourhoodajax">
 			<div class="column2 small-column4">
 				<br class=".hide .medium-show .small-hide">
-				<img src="{{MEDIA_URL}}{{desscrrrippttiion.image}}">
+				<img src="{{MEDIA_URL}}{{desscrrrippttiion.image}}" alt="{{desscrrrippttiion.title}} image">
 			</div><div class="norightmargin column3 medium-column5 medium-leftmargin small-column7" >
 				<h3 class="purp">{{desscrrrippttiion.title}}</h3>
 				<p>{{desscrrrippttiion.description}}</p>
@@ -114,18 +114,20 @@
 
 				<h4 class="errormessage">please select atleast 3 Neighbourhoods, or all(by selecting none)</h4>				
 				{% for region in filter.location %}<ul>
-					<li><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
+					<li class="storey112 storey212 storey2 storey3 apartment backsplit bungalow sidesplit"><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
 					{% for community in region.community.all %}
-						<li><input type="checkbox" id="{{community.text}}" name="community{{community.text}}"><label for="{{community.text}}"><span></span>{{community.text|titlecase}}</label></li>
+						<li class="{{community.subText}}"><input type="checkbox" id="{{community.slug}}" name="community{{community.text}}"><label for="{{community.slug}}"><span></span>{{community.text|titlecase}}</label></li>
 					{% endfor %}
-				</ul>{% endfor %}						
+				</ul>{% endfor %}
 			</div>
 			<div class="column1 norightmargin medium-column1 small-column3 hometype">
 
 				<h3 >home type</h3>
 				<ul>
 					{% for type in filter.main.style.all %}
-						<li><input type="checkbox" id="{{type}}" name="style{{type}}"><label for="{{type}}"><span></span>{{type}}</label></li>
+						{% if type.slug != "apartment" %}
+							<li><input type="checkbox" id="{{type.slug}}" name="style{{type}}"><label for="{{type.slug}}"><span></span>{{type}}</label></li>
+						{% endif %}
 					{% endfor %}
 				</ul>
 			</div>

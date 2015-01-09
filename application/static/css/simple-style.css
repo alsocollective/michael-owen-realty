@@ -1093,6 +1093,10 @@ label {
     font-size: 2em; }
   #searchfield .column6.norightmargin .neighbourhoodslist > span input, #searchfield .column6.norightmargin .neighbourhoodslist > span label {
     margin-top: 28px; }
+  #searchfield .column6.norightmargin .hideall li {
+    display: none; }
+  #searchfield .column6.norightmargin .hideall .storey112 li.storey112, #searchfield .column6.norightmargin .hideall .storey212 li.storey212, #searchfield .column6.norightmargin .hideall .storey2 li.storey2, #searchfield .column6.norightmargin .hideall .storey3 li.storey3, #searchfield .column6.norightmargin .hideall .apartment li.apartment, #searchfield .column6.norightmargin .hideall .backsplit li.backsplit, #searchfield .column6.norightmargin .hideall .bungalow li.bungalow, #searchfield .column6.norightmargin .hideall .sidesplit li.sidesplit {
+    display: list-item; }
 #searchfield input[type="checkbox"] {
   width: 0;
   overflow: hidden;
@@ -1349,6 +1353,8 @@ label {
         line-height: 1.6em; }
   .module #gmap {
     padding-bottom: 30px; }
+    .module #gmap iframe {
+      min-height: 250px; }
   .module .firstimageloading {
     position: relative; }
     .module .firstimageloading div {
@@ -2252,3 +2258,5 @@ label {
 
   .module #exbutton {
     right: 0; } }
+#apartment {
+  display: none !important; }
