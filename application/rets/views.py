@@ -19,7 +19,7 @@ def emailBoutPorp(data):
 	print "sent Message"
 	title = "email from %s" %data["sender"]
 	message = "Message: %s From: %s"%(data["body"],data["sender"])
-	send_mail(title,message,"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
+	send_mail(title,message,"websitemicheal@gmail.com" ,["michaelowenrealestate@gmail.com"], fail_silently=False)
 # Create your views here.
 
 
