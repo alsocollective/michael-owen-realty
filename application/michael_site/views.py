@@ -24,7 +24,7 @@ def templateType(request):
 def emailBoutPorp(data):
 	title = "%s %s, from my website" %(data["firstname"],data["lastname"])
 	message = "Message: %s From:%s%s %s %s"%(data["message"],data["firstname"],data["lastname"],data["email"],data["phone"])
-	send_mail(title,message,"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
+	send_mail(title,message,"websitemicheal@gmail.com" ,["michaelowenrealestate@gmail.com"], fail_silently=False)
 
 #	load test data
 def loadTestData():
