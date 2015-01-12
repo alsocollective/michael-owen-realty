@@ -41,11 +41,11 @@ var app = {
 				if (test != "mailto" && test != "tel") {
 					ga('send', 'event', 'nav', 'click', last);
 				} else {
-					ga('send', 'event', 'contact', 'click', "nav " + this);
+					ga('send', 'event', 'contact', 'click', "nav " + this.className);
 				}
 			}
 
-			if (test != "mailto" && test != "tel") {
+			if (test != "mailto" && test != "tel" && document.URL != this.href) {
 				if (app.options.loadingpage) {
 					event.preventDefault();
 					return false;
@@ -54,6 +54,10 @@ var app = {
 				if ($("#navbutton").hasClass("navactive")) {
 					app.nav.togglemenue();
 				}
+				return false;
+			}
+			if (document.URL == this.href) {
+				event.preventDefault();
 				return false;
 			}
 		},
@@ -592,11 +596,6 @@ var app = {
 			price = out;
 			type = el.find(".buildingtype")[0].innerHTML;
 			style = el.find(".buildingstyle")[0].innerHTML;
-			// ga('set', 'dimension1', "" + price);
-			// ga('set', 'dimension3', "" + id);
-			// ga('set', 'dimension4', "" + style);
-			// ga('set', 'dimension2', "" + type);
-			// ga('send', 'pageview', '/property')
 			ga('send', 'pageview', {
 				'page': "/property",
 				'title': 'Click on a property',
@@ -607,30 +606,14 @@ var app = {
 			})
 			ga('send', 'event', "property", 'click', id);
 
-			console.log(price, id, style, type)
-
-			// ga('send', 'event', 'property viewed', 'clicked', {
-			// 	"title": "prop viewed",
-			// 	"mlsnumber": id,
-			// 	"prop-price": price,
-			// 	"prop-style": style,
-			// 	"prop-type": type
-			// })
-
-
-			// ga('ecommerce:addItem', {
-			// 	'id': id,
-			// 	'name': type,
-			// 	'category': style,
-			// 	'price': price + ".00",
-			// 	'quantity': '1',
-			// 	'currency': 'CAD'
-			// });
-			// ga('ecommerce:send');
-
 		},
 		gaEmail: function() {
 			app.social.ga("email");
+			// event.preventDefault();
+			event.stopPropagation();
+			// var w = window.open(this.href, this.target || "_blank", 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=475,height=248,left=0,top=0');
+
+			// return false;
 		},
 		exitbutton: function() {
 			$('#exbutton > div, .closebigbutton').click(app.property.exitbuttonexit);
@@ -767,6 +750,7 @@ var app = {
 			client.on("copy", function(event) {
 				var clipboard = event.clipboardData;
 				clipboard.setData("text/plain", event.target.href);
+				app.social.ga("coppy");
 			})
 			var cliplink = document.createElement("div");
 			var linkh3 = document.createElement("h3");
@@ -818,9 +802,9 @@ var app = {
 			var h3 = document.createElement("h3");
 			h3.innerHTML = replied.message;
 			message.appendChild(h3);
-			$(".request").append(message)
-			$(".requestform").addClass("hideform")
-
+			$(".request").append(message);
+			$(".requestform").addClass("hideform");
+			app.social.ga("inquiry");
 		},
 		error: function(message) {
 			console.log("ERER")
@@ -833,7 +817,7 @@ var app = {
 		},
 		trackFunction: function(event) {
 			if (ga) {
-				ga('send', 'event', "contact", 'click', "footer " + this.innerHTML);
+				ga('send', 'event', "contact", 'click', "footer " + this.className);
 			}
 		}
 	},

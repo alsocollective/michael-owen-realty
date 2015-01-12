@@ -244,9 +244,6 @@ def SingleUpdate():
 				filteroptions = updateResidentialPropertyAttributes(data,possibleobject[0],filteroptions)			
 			else:
 				filteroptions = saveResidentialPropertyAttributes(data,filteroptions)
-		
-		sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
-		filloutlists()# checkFilters()
 
 		return data
 

@@ -285,22 +285,22 @@ a {
 				width: 100%;
 			}
 			div.mover{
-				-webkit-transition: bottom 0.5s, background 0.1s;
-				-moz-transition: bottom 0.5s, background 0.1s;
-				-ms-transition: bottom 0.5s, background 0.1s;
-				-o-transition: bottom 0.5s, background 0.1s;
-				transition: bottom 0.5s, background 0.1s;				
+				-webkit-transition: top 0.5s, background 0.1s;
+				-moz-transition: top 0.5s, background 0.1s;
+				-ms-transition: top 0.5s, background 0.1s;
+				-o-transition: top 0.5s, background 0.1s;
+				transition: top 0.5s, background 0.1s;				
 				//bottom: 0;
 				display: block;
 				position: absolute;
-				bottom: 100%;
+				top: 100%;
 				background: $greybackground;
 			}	
 
 			// &:hover,
 			&.clicked{
 				div:last-child{
-					bottom: -80%;
+					top: 0%;
 				}
 			}			
 		}
