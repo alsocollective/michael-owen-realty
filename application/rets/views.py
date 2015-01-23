@@ -109,7 +109,7 @@ def loadData():
 			print "Error logging in"
 		else:
 			print "connection"
-			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
+			lastHourDateTime = datetime.today() - timedelta(hours = 24)
 			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 			print "making request"
 			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
@@ -230,8 +230,8 @@ def SingleUpdate():
 
 		print "loading images"			
 		for mls in imagelist:
-			thread.start_new_thread(getfirstimage, (mls,))
-			# getfirstimage(mls)
+			# thread.start_new_thread(getfirstimage, (mls,))
+			getfirstimage(mls)
 			pass
 		print "returning the data"
 		session.Logout()		
