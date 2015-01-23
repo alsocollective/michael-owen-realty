@@ -479,8 +479,8 @@ var app = {
 				behaviour: 'drag',
 				margin: 1,
 				range: {
-					'min': [propertySettings.bed.min],
-					'max': [propertySettings.bed.max]
+					'min': 0,
+					'max': 10
 				},
 				format: wNumb({
 					mark: '.',
@@ -497,7 +497,7 @@ var app = {
 				priceslider = $("#bathslider")
 			}
 			priceslider.noUiSlider({
-				start: [1, 6],
+				start: [0, 10],
 				connect: true,
 				margin: 1,
 				behaviour: 'drag',
