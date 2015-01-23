@@ -195,6 +195,7 @@ def getFullListOfMLS():
 	session.Logout();
 
 def SingleUpdate():
+	print "doing a full pull from the server"
 	session = librets.RetsSession(rets_connection.login_url)
 
 	# session.SetHttpLogName("log.txt");
