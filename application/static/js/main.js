@@ -497,13 +497,13 @@ var app = {
 				priceslider = $("#bathslider")
 			}
 			priceslider.noUiSlider({
-				start: [0, 10],
+				start: [1, 6],
 				connect: true,
 				margin: 1,
 				behaviour: 'drag',
 				range: {
-					'min': [propertySettings.bath.min],
-					'max': [propertySettings.bath.max]
+					'min': 0,
+					'max': 10
 				},
 				format: wNumb({
 					mark: '.',
