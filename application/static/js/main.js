@@ -474,7 +474,7 @@ var app = {
 				priceslider = $("#bedslider")
 			}
 			priceslider.noUiSlider({
-				start: [1, 6],
+				start: [1, 5],
 				connect: true,
 				behaviour: 'drag',
 				margin: 1,
@@ -497,7 +497,7 @@ var app = {
 				priceslider = $("#bathslider")
 			}
 			priceslider.noUiSlider({
-				start: [1, 6],
+				start: [1, 4],
 				connect: true,
 				margin: 1,
 				behaviour: 'drag',
