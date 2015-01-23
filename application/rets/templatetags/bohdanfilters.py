@@ -66,3 +66,12 @@ def devidebysix(count):
 # @register.filter(name="pagify")
 # def pagify(count,value):
 
+@register.filter(name="halfNum")
+def halfNum(count):
+	return count/2;
+
+@register.filter(name="devbythree")
+def devbythree(count):
+	if count == 0:
+		return False
+	return count % 3 == 0;

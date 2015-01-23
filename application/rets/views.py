@@ -109,7 +109,7 @@ def loadData():
 			print "Error logging in"
 		else:
 			print "connection"
-			lastHourDateTime = datetime.today() - timedelta(hours = 24)
+			lastHourDateTime = datetime.today() - timedelta(hours = 0.5)
 			lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 			print "making request"
 			request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
@@ -437,9 +437,9 @@ def actualward(valuein):
 	elif "C" in valuein:
 		digit = int(re.search(r'\d+', valuein).group())
 		if(digit in [3,4,6,7,10,12,13,14,15]):
-			return "center-north"
+			return "centre-north"
 		else:
-			return "center"
+			return "centre"
 	else:
 		return "east"
 
@@ -495,8 +495,8 @@ def filloutlists():
 	warddic = {
 		'west':'',
 		'east':'',
-		'center':'',
-		'center-north':''
+		'centre':'',
+		'centre-north':''
 	}
 	
 	for ward in warddic:
@@ -575,16 +575,16 @@ def checkFilters():
 			gar_spaces.append(prop.gar_spaces)
 
 	# print cityList[area.index("Toronto")]
-	torontoCon = {"west":[],"east":[],"center":[],"center-north":[]}
+	torontoCon = {"west":[],"east":[],"centre":[],"centre-north":[]}
 	for ward in cityList[area.index("Toronto")]["wardobject"]:
 		if "W" in ward["ward"]:
 			torontoCon["west"] += ward["community"]
 		elif "C" in ward["ward"]:
 			digit = int(re.search(r'\d+', ward["ward"]).group())
 			if(digit in [3,4,6,7,10,12,13,14,15]):
-				torontoCon["center-north"] += ward["community"]
+				torontoCon["centre-north"] += ward["community"]
 			else:
-				torontoCon["center"] += ward["community"]
+				torontoCon["centre"] += ward["community"]
 		else:
 			torontoCon["east"] += ward["community"]
 

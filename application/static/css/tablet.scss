@@ -252,6 +252,9 @@
 	}
 
 	.casestudy {
+		&.casesell{
+			background: $yellow4;
+		}
 		div.sectiontitle {
 		display: block;
 		position: relative;
@@ -266,7 +269,7 @@
 	}
 	#searchfield {
 		.quarterwidths ul{
-			height: 150px;
+			// height: 150px;
 		}
 		.column4.offcolumn1>div:first-child{
 			padding-top:100px;
@@ -289,6 +292,7 @@
 
 	#testimonials {
 		margin-top: 80px;
+		background: $yellow4;
 	}
 	#testimonials .reference {	
 		padding-top: 62px;
@@ -433,7 +437,10 @@
 			color: #7d6cb1;
 		}
 	}
-} 
+}
+#footer.footersell{
+	background: $yellow4;
+}
 
 	.aboutimg2, .buyimg2{
 		margin-top: 80px;

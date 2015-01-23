@@ -172,6 +172,9 @@
 		display: block;
 		padding-bottom:30px;
 	}
+	.mobile .hide, .email .hide{
+		display: none;
+	}
 	.hide2{
 		display: block;
 		line-height: 0;

@@ -221,7 +221,7 @@ class ResidentialProperty(models.Model):
 	numofphotos = models.IntegerField(blank=True,null=True)
 	firstphoto = models.BooleanField(default=True)
 	featured = 	models.DateTimeField(auto_now=False,blank=True,null=True) 
-
+	ad_text = models.TextField(max_length=1000, blank=True)
 
 	def admin_image(self):
 		return '<img style="width:200px;height:auto;" src="/static/images/%s-1.jpg"/>' % self.ml_num

@@ -43,9 +43,11 @@
 
 		</div>
 
-		<ul class="propertylist leftmargin">
-			{% include "properties.html" with data=featured %}
-		</ul>
+		<div id="featuredprops" >
+			<div><ul class="propertylist leftmargin">
+				{% include "properties.html" with data=featured %}		
+			</ul></div>	
+		</div>
 
 	</div>
 
@@ -144,7 +146,6 @@
 	$( document ).ready(function(){
 		app.about.init();
 		// app.sell.init();
-		console.log("SEND INDEX !!!!!!!!!!!!!!")
 		ga('send', 'pageview','/');
 	});
 </script>

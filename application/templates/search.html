@@ -107,31 +107,39 @@
 				</div>
 			</div>
 			<br>
-			<div class="column4 medium-column5 small-column7 hometype neighbourhoodslist quarterwidths">
+			<div class="column1 medium-column2 small-column3 hometype neighbourhoodslist quarterwidths">
 				<h3>Neighbourhood</h3>
 				<span><input type="checkbox" id="allneighbourhoods" name="notuse"><label for="allneighbourhoods" class="bold"><span></span>select all</label></span>
 				<br>
 
 				<h4 class="errormessage">please select atleast 3 Neighbourhoods, or all(by selecting none)</h4>				
-				{% for region in filter.location %}<ul>
-					<li class="storey112 storey212 storey2 storey3 apartment backsplit bungalow sidesplit"><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" class="bold"><span></span>{{region}}</label></li>
+				{% for region in filter.location %}<ul {% if forloop.first == False %}class="nopaddingli"{% endif %}>
+					<li class="storey112 storey212 storey2 storey3 apartment backsplit bungalow sidesplit titleelement"><input type="checkbox" id="{{region}}" name="notuse{{region}}"><label for="{{region}}" ><span></span>{{region}}</label></li>
 					{% for community in region.community.all %}
 						<li class="{{community.subText}}"><input type="checkbox" id="{{community.slug}}" name="community{{community.text}}"><label for="{{community.slug}}"><span></span>{{community.text|titlecase}}</label></li>
 					{% endfor %}
 				</ul>{% endfor %}
 			</div>
-			<div class="column1 norightmargin medium-column1 small-column3 hometype">
+			<div class="column2 norightmargin medium-column2 small-column4 hometype halful">
 
 				<h3 >home type</h3>
 				<ul>
-					{% for type in filter.main.style.all %}
-						{% if type.slug != "apartment" %}
-							<li><input type="checkbox" id="{{type.slug}}" name="style{{type}}"><label for="{{type.slug}}"><span></span>{{type}}</label></li>
-						{% endif %}
-					{% endfor %}
+					{% with filter.main.style.all as apartmentstyles %}
+					    
+						{% for type in apartmentstyles %}
+							{% if forloop.counter0 == apartmentstyles|length|halfNum %}
+								</ul>
+								<ul>
+							{% endif %}
+							{% if type.slug != "apartment" %}
+								<li><input type="checkbox" id="{{type.slug}}" name="style{{type}}"><label for="{{type.slug}}"><span></span>{{type}}</label></li>
+							{% endif %}
+						{% endfor %}
+					{% endwith %}
+
 				</ul>
 			</div>
-			<div class="column5 medium-column5 small-column3 hometype">
+			<div class="column2 medium-column2 small-column7 hometype">
 
 				<input type="checkbox" id="onlyjandd" name="onlyjandd"><label for="onlyjandd"><span></span>Only search for Royal LePage Johnston &amp; Daniel Division, Brokerage</label>
 			</div>
@@ -182,6 +190,13 @@
 	};
 	$( document ).ready(function(){		
 		app.search.init()
+		if ($(document.body).hasClass("crabapple")) {
+			$(document.body).removeClass("smooth");
+			if($(".mainwrapper").length <= 1){
+				var element = $(".mainwrapper")[0];
+				element.parentNode.appendChild(element);
+			}
+		}		
 		ga('send', 'pageview','/search');
 	});
 

@@ -613,6 +613,9 @@ a {
   .desktop .propertylist li:hover div.mover {
     background: #ffc123; }
 
+.csscolumns #featuredprops {
+  margin-bottom: -220px; }
+
 .csscolumns .propertylist {
   -moz-column-count: 3;
   -moz-column-gap: 1.53%;
@@ -768,18 +771,21 @@ nav {
 #navbutton {
   display: none; }
 
-.mainwrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+.smooth.crabapple .mainwrapper {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   -moz-overflow-scrolling: touch;
   -ms-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
   overflow-scrolling: touch; }
+
+.mainwrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll; }
   .mainwrapper.offright {
     -webkit-animation-delay: 0s;
     -webkit-animation-duration: 2s;
@@ -887,6 +893,9 @@ nav {
     background-position: top; }
   #smallsplash404 .fivehundredimg {
     background-position: left; }
+
+#about {
+  margin-top: 30px; }
 
 .aboutimg {
   height: 350px;
@@ -1057,6 +1066,8 @@ label {
     margin-top: -1px; }
   #searchfield .column6.norightmargin #priceslider, #searchfield .column6.norightmargin #bedslider, #searchfield .column6.norightmargin #bathslider {
     margin: 10px 0 20px 0; }
+  #searchfield .column6.norightmargin #priceslider {
+    padding-right: 0.91%; }
   #searchfield .column6.norightmargin .noUi-base {
     background: #d8dadb; }
   #searchfield .column6.norightmargin .noUi-background {
@@ -1072,6 +1083,7 @@ label {
     #searchfield .column6.norightmargin .hometype ul {
       padding-bottom: 10px; }
   #searchfield .column6.norightmargin #priceinputs .priceinput {
+    max-width: 49%;
     display: inline-block; }
     #searchfield .column6.norightmargin #priceinputs .priceinput input {
       margin-bottom: 20px;
@@ -1081,9 +1093,27 @@ label {
       text-align: right; }
     #searchfield .column6.norightmargin #priceinputs .priceinput:last-child input {
       text-align: right; }
+  #searchfield .column6.norightmargin .halful ul {
+    width: 49%;
+    display: inline-block; }
+  #searchfield .column6.norightmargin .neighbourhoodslist.column1 ul {
+    padding-bottom: 0px;
+    padding-top: 7px;
+    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: left; }
+  #searchfield .column6.norightmargin .neighbourhoodslist ul li {
+    display: none; }
+    #searchfield .column6.norightmargin .neighbourhoodslist ul li label {
+      text-transform: capitalize; }
+  #searchfield .column6.norightmargin .neighbourhoodslist ul li:first-child {
+    display: block;
+    padding-bottom: 0; }
+  #searchfield .column6.norightmargin .neighbourhoodslist .nopaddingli li {
+    padding: 0; }
   #searchfield .column6.norightmargin .neighbourhoodslist h3 {
     display: inline-block;
-    border-right: solid #7467b4 3px;
     padding: 0;
     padding-right: 15px;
     margin-top: 25px;
@@ -1093,14 +1123,15 @@ label {
     font-size: 2em; }
   #searchfield .column6.norightmargin .neighbourhoodslist > span input, #searchfield .column6.norightmargin .neighbourhoodslist > span label {
     margin-top: 28px; }
+  #searchfield .column6.norightmargin .neighbourhoodslist > span {
+    display: none; }
   #searchfield .column6.norightmargin .hideall li {
     display: none; }
-  #searchfield .column6.norightmargin .hideall .storey112 li.storey112, #searchfield .column6.norightmargin .hideall .storey212 li.storey212, #searchfield .column6.norightmargin .hideall .storey2 li.storey2, #searchfield .column6.norightmargin .hideall .storey3 li.storey3, #searchfield .column6.norightmargin .hideall .apartment li.apartment, #searchfield .column6.norightmargin .hideall .backsplit li.backsplit, #searchfield .column6.norightmargin .hideall .bungalow li.bungalow, #searchfield .column6.norightmargin .hideall .sidesplit li.sidesplit {
-    display: list-item; }
 #searchfield input[type="checkbox"] {
   width: 0;
   overflow: hidden;
-  opacity: 0; }
+  opacity: 0;
+  height: 0; }
 #searchfield input[type="checkbox"] + label span {
   display: inline-block;
   position: absolute;
@@ -1849,6 +1880,8 @@ label {
     bottom: none;
     top: 440px; }
 
+  .casestudy.casesell {
+    background: #ffcf56; }
   .casestudy div.sectiontitle {
     display: block;
     position: relative;
@@ -1859,8 +1892,6 @@ label {
   #smallsplash .buyimg, #smallsplash .sellimg, #smallsplash .propertyimg {
     background-position: left; }
 
-  #searchfield .quarterwidths ul {
-    height: 150px; }
   #searchfield .column4.offcolumn1 > div:first-child {
     padding-top: 100px; }
 
@@ -1875,7 +1906,8 @@ label {
     height: 60px; }
 
   #testimonials {
-    margin-top: 80px; }
+    margin-top: 80px;
+    background: #ffcf56; }
 
   #testimonials .reference {
     padding-top: 62px;
@@ -1975,6 +2007,9 @@ label {
     .bigbutton button:hover h3 {
       color: #7d6cb1; }
 
+  #footer.footersell {
+    background: #ffcf56; }
+
   .aboutimg2, .buyimg2 {
     margin-top: 80px; }
 
@@ -2017,7 +2052,7 @@ label {
     position: absolute;
     right: 0;
     top: 0; } }
-@media all and (max-width: 30em) {
+@media all and (max-width: 35em) {
   .grid .small-leftmargin {
     margin-left: 1.282%; }
   .grid .small-noleftmargin {
@@ -2143,6 +2178,9 @@ label {
   .hide {
     display: block;
     padding-bottom: 30px; }
+
+  .mobile .hide, .email .hide {
+    display: none; }
 
   .hide2 {
     display: block;

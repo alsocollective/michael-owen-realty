@@ -124,6 +124,9 @@ nav li:nth-child(6) a, nav li:last-child a {
   display: block;
   padding-bottom: 30px; }
 
+.mobile .hide, .email .hide {
+  display: none; }
+
 .hide2 {
   display: block;
   line-height: 0; }

@@ -7,7 +7,7 @@ from rets.models import *
 # Ml num:
 
 class residentail(admin.ModelAdmin):
-	list_display = ('ml_num','status' ,'addr','admin_image','municipality','municipality_district','s_r','featured','rltr')
+	list_display = ('ml_num','lp_dol','status' ,'addr','admin_image','s_r','featured')
 	list_filter = ('status','pix_updt','s_r','firstphoto','style','type_own1_out','area','rltr')
 	list_editable = ('featured',)
 	search_fields = ['ml_num','community']

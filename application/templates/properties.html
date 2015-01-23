@@ -15,7 +15,11 @@
 		
 	</div>
 {% endif %}
-{% for prop in data %}<li class="column2 medium-column7 small-column7 new">
+{% for prop in data %}{% if not totalcount %}
+	{%if forloop.counter0|devbythree %}
+		</ul></div><div><ul class="propertylist leftmargin">
+	{%endif%}
+{% endif %}<li class="column2 medium-column7 small-column7 new">
 	<a href="/property/{{prop.ml_num}}">
 		<div class="propertyimage medium-column3 small-column7">
 			<img itemprop="image" class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg" alt="{{prop.ml_num}} image">
@@ -29,7 +33,7 @@
 				<h3 class="purp agencey">{{prop.rltr}}</h3>
 			{% endif %}<br>
 			<h3>{{prop.lp_dol|nicemoney}}</h3>
-			<p><span itemprop="description">{{prop.extras|limilength}}</span></p><span class="medium-hide"><br></span>
+			<p><span itemprop="description">{{prop.ad_text|limilength}}</span></p><span class="medium-hide"><br></span>
 			<div class="share">
 				<div>
 					<h3>share</h3>
@@ -49,8 +53,6 @@
 						<a href="/property/{{prop.ml_num}}" class="coppylink">&nbsp;&nbsp;link</a>
 					</h3>
 					<!--<![endif]-->
-					
-
 				</div>
 			</div>		
 		</div>

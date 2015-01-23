@@ -53,23 +53,38 @@ def getCssClass(request):
 		out = "mobile phone"
 	return out
 
+def parseUserAgent(agent):
+	split = agent.split()
+	if(split[1] == "(iPad;" or split[1] == "(iPhone;"):
+		number = re.findall("[0-9]*_[0-9]_[0-9]",agent)
+		if(len(number)>0):
+			try:
+				if(int(number[0][0]) < 8):
+					return "crabapple"
+				else:
+					return ""
+			except Exception, e:
+				return "noncrabapple"
+				pass
+	return "noncrabapple"
+
 def getFeatured():
-	return ResidentialProperty.objects.all().order_by('-featured')[:3]
+	return ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured')
 
 def home(request):
 	getPhoneEmail(request)
 	out = AboutPage.objects.all().order_by("created")[0]
 	page = "Home"
-	return render_to_response('about.html',{"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':page})
+	return render_to_response('about.html',{"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':page})
 
 def sell(request):	
 	out = SellPage.objects.all().order_by("created")[0]
 	page = "Selling"
-	return render_to_response('sell.html',{"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request), 'pageTitle':page})
+	return render_to_response('sell.html',{"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request), 'pageTitle':page})
 
 def buy(request):
 	out = BuyPage.objects.all().order_by("created")[0]		
-	return render_to_response('buy.html',{"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
+	return render_to_response('buy.html',{"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
 	
 def search(request):
 	template = templateType(request)
@@ -78,7 +93,7 @@ def search(request):
 	out.update(csrf(request))
 	out["pagecontent"] = SearchPage.objects.all().order_by("created")[0]			
 	out["desscrrrippttiion"] = NeightbourHood.objects.get(slug="little-italy")
-
+	out["oldapple"] = parseUserAgent(request.META['HTTP_USER_AGENT'])
 	return render_to_response('search.html',out)
 
 def fourofour(request):
@@ -155,11 +170,13 @@ def testView(request):
 		value = getFullListOfMLS()
 		sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
 		filloutlists()# checkFilters()
+		send_mail("Micheal Owen Site Update","update the treb with %d entreis"%len(datain),"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
 		return HttpResponse("update the treb with %d entreis"%len(datain), content_type='application/json')	
 
 	except Exception, e:
 		print "Could not acceses the TREB DB"
 		print e
+		send_mail("Micheal Owen Site Update Failed","Failed to work due to... %s"%e,"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)		
 		return HttpResponse("Could not acceses the TREB DB", content_type='application/json')	
 
 

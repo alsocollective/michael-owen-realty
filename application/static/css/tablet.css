@@ -290,6 +290,8 @@ nav {
   bottom: none;
   top: 440px; }
 
+.casestudy.casesell {
+  background: #ffcf56; }
 .casestudy div.sectiontitle {
   display: block;
   position: relative;
@@ -300,8 +302,6 @@ nav {
 #smallsplash .buyimg, #smallsplash .sellimg, #smallsplash .propertyimg {
   background-position: left; }
 
-#searchfield .quarterwidths ul {
-  height: 150px; }
 #searchfield .column4.offcolumn1 > div:first-child {
   padding-top: 100px; }
 
@@ -316,7 +316,8 @@ nav {
   height: 60px; }
 
 #testimonials {
-  margin-top: 80px; }
+  margin-top: 80px;
+  background: #ffcf56; }
 
 #testimonials .reference {
   padding-top: 62px;
@@ -415,6 +416,9 @@ nav {
   border: 1px solid #7467b4; }
   .bigbutton button:hover h3 {
     color: #7d6cb1; }
+
+#footer.footersell {
+  background: #ffcf56; }
 
 .aboutimg2, .buyimg2 {
   margin-top: 80px; }

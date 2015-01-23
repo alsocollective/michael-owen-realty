@@ -334,7 +334,9 @@ a {
 .coppylink{
 
 }
-
+.csscolumns #featuredprops {
+	margin-bottom: -220px;
+}
 .csscolumns .propertylist{
 
 	-moz-column-count:3;
@@ -550,7 +552,14 @@ nav {
 #navbutton {
 	display: none;
 }
-
+.smooth.crabapple .mainwrapper{
+	overflow: scroll;	
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	-ms-overflow-scrolling: touch;
+	-o-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+}
 .mainwrapper {
 	position: absolute;
 	top: 0;
@@ -561,11 +570,7 @@ nav {
 	> div {
 		// overflow: hidden;
 	}
-	-webkit-overflow-scrolling: touch;
-	-moz-overflow-scrolling: touch;
-	-ms-overflow-scrolling: touch;
-	-o-overflow-scrolling: touch;
-	overflow-scrolling: touch;
+
 	// -webkit-transition: left 1s ease-in-out;
 	// -moz-transition: left 1s ease-in-out;
 	// -o-transition: left 1s ease-in-out;
@@ -652,6 +657,10 @@ nav {
 	.fivehundredimg{
 		background-position: left;
 	}
+}
+
+#about{
+	margin-top: 30px;
 }
 
 .aboutimg{
@@ -897,6 +906,9 @@ label {
 		#priceslider, #bedslider, #bathslider {
 			margin: 10px 0 20px 0;
 		}
+		#priceslider{
+			padding-right: 0.91%;
+		}
 		.noUi-base {
 			background: $grey2;
 		}
@@ -921,6 +933,7 @@ label {
 		#priceinputs {
 			//width: 100%;
 			.priceinput {
+				max-width: 49%;
 			    //width: 50%;
 				display: inline-block;
 				input {
@@ -936,10 +949,37 @@ label {
 				}
 			}
 		}
+		.halful{
+			ul{
+				width: 49%;
+				display: inline-block;
+			}
+		}
 		.neighbourhoodslist{
+			&.column1 ul{
+				padding-bottom: 0px;
+				padding-top: 7px;
+				margin-bottom: 0;
+				display: block;
+				width: 100%;
+				text-align: left;
+			}
+			ul li{
+				display: none;
+				label{
+					text-transform: capitalize;
+				}
+			}
+			ul li:first-child{
+				display: block;
+				padding-bottom: 0;
+			}
+			.nopaddingli li{
+				padding: 0;
+			}
 			h3{
 				display: inline-block;
-				border-right: solid #7467b4 3px;
+				// 		border-right: solid #7467b4 3px;
 				padding: 0;
 				padding-right: 15px;
 				margin-top: 25px;
@@ -952,13 +992,16 @@ label {
 			>span input,>span label{
 				margin-top: 28px;
 			}
+			> span{
+				display: none;
+			}
 		}
 		.hideall{
 			li{
 				display: none;
 			}
 			.storey112 li.storey112,.storey212 li.storey212,.storey2 li.storey2,.storey3 li.storey3,.apartment li.apartment,.backsplit li.backsplit,.bungalow li.bungalow,.sidesplit li.sidesplit{
-				display: list-item;
+				// display: list-item;
 			}
 
 		}
@@ -967,6 +1010,7 @@ label {
 		width: 0;
 		overflow: hidden;
 		opacity: 0;
+		height: 0;
 	}
 	input[type="checkbox"] + label span {
 		display: inline-block;

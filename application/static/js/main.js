@@ -94,7 +94,20 @@ var app = {
 				app.url.gotohashlocation();
 				app.options.previousURL = document.URL.split("#")[0];
 				document.getElementById("main-title").innerHTML = "Michael Owen Real Estate | " + name
+				app.nav.setBodyClass(name);
 			});
+		},
+		setBodyClass: function(newClass) {
+			var body = $(document.body);
+			if (newClass == "search") {
+				body.removeClass("smooth");
+			} else {
+				body.addClass("smooth");
+			}
+			// body.removeClass("about");
+			// body.removeClass("sell");
+			// body.removeClass("search");
+			// body.addClass(newClass);
 		},
 		deleteEl: function(element, time) {
 			setTimeout(function() {
@@ -235,6 +248,12 @@ var app = {
 				arrows: false,
 				autoplay: true,
 				autoplaySpeed: 10000
+			});
+			$("#featuredprops").slick({
+				adaptiveHeight: false,
+				arrows: false,
+				autoplay: true,
+				autoplaySpeed: 5000
 			});
 			app.property.setup();
 			app.sell.slicksetup();
@@ -507,7 +526,7 @@ var app = {
 			return false;
 		},
 		setupCheckAllButtons: function() {
-			$(".filterform ul .bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
+			$(".filterform ul .titleelement").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
 			$(".quarterwidths >span label.bold").parent().find("input").change(app.search.checkAllRelatedCheckboxes);
 			$(".column1.hometype input").click(app.search.changeStateOfShowingProp);
 		},
