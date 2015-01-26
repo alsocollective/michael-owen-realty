@@ -1,7 +1,8 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from easy_thumbnails.fields import ThumbnailerImageField
-import re
+import re,os, os.path
+from michael_site.settings import rets_connection,MEDIA_ROOT
 
 class ResidentialProperty(models.Model):
 	acres = models.TextField(max_length=800, blank=True)
@@ -219,7 +220,7 @@ class ResidentialProperty(models.Model):
 	waterfront = models.TextField(max_length=800, blank=True)
 	zoning = models.TextField(max_length=1000, blank=True)
 	numofphotos = models.IntegerField(blank=True,null=True)
-	firstphoto = models.BooleanField(default=True)
+	firstphoto = models.BooleanField(default=False)
 	featured = 	models.DateTimeField(auto_now=False,blank=True,null=True) 
 	ad_text = models.TextField(max_length=1000, blank=True,null=True)
 
@@ -236,6 +237,14 @@ class ResidentialProperty(models.Model):
 			return self.get(**kwargs)
 		except self.model.DoesNotExist:
 			return None
+
+	def save(self,*args, **kwargs):
+		# self.slug = slugify(self.title)
+		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,self.ml_num))):
+			self.firstphoto = True
+		else:
+			self.firstphoto = False
+		super(ResidentialProperty, self).save(*args, **kwargs)
 
 class listitem(models.Model):
 	text = models.TextField(max_length=1000)

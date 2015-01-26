@@ -250,37 +250,42 @@ def SingleUpdate():
 
 
 def getfirstimage(imageid):
-	if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
-		print "image already loaded"
-		return "image already exists"
-	print "new image %s" %imageid
-	session = librets.RetsSession(rets_connection.login_url)
-	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
-		print "Error logging in"
-	else:
-		print "\tloading"		
-		# printoutbasics(session)
-		request = librets.GetObjectRequest("Property", "Photo")
-		request.AddAllObjects(imageid)
-		response = session.GetObject(request)
-		object_descriptor = response.NextObject()
-		if(object_descriptor != None):
-			object_key = object_descriptor.GetObjectKey()
-			object_id = object_descriptor.GetObjectId()
-			# content_type = object_descriptor.GetContentType()
-			# description = object_descriptor.GetDescription()
-			output_file_name = object_key + "-" + str(object_id) + ".jpg"
-			file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
-			file.write(object_descriptor.GetDataAsString())
-			file.close()
-			print "\tloaded"
+	try:	
+		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
+			print "image already loaded"
+			return "image already exists"
+		print "new image %s" %imageid
+		session = librets.RetsSession(rets_connection.login_url)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
 		else:
-			print "no image to be loaded"
-			prop = ResidentialProperty(ml_num=imageid,getfirstimage=False)
-			prop.save()
-		return "Got first image"
-	return "Failed to load images"
-	session.Logout();
+			print "\tloading"		
+			# printoutbasics(session)
+			request = librets.GetObjectRequest("Property", "Photo")
+			request.AddAllObjects(imageid)
+			response = session.GetObject(request)
+			object_descriptor = response.NextObject()
+			if(object_descriptor != None):
+				object_key = object_descriptor.GetObjectKey()
+				object_id = object_descriptor.GetObjectId()
+				# content_type = object_descriptor.GetContentType()
+				# description = object_descriptor.GetDescription()
+				output_file_name = object_key + "-" + str(object_id) + ".jpg"
+				file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
+				file.write(object_descriptor.GetDataAsString())
+				file.close()
+				print "\tloaded"
+			else:
+				print "no image to be loaded"
+				prop = ResidentialProperty(ml_num=imageid,getfirstimage=False)
+				prop.save()
+			return "Got first image"
+		return "Failed to load images"
+		session.Logout();
+	except Exception, e:
+		print "failed"
+		return "Failed to load Image, this post might not have an image..."
+		pass
 def getAllImages(imageid):
 	print "load images for: %s"%imageid
 	imageid = imageid
@@ -678,6 +683,20 @@ def checkFilters():
 	# 	myFilter.area.add(newArea)
 
 	myFilter.save()
+
+def checkIfAllPropsHaveOnePhoto():
+	properties = ResidentialProperty.objects.filter(s_r="Sale",status="A")
+	for prop in properties:
+		getfirstimage(prop.ml_num)
+
+def saveAllProp():
+	properties = ResidentialProperty.objects.filter(s_r="Sale",status="A")
+	for prop in properties:
+		prop.save()
+		if(not prop.firstphoto):
+			getfirstimage(prop.ml_num)
+			prop.save()
+
 
 
 def getPeram():

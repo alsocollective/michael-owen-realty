@@ -22,7 +22,8 @@
 			</h2>
 		</div>
 
-
+		    
+		
 		<div class="column5 leftmargin medium-column7" id="neighbourhoodajax">
 			<div class="column2 small-column4">
 				<br class=".hide .medium-show .small-hide">
@@ -31,18 +32,18 @@
 				<h3 class="purp">{{desscrrrippttiion.title}}</h3>
 				<p>{{desscrrrippttiion.description}}</p>
 			</div>
-		</div><div class="column1 medium-leftmargin medium-offcolumn2 medium-column2 medium-noleftmargin small-column3 small-offcolumn0">
-			<h3 class="neighmargin">Center</h3>
+		</div>{% with pagecontent.locations.all as locations%}<div class="column1 medium-leftmargin medium-offcolumn2 medium-column2 medium-noleftmargin small-column3 small-offcolumn0">
+			<h3 class="neighmargin">Centre</h3>
 			<ul>		
-			{% for location in pagecontent.locations.all %}
+			{% for location in locations %}
 				{% if location.location == 'center' %}
 					<li><a href="/ajaxneighbourhood/{{location.slug}}">{{location}}</a></li>
 				{% endif %}
 			{% endfor %}
 			</ul>
-			<h3 class="neighmargin">Center North</h3>
+			<h3 class="neighmargin">Centre North</h3>
 			<ul>		
-			{% for location in pagecontent.locations.all %}
+			{% for location in locations %}
 				{% if location.location == 'center north' %}
 					<li><a href="/ajaxneighbourhood/{{location.slug}}">{{location}}</a></li>
 				{% endif %}
@@ -51,7 +52,7 @@
 		</div><div class="column1 medium-offcolumn2 medium-column2 medium-noleftmargin small-leftmargin small-column3 small-offcolumn0"><!--norightmargin -->
 			<h3 class="neighmargin">West</h3>
 			<ul>		
-			{% for location in pagecontent.locations.all %}
+			{% for location in locations %}
 				{% if location.location == 'west' %}
 					<li><a href="/ajaxneighbourhood/{{location.slug}}">{{location}}</a></li>
 				{% endif %}
@@ -59,14 +60,14 @@
 			</ul>
 			<h3 class="neighmargin">East</h3>
 			<ul>		
-			{% for location in pagecontent.locations.all %}
+			{% for location in locations %}
 				{% if location.location == 'east' %}
 					<li><a href="/ajaxneighbourhood/{{location.slug}}">{{location}}</a></li>
 				{% endif %}
 			{% endfor %}
 			</ul>
-			
 		</div>
+		{% endwith %}
 	</div>
 
 	<div id="searchfield">

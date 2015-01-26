@@ -171,6 +171,8 @@ def testView(request):
 		sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
 		filloutlists()# checkFilters()
 		send_mail("Micheal Owen Site Update","update the treb with %d entreis"%len(datain),"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
+		# makes sure that all props have images...
+		saveAllProp()
 		return HttpResponse("update the treb with %d entreis"%len(datain), content_type='application/json')	
 
 	except Exception, e:
