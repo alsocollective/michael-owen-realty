@@ -22,7 +22,7 @@
 {% endif %}<li class="column2 medium-column7 small-column7 new">
 	<a href="/property/{{prop.ml_num}}">
 		<div class="propertyimage medium-column3 small-column7">
-			{% if data.firstphoto %}
+			{% if prop.firstphoto %}
 				<img itemprop="image" class="grayscale" src="{% static ""%}images/{{prop.ml_num}}-1.jpg" alt="{{prop.ml_num}} image">
 			{% endif %}
 
