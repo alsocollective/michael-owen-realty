@@ -27,7 +27,9 @@
 		<div class="column5 leftmargin medium-column7" id="neighbourhoodajax">
 			<div class="column2 small-column4">
 				<br class=".hide .medium-show .small-hide">
-				<img src="{{MEDIA_URL}}{{desscrrrippttiion.image}}" alt="{{desscrrrippttiion.title}} image">
+				{% if desscrrrippttiion.image %}
+					<img src="{{MEDIA_URL}}{{desscrrrippttiion.image}}" alt="{{desscrrrippttiion.title}} image">
+				{% endif %}
 			</div><div class="norightmargin column3 medium-column5 medium-leftmargin small-column7" >
 				<h3 class="purp">{{desscrrrippttiion.title}}</h3>
 				<p>{{desscrrrippttiion.description}}</p>
