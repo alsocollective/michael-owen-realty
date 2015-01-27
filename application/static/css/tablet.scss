@@ -332,6 +332,7 @@
 				margin-right: 0px;
 				position: absolute;
 				height: 100%;
+				text-align: left;
 				.backgroundimage{
 					display: block;
 					background-size:cover;
@@ -346,6 +347,9 @@
 				}	
 				img{
 					display: none;
+				}
+				li{
+					text-align: left;
 				}
 			}			
 		}

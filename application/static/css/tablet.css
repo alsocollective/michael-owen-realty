@@ -345,7 +345,8 @@ nav {
     display: inline-block;
     margin-right: 0px;
     position: absolute;
-    height: 100%; }
+    height: 100%;
+    text-align: left; }
     .propertylist li .propertyimage .backgroundimage {
       display: block;
       background-size: cover;
@@ -359,6 +360,8 @@ nav {
       filter: gray; }
     .propertylist li .propertyimage img {
       display: none; }
+    .propertylist li .propertyimage li {
+      text-align: left; }
 .propertylist li:hover .propertyimage .backgroundimage {
   -webkit-filter: grayscale(0%) opacity(1);
   -moz-filter: grayscale(0%) opacity(1);

@@ -165,7 +165,9 @@ nav li:nth-child(6) a, nav li:last-child a {
     display: block;
     position: relative; }
     .propertylist li .propertyimage img {
-      display: block; }
+      display: block;
+      width: 100%;
+      max-height: initial; }
   .propertylist .small-column7 {
     width: auto;
     margin-right: 0 !important; }
