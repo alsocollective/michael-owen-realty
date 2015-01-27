@@ -617,10 +617,10 @@ a {
   .desktop .propertylist li:hover div.mover {
     background: #ffc123; }
 
-.csscolumns #featuredprops {
+.csscolumns-not #featuredprops {
   margin-bottom: -220px; }
 
-.csscolumns .propertylist {
+.csscolumns-not .propertylist {
   -moz-column-count: 3;
   -moz-column-gap: 1.53%;
   -webkit-column-count: 3;
@@ -628,11 +628,11 @@ a {
   column-count: 3;
   column-gap: 1.53%;
   width: 83.33%; }
-  .csscolumns .propertylist .column2, .csscolumns .propertylist .medium-column7 {
+  .csscolumns-not .propertylist .column2, .csscolumns-not .propertylist .medium-column7 {
     width: auto;
     margin-right: 0 !important;
     text-align: left; }
-  .csscolumns .propertylist li {
+  .csscolumns-not .propertylist li {
     display: block;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
@@ -641,24 +641,26 @@ a {
     -webkit-break-inside: avoid-column;
     -moz-break-inside: avoid-column;
     break-inside: avoid-column; }
-  .csscolumns .propertylist .pageidicator {
-    position: absolute;
-    bottom: 0em;
-    text-align: center;
-    width: 100%; }
-    .csscolumns .propertylist .pageidicator h2 {
-      color: #7467b4;
-      width: 100%;
-      text-align: center; }
-  .csscolumns .propertylist .pageidicator_top {
-    position: absolute;
-    top: 0em;
-    text-align: center;
-    width: 100%; }
-    .csscolumns .propertylist .pageidicator_top h2 {
-      color: #7467b4;
-      width: 100%;
-      text-align: center; }
+
+.pageidicator {
+  position: absolute;
+  bottom: 0em;
+  text-align: center;
+  width: 100%; }
+  .pageidicator h2 {
+    color: #7467b4;
+    width: 100%;
+    text-align: center; }
+
+.pageidicator_top {
+  position: absolute;
+  top: 0em;
+  text-align: center;
+  width: 100%; }
+  .pageidicator_top h2 {
+    color: #7467b4;
+    width: 100%;
+    text-align: center; }
 
 .casestudy {
   padding-top: 60px;
@@ -993,6 +995,9 @@ nav {
 #fprop .sectiontitle {
   position: relative;
   padding-bottom: 30px; }
+
+.csscolumns-not #fprop .propertylist li {
+  display: block; }
 
 #testimonials {
   margin-top: 120px;

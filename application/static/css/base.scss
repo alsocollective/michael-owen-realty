@@ -336,10 +336,10 @@ a {
 .coppylink{
 
 }
-.csscolumns #featuredprops {
+.csscolumns-not #featuredprops {
 	margin-bottom: -220px;
 }
-.csscolumns .propertylist{
+.csscolumns-not .propertylist{
 
 	-moz-column-count:3;
 	-moz-column-gap:1.53%;
@@ -364,29 +364,29 @@ a {
 		-moz-break-inside:avoid-column;
 		break-inside:avoid-column;
 	}
-	.pageidicator{
-		position: absolute;
-		bottom: 0em;
-		text-align: center;	
-		width: 100%;
-		h2{
-			color: $purple1;
-			width: 100%;
-			text-align: center;		
-		}
-	}
-	.pageidicator_top{
-		position: absolute;
-		top: 0em;
-		text-align: center;	
-		width: 100%;
-		h2{
-			color: $purple1;
-			width: 100%;
-			text-align: center;		
-		}
-	}	
 }
+.pageidicator{
+	position: absolute;
+	bottom: 0em;
+	text-align: center;	
+	width: 100%;
+	h2{
+		color: $purple1;
+		width: 100%;
+		text-align: center;		
+	}
+}
+.pageidicator_top{
+	position: absolute;
+	top: 0em;
+	text-align: center;	
+	width: 100%;
+	h2{
+		color: $purple1;
+		width: 100%;
+		text-align: center;		
+	}
+}	
 
  //  .grayscale { 
  //  -webkit-filter: grayscale(100%) opacity(0.8);
@@ -780,6 +780,9 @@ nav {
 		position: relative;
 		padding-bottom: 30px;
 	}
+}
+.csscolumns-not #fprop .propertylist li{
+	display: block;
 }
 
 #testimonials {
