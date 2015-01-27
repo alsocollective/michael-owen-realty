@@ -556,7 +556,7 @@ a {
     max-height: 250px;
     display: inline-block; }
   .propertylist li {
-    text-align: center;
+    text-align: left;
     display: inline-block;
     vertical-align: top;
     background: #d8dadb;
@@ -1208,6 +1208,7 @@ label {
   margin-top: 30px; }
 
 .propertyimage {
+  background-color: #fff;
   text-align: center;
   width: 100%; }
 
