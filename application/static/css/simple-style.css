@@ -2336,3 +2336,7 @@ label {
     right: 0; } }
 #apartment {
   display: none !important; }
+
+.column3.norightmargin.medium-offcolumn1.small-offcolumn0 a {
+  color: #7467b4;
+  text-decoration: underline; }
