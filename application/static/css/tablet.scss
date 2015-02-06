@@ -109,7 +109,7 @@
 	#nav{
 		position: static;
 	}
-	nav {
+	#nav nav {
 		color: #fff;
 		//border: 2px solid $purple1;
 		text-transform: uppercase;
@@ -191,7 +191,7 @@
 			overflow-scrolling: touch;
 		}
 	}
-		.offleft{ 
+	#nav .offleft{ 
 			left: -100%;
 		}
 
@@ -292,7 +292,8 @@
 
 	#testimonials {
 		margin-top: 80px;
-		background: $yellow4;
+		background-color: $yellow4;
+		background-repeat: no-repeat;
 	}
 	#testimonials .reference {	
 		padding-top: 62px;
@@ -443,7 +444,7 @@
 	}
 }
 #footer.footersell{
-	background: $yellow4;
+	background-color: $yellow4;
 }
 
 	.aboutimg2, .buyimg2{

@@ -3,6 +3,12 @@
 {% load staticfiles %}
 {% block content %}
 
+
+<a href="">{{user.username}} tes</a>
+{% if user.is_authenticated %}
+	<a href="">TESTSTEST</a>
+{% endif %}
+
 	<div class="contain">
 
 		<div class="main grid">
@@ -86,6 +92,7 @@
 				<div class="offcolumn1 column5 medium-offcolumn0 medium-column7">
 					<h4>{{quote.text|safe}}</h4>
 					<h5>{{quote.title|safe}}</h5>
+
 				</div>
 			</div>
 		</div>

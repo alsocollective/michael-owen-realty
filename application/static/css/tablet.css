@@ -85,7 +85,7 @@
 #nav {
   position: static; }
 
-nav {
+#nav nav {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -100,16 +100,16 @@ nav {
   -moz-transition: left 0.5s ease-in-out;
   -o-transition: left 0.5s ease-in-out;
   transition: left 0.5s ease-in-out; }
-  nav .currentpage a {
+  #nav nav .currentpage a {
     border-bottom: none;
     background: #ffc123; }
-  nav li {
+  #nav nav li {
     margin-left: 0% !important;
     width: 100% !important;
     text-align: left;
     white-space: nowrap;
     display: block; }
-    nav li a {
+    #nav nav li a {
       color: #7467b4;
       display: inline-block;
       width: 84.616%;
@@ -122,23 +122,23 @@ nav {
       border-right-width: 0px;
       border-left-width: 0px;
       border-bottom-width: 0px; }
-    nav li:first-child a {
+    #nav nav li:first-child a {
       border-top-width: 0px; }
-  nav li:nth-child(6), nav li:last-child {
+  #nav nav li:nth-child(6), #nav nav li:last-child {
     width: 50% !important;
     display: inline-block;
     margin-right: 0%; }
-    nav li:nth-child(6) a, nav li:last-child a {
+    #nav nav li:nth-child(6) a, #nav nav li:last-child a {
       border-bottom-width: 1px;
       font-size: 1.4em;
       padding: 1em 0 1em 31.5%; }
-  nav li:last-child a {
+  #nav nav li:last-child a {
     border-left-width: 1px;
     padding: 1em 0 1em 15.384%;
     margin: 0 !important; }
-  nav li a:hover {
+  #nav nav li a:hover {
     background: rgba(255, 193, 35, 0.5); }
-  nav ul {
+  #nav nav ul {
     height: 100%;
     overflow: scroll;
     padding: 0;
@@ -152,7 +152,7 @@ nav {
     -o-overflow-scrolling: touch;
     overflow-scrolling: touch; }
 
-.offleft {
+#nav .offleft {
   left: -100%; }
 
 .hide, .hide2 {
@@ -291,7 +291,7 @@ nav {
   top: 440px; }
 
 .casestudy.casesell {
-  background: #ffcf56; }
+  background: #ffc123; }
 .casestudy div.sectiontitle {
   display: block;
   position: relative;
@@ -317,7 +317,8 @@ nav {
 
 #testimonials {
   margin-top: 80px;
-  background: #ffcf56; }
+  background-color: #ffc123;
+  background-repeat: no-repeat; }
 
 #testimonials .reference {
   padding-top: 62px;
@@ -421,7 +422,7 @@ nav {
     color: #7d6cb1; }
 
 #footer.footersell {
-  background: #ffcf56; }
+  background-color: #ffc123; }
 
 .aboutimg2, .buyimg2 {
   margin-top: 80px; }

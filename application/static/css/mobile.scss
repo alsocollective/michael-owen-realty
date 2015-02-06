@@ -93,12 +93,12 @@
 		font-size: $pPsmall;
 		font-size: $pEmsmall;
 	}
-	nav li a{
+	#nav nav li a{
 		font-size: 1.1em; 
 
 	}
 
-	nav{
+	#nav nav{
 		ul {
 				height: 100%;
 				overflow: scroll;
@@ -188,7 +188,8 @@
 	}
 
 	#testimonials {
-		background-position: left bottom;		
+		background-position: left bottom;
+		background-repeat: no-repeat;	
 		background-size:45%; 
 			> div:first-child {
 				background-position: right bottom;
@@ -209,7 +210,8 @@
 
 	.csscolumns .propertylist{
 		-webkit-column-count:1;
-		width:100%;
+		width: 98%;
+		padding-right: 2%;
 	}
 
 	.propertylist{

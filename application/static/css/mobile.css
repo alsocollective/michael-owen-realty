@@ -72,10 +72,10 @@ ul {
   font-size: 14px;
   font-size: 0.92rem; }
 
-nav li a {
+#nav nav li a {
   font-size: 1.1em; }
 
-nav ul {
+#nav nav ul {
   height: 100%;
   overflow: scroll;
   padding: 0;
@@ -88,7 +88,7 @@ nav ul {
   -ms-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
   overflow-scrolling: touch; }
-nav li:nth-child(6) a, nav li:last-child a {
+#nav nav li:nth-child(6) a, #nav nav li:last-child a {
   font-size: 1.1em !important; }
 
 #smallsplash .propertyimg {
@@ -137,6 +137,7 @@ nav li:nth-child(6) a, nav li:last-child a {
 
 #testimonials {
   background-position: left bottom;
+  background-repeat: no-repeat;
   background-size: 45%; }
   #testimonials > div:first-child {
     background-position: right bottom;
@@ -152,7 +153,8 @@ nav li:nth-child(6) a, nav li:last-child a {
 
 .csscolumns .propertylist {
   -webkit-column-count: 1;
-  width: 100%; }
+  width: 98%;
+  padding-right: 2%; }
 
 .propertylist {
   position: static; }
