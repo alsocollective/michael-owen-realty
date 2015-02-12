@@ -1,0 +1,33 @@
+{% extends basetemplate %}
+{% load bohdanfilters%}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="contain">
+	<div class="main grid">
+		<div id="fprop">
+
+				<div class="sectiontitle column1 leftmargin medium-column2 small-column4">
+
+					<h2 id="featured-properties" class="purplenav"></h2>
+
+				</div>
+			<div id="featuredprops" >
+					<div><ul class="propertylist leftmargin">
+						{% include "properties.html" with data=featured %}		
+					</ul></div>	
+				</div>
+				<div class="column6 offcolumn0 medium-column7 small-column7 medium-offcolumn0">
+					<p style="font-size: .8em;line-height: 1.3em;color: #7d7d89;text-align: center;">
+						The above information is deemed reliable, but is not guaranteed. Search facilities other than by a consumer seeking to purchase or lease real estate, is prohibited.				
+					</p>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}
