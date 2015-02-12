@@ -71,30 +71,97 @@ def parseUserAgent(agent):
 def getFeatured():
 	return ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured')
 
+def getMeta():
+	out = {
+		"meta": TextField.objects.get(title="meta"),
+		"key": TextField.objects.get(title="keywords")
+	}
+	return out
+
 def home(request):
 	getPhoneEmail(request)
 	out = AboutPage.objects.all().order_by("created")[0]
 	page = "Home"
-	return render_to_response('about.html',{"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),"featured":getFeatured(),'pageType':getCssClass(request), 'pageTitle':page})
+	return render_to_response('about.html',{
+		"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),
+		"contact":getPhoneEmail(request),
+		"pagecontent":out,
+		"MEDIA_URL":MEDIA_URL,
+		'basetemplate':templateType(request),
+		"featured":getFeatured(),
+		'pageType':getCssClass(request),
+		'pageTitle':page,
+		"newLineAfter":3,
+		"meta":getMeta(),
+		"request":request
+		})
 
 def sell(request):	
 	out = SellPage.objects.all().order_by("created")[0]
 	page = "Selling"
-	return render_to_response('sell.html',{"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request), 'pageTitle':page})
+	return render_to_response('sell.html',{
+		"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),
+		"contact":getPhoneEmail(request),
+		"pagecontent":out,
+		"MEDIA_URL":MEDIA_URL,
+		'basetemplate':templateType(request),
+		'pageType':getCssClass(request),
+		'pageTitle':page,
+		"newLineAfter":3,
+		"meta":getMeta(),
+		"request":request
+		})
 
 def buy(request):
 	out = BuyPage.objects.all().order_by("created")[0]		
-	return render_to_response('buy.html',{"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),"contact":getPhoneEmail(request),"pagecontent":out,"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'pageType':getCssClass(request)})
+	return render_to_response('buy.html',{
+		"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),
+		"contact":getPhoneEmail(request),
+		"pagecontent":out,
+		"MEDIA_URL":MEDIA_URL,
+		'basetemplate':templateType(request),
+		'pageType':getCssClass(request),
+		"meta":getMeta(),
+		"request":request
+		})
 	
 def search(request):
 	template = templateType(request)
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
-	out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'data':properties,'filter':getPeram(),"featured":getFeatured(),'pageType':getCssClass(request)}
+	out = {
+		"contact":getPhoneEmail(request),
+		"MEDIA_URL":MEDIA_URL,
+		'basetemplate':template,
+		'data':properties,
+		'filter':getPeram(),
+		"featured":getFeatured(),
+		'pageType':getCssClass(request),
+		"newLineAfter":3,
+		"meta":getMeta(),
+		"request":request
+		}
 	out.update(csrf(request))
 	out["pagecontent"] = SearchPage.objects.all().order_by("created")[0]			
 	out["desscrrrippttiion"] = NeightbourHood.objects.get(slug="little-italy")
 	out["oldapple"] = parseUserAgent(request.META['HTTP_USER_AGENT'])
 	return render_to_response('search.html',out)
+
+def featuredprop(request):
+	featured = getFeatured()
+	return render_to_response('featured.html',{
+		"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),
+		"contact":getPhoneEmail(request),
+		"MEDIA_URL":MEDIA_URL,
+		'basetemplate':templateType(request),
+		"featured":featured,
+		'pageTitle':"Featured Properties",
+		'pageType':getCssClass(request),
+		"newLineAfter":len(featured),
+		"meta":getMeta(),
+		"request":request
+		})
+
+
 
 def fourofour(request):
 	return render_to_response('404.html',{"MEDIA_URL":settings.MEDIA_URL,'basetemplate':"index.html",'pageType':getCssClass(request)})

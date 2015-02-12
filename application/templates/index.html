@@ -9,9 +9,9 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0;maximum-scale=10.0;user-scalable=no; minimal-ui">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	{%block meta%}	
-		<meta name="description" content="Michael Owen is an expert in real estate sales, investment, and consulting at Royal at LePage, Canada's real estate brokerage.">
+		<meta name="description" content="{{meta.meta.text}}">
 	{%endblock%}	
-	<meta name="keywords" content="real estate, property investment, commercial property investment, real estate purchasing, real estate selling, property search, toronto, royal lepage, realtor, realty">
+	<meta name="keywords" content="{{meta.key.text}}">
 	<meta name="author" content="Michael Owen">
 	<meta name="msvalidate.01" content="817272A047BDF1A3601D225793DC2635" />
 
@@ -113,6 +113,44 @@
 		});
 	</script>
 <![endif]-->
+	
+	{% if request.user.is_staff %}
+	<div id="metaAdminPannel">
+		<div class="contain">
+			<div class="main grid">
+				<h2 onclick="exitadminpannel()">Admin panel</h2>
+					<ul>
+						<li><a href="/admin/rets/residentialproperty/">properties</a></li>
+						<li><a href="/admin/rets/residentialproperty/?o=-7">featured</a></li>
+						<li></li>
+						<li><a href="/admin/rets/textfield/{{meta.meta.pk}}/">meta</a></li>
+						<li><a href="/admin/rets/textfield/{{meta.key.pk}}/">key</a></li>
+						<li></li>
+						<li><a href="/admin/rets/aboutpage/1/">about</a></li>
+						<li><a href="/admin/rets/searchpage/1/">search</a></li>
+						<li><a href="/admin/rets/buypage/1/">buy</a></li>
+						<li><a href="/admin/rets/sellpage/1/">sell</a></li>
+						<li></li>
+						<li><a href="/featuredproperties">featured page</a></li>
+						<li></li>
+						<li><a href="/admin/rets/neightbourhood/">neighbouthoods</a></li>
+						<li></li>
+						<li><a href="/admin/logout/">logout</a></li>
+						<li></li>
+						<li><a href="#" onclick="exitadminpannel()">close</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function exitadminpannel(){
+			var el = document.getElementById("metaAdminPannel")
+			el.parentNode.removeChild(el);
+		}
+	</script>
+	{% endif %}
+
 
 	{% block script %} 
 	{% endblock %}

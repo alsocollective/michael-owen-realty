@@ -71,7 +71,9 @@ def halfNum(count):
 	return count/2;
 
 @register.filter(name="devbythree")
-def devbythree(count):
+def devbythree(count,number):
+	print "devide by 3"
+	print number
 	if count == 0:
 		return False
-	return count % 3 == 0;
+	return count % int(number) == 0;

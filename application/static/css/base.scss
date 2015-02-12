@@ -82,6 +82,7 @@ a {
 	color: inherit;
 }
 
+
 .h1shadow{
 	-webkit-filter: drop-shadow(1.5px 0px 2px rgba(255,255,255,0.3));
 	filter: drop-shadow(1.5px 0px 2px rgba(255,255,255,0.3));
@@ -695,6 +696,24 @@ nav {
 // 	margin-top: 200px;
 // }
 
+.slick-next,.slick-prev{
+	top: 95%;
+	margin-left: -10px;
+}
+.slick-next:before, .slick-prev:before{
+	font-weight: bold;
+	color: $purple2;
+	font-family: pragmatica-web,sans-serif;
+}
+
+.slick-next{
+	left: 47.85%
+}
+.slick-prev{
+	left: 37.85%;
+}
+
+
 .aboutimg{
 	height: 350px;
 	width: 100%;
@@ -1110,6 +1129,18 @@ label {
 
 .propertyimages { 
 	margin-top: 30px;
+	padding-bottom: 10px;
+
+	.slick-next{
+		left: 90%
+	}
+	.slick-prev{
+		left: 5%;
+	}
+	.slick-next, .slick-prev{
+		top: initial;
+		bottom: 2px;
+	}
 }
 .propertyimage{
 	background-color: #fff;
@@ -1586,4 +1617,17 @@ label {
 .column3.norightmargin.medium-offcolumn1.small-offcolumn0 a{
 	color: $purple1;
 	text-decoration: underline;
+}
+
+
+#metaAdminPannel{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 999999;
+	background-color: $purple2;
+	li{
+		display: inline-block;
+		padding: 0.5em;
+	}
 }

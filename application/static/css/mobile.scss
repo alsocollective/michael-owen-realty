@@ -149,6 +149,23 @@
 	// .propertyimages{
 	// 	padding-top:80px;
 	// }
+	.propertyimages{
+		.slick-next{
+			left: 91%;
+		}	
+	}
+	#fprop{
+		.slick-next{
+			left: 60%;
+		}
+		.slick-prev{
+			left: 40%;
+		}
+		.slick-next, .slick-prev {
+			top: initial;
+			margin-left: -25px;
+		}	
+	}
 
 	.module .grid >div >div >p:last-child{
 		padding-bottom:20px;

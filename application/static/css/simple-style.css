@@ -923,6 +923,21 @@ nav {
   #smallsplash404 .fivehundredimg {
     background-position: left; }
 
+.slick-next, .slick-prev {
+  top: 95%;
+  margin-left: -10px; }
+
+.slick-next:before, .slick-prev:before {
+  font-weight: bold;
+  color: #7d5ab1;
+  font-family: pragmatica-web,sans-serif; }
+
+.slick-next {
+  left: 47.85%; }
+
+.slick-prev {
+  left: 37.85%; }
+
 .aboutimg {
   height: 350px;
   width: 100%; }
@@ -1205,7 +1220,15 @@ label {
   padding-bottom: 30px; }
 
 .propertyimages {
-  margin-top: 30px; }
+  margin-top: 30px;
+  padding-bottom: 10px; }
+  .propertyimages .slick-next {
+    left: 90%; }
+  .propertyimages .slick-prev {
+    left: 5%; }
+  .propertyimages .slick-next, .propertyimages .slick-prev {
+    top: initial;
+    bottom: 2px; }
 
 .propertyimage {
   background-color: #fff;
@@ -2210,6 +2233,17 @@ label {
   #about img {
     padding: 0px 0 30px; }
 
+  .propertyimages .slick-next {
+    left: 91%; }
+
+  #fprop .slick-next {
+    left: 60%; }
+  #fprop .slick-prev {
+    left: 40%; }
+  #fprop .slick-next, #fprop .slick-prev {
+    top: initial;
+    margin-left: -25px; }
+
   .module .grid > div > div > p:last-child {
     padding-bottom: 20px;
     padding-top: 0px;
@@ -2346,3 +2380,13 @@ label {
 .column3.norightmargin.medium-offcolumn1.small-offcolumn0 a {
   color: #7467b4;
   text-decoration: underline; }
+
+#metaAdminPannel {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  background-color: #7d5ab1; }
+  #metaAdminPannel li {
+    display: inline-block;
+    padding: 0.5em; }

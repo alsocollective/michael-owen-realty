@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load bohdanfilters%}
+
 {% if totalcount%}
 	<div class="pageidicator_top">
 		
@@ -16,7 +17,7 @@
 	</div>
 {% endif %}
 {% for prop in data %}{% if not totalcount %}
-	{%if forloop.counter0|devbythree %}
+	{%if forloop.counter0|devbythree:newLineAfter %}
 		</ul></div><div><ul class="propertylist leftmargin">
 	{%endif%}
 {% endif %}<li class="column2 medium-column7 small-column7 new">

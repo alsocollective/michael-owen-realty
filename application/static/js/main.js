@@ -251,9 +251,10 @@ var app = {
 			});
 			$("#featuredprops").slick({
 				adaptiveHeight: false,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 5000
+				arrows: true,
+				// autoplay: true,
+				autoplaySpeed: 5000,
+				adaptiveHeight: true
 			});
 			app.property.setup();
 			app.sell.slicksetup();
