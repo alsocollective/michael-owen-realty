@@ -359,11 +359,31 @@ class NeightbourHood(models.Model):
 	image = ThumbnailerImageField(upload_to='neighbourhood',blank=True,null=True)
 	location = models.CharField(max_length=99, choices=LOCATIONS)
 	slug = models.SlugField(blank=True)
+	db_names = models.CharField(max_length=500,blank=True,null=True)
+
+	class Meta:
+		verbose_name = "Neighbourhood"
+
+	def getHousesRelated(self):
+		if(self.db_names):
+			return ResidentialProperty.objects.all().filter(status="A",community__in = self.db_names.split(" "))
+		return []
 
 	def save(self,*args, **kwargs):
 		self.slug = slugify(self.title)
 		super(NeightbourHood, self).save(*args, **kwargs)
 	
+	def showNeighbourhoods(self):
+		com = ResidentialProperty.objects.values('community').distinct().order_by('community')
+		out = "<ul style='-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;'>"
+		for c in com:
+			out += "<li>"
+			out += c["community"]
+			out += "</li>"
+		out += "</ul>"
+		return out
+	showNeighbourhoods.allow_tags = True
+
 	def __unicode__(self):
 		return self.title
 

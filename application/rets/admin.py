@@ -24,11 +24,15 @@ admin.site.register(EmailRmark)
 class AboutPageAdmin(admin.ModelAdmin):
 	filter_horizontal = ('section_one','pullquotes_one','section_two','pullquotes_two','section_three')
 
+class neighbour(admin.ModelAdmin):
+	readonly_fields=('showNeighbourhoods',)
+	fieldsets = [(None,{'fields': ['title','description','image','location','db_names','slug','showNeighbourhoods']}),]
+
 admin.site.register(TextField)
 admin.site.register(AboutPage,AboutPageAdmin)
 admin.site.register(CaseStudy)
 admin.site.register(SellPage)
 admin.site.register(BuyPage)
-admin.site.register(NeightbourHood)
+admin.site.register(NeightbourHood,neighbour)
 admin.site.register(SearchPage)
 admin.site.register(listitem)

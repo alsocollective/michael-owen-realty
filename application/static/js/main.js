@@ -606,7 +606,7 @@ var app = {
 			app.property.coppyInit();
 			var el = $(".module >div");
 			var id = el[0].id;
-			var price = el.find('.houseprice span span')[0].innerHTML;
+			var price = el.find('.houseprice [itemprop="price"]')[0].innerHTML;
 
 			price = price.split(",")
 			var out = "";
@@ -614,6 +614,7 @@ var app = {
 				out += price[a];
 			}
 			price = out;
+			console.log(out);
 			type = el.find(".buildingtype")[0].innerHTML;
 			style = el.find(".buildingstyle")[0].innerHTML;
 			ga('send', 'pageview', {
