@@ -7,10 +7,10 @@ from rets.models import *
 # Ml num:
 
 class residentail(admin.ModelAdmin):
-	list_display = ('ml_num','lp_dol','status' ,'addr','admin_image','s_r','featured')
-	list_filter = ('status','pix_updt','s_r','firstphoto','style','type_own1_out','area','rltr')
+	list_display = ('admin_image','ml_num','lp_dol','idx_dt','status' ,'addr','featured')
+	list_filter = ('idx_dt','pix_updt','status','style','type_own1_out','area','rltr')
 	list_editable = ('featured',)
-	search_fields = ['ml_num','community']
+	search_fields = ['ml_num','community','rltr']
 
 admin.site.register(ResidentialProperty,residentail)
 
