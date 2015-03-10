@@ -54,21 +54,27 @@ def getCssClass(request):
 	return out
 
 def parseUserAgent(agent):
-	split = agent.split()
-	if(len(agent) < 1):
+	try:
+		split = agent.split()
+		if(len(agent) < 1):
+			return "noncrabapple"
+		if(split[1] == "(iPad;" or split[1] == "(iPhone;"):
+			number = re.findall("[0-9]*_[0-9]_[0-9]",agent)
+			if(len(number)>0):
+				try:
+					if(int(number[0][0]) < 8):
+						return "crabapple"
+					else:
+						return ""
+				except Exception, e:
+					return "noncrabapple"
+					pass
 		return "noncrabapple"
-	if(split[1] == "(iPad;" or split[1] == "(iPhone;"):
-		number = re.findall("[0-9]*_[0-9]_[0-9]",agent)
-		if(len(number)>0):
-			try:
-				if(int(number[0][0]) < 8):
-					return "crabapple"
-				else:
-					return ""
-			except Exception, e:
-				return "noncrabapple"
-				pass
-	return "noncrabapple"
+	except Exception, e:
+		return "noncrabapple"
+		pass
+
+
 
 def getFeatured():
 	return ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured')
