@@ -55,6 +55,8 @@ def getCssClass(request):
 
 def parseUserAgent(agent):
 	split = agent.split()
+	if(not agent):
+		return "noncrabapple"
 	if(split[1] == "(iPad;" or split[1] == "(iPhone;"):
 		number = re.findall("[0-9]*_[0-9]_[0-9]",agent)
 		if(len(number)>0):
