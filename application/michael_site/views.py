@@ -205,6 +205,8 @@ def property(request,propertyid):
 	try:
 		template = templateType(request)
 		properties = ResidentialProperty.objects.get(ml_num = propertyid)
+		if(properties.status == "S"):
+			raise Http404
 		out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
 		out.update(csrf(request))
 		# percentages = getPercentages(True)
