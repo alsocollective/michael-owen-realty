@@ -260,6 +260,7 @@ var app = {
 			app.sell.slicksetup();
 			app.nav.splashsize();
 			app.tracking.footInit();
+			app.social.init();
 		}
 	},
 	search: {

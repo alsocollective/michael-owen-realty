@@ -1,4 +1,8 @@
 from michael_site.views import *
 
-testView("soemthing")
+# testView("soemthing")
 
+from rets.views import *
+print "\n\n=== awesome ===\n\n"
+condos()
+print "\n\n=== done ===\n\n"
