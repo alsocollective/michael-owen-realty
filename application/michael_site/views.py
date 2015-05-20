@@ -77,7 +77,7 @@ def parseUserAgent(agent):
 
 
 def getFeatured():
-	return ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured')
+	return [ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured'),CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured')]
 
 def getMeta():
 	out = {
@@ -212,7 +212,18 @@ def property(request,propertyid):
 		# percentages = getPercentages(True)
 		return render_to_response('property.html',out)
 	except Exception, e:
-		raise Http404
+		try:
+			template = templateType(request)
+			properties = CondoProperty.objects.get(MLS = propertyid)
+			if(properties.Status == "S"):
+				raise Http404
+			out = {"contact":getPhoneEmail(request),"MEDIA_URL":MEDIA_URL,'basetemplate':template,'pageid':propertyid,'data':properties,'reslist':ResidentialRelations}
+			out.update(csrf(request))
+			# percentages = getPercentages(True)
+			return render_to_response('propertyCondo.html',out)
+		except Exception, e:
+			print e
+			raise Http404
 
 
 def loadallimages(request,propertyid):

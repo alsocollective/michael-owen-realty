@@ -21,6 +21,8 @@ def get_key(value, arg):
 
 @register.filter(name='nicemoney', needs_autoescape=True)
 def nicemoney(value, autoescape=None):
+	if isinstance(value,float):
+		value = int(value)
 	return mark_safe('<span itemprop="priceCurrency" content="CAD">$</span><span itemprop="price">%s</span>'%intcomma(value))
 
 @register.filter(name="urlify")
@@ -30,6 +32,14 @@ def urlify(value):
 @register.filter(name="mapsgen")
 def mapsgen(addres):
 	return "https://www.google.com/maps/embed/v1/place?q=%sCanada&key=AIzaSyBdpJO3FCVQ7UyWvOkRDfVpqMX-gjBmW1k"%urllib.quote("%s,%s ON, "%(addres.addr,addres.area))
+
+@register.filter(name="mapsgenCondo")
+def mapsgenCondo(addres):
+	return "https://www.google.com/maps/embed/v1/place?q=%sCanada&key=AIzaSyBdpJO3FCVQ7UyWvOkRDfVpqMX-gjBmW1k"%urllib.quote("%s,%s ON, "%(addres.Address,addres.Area))
+
+@register.filter(name="makeInt")
+def makeInt(number):
+	return int(number)
 
 @register.filter
 def get_range( value ):

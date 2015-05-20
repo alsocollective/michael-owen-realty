@@ -289,11 +289,19 @@ def getfirstimage(imageid):
 		print "failed"
 		return "Failed to load Image, this post might not have an image..."
 		pass
+
+
+
+
 def getAllImages(imageid):
 	print "load images for: %s"%imageid
 	imageid = imageid
 	imageid = imageid.encode('ascii', "ignore")
-	prop = ResidentialProperty.objects.get(ml_num=imageid)
+	try:
+		prop = CondoProperty.objects.get(MLS = imageid)
+	except Exception, e:
+		prop = ResidentialProperty.objects.get(ml_num=imageid)
+	
 	session = librets.RetsSession(rets_connection.login_url)
 	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 		print "Error logging in"
@@ -1074,6 +1082,21 @@ condo_list_of_attributes = [
 	'Zoning'
 ]
 
+condo_list_floats = [
+	"AreaCode",
+	"Bedrooms",
+	"BedroomsPlus",
+	"CondoCorp",
+	"ListPrice",
+	"Map",
+	"MapColumn",
+	"ParkingSpaces",
+	"Rooms",
+	"Taxes",
+	"TaxYear",
+	"Washrooms"
+]
+
 residentail_list_of_attributes = [
 	'Acreage',
 	'AddlMonthlyFees',
@@ -1291,13 +1314,39 @@ residentail_list_of_attributes = [
 	'Zoning'
 ]
 
+def getCondoImage(imageid,prop):
+	try:	
+		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
+			print "image already loaded"
+			return "image already exists"
+		print "new image %s" %imageid
+		session = librets.RetsSession(rets_connection.login_url)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
+		else:
+			print "\tloading"		
+			request = librets.GetObjectRequest("Property", "Photo")
+			request.AddAllObjects(imageid)
+			response = session.GetObject(request)
+			object_descriptor = response.NextObject()
+			if(object_descriptor != None):
+				output_file_name = object_descriptor.GetObjectKey() + "-" + str(object_descriptor.GetObjectId()) + ".jpg"
+				file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
+				file.write(object_descriptor.GetDataAsString())
+				file.close()
+				prop.firstphoto = True
+				prop.save()
+				print "\tloaded"
+		return "Failed to load images"
+		session.Logout();
+	except Exception, e:
+		print "failed"
+		return "Failed to load Image, this post might not have an image..."
+		pass
+
 def condos():
-	# for el in condo_list_of_attributes:
-	# 	print "%s"%el
-	# exit()
 	session = librets.RetsSession(rets_connection.login_url)
 	print "connected to librets"
-	print session.Login(rets_connection.user_id, rets_connection.passwd)
 	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 		print "Error logging in"
 	else:
@@ -1305,7 +1354,7 @@ def condos():
 		lastHourDateTime = datetime.today() - timedelta(hours = 0.25)
 		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 		print "making request"
-		request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,)) #CondoProperty #CommercialProperty
+		request = session.CreateSearchRequest( "Property", "CondoProperty", "(TimestampSql=%s+)"%(lastHourDateTime,)) #ResidentialProperty #CondoProperty #CommercialProperty
 		
 		request.SetStandardNames(True)
 		request.SetSelect("")
@@ -1317,24 +1366,35 @@ def condos():
 		results = session.Search(request)		
 		columns = results.GetColumns()
 
-		# atObj = {}
-		# for el in condo_list_of_attributes:
-		# 	atObj[el] = "\n"+el
+		forPhotos = []
 
-		for col in columns:
-			print "'%s',"%col;
-		
+		while results.HasNext():
+			MLS = results.GetString("MLS")
+			print MLS
+			# we test to see if it already exists, if not we create a new property
+			try:
+				print "update"
+				prop = CondoProperty.objects.get(MLS = MLS)
+			except Exception, e:
+				print "new"
+				prop = CondoProperty(MLS = MLS)
 
-		# while results.HasNext():
-		# 	print results.GetString("MLS")
-		# 	for attribute in condo_list_of_attributes:
-		# 		atObj[attribute] += "\t%s"%(results.GetString(attribute))
-			
-		# out = ""
-		# for el in condo_list_of_attributes:
-		# 	out += atObj[el]
-		# text_file = open("Output.txt", "w")
-		# text_file.write(out)
-		# text_file.close()
+			# we then go through all the variables adding them
+			for attribute in condo_list_of_attributes:
+				value = results.GetString(attribute)
+				# check if it has an image, 
+				if attribute == "PixUpdtedDt":
+					if (value and prop.firstphoto != True):
+						forPhotos.append([MLS,prop])
+					setattr(prop, attribute, value)
+				elif any(x == attribute for x in condo_list_floats):
+					if(value):
+						setattr(prop, attribute, float(value))
+				else:
+					setattr(prop, attribute, value)
+			prop.save()
+
+		for val in forPhotos:
+			thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
 
