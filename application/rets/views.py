@@ -1356,18 +1356,20 @@ def getCondoImage(imageid,prop):
 		return "Failed to load Image, this post might not have an image..."
 		pass
 
-def condos():
+def condos(Full):
 	session = librets.RetsSession(rets_connection.login_url)
 	print "connected to librets"
 	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 		print "Error logging in"
 	else:
 		print "connection"
-		lastHourDateTime = datetime.today() - timedelta(hours = 0.25)
+		lastHourDateTime = datetime.today() - timedelta(hours = 24)
 		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 		print "making request"
-		request = session.CreateSearchRequest( "Property", "CondoProperty", "(TimestampSql=%s+)"%(lastHourDateTime,)) #ResidentialProperty #CondoProperty #CommercialProperty
-		
+		if(Full):
+			request = session.CreateSearchRequest( "Property", "CondoProperty", "(Status=A)") #ResidentialProperty #CondoProperty #CommercialProperty
+		else:
+			request = session.CreateSearchRequest( "Property", "CondoProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
 		request.SetStandardNames(True)
 		request.SetSelect("")
 		request.SetLimit(0)
@@ -1381,10 +1383,8 @@ def condos():
 		forPhotos = []
 		now = datetime.now()
 		yesterday = now - timedelta(hours=24)
-		count = 0
-		while results.HasNext():
-			count += 1
 
+		while results.HasNext():
 			MLS = results.GetString("MLS")
 			print "\n%s"%MLS
 			# we test to see if it already exists, if not we create a new property
@@ -1399,6 +1399,7 @@ def condos():
 			# we then go through all the variables adding them
 			for attribute in condo_list_of_attributes:
 				value = results.GetString(attribute)
+
 				# check if it has an image, 
 				if attribute == "PixUpdtedDt":
 					if (value and prop.firstphoto != True):
