@@ -1356,6 +1356,13 @@ def getCondoImage(imageid,prop):
 		return "Failed to load Image, this post might not have an image..."
 		pass
 
+def condos_first_image():
+	all_condos = CondoProperty.objects.all()
+	for condo in all_condos:
+		if condo.firstphoto == False:
+			getCondoImage(condo.MLS,condo)
+
+
 def condos(Full):
 	session = librets.RetsSession(rets_connection.login_url)
 	print "connected to librets"
@@ -1418,5 +1425,7 @@ def condos(Full):
 			prop.save()
 		for val in forPhotos:
 			thread.start_new_thread(getCondoImage, (val[0],val[1]))
+
+
 
 
