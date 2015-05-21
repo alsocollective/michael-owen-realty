@@ -1423,8 +1423,8 @@ def condos(Full):
 		for prop in old:
 			prop.Status = "S"
 			prop.save()
-		for val in forPhotos:
-			thread.start_new_thread(getCondoImage, (val[0],val[1]))
+		# for val in forPhotos:
+		# 	thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
 
 
