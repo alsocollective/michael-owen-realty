@@ -12,6 +12,7 @@ from django.template.defaultfilters import slugify
 from rets.models import *
 import thread, json, librets, time, os.path, re, logging
 from michael_site.settings import rets_connection,MEDIA_ROOT
+from itertools import chain
 
 
 logger = logging.getLogger(__name__)
@@ -505,6 +506,8 @@ def filloutlists():
 			myFilter.gar_type.add(item)
 
 	communities = ResidentialProperty.objects.filter(area='Toronto',s_r="Sale",status="A").values('community','municipality_district').distinct()
+	Comcomm = CondoProperty.objects.filter(Area="Toronto",SaleLease="Sale",Status="A").values('Community','MunicipalityDistrict').distinct()
+	# communities = list(chain(communities,Comcomm))
 	wards = ResidentialProperty.objects.filter(area='Toronto',s_r="Sale",status="A").values('municipality_district').distinct()
 	newArea = Area(text="torontoCon")
 	newArea.save()
@@ -521,10 +524,7 @@ def filloutlists():
 		warddic[ward].save()
 
 	for com in communities:
-		# area = ResidentialProperty.objects.order_by('area')#.values('area').filter(status="A").distinct()
-		# print area
 		unique_housingtypes = ResidentialProperty.objects.filter(community=com['community'],s_r="Sale",status="A").values('style').distinct()#.values('area').filter(status="A").distinct()
-		print unique_housingtypes
 		housetypesString = ""
 		for ht in unique_housingtypes:
 			stringToAdd = (re.sub('[-]','',slugify(ht["style"])))
@@ -534,6 +534,18 @@ def filloutlists():
 		li = listitem(text=com['community'],subText=housetypesString)
 		li.save()
 		warddic[actualward(com['municipality_district'])].community.add(li)
+
+	for com in Comcomm:
+		unique_housingtypes = CondoProperty.objects.filter(Community=com['Community'],SaleLease="Sale",Status="A").values('Style').distinct()#.values('area').filter(status="A").distinct()
+		housetypesString = ""
+		for ht in unique_housingtypes:
+			stringToAdd = (re.sub('[-]','',slugify(ht["Style"])))
+			if "storey" in stringToAdd:
+				stringToAdd = "storey" + stringToAdd[:-6]
+			housetypesString += (" "+stringToAdd)
+		li = listitem(text=com['Community'],subText=housetypesString)
+		li.save()
+		warddic[actualward(com['MunicipalityDistrict'])].community.add(li)
 
 	for ward in warddic:
 		newArea.subsections.add(warddic[ward])
@@ -1367,17 +1379,22 @@ def condos():
 		columns = results.GetColumns()
 
 		forPhotos = []
-
+		now = datetime.now()
+		yesterday = now - timedelta(hours=24)
+		count = 0
 		while results.HasNext():
+			count += 1
+
 			MLS = results.GetString("MLS")
-			print MLS
+			print "\n%s"%MLS
 			# we test to see if it already exists, if not we create a new property
 			try:
-				print "update"
 				prop = CondoProperty.objects.get(MLS = MLS)
+				print "update"
+				prop.edited = now;
 			except Exception, e:
 				print "new"
-				prop = CondoProperty(MLS = MLS)
+				prop = CondoProperty(MLS = MLS,edited = now)
 
 			# we then go through all the variables adding them
 			for attribute in condo_list_of_attributes:
@@ -1394,6 +1411,10 @@ def condos():
 					setattr(prop, attribute, value)
 			prop.save()
 
+		old = CondoProperty.objects.all().filter(edited__lt=now)
+		for prop in old:
+			prop.Status = "S"
+			prop.save()
 		for val in forPhotos:
 			thread.start_new_thread(getCondoImage, (val[0],val[1]))
 

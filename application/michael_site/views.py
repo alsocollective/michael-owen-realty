@@ -284,16 +284,50 @@ def addminmax(value):
 
 @csrf_protect
 def getinitialpagedata(request):
+	condo = request.POST.get("condos")
+	fromcounter = int(request.POST["from"])
+	if(condo != None):
+		kwargs = {
+			'Area':"Toronto",
+			'SaleLease':'Sale',
+			'Status':'A'
+		}
+		print "start pop"
+		for pop in request.POST:
+			poporigin = pop
+			print pop
+			if "onlyjandd" in pop:
+				kwargs["ListBrokerage"] = ["ROYAL LEPAGE/J & D DIVISION, BROKERAGE"]
+				continue
+			elif "community" in pop:
+				try:
+					kwargs["Community__in"].append(pop[9:])		
+				except Exception, e:
+					kwargs["Community__in"] = [pop[9:]]
+					pass
+				continue
+			elif "bed" in pop:
+				kwargs["Bedrooms%s"%addminmax(pop)] = int(request.POST[poporigin])
+			elif "bath" in pop:
+				kwargs["Washrooms%s"%addminmax(pop)] = float(request.POST[poporigin])
+			elif "price" in pop:
+				kwargs["ListPrice%s"%addminmax(pop)] = int(request.POST[poporigin].replace("$","").replace(",","").replace(" ",""))
+		print "\n\n------"
+		print kwargs
+		properties = CondoProperty.objects.all().filter(**kwargs)
+		print "number of properties: %d" %len(properties)
+		return render_to_response('propertiesCondo.html',{"MEDIA_URL":MEDIA_URL,'basetemplate':templateType(request),'data':properties[fromcounter:(fromcounter+6)],'thiscount':fromcounter,'totalcount':len(properties)})
+
 	kwargs = {
 		'area':"Toronto",
 		'pix_updt__isnull':False,
 		's_r':'Sale',
 		'status':'A'
 	}
-	print "|||||||||||||||||"
+	# print "|||||||||||||||||"
 	for pop in request.POST:
 		poporigin = pop
-		print pop
+		# print pop
 		if "onlyjandd" in pop:
 			kwargs["rltr__in"] = ["ROYAL LEPAGE/J & D DIVISION, BROKERAGE"]
 			continue
@@ -301,18 +335,18 @@ def getinitialpagedata(request):
 			try:
 				kwargs["community__in"].append(pop[9:])		
 			except Exception, e:
-				print e
+				# print e
 				kwargs["community__in"] = [pop[9:]]
 				pass
 			continue
 		elif "notuse" in pop:
 			continue
 		elif "style" in pop:
-			print pop[5:]
+			# print pop[5:]
 			try:
 				kwargs["style__in"].append(pop[5:])		
 			except Exception, e:
-				print e
+				# print e
 				kwargs["style__in"] = [pop[5:]]
 				pass
 			continue			
@@ -323,23 +357,23 @@ def getinitialpagedata(request):
 		elif "price" in pop:
 			pop = "lp_dol%s"%addminmax(pop)
 
-		print "bottom"
+		# print "bottom"
 		if pop == 'csrfmiddlewaretoken' or pop == 'from':
 			pass
 		else :
 			try:
 				kwargs[pop] = int(request.POST[poporigin].replace("$","").replace(",","").replace(" ",""))
 			except Exception, e:
-				print e
+				# print e
 				try:
 					kwargs[pop] = float(request.POST[poporigin].replace("$","").replace(",","").replace(" ",""))
 				except Exception, e:
-					print e
+					# print e
 					kwargs[pop] =request.POST[poporigin]
-		print "done loop\n----------------"
+		# print "done loop\n----------------"
 	
 
-	fromcounter = int(request.POST["from"])
+	
 	print "trying the queiry"
 	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(**kwargs)
 	# properties = [ResidentialProperty.objects.get(ml_num='E3019520')]

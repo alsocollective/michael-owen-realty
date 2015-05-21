@@ -143,8 +143,15 @@
 				</ul>
 			</div>
 			<div class="column2 medium-column2 small-column7 hometype">
-				<input type="checkbox" id="condos" name="condos"><label for="condos"><span></span>Search Condos</label><br>
-				<input type="checkbox" id="onlyjandd" name="onlyjandd"><label for="onlyjandd"><span></span>Only search for Royal LePage Johnston &amp; Daniel Division, Brokerage</label>
+				<h3 >Refine Search</h3>
+				<ul>
+					<li>
+						<input type="checkbox" id="condos" name="condos"><label for="condos"><span></span>Search Condos</label><br>
+					</li>
+					<li>
+						<input type="checkbox" id="onlyjandd" name="onlyjandd"><label for="onlyjandd"><span></span>Only search for Royal LePage Johnston &amp; Daniel Division, Brokerage</label>
+					</li>
+				</ul>
 			</div>
 			{% csrf_token %}
 			<input class="from" name="from" value="0" style="display:none;">

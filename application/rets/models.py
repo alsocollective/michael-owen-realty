@@ -225,8 +225,16 @@ class ResidentialProperty(models.Model):
 	ad_text = models.TextField(max_length=1000, blank=True,null=True)
 
 	def admin_image(self):
-		return '<img style="width:200px;height:auto;" src="/static/images/%s-1.jpg"/>' % self.ml_num
-		# return '<img style="width:200px;height:auto;" src="http://www.also-static.com/alsocollective/uploaded/%s"/>' % self.title
+		if self.firstphoto == False:
+			if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,self.ml_num))):
+				self.firstphoto = True
+				self.save()
+				
+		if self.firstphoto:
+			return '<img style="width:200px;height:auto;" src="/static/images/%s-1.jpg"/>' % self.ml_num
+		else:
+			return '%s - has no image'%self.ml_num
+
 	admin_image.allow_tags = True
 
 	def __unicode__(self):
@@ -470,7 +478,7 @@ class CondoProperty(models.Model):
 	numofphotos = models.IntegerField(blank=True,null=True)
 	firstphoto = models.BooleanField(default=False)
 	featured = 	models.DateTimeField(auto_now=False,blank=True,null=True)
-
+	edited = models.DateField(auto_now=False,blank=True,null=True)
 
 	def admin_image(self):
 		if self.firstphoto == False:

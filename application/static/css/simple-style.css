@@ -1062,8 +1062,6 @@ label {
   position: relative;
   background: #fff; }
 
-#searchfield form > div:last-of-type {
-  padding-top: 25px; }
 #searchfield ul {
   padding-bottom: 30px; }
 #searchfield h3 {
