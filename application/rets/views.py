@@ -1383,7 +1383,6 @@ def condos(Full):
 		forPhotos = []
 		now = datetime.now()
 		yesterday = now - timedelta(hours=24)
-
 		while results.HasNext():
 			MLS = results.GetString("MLS")
 			print "\n%s"%MLS
@@ -1412,6 +1411,7 @@ def condos(Full):
 					setattr(prop, attribute, value)
 			prop.save()
 
+		print "total condoProp: %d"%len(forPhotos)
 		old = CondoProperty.objects.all().filter(edited__lt=now)
 		for prop in old:
 			prop.Status = "S"
