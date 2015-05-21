@@ -12,6 +12,7 @@ from django.template.defaultfilters import slugify
 from rets.models import *
 import thread, json, librets, time, os.path, re, logging
 from michael_site.settings import rets_connection,MEDIA_ROOT
+from itertools import chain
 
 
 logger = logging.getLogger(__name__)
@@ -289,11 +290,19 @@ def getfirstimage(imageid):
 		print "failed"
 		return "Failed to load Image, this post might not have an image..."
 		pass
+
+
+
+
 def getAllImages(imageid):
 	print "load images for: %s"%imageid
 	imageid = imageid
 	imageid = imageid.encode('ascii', "ignore")
-	prop = ResidentialProperty.objects.get(ml_num=imageid)
+	try:
+		prop = CondoProperty.objects.get(MLS = imageid)
+	except Exception, e:
+		prop = ResidentialProperty.objects.get(ml_num=imageid)
+	
 	session = librets.RetsSession(rets_connection.login_url)
 	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 		print "Error logging in"
@@ -497,6 +506,8 @@ def filloutlists():
 			myFilter.gar_type.add(item)
 
 	communities = ResidentialProperty.objects.filter(area='Toronto',s_r="Sale",status="A").values('community','municipality_district').distinct()
+	Comcomm = CondoProperty.objects.filter(Area="Toronto",SaleLease="Sale",Status="A").values('Community','MunicipalityDistrict').distinct()
+	# communities = list(chain(communities,Comcomm))
 	wards = ResidentialProperty.objects.filter(area='Toronto',s_r="Sale",status="A").values('municipality_district').distinct()
 	newArea = Area(text="torontoCon")
 	newArea.save()
@@ -513,10 +524,7 @@ def filloutlists():
 		warddic[ward].save()
 
 	for com in communities:
-		# area = ResidentialProperty.objects.order_by('area')#.values('area').filter(status="A").distinct()
-		# print area
 		unique_housingtypes = ResidentialProperty.objects.filter(community=com['community'],s_r="Sale",status="A").values('style').distinct()#.values('area').filter(status="A").distinct()
-		print unique_housingtypes
 		housetypesString = ""
 		for ht in unique_housingtypes:
 			stringToAdd = (re.sub('[-]','',slugify(ht["style"])))
@@ -526,6 +534,18 @@ def filloutlists():
 		li = listitem(text=com['community'],subText=housetypesString)
 		li.save()
 		warddic[actualward(com['municipality_district'])].community.add(li)
+
+	for com in Comcomm:
+		unique_housingtypes = CondoProperty.objects.filter(Community=com['Community'],SaleLease="Sale",Status="A").values('Style').distinct()#.values('area').filter(status="A").distinct()
+		housetypesString = ""
+		for ht in unique_housingtypes:
+			stringToAdd = (re.sub('[-]','',slugify(ht["Style"])))
+			if "storey" in stringToAdd:
+				stringToAdd = "storey" + stringToAdd[:-6]
+			housetypesString += (" "+stringToAdd)
+		li = listitem(text=com['Community'],subText=housetypesString)
+		li.save()
+		warddic[actualward(com['MunicipalityDistrict'])].community.add(li)
 
 	for ward in warddic:
 		newArea.subsections.add(warddic[ward])
@@ -1074,6 +1094,21 @@ condo_list_of_attributes = [
 	'Zoning'
 ]
 
+condo_list_floats = [
+	"AreaCode",
+	"Bedrooms",
+	"BedroomsPlus",
+	"CondoCorp",
+	"ListPrice",
+	"Map",
+	"MapColumn",
+	"ParkingSpaces",
+	"Rooms",
+	"Taxes",
+	"TaxYear",
+	"Washrooms"
+]
+
 residentail_list_of_attributes = [
 	'Acreage',
 	'AddlMonthlyFees',
@@ -1291,22 +1326,50 @@ residentail_list_of_attributes = [
 	'Zoning'
 ]
 
-def condos():
-	# for el in condo_list_of_attributes:
-	# 	print "%s"%el
-	# exit()
+def getCondoImage(imageid,prop):
+	try:	
+		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
+			print "image already loaded"
+			return "image already exists"
+		print "new image %s" %imageid
+		session = librets.RetsSession(rets_connection.login_url)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
+		else:
+			print "\tloading"		
+			request = librets.GetObjectRequest("Property", "Photo")
+			request.AddAllObjects(imageid)
+			response = session.GetObject(request)
+			object_descriptor = response.NextObject()
+			if(object_descriptor != None):
+				output_file_name = object_descriptor.GetObjectKey() + "-" + str(object_descriptor.GetObjectId()) + ".jpg"
+				file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
+				file.write(object_descriptor.GetDataAsString())
+				file.close()
+				prop.firstphoto = True
+				prop.save()
+				print "\tloaded"
+		return "Failed to load images"
+		session.Logout();
+	except Exception, e:
+		print "failed"
+		return "Failed to load Image, this post might not have an image..."
+		pass
+
+def condos(Full):
 	session = librets.RetsSession(rets_connection.login_url)
 	print "connected to librets"
-	print session.Login(rets_connection.user_id, rets_connection.passwd)
 	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 		print "Error logging in"
 	else:
 		print "connection"
-		lastHourDateTime = datetime.today() - timedelta(hours = 0.25)
+		lastHourDateTime = datetime.today() - timedelta(hours = 24)
 		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 		print "making request"
-		request = session.CreateSearchRequest( "Property", "ResidentialProperty", "(TimestampSql=%s+)"%(lastHourDateTime,)) #CondoProperty #CommercialProperty
-		
+		if(Full):
+			request = session.CreateSearchRequest( "Property", "CondoProperty", "(Status=A)") #ResidentialProperty #CondoProperty #CommercialProperty
+		else:
+			request = session.CreateSearchRequest( "Property", "CondoProperty", "(TimestampSql=%s+)"%(lastHourDateTime,))
 		request.SetStandardNames(True)
 		request.SetSelect("")
 		request.SetLimit(0)
@@ -1317,24 +1380,43 @@ def condos():
 		results = session.Search(request)		
 		columns = results.GetColumns()
 
-		# atObj = {}
-		# for el in condo_list_of_attributes:
-		# 	atObj[el] = "\n"+el
+		forPhotos = []
+		now = datetime.now()
+		yesterday = now - timedelta(hours=24)
+		while results.HasNext():
+			MLS = results.GetString("MLS")
+			print "\n%s"%MLS
+			# we test to see if it already exists, if not we create a new property
+			try:
+				prop = CondoProperty.objects.get(MLS = MLS)
+				print "update"
+				prop.edited = now;
+			except Exception, e:
+				print "new"
+				prop = CondoProperty(MLS = MLS,edited = now)
 
-		for col in columns:
-			print "'%s',"%col;
-		
+			# we then go through all the variables adding them
+			for attribute in condo_list_of_attributes:
+				value = results.GetString(attribute)
 
-		# while results.HasNext():
-		# 	print results.GetString("MLS")
-		# 	for attribute in condo_list_of_attributes:
-		# 		atObj[attribute] += "\t%s"%(results.GetString(attribute))
-			
-		# out = ""
-		# for el in condo_list_of_attributes:
-		# 	out += atObj[el]
-		# text_file = open("Output.txt", "w")
-		# text_file.write(out)
-		# text_file.close()
+				# check if it has an image, 
+				if attribute == "PixUpdtedDt":
+					if (value and prop.firstphoto != True):
+						forPhotos.append([MLS,prop])
+					setattr(prop, attribute, value)
+				elif any(x == attribute for x in condo_list_floats):
+					if(value):
+						setattr(prop, attribute, float(value))
+				else:
+					setattr(prop, attribute, value)
+			prop.save()
+
+		print "total condoProp: %d"%len(forPhotos)
+		old = CondoProperty.objects.all().filter(edited__lt=now)
+		for prop in old:
+			prop.Status = "S"
+			prop.save()
+		for val in forPhotos:
+			thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
 

@@ -24,6 +24,12 @@ admin.site.register(EmailRmark)
 class AboutPageAdmin(admin.ModelAdmin):
 	filter_horizontal = ('section_one','pullquotes_one','section_two','pullquotes_two','section_three')
 
+class condo(admin.ModelAdmin):
+	list_display = ('admin_image','MLS','ListPrice','PixUpdtedDt','Status' ,'Address','featured')
+	# list_filter = ('PixUpdtedDt','status','style','type_own1_out','area','rltr')
+	list_editable = ('featured',)
+	search_fields = ['MLS','Community','ListBrokerage']
+
 admin.site.register(TextField)
 admin.site.register(AboutPage,AboutPageAdmin)
 admin.site.register(CaseStudy)
@@ -32,3 +38,4 @@ admin.site.register(BuyPage)
 admin.site.register(NeightbourHood)
 admin.site.register(SearchPage)
 admin.site.register(listitem)
+admin.site.register(CondoProperty,condo)
