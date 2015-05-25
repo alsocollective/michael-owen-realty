@@ -1413,7 +1413,10 @@ def condos(Full):
 					setattr(prop, attribute, value)
 				elif any(x == attribute for x in condo_list_floats):
 					if(value):
-						setattr(prop, attribute, float(value))
+						try:
+							setattr(prop, attribute, float(value))
+						except Exception, e:
+							print e
 				else:
 					setattr(prop, attribute, value)
 			prop.save()
