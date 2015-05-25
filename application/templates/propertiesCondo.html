@@ -1,0 +1,83 @@
+{% load staticfiles %}
+{% load bohdanfilters%}
+
+{% if totalcount%}
+	<div class="pageidicator_top">
+		
+		<h2>
+			{% if thiscount|devidebysix != 1 %}
+				<span class="slideprevious">&#8592;</span>
+			{% endif %}
+			{{thiscount|devidebysix}}/{{totalcount|devidebysix}}
+			{% if thiscount|devidebysix != totalcount|devidebysix %}
+				<span class="slidenext">&#8594;</span>
+			{% endif %}
+		</h2>
+		
+	</div>
+{% endif %}
+{% for prop in data %}{% if not totalcount %}
+	{%if forloop.counter0|devbythree:newLineAfter %}
+		</ul></div><div><ul class="propertylist leftmargin">
+	{%endif%}
+{% endif %}<li class="column2 medium-column7 small-column7 new">
+	<a href="/property/{{prop.MLS}}">
+		<div class="propertyimage medium-column3 small-column7">
+			{% if prop.firstphoto %}
+				<img itemprop="image" class="grayscale" src="{% static ""%}images/{{prop.MLS}}-1.jpg" alt="{{prop.MLS}} image">
+			{% endif %}
+
+			<div class="backgroundimage" style="background-image:url({% static ""%}images/{{prop.MLS}}-1.jpg)"></div>		
+		</div>
+		<div class="propertycontent medium-offcolumn3 medium-column4 small-offcolumn-none small-column7">
+			{% if prop.featured %}
+				<h3 class="purp"> featured</h3><br>
+			{% endif %}
+			<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3>{% if prop.ListBrokerage == "ROYAL LEPAGE/J & D DIVISION, BROKERAGE" %}
+				<h3 class="purp agencey">{{prop.ListBrokerage}}</h3>
+			{% endif %}<br>
+			<h3>{{prop.ListPrice|nicemoney}}</h3>
+			<p><span itemprop="description">{{prop.RemarksForClients|limilength}}</span></p><p style="text-transform: capitalize;">{{prop.ListBrokerage}}</p><span class="medium-hide"><br></span>
+			<div class="share">
+				<div>
+					<h3>share</h3>
+				</div>
+				<div class="mover">
+					<h3>
+						<a href="mailto:michaelowenrealestate@gmail.com?subject=check this property out {{prop.MLS}}&body=http://michaelowenrealestate.com/property/{{prop.MLS}}" class="emaillink"> email</a>
+					</h3>					
+					<h3>
+						<a href="/property/{{prop.MLS}}" class="facebooklink">&nbsp;&nbsp;facebook</a>						
+					</h3>
+					<h3>
+						<a href="https://twitter.com/intent/tweet?text=check%20out%20this%20property%20http://michaelowenrealestate.com/property/{{prop.MLS}}&source=webclient" class="twitterlink" target="_blank" >&nbsp;&nbsp;twitter </a>		
+					</h3>					
+					<!--[if gte IE 9]><!-->
+					<h3>
+						<a href="/property/{{prop.MLS}}" class="coppylink">&nbsp;&nbsp;link</a>
+					</h3>
+					<!--<![endif]-->
+				</div>
+			</div>		
+		</div>
+	</a>
+</li>
+{% endfor %}
+{% if totalcount%}
+	<input class="totalcount" value="{{totalcount|devidebysix}}">
+	<input class="thiscount" value="{{thiscount|devidebysix}}">	
+	<div class="pageidicator">
+		
+		<h2>
+			{% if thiscount|devidebysix != 1 %}
+				<span class="slideprevious">&#8592;</span>
+			{% endif %}
+			{{thiscount|devidebysix}}/{{totalcount|devidebysix}}
+			{% if thiscount|devidebysix != totalcount|devidebysix %}
+				<span class="slidenext">&#8594;</span>
+			{% endif %}
+		</h2>
+		
+	</div>
+{% endif %}
+

@@ -1,0 +1,219 @@
+{% extends basetemplate %}
+{% load staticfiles %}
+{% load bohdanfilters%}
+{%block pagetitle%}
+| property {{data.MLS}}
+{% endblock%}
+
+{%block meta%}
+
+{%endblock%}
+
+{% block content %}
+
+{% if basetemplate = "index.html" %}
+	<div class="module moduleindex">
+{% endif %}
+<div id="{{pageid}}"><!-- SD PRODUCT SCHEMA -->
+	<div class="grid">
+		<div class="leftmargin column6 medium-column7">
+			<div class="column2 leftmargin medium-noleftmargin medium-column7 small-offcolumn0 small-column7">
+				<span class="hide2">
+					<h2 class="neighbourhoodtitle">
+						<span>{{data.Community|titlecase}}</span>
+					</h2>
+					<p class="addresslocation">
+						{% if data.addr and data.area and data.county %}
+							<span >{{data.addr}}, <br> {{data.area}}, {{data.county}}, {{data.zip}}</span>
+							</br>
+						{% endif %}
+						</p>
+					<h2 class="houseprice">
+						<span class="hide2"><br></span>
+						<span >
+							<span >{{data.ListPrice|nicemoney}}</span>
+						</span>
+					</h2>
+				</span>
+						
+				<div class="propertyimages" >
+
+					{% if data.numofphotos %}
+						{% for count in data.numofphotos|get_range%}
+							<div><img {% if forloop.last %} class='lastimage'{% endif %} src="{% static ""%}images/{{data.ml_num}}-{{count}}.jpg"></div>
+						{% endfor %}
+					{% elif data.firstphoto %}
+						<div class="firstimageloading"><img src="{% static ""%}images/{{data.MLS}}-1.jpg"><div><h3>Loading ...</h3></div></div>
+
+					{% endif %}
+				</div>{% if data.DisplayAddressOnInternet == "Y" and data.Address and data.Area and data.Community %}<div id="gmap">
+					<span >
+						<iframe 
+							width="100%" 
+							height="450" 
+							frameborder="0" 
+							style="border:0" 
+							src={{data|mapsgenCondo}}></iframe>
+					</span>
+				</div>{% endif %}
+			</div>
+			<div class="column2 medium-column4 small-offcolumn0 small-column7">
+				
+				<h2 class="neighbourhoodtitle">
+					<span >{{data.Community|titlecase}}</span>
+				</h2>
+				<p class="addresslocation">
+					{% if data.DisplayAddressOnInternet == "Y" and data.Address and data.Area and data.Municipality %}
+						<span >{{data.Address}}, <br> {{data.Municipality}}, {{data.PostalCode}}</span>
+						</br>
+					{% endif %}
+					</p>
+				<h2 class="houseprice">
+					<span class="hide2"><br></span>
+					<span >
+						<span >{{data.ListPrice|nicemoney}}</span>
+					</span>
+				</h2>
+				
+				<h6>Description</h6>
+				<p><span >{{data.RemarksForClients}}</span></p>
+				<h6>Extras</h6>
+				<p><span>{{data.Extras}}</span></p>
+				<div class="socialmedia medium-hide">
+					{% include "socialmedia.html" %}
+				</div>				
+				
+				<div class="socialmedia large-hide2 medium-show small-hide">
+					{% include "socialmediabuttons.html" %}
+				</div>	
+
+				<span class="request small-hide"><h6>Request information</h6>
+				<form class="requestform small-hide" action="/sendemail/" method="post">
+					{% csrf_token %}
+					<textarea id="comments" placeholder="Comments" name="message"></textarea>	
+					<label for="formfirst" alt="first name"><!-- <h3>First name</h3> -->
+					</label><input id="formfirst" type="text" name="firstname" placeholder="First name"><!--
+					--><label for="formlast" alt="last name"><!-- <h3>Last name</h3> -->
+					</label><input id="formlast" type="text" name="lastname" placeholder="Last name"><!--
+					--><label for="email" alt="email"><!-- <h3>Email</h3> -->
+					</label><input id="email" type="text" name="email" placeholder="Email"><!--
+					--><label for="phone" alt="phone"><!-- <h3>Phone</h3> -->
+					</label><input id="phone" type="text" name="phone" placeholder="Phone"><!--
+					--><label for="comments" alt="comments"><!-- <h3>Comments</h3> -->
+					<!-- <label for="send" alt="send"><h6>SEND</h6></label> -->
+					</label><input class="emailsubmit" id="send" type="submit" value="submit">
+				</form></span>
+			</div>
+			<div class="column2 medium-column3 medium-offcolumn0 small-offcolumn0 small-column7 norightmargin">
+				<h6>Overview</h6>
+				<table>
+<!-- 					<tr>
+						<td><h3>Property type</h3></td>
+						<td><p>Single Family</p></td>
+					</tr> -->
+					<tr>
+						<td><h3>Approximate Square Footage</h3></td>
+						<td><p class="buildingtype">{{data.ApproxSquareFootage}} sq ft</p></td>
+					</tr>
+					<tr>
+						<td><h3>Building style</h3></td>
+						<td><p class="buildingstyle">{{data.Style}}</p></td>
+					</tr>
+					<tr>
+						<td><h3>Community name</h3></td>
+						<td><p>{{data.Community|titlecase}}</p></td>
+					</tr>
+					{% if data.BuildingAmenities1 %}
+						<tr><td><h3>Building Amenities</h3></td>
+							<td><p>
+								{% if data.BuildingAmenities1 %}{{data.BuildingAmenities1}}{% endif %}{% if data.BuildingAmenities2 %}, {{data.BuildingAmenities2}}{% endif %}{% if data.BuildingAmenities3 %}, {{data.BuildingAmenities3}}{% endif %}{% if data.BuildingAmenities4 %}, {{data.BuildingAmenities4}}{% endif %}{% if data.BuildingAmenities5 %}, {{data.BuildingAmenities5}}{% endif %}{% if data.BuildingAmenities6 %}, {{data.BuildingAmenities6}}{% endif %}
+							</p></td>
+						</tr>
+					{% endif %}					
+				
+
+
+				</table>
+				<h6>Details</h6>			
+				<table>
+					{% if data.Rooms %}<tr><td><h3>ROOMS</h3></td><td><p>{{data.Rooms|makeInt}} {# {{data.rooms_plus}} #}</p></td></tr>{% endif %}
+					{% if data.Bedrooms %}<tr><td><h3>BEDROOMS</h3></td><td><p>{{data.Bedrooms|makeInt}}</p></td></tr>{% endif %}
+					{% if data.Washrooms %}<tr><td><h3>WASHROOMS</h3></td><td><p>{{data.Washrooms|makeInt}}</p></td></tr>{% endif %}
+					{% if data.ListBrokerage %}<tr><td><h3>Listing Brokerage</h3></td><td><p>{{data.ListBrokerage}}</p></td></tr>{% endif %}
+					{% if data.MLS %}<tr><td><h3>MLS Number</h3></td><td><p>{{data.MLS}}</p></td></tr>{% endif %}
+					{% if data.Zoning%}<tr><td><h3>Zoning</h3></td><td><p>{{data.Zoning}}</p></td></tr>{%endif%}
+				</table>
+				<h6>Building</h6>
+				<table>
+					{% if data.ApproxAge %}<tr><td><h3>Approximate age</h3></td><td><p>{{data.ApproxAge}}</p></td></tr>{% endif %}
+					{% if data.CondoTaxesIncluded %}<tr><td><h3>Condo Taxes Included</h3></td><td><p>{% if data.CondoTaxesIncluded == "N" %}No{% else %}Yes{% endif %}</p></td></tr>{% endif %}
+					{% if data.Taxes %}<tr><td><h3>Tax</h3></td><td><p>{{data.Taxes|nicemoney}} - {{data.TaxYear|makeInt}} yr</p></td></tr>{% endif %}
+					{% if data.Maintenance %}<tr><td><h3>Maintanice costs</h3></td><td><p>{{data.Maintenance|nicemoney}}</p></td></tr>{% endif %}
+
+					{% if data.ParkingIncluded%}<tr><td><h3>Parking Included</h3></td><td><p>{% if data.ParkingIncluded == "Y" %}Yes{% else %}No{% endif %}</p></td></tr>{%endif%}
+					{% if data.ParkingDrive%}<tr><td><h3>PARKING TYPE</h3></td><td><p>{{data.ParkingDrive}}</p></td></tr>{%endif%}
+					{% if data.ParkingSpaces%}<tr><td><h3>PARKING SPACES</h3></td><td><p>{{data.ParkingSpaces|makeInt}}</p></td></tr>{%endif%}					
+					
+					
+					{% if data.FireplaceStove == "Y" %}<tr><td><h3>FireplaceStove</h3></td><td><p>Yes</p></td></tr>{% endif %}
+					{% if data.AirConditioning %}<tr><td><h3>AC Type</h3></td><td><p>{{data.AirConditioning}}</p></td></tr>{% endif %}
+					{% if data.WaterIncluded %}<tr><td><h3>Water Included</h3></td><td><p>{% if data.WaterIncluded == "Y" %}Yes{% else %}No{% endif %}</p></td></tr>{% endif %}
+					{% if data.LaundryAccess %}<tr><td><h3>Laundry</h3></td><td><p>{{data.LaundryAccess}}</p></td></tr>{% endif %}
+
+
+
+				
+				</table>
+				
+				<script type="text/javascript">
+					{% if basetemplate = "ajax.html" %}
+						app.email.csrftoken = "{{ csrf_token }}";
+					{% endif %}
+				</script>
+
+				<div class="socialmedia large-hide2 medium-hide small-show">
+					{% include "socialmediabuttons.html" %}
+				</div>	
+
+				<span class="request large-hide2 medium-hide small-show"><h6>Request information</h6>
+				<form class="requestform large-hide2 medium-hide small-show" action="/sendemail/" method="post">
+					{% csrf_token %}
+					<textarea id="comments" placeholder="Comments" name="message"></textarea>
+					<label for="formfirst2" alt="first name"></label><input id="formfirst2" type="text" name="firstname" placeholder="First name"/>
+					<label for="formlast2" alt="last name"></label><input id="formlast2" type="text" name="lastname" placeholder="Last name"/>
+					<label for="email2" alt="email"></label><input id="email2" type="text" name="email" placeholder="Email"/>
+					<label for="phone2" alt="phone"></label><input id="phone2" type="text" name="phone" placeholder="Phone"/>
+					<input class="emailsubmit" id="send" type="submit">
+				</form></span>
+
+				<div class="closebigbutton"><button><h3>CLOSE</h3></button></div>
+			</div>		
+
+			<div id="exbutton"><div><div></div><div></div></div></div>
+		</div>	
+	</div>
+</div>
+{% if basetemplate = "index.html" %}
+	</div>
+{% endif %}
+
+
+{% endblock %}
+
+{% block script %} 
+<script type="text/javascript">
+	$( document ).ready(function(){
+		app.property.init()		
+		{% if not data.numofphotos%}
+			app.property.loadrestofphotos("{{data.MLS}}");
+		{% else %}
+			$(".lastimage").load(app.property.initslick());		
+		{%endif%}
+		{% if basetemplate = "index.html" %}
+			app.email.csrftoken = "{{ csrf_token }}";
+		{% endif %}
+	});
+</script>
+{% endblock %}
+
+
