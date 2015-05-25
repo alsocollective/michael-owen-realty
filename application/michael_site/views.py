@@ -290,7 +290,8 @@ def getinitialpagedata(request):
 		kwargs = {
 			'Area':"Toronto",
 			'SaleLease':'Sale',
-			'Status':'A'
+			'Status':'A',
+			'Firstphoto':True
 		}
 		print "start pop"
 		for pop in request.POST:
