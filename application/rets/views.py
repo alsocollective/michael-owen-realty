@@ -1355,7 +1355,8 @@ def getCondoImage(imageid,prop):
 		return "Failed to load images"
 		session.Logout();
 	except Exception, e:
-		print "failed"
+		print "\t%s"%e;
+		print "\tfailed %s"%imageid
 		return "Failed to load Image, this post might not have an image..."
 		pass
 
