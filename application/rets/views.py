@@ -1336,21 +1336,27 @@ def getCondoImage(imageid,prop):
 			return "no image to be uploaded"
 		print "new image %s" %imageid
 		session = librets.RetsSession(rets_connection.login_url)
+		print "\tloading"		
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
 			print "Error logging in"
 		else:
-			print "\tloading"		
 			request = librets.GetObjectRequest("Property", "Photo")
+			print "\t\t%d"%1
 			request.AddAllObjects(imageid)
+			print "\t\t%d"%2
 			response = session.GetObject(request)
+			print "\t\t%d"%3
 			object_descriptor = response.NextObject()
+			print "\t\t%d"%4
 			if(object_descriptor != None):
+				print "\t\t%d"%5
 				# output_file_name = object_descriptor.GetObjectKey() + "-" + str(object_descriptor.GetObjectId()) + ".jpg"
 				file = open("%simages/%s-1.jpg" %(MEDIA_ROOT,imageid), 'wb')
 				file.write(object_descriptor.GetDataAsString())
 				file.close()
 				prop.firstphoto = True
 				prop.save()
+				print "\t\t%d"%6
 				print "\tloaded"
 		return "Failed to load images"
 		session.Logout();
@@ -1361,9 +1367,10 @@ def getCondoImage(imageid,prop):
 		pass
 
 def condos_first_image():
-	all_condos = CondoProperty.objects.all()
+	all_condos = CondoProperty.objects.all().filter(Status="A",PixUpdtedDt__isnull=False,firstphoto=False)
 	for condo in all_condos:
 		if condo.firstphoto == False:
+			# thread.start_new_thread(getCondoImage, (condo.MLS,condo))
 			getCondoImage(condo.MLS,condo)
 
 
@@ -1430,8 +1437,8 @@ def condos(Full):
 		for prop in old:
 			prop.Status = "S"
 			prop.save()
-		# for val in forPhotos:
-		# 	thread.start_new_thread(getCondoImage, (val[0],val[1]))
+		for val in forPhotos:
+			thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
 
 
