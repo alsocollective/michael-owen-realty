@@ -1345,8 +1345,8 @@ def getCondoImage(imageid,prop):
 			response = session.GetObject(request)
 			object_descriptor = response.NextObject()
 			if(object_descriptor != None):
-				output_file_name = object_descriptor.GetObjectKey() + "-" + str(object_descriptor.GetObjectId()) + ".jpg"
-				file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
+				# output_file_name = object_descriptor.GetObjectKey() + "-" + str(object_descriptor.GetObjectId()) + ".jpg"
+				file = open("%simages/%s-1.jpg" %(MEDIA_ROOT,imageid), 'wb')
 				file.write(object_descriptor.GetDataAsString())
 				file.close()
 				prop.firstphoto = True
