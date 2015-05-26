@@ -1331,6 +1331,9 @@ def getCondoImage(imageid,prop):
 		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
 			print "image already loaded"
 			return "image already exists"
+		if(prop.PixUpdtedDt == ""):
+			print "no Pix Update DT"
+			return "no image to be uploaded"
 		print "new image %s" %imageid
 		session = librets.RetsSession(rets_connection.login_url)
 		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
