@@ -164,7 +164,7 @@ def featuredprop(request):
 		"featured":featured,
 		'pageTitle':"Featured Properties",
 		'pageType':getCssClass(request),
-		"newLineAfter":len(featured),
+		"newLineAfter":3,
 		"meta":getMeta(),
 		"request":request
 		})
