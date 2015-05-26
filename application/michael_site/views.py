@@ -135,7 +135,7 @@ def buy(request):
 	
 def search(request):
 	template = templateType(request)
-	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale')[:6]
+	properties = ResidentialProperty.objects.all().order_by('timestamp_sql').filter(area="Toronto",pix_updt__isnull=False,s_r='Sale',status="A")[:6]
 	out = {
 		"contact":getPhoneEmail(request),
 		"MEDIA_URL":MEDIA_URL,
