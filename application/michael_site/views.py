@@ -291,7 +291,7 @@ def getinitialpagedata(request):
 			'Area':"Toronto",
 			'SaleLease':'Sale',
 			'Status':'A',
-			'Firstphoto':True
+			'firstphoto':True
 		}
 		print "start pop"
 		for pop in request.POST:
