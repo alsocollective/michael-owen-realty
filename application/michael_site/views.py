@@ -257,14 +257,15 @@ def testView(request):
 		
 		value = getFullListOfMLS()
 		sqlRemoveElements(ResidentialProperty.objects.all().filter(status="A"),value)
-		filloutlists()# checkFilters()
+		#filloutlists()# checkFilters()
+		print "sending mail"
 		send_mail("Micheal Owen Site Update","update the treb with %d entreis"%len(datain),"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
 		# makes sure that all props have images...
 		saveAllProp()
 		return HttpResponse("update the treb with %d entreis"%len(datain), content_type='application/json')	
 
 	except Exception, e:
-		print "Could not acceses the TREB DB"
+		print "!!!!!! \n\n Could not acceses the TREB DB \n\n !!!!!! \n\n"
 		print e
 		send_mail("Micheal Owen Site Update Failed","Failed to work due to... %s"%e,"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)		
 		return HttpResponse("Could not acceses the TREB DB", content_type='application/json')	
