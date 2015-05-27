@@ -142,7 +142,7 @@ def loadData():
 
 			print "loading images"			
 			for mls in imagelist:
-				thread.start_new_thread(getfirstimage, (mls,))
+				# thread.start_new_thread(getfirstimage, (mls,))
 				# getfirstimage(mls)
 				pass
 			print "returning the data"
