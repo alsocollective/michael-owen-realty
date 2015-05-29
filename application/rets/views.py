@@ -1437,6 +1437,8 @@ def condos(Full):
 		for prop in old:
 			prop.Status = "S"
 			prop.save()
+		session.Logout();
+		
 		for val in forPhotos:
 			thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
