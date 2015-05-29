@@ -1366,6 +1366,38 @@ def getCondoImage(imageid,prop):
 		return "Failed to load Image, this post might not have an image..."
 		pass
 
+def getCondoImagePassSession(imageid,prop,session):
+	try:
+		if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
+			print "image already loaded"
+			return "image already exists"
+		if(prop.PixUpdtedDt == ""):
+			print "no Pix Update DT"
+			return "no image to be uploaded"
+		print "new image %s" %imageid
+
+		request = librets.GetObjectRequest("Property", "Photo")
+		print "\t\t%d"%1
+		request.AddAllObjects(imageid)
+		print "\t\t%d"%2
+		response = session.GetObject(request)
+		print "\t\t%d"%3
+		object_descriptor = response.NextObject()
+		print "\t\t%d"%4
+		if(object_descriptor != None):
+			print "\t\t%d"%5
+			# output_file_name = object_descriptor.GetObjectKey() + "-" + str(object_descriptor.GetObjectId()) + ".jpg"
+			file = open("%simages/%s-1.jpg" %(MEDIA_ROOT,imageid), 'wb')
+			file.write(object_descriptor.GetDataAsString())
+			file.close()
+			prop.firstphoto = True
+			prop.save()
+			print "\t\t%d"%6
+			print "\tloaded"
+	except Exception, e:
+		print "Error on %s"%imageid
+		print e
+
 def condos_first_image():
 	all_condos = CondoProperty.objects.all().filter(Status="A",PixUpdtedDt__isnull=False,firstphoto=False)
 	for condo in all_condos:
@@ -1381,7 +1413,7 @@ def condos(Full):
 		print "Error logging in"
 	else:
 		print "connection"
-		lastHourDateTime = datetime.today() - timedelta(hours = 24)
+		lastHourDateTime = datetime.today() - timedelta(hours = 0.25)
 		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 		print "making request"
 		if(Full):
@@ -1442,9 +1474,18 @@ def condos(Full):
 			prop.Status = "S"
 			prop.save()
 		session.Logout();
+		time.sleep(2)
 
+		print "getting photos"
+		session = librets.RetsSession(rets_connection.login_url)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
+		else:
+			print "\tloading"
 		for val in forPhotos:
-			thread.start_new_thread(getCondoImage, (val[0],val[1]))
+			getCondoImagePassSession(val[0],val[1],session)
+		# for val in forPhotos:
+		# 	thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
 
 
