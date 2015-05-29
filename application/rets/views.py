@@ -1415,21 +1415,25 @@ def condos(Full):
 
 			# we then go through all the variables adding them
 			for attribute in condo_list_of_attributes:
-				value = results.GetString(attribute)
+				try:			
+					value = results.GetString(attribute)
 
-				# check if it has an image, 
-				if attribute == "PixUpdtedDt":
-					if (value and prop.firstphoto != True):
-						forPhotos.append([MLS,prop])
-					setattr(prop, attribute, value)
-				elif any(x == attribute for x in condo_list_floats):
-					if(value):
-						try:
-							setattr(prop, attribute, float(value))
-						except Exception, e:
-							print e
-				else:
-					setattr(prop, attribute, value)
+					# check if it has an image, 
+					if attribute == "PixUpdtedDt":
+						if (value and prop.firstphoto != True):
+							forPhotos.append([MLS,prop])
+						setattr(prop, attribute, value)
+					elif any(x == attribute for x in condo_list_floats):
+						if(value):
+							try:
+								setattr(prop, attribute, float(value))
+							except Exception, e:
+								print e
+					else:
+						setattr(prop, attribute, value)
+				except Exception, e:
+					print "Error on: %s"%attribute
+					print e
 			prop.save()
 
 		print "total condoProp: %d"%len(forPhotos)
@@ -1438,7 +1442,7 @@ def condos(Full):
 			prop.Status = "S"
 			prop.save()
 		session.Logout();
-		
+
 		for val in forPhotos:
 			thread.start_new_thread(getCondoImage, (val[0],val[1]))
 
