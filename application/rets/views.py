@@ -1413,7 +1413,7 @@ def condos(Full):
 		print "Error logging in"
 	else:
 		print "connection"
-		lastHourDateTime = datetime.today() - timedelta(hours = 0.25)
+		lastHourDateTime = datetime.today() - timedelta(hours = 24)
 		lastHourDateTime = lastHourDateTime.strftime('%Y-%m-%dT%H:%M:%S')
 		print "making request"
 		if(Full):
@@ -1484,8 +1484,7 @@ def condos(Full):
 			print "\tloading"
 		for val in forPhotos:
 			getCondoImagePassSession(val[0],val[1],session)
-		# for val in forPhotos:
-		# 	thread.start_new_thread(getCondoImage, (val[0],val[1]))
+
 
 
 
