@@ -294,6 +294,38 @@ def getfirstimage(imageid):
 
 
 
+
+
+def getfirstimageNoRefresh(session,imageid):
+	if(os.path.isfile("%simages/%s-1.jpg"%(MEDIA_ROOT,imageid))):
+			print "image already loaded"
+			return "image already exists"
+	try:
+		print "new image %s" %imageid
+		request = librets.GetObjectRequest("Property", "Photo")
+		request.AddAllObjects(imageid)
+		response = session.GetObject(request)
+		object_descriptor = response.NextObject()
+		if(object_descriptor != None):
+			object_key = object_descriptor.GetObjectKey()
+			object_id = object_descriptor.GetObjectId()
+			output_file_name = object_key + "-" + str(object_id) + ".jpg"
+			file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
+			file.write(object_descriptor.GetDataAsString())
+			file.close()
+			print "\tloaded"
+		else:
+			print "no image to be loaded"
+			prop = ResidentialProperty(ml_num=imageid,getfirstimage=False)
+			prop.save()
+		return "Got first image"
+	except Exception, e:
+		print "failed"
+		print e
+		pass
+
+
+
 def getAllImages(imageid):
 	print "load images for: %s"%imageid
 	imageid = imageid
@@ -713,12 +745,16 @@ def checkIfAllPropsHaveOnePhoto():
 		getfirstimage(prop.ml_num)
 
 def saveAllProp():
-	properties = ResidentialProperty.objects.filter(s_r="Sale",status="A")
-	for prop in properties:
-		prop.save()
-		if(not prop.firstphoto):
-			getfirstimage(prop.ml_num)
-			prop.save()
+	session = librets.RetsSession(rets_connection.login_url)
+		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+			print "Error logging in"
+		else:
+			properties = ResidentialProperty.objects.filter(s_r="Sale",status="A")
+			for prop in properties:
+				prop.save()
+				if(not prop.firstphoto):
+					getfirstimageNoRefresh(session,prop.ml_num)
+					prop.save()
 
 
 
