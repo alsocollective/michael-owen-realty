@@ -328,10 +328,10 @@ def  getAllImagesNoRefresh(session,imageid):
 	print "load images for: %s"%imageid
 	imageid = imageid
 	imageid = imageid.encode('ascii', "ignore")
-	try:
-		prop = CondoProperty.objects.get(MLS = imageid)
-	except Exception, e:
-		prop = ResidentialProperty.objects.get(ml_num=imageid)
+	# try:
+	# 	prop = CondoProperty.objects.get(MLS = imageid)
+	# except Exception, e:
+	# 	prop = ResidentialProperty.objects.get(ml_num=imageid)
 	
 	try:
 		request = librets.GetObjectRequest("Property", "Photo")
@@ -346,11 +346,11 @@ def  getAllImagesNoRefresh(session,imageid):
 			file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
 			file.write(object_descriptor.GetDataAsString())
 			file.close()
-			count += 1;
-			print count
-			object_descriptor = response.NextObject()
-		prop.numofphotos = count
-		prop.save()
+			return "Got first %s"%imageid
+			# print count
+			# object_descriptor = response.NextObject()
+		# prop.numofphotos = count
+		# prop.save()
 	except Exception, e:
 		print "failed to download %s"%imageid
 		print e
