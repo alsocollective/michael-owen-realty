@@ -40,7 +40,7 @@
 
 					{% if data.numofphotos %}
 						{% for count in data.numofphotos|get_range%}
-							<div><img {% if forloop.last %} class='lastimage'{% endif %} src="{% static ""%}images/{{data.ml_num}}-{{count}}.jpg"></div>
+							<div><img {% if forloop.last %} class='lastimage'{% endif %} src="{% static ""%}images/{{data.MLS}}-{{count}}.jpg"></div>
 						{% endfor %}
 					{% elif data.firstphoto %}
 						<div class="firstimageloading"><img src="{% static ""%}images/{{data.MLS}}-1.jpg"><div><h3>Loading ...</h3></div></div>
