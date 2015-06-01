@@ -324,6 +324,38 @@ def getfirstimageNoRefresh(session,imageid):
 		print e
 		pass
 
+def  getAllImagesNoRefresh(session,imageid):
+	print "load images for: %s"%imageid
+	imageid = imageid
+	imageid = imageid.encode('ascii', "ignore")
+	try:
+		prop = CondoProperty.objects.get(MLS = imageid)
+	except Exception, e:
+		prop = ResidentialProperty.objects.get(ml_num=imageid)
+	
+	try:
+		request = librets.GetObjectRequest("Property", "Photo")
+		request.AddAllObjects(imageid)
+		response = session.GetObject(request)
+		object_descriptor = response.NextObject()
+		count = 0
+		while (object_descriptor != None):
+			object_key = object_descriptor.GetObjectKey()
+			object_id = object_descriptor.GetObjectId()
+			output_file_name = object_key + "-" + str(object_id) + ".jpg"
+			file = open("%simages/%s" %(MEDIA_ROOT,output_file_name), 'wb')
+			file.write(object_descriptor.GetDataAsString())
+			file.close()
+			count += 1;
+			print count
+			object_descriptor = response.NextObject()
+		prop.numofphotos = count
+		prop.save()
+	except Exception, e:
+		print "failed to download %s"%imageid
+		print e
+		return False	
+	return count
 
 
 def getAllImages(imageid):
@@ -753,7 +785,7 @@ def saveAllProp():
 		for prop in properties:
 			prop.save()
 			if(not prop.firstphoto):
-				getfirstimageNoRefresh(session,prop.ml_num)
+				getAllImagesNoRefresh(session,prop.ml_num)
 				prop.save()
 
 
