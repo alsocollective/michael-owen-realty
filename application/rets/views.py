@@ -746,15 +746,15 @@ def checkIfAllPropsHaveOnePhoto():
 
 def saveAllProp():
 	session = librets.RetsSession(rets_connection.login_url)
-		if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
-			print "Error logging in"
-		else:
-			properties = ResidentialProperty.objects.filter(s_r="Sale",status="A")
-			for prop in properties:
+	if (not session.Login(rets_connection.user_id, rets_connection.passwd)):
+		print "Error logging in"
+	else:
+		properties = ResidentialProperty.objects.filter(s_r="Sale",status="A")
+		for prop in properties:
+			prop.save()
+			if(not prop.firstphoto):
+				getfirstimageNoRefresh(session,prop.ml_num)
 				prop.save()
-				if(not prop.firstphoto):
-					getfirstimageNoRefresh(session,prop.ml_num)
-					prop.save()
 
 
 
