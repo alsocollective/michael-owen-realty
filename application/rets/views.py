@@ -1473,7 +1473,7 @@ def condos(Full):
 		for prop in old:
 			prop.Status = "S"
 			prop.save()
-		session.Logout();
+		# session.Logout();
 		time.sleep(2)
 
 		print "getting photos"
