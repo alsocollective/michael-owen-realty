@@ -56,6 +56,8 @@ def titlecase(value):
 @register.filter(name="limilength")
 def limilength(value):
 	goallength = 150
+	if not value:
+		return ""
 	if len(value) > goallength:
 		limited = value[:goallength]
 		split = re.split('\s+', limited)
