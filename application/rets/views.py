@@ -1502,40 +1502,45 @@ def condos(Full):
 		forPhotos = []
 		now = datetime.now()
 		yesterday = now - timedelta(hours=24)
-		while results.HasNext():
-			MLS = results.GetString("MLS")
-			print "\n%s"%MLS
-			# we test to see if it already exists, if not we create a new property
-			try:
-				prop = CondoProperty.objects.get(MLS = MLS)
-				print "update"
-				prop.edited = now;
-			except Exception, e:
-				print "new"
-				prop = CondoProperty(MLS = MLS,edited = now)
-
-			# we then go through all the variables adding them
-			for attribute in condo_list_of_attributes:
-				try:			
-					value = results.GetString(attribute)
-
-					# check if it has an image, 
-					if attribute == "PixUpdtedDt":
-						if (value and prop.firstphoto != True):
-							forPhotos.append([MLS,prop])
-						setattr(prop, attribute, value)
-					elif any(x == attribute for x in condo_list_floats):
-						if(value):
-							try:
-								setattr(prop, attribute, float(value))
-							except Exception, e:
-								print e
-					else:
-						setattr(prop, attribute, value)
+		try:
+			while results.HasNext():
+				MLS = results.GetString("MLS")
+				print "\n%s"%MLS
+				# we test to see if it already exists, if not we create a new property
+				try:
+					prop = CondoProperty.objects.get(MLS = MLS)
+					print "update"
+					prop.edited = now;
 				except Exception, e:
-					print "Error on: %s"%attribute
-					print e
-			prop.save()
+					print "new"
+					prop = CondoProperty(MLS = MLS,edited = now)
+
+				# we then go through all the variables adding them
+				for attribute in condo_list_of_attributes:
+					try:			
+						value = results.GetString(attribute)
+
+						# check if it has an image, 
+						if attribute == "PixUpdtedDt":
+							if (value and prop.firstphoto != True):
+								forPhotos.append([MLS,prop])
+							setattr(prop, attribute, value)
+						elif any(x == attribute for x in condo_list_floats):
+							if(value):
+								try:
+									setattr(prop, attribute, float(value))
+								except Exception, e:
+									print e
+						else:
+							setattr(prop, attribute, value)
+					except Exception, e:
+						print "Error on: %s"%attribute
+						print e
+				prop.save()
+		except Exception, e:
+			print e
+			pass
+		
 
 		print "total condoProp: %d"%len(forPhotos)
 		old = CondoProperty.objects.all().filter(edited__lt=now)
