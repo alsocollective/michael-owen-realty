@@ -77,10 +77,10 @@ def parseUserAgent(agent):
 
 
 def getFeatured():
-	return [ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured'),CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured')]
+	return [ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured'),[]]
 
 def getFeaturedCondos():
-	return [CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured'),CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured')]
+	return [[],CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured')]
 
 def getMeta():
 	out = {
