@@ -1431,6 +1431,7 @@ def getCondoImage(imageid,prop):
 	except Exception, e:
 		print "\t%s"%e;
 		print "\tfailed %s"%imageid
+		raise
 		return "Failed to load Image, this post might not have an image..."
 		pass
 
