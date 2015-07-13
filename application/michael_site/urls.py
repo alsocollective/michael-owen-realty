@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^ajaxproperty/', 'michael_site.views.ajaxproperty', name='ajaxproperty'),
     url(r'^property/(?P<propertyid>.*)/$', 'michael_site.views.property', name='property'),
     url(r'^featuredproperties/$', 'michael_site.views.featuredprop', name='property'),
+    url(r'^featuredcondos/$', 'michael_site.views.featuredcondos', name='property'),
 
     url(r'^ajaxneighbourhood/(?P<urlneighbourhood>.*)/$', 'michael_site.views.ajaxneighbourhood', name='ajaxneighbourhood'),
     url(r'^newimages/(?P<propertyid>.*)/$', 'michael_site.views.loadallimages', name='loadallimages'),

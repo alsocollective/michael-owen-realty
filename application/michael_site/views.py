@@ -79,6 +79,9 @@ def parseUserAgent(agent):
 def getFeatured():
 	return [ResidentialProperty.objects.all().filter(status="A",featured__isnull=False).order_by('-featured'),CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured')]
 
+def getFeaturedCondos():
+	return [CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured'),CondoProperty.objects.all().filter(Status="A",featured__isnull=False).order_by('-featured')]
+
 def getMeta():
 	out = {
 		"meta": TextField.objects.get(title="meta"),
@@ -169,6 +172,20 @@ def featuredprop(request):
 		"request":request
 		})
 
+def featuredcondos(request):
+	featured = getFeaturedCondos()
+	return render_to_response('featured.html',{
+		"oldapple":parseUserAgent(request.META['HTTP_USER_AGENT']),
+		"contact":getPhoneEmail(request),
+		"MEDIA_URL":MEDIA_URL,
+		'basetemplate':templateType(request),
+		"featured":featured,
+		'pageTitle':"Featured Condos",
+		'pageType':getCssClass(request),
+		"newLineAfter":3,
+		"meta":getMeta(),
+		"request":request
+		})
 
 
 def fourofour(request):

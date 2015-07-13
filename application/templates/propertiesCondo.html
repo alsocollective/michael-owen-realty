@@ -33,7 +33,7 @@
 			{% if prop.featured %}
 				<h3 class="purp"> featured</h3><br>
 			{% endif %}
-			<h3><span itemprop="addressLocality">{{prop.community|titlecase}}</span></h3>{% if prop.ListBrokerage == "ROYAL LEPAGE/J & D DIVISION, BROKERAGE" %}
+			<h3><span itemprop="addressLocality">{{prop.Community|titlecase}}</span></h3>{% if prop.ListBrokerage == "ROYAL LEPAGE/J & D DIVISION, BROKERAGE" %}
 				<h3 class="purp agencey">{{prop.ListBrokerage}}</h3>
 			{% endif %}<br>
 			<h3>{{prop.ListPrice|nicemoney}}</h3>
