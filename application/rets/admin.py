@@ -26,9 +26,9 @@ class AboutPageAdmin(admin.ModelAdmin):
 
 class condo(admin.ModelAdmin):
 	list_display = ('admin_image','MLS','ListPrice','PixUpdtedDt','Status' ,'Address','featured','TimestampSql')
-	# list_filter = ('PixUpdtedDt','status','style','type_own1_out','area','rltr')
+	list_filter = ('Status','ListBrokerage')
 	list_editable = ('featured',)
-	search_fields = ['MLS','Community','ListBrokerage']
+	search_fields = ['MLS','Community','ListBrokerage','TimestampSql']
 
 admin.site.register(TextField)
 admin.site.register(AboutPage,AboutPageAdmin)
