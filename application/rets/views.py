@@ -1536,6 +1536,8 @@ def condos(Full):
 					except Exception, e:
 						print "Error on: %s"%attribute
 						print e
+						send_mail("%s - %s"%len(prop.MLS,e),"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
+
 				prop.save()
 		except Exception, e:
 			print e
