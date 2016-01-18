@@ -47,7 +47,10 @@ def get_range( value ):
 
 @register.filter(name="interfy")
 def interfy(value):
-	return int(value)
+	try:
+		return int(value)
+	except Exception, e:
+		return 0
 
 @register.filter(name="titlecase")
 def titlecase(value):

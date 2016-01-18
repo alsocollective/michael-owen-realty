@@ -791,9 +791,16 @@ def saveAllProp():
 
 
 def getPeram():
-	myFilter = FilterOptions.objects.all().prefetch_related('type_own1_out', 'gar_type')[0]
-	location = Area.objects.get(text="torontoCon").subsections.all().prefetch_related('community')
-	return {"main":myFilter,"location":location}
+	try:
+		myFilter = FilterOptions.objects.all().prefetch_related('type_own1_out', 'gar_type')[0]
+		location = Area.objects.get(text="torontoCon").subsections.all().prefetch_related('community')
+		return {"main":myFilter,"location":location}
+	except Exception, e:
+		try:
+			location = Area.objects.get(text="torontoCon").subsections.all().prefetch_related('community')	
+			return {"main":[],"location":location}
+		except Exception, e:
+			return {"main":[],"location":[]}
 
 commercial_list_of_attributes = [
 	'Address',
@@ -1543,6 +1550,7 @@ def condos(Full):
 			print e
 			pass
 		
+		time.sleep(120)
 
 		print "total condoProp: %d"%len(forPhotos)
 		old = CondoProperty.objects.all().filter(edited__lt=now)
