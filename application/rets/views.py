@@ -700,6 +700,16 @@ def saveAllProp():
 
 
 def getPeram():
-	myFilter = FilterOptions.objects.all().prefetch_related('type_own1_out', 'gar_type')[0]
-	location = Area.objects.get(text="torontoCon").subsections.all().prefetch_related('community')
-	return {"main":myFilter,"location":location}
+	try:
+		myFilter = FilterOptions.objects.all().prefetch_related('type_own1_out', 'gar_type')[0]
+		location = Area.objects.get(text="torontoCon").subsections.all().prefetch_related('community')
+		return {"main":myFilter,"location":location}
+	except Exception, e:
+		try:
+			location = Area.objects.get(text="torontoCon").subsections.all().prefetch_related('community')	
+			return {"main":[],"location":location}
+		except Exception, e:
+			return {"main":[],"location":[]}
+
+
+	
