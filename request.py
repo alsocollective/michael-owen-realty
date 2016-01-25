@@ -1,5 +1,6 @@
 from michael_site.views import *
 import time
+from django.core.mail import send_mail
 
 # testView("soemthing")
 
@@ -19,19 +20,23 @@ print "condos finished"
 
 print "houses start"
 
+message = "yep so it failed."
 try:
 	testView("something")
 except Exception, e:
+	send_mail("test view faield",message,"websitemicheal@gmail.com" ,["michaelowenrealestate@gmail.com"], fail_silently=False)
 	pass
 
 try:
 	filloutlists()
 except Exception, e:
+	send_mail("fill out list faild",message,"websitemicheal@gmail.com" ,["michaelowenrealestate@gmail.com"], fail_silently=False)
 	pass
 
 try:
 	condos(False)
 except Exception, e:
+	send_mail("condos update failed",message,"websitemicheal@gmail.com" ,["michaelowenrealestate@gmail.com"], fail_silently=False)
 	pass
 
 
