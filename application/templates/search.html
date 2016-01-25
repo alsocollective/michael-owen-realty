@@ -200,9 +200,9 @@
 {{filter.br}}
 <script type="text/javascript">
 	var propertySettings = {
-		bed:{min:{{filter.main.br.num_min|interfy}},max:{{filter.main.br.num_max|interfy}}},
-		bath:{min:{{filter.main.bath_tot.num_min}},max:{{filter.main.bath_tot.num_max}}},
-		parking:{min:{{filter.main.gar_spaces.num_min}},max:{{filter.main.gar_spaces.num_max}}},
+		bed:{min:0,max:9},//{min:{{filter.main.br.num_min|interfy}},max:{{filter.main.br.num_max|interfy}}},
+		bath:{min:0,max:6},//{min:{{filter.main.bath_tot.num_min}},max:{{filter.main.bath_tot.num_max}}},
+		parking:{min:0,max:6},///{min:{{filter.main.gar_spaces.num_min}},max:{{filter.main.gar_spaces.num_max}}},
 		csrftoken:'{{ csrf_token }}'
 	};
 	$( document ).ready(function(){		
