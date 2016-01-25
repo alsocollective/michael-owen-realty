@@ -19,8 +19,21 @@ print "condos finished"
 
 print "houses start"
 
-testView("something")
-filloutlists()
-condos(False)
+try:
+	testView("something")
+except Exception, e:
+	pass
+
+try:
+	filloutlists()
+except Exception, e:
+	pass
+
+try:
+	condos(False)
+except Exception, e:
+	pass
+
+
 # condos_first_image()
 print "\n\n=== done ===\n\n"

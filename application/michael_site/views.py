@@ -414,23 +414,30 @@ def get_client_ip(request):
 from datetime import datetime, timedelta
 @csrf_protect
 def sendemail(request):
-	ip = get_client_ip(request)
-
-	ipexists = EmailRmark.objects.filter(ipaddress = ip).order_by('-date')
 	try:
-		ipexists = ipexists[0]
-	except Exception, e:
-		ipexists = None
-		pass
-	now = datetime.now()
+		ip = get_client_ip(request)
+		ipexists = EmailRmark.objects.filter(ipaddress = ip).order_by('-date')
+		try:
+			ipexists = ipexists[0]
+		except Exception, e:
+			ipexists = None
+			pass
+		now = datetime.now()
 
-	if (ipexists == None) or (now-ipexists.date > timedelta(seconds = 30)):
-		ipinstance = EmailRmark(ipaddress = ip)
-		ipinstance.save()				
-		emailBoutPorp(request.POST)
-		return HttpResponse(json.dumps({'message':'Email Sent','status':'sent'}), content_type='application/json')
-	else:
-		return HttpResponse(json.dumps({'message':'Error, Please Wait Before Sending Another Email','status':'error'}), content_type='application/json')
+		if (ipexists == None) or (now-ipexists.date > timedelta(seconds = 30)):
+			ipinstance = EmailRmark(ipaddress = ip)
+			ipinstance.save()				
+			emailBoutPorp(request.POST)
+			return HttpResponse(json.dumps({'message':'Email Sent','status':'sent'}), content_type='application/json')
+		else:
+			return HttpResponse(json.dumps({'message':'Error, Please Wait Before Sending Another Email','status':'error'}), content_type='application/json')
+	except Exception, e:
+		out = ""
+		try:
+			out = data["message"]+data["firstname"]+data["lastname"]+data["email"]+data["phone"]
+		except Exception, e:
+			pass
+		send_mail("Email failed","\n\nemail request failed %s,\n\n%s"%(e,out),"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
 
 
 
