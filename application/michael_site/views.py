@@ -433,16 +433,9 @@ def sendemail(request):
 			return HttpResponse(json.dumps({'message':'Error, Please Wait Before Sending Another Email','status':'error'}), content_type='application/json')
 	except Exception, e:
 		out = ""
-		try:
-			out = data["message"]+data["firstname"]+data["lastname"]+data["email"]+data["phone"]
-		except Exception, e:
-			pass
 		send_mail("Email failed","\n\nemail request failed %s,\n\n%s"%(e,out),"websitemicheal@gmail.com" ,["bohdan@alsocollective.com"], fail_silently=False)
-
-
-
-
-import requests
+		return HttpResponse(json.dumps({'message':'Error, Please Wait Before Sending Another Email','status':'error'}), content_type='application/json')
+import requets
 import time
 def sort(request):
 	filloutlists()
